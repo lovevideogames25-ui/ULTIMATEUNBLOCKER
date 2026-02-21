@@ -1,5 +1,21 @@
 # Vercel Gitignore - ULTIMATE UNBLOCKER
 
+# Vercel specific files (CRITICAL)
+.vercel/
+.vercel/
+.vercel/
+.vercel/project.json
+.vercel/.env.local
+.vercel/.env.production.local
+.vercel/.env.development.local
+.vercel/.env.test.local
+
+# Next.js files (CAUSE 404 ERRORS)
+.next/
+out/
+build/
+dist/
+
 # Dependencies
 node_modules/
 npm-debug.log*
@@ -161,3 +177,4 @@ venv.bak/
 !robots.txt
 !sitemap.xml
 !README.md
+!vercel.json
