@@ -5,7 +5,10 @@ Your Gateway to Unlimited Access
 ## 🚀 Quick Deploy
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://gitlab.com/alessthegreatestgamer/ultimateunblocker.git&branch=vercel-fix)
+[![Deploy to Vercel (Main Branch)](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://gitlab.com/alessthegreatestgamer/ultimateunblocker.git)
 [![Deploy with Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://gitlab.com/alessthegreatestgamer/ultimateunblocker.git)
+
+**🚨 IMPORTANT:** Use the **first Vercel button** for the fixed version (vercel-fix branch)
 
 ## ✨ Features
 
