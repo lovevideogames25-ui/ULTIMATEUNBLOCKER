@@ -6,7 +6,6 @@
   "scripts": {
     "start": "serve . -p 8080",
     "dev": "serve . -p 8080",
-    "build": "echo 'Static site - no build process needed'",
     "deploy": "vercel --prod",
     "preview": "npx serve . -p 8080"
   },
