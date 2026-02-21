@@ -4,8 +4,8 @@ Your Gateway to Unlimited Access
 
 ## 🚀 Quick Deploy
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/lovevideogames25-ui/ULTIMATEUNBLOCKER.git)
-[![Deploy with Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/lovevideogames25-ui/ULTIMATEUNBLOCKER.git)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://gitlab.com/alessthegreatestgamer/ultimateunblocker.git&branch=vercel-fix)
+[![Deploy with Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://gitlab.com/alessthegreatestgamer/ultimateunblocker.git)
 
 ## ✨ Features
 
