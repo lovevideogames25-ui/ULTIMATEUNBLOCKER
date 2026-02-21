@@ -1,0 +1,36 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#e94560;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#533483;stop-opacity:1" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background circle -->
+  <circle cx="32" cy="32" r="30" fill="#1a1a2e" stroke="url(#logoGradient)" stroke-width="2"/>
+  
+  <!-- Shield shape -->
+  <path d="M32 8 L48 16 L48 32 C48 42 40 50 32 54 C24 50 16 42 16 32 L16 16 Z" 
+        fill="url(#logoGradient)" 
+        filter="url(#glow)" 
+        opacity="0.9"/>
+  
+  <!-- Lock icon (unblocked) -->
+  <rect x="26" y="28" width="12" height="10" rx="2" fill="#1a1a2e"/>
+  <path d="M28 28 L28 24 C28 20 30 18 32 18 C34 18 36 20 36 24 L36 28" 
+        stroke="#1a1a2e" 
+        stroke-width="2" 
+        fill="none"/>
+  <circle cx="32" cy="32" r="1.5" fill="#e94560"/>
+  
+  <!-- UB text -->
+  <text x="32" y="46" font-family="Arial, sans-serif" font-size="8" font-weight="bold" 
+        text-anchor="middle" fill="#ffffff">UB</text>
+</svg>

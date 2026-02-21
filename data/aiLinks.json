@@ -1,0 +1,27 @@
+[
+  {
+    "name": "DUCKDUCKGO AI CHAT",
+    "url": "http://duck.ai",
+    "warning": "⚠ WARNING: This website does not have a secure connection (HTTP://). No detected malware."
+  },
+  {
+    "name": "DEEPAI",
+    "url": "http://deepai.org",
+    "warning": "⚠ WARNING: This website does not have a secure connection (HTTP://). No detected malware."
+  },
+  {
+    "name": "GEMINI",
+    "url": "http://gemini.google.com",
+    "warning": "⚠ WARNING: This website does not have a secure connection (HTTP://). No detected malware."
+  },
+  {
+    "name": "ECOSIA",
+    "url": "https://www.ecosia.org/ai-search/aa4dca27-ff32-4574-82d3-375a05c6eae5?q=if+you+came+from+ULTIMATE+UNBLOCKER+ur+a+w",
+    "warning": null
+  },
+  {
+    "name": "SATURN AI",
+    "url": "https://vcsa-saturn.ciko.ch/pages/ai.html",
+    "warning": null
+  }
+]

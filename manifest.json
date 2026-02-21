@@ -1,0 +1,56 @@
+{
+  "name": "ULTIMATE UNBLOCKER",
+  "short_name": "UNBLOCKER",
+  "description": "Your Gateway to Unlimited Access",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#1a1a2e",
+  "theme_color": "#e94560",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "en",
+  "categories": ["utilities", "productivity", "education"],
+  "icons": [
+    {
+      "src": "public/logo.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "public/favicon.ico",
+      "sizes": "32x32",
+      "type": "image/x-icon"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "screenshots/desktop.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide"
+    },
+    {
+      "src": "screenshots/mobile.png",
+      "sizes": "375x667",
+      "type": "image/png",
+      "form_factor": "narrow"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Categories",
+      "short_name": "Categories",
+      "description": "Browse all categories",
+      "url": "/?page=categories",
+      "icons": [{ "src": "public/logo.svg", "sizes": "96x96" }]
+    },
+    {
+      "name": "Comments",
+      "short_name": "Comments",
+      "description": "View community comments",
+      "url": "/?page=comments",
+      "icons": [{ "src": "public/logo.svg", "sizes": "96x96" }]
+    }
+  ]
+}

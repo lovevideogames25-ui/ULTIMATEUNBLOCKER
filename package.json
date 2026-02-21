@@ -1,0 +1,72 @@
+{
+  "name": "ultimate-unblocker",
+  "version": "2.0.0",
+  "description": "ULTIMATE UNBLOCKER - Your Gateway to Unlimited Access",
+  "main": "index.html",
+  "scripts": {
+    "start": "python -m http.server 8080",
+    "dev": "python -m http.server 8080",
+    "build": "echo 'Build complete - ready for deployment'",
+    "serve": "npx serve . -p 8080",
+    "preview": "npx serve . -p 8080"
+  },
+  "keywords": [
+    "unblocker",
+    "proxy",
+    "games",
+    "movies",
+    "ai",
+    "music",
+    "sports",
+    "youtube",
+    "soundboard",
+    "directory",
+    "links",
+    "access",
+    "freedom"
+  ],
+  "author": "ULTIMATE UNBLOCKER Team",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ultimateunblocker/ultimateunblocker.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ultimateunblocker/ultimateunblocker/issues"
+  },
+  "homepage": "https://ultimateunblocker.github.io",
+  "devDependencies": {
+    "serve": "^14.2.1"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead",
+    "not ie <= 11"
+  ],
+  "manifest": {
+    "name": "ULTIMATE UNBLOCKER",
+    "short_name": "UNBLOCKER",
+    "description": "Your Gateway to Unlimited Access",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#1a1a2e",
+    "theme_color": "#e94560",
+    "orientation": "portrait-primary",
+    "icons": [
+      {
+        "src": "public/logo.svg",
+        "sizes": "any",
+        "type": "image/svg+xml"
+      },
+      {
+        "src": "public/favicon.ico",
+        "sizes": "32x32",
+        "type": "image/x-icon"
+      }
+    ]
+  }
+}

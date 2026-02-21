@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ULTIMATE UNBLOCKER - Your Gateway to Unlimited Access</title>
+    <link rel="icon" type="image/svg+xml" href="public/favicon.ico">
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/animations.css">
+    <link rel="stylesheet" href="styles/components.css">
+    <link rel="stylesheet" href="styles/enhanced.css">
+    <link rel="stylesheet" href="styles/modals.css">
+    <link rel="stylesheet" href="styles/cards.css">
+    <link rel="stylesheet" href="styles/forms.css">
+    <link rel="stylesheet" href="styles/navigation.css">
+    <link rel="stylesheet" href="styles/utilities.css">
+    <link rel="stylesheet" href="styles/layout.css">
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-content">
+            <div class="loading-logo">
+                <img src="public/logo.svg" alt="ULTIMATE UNBLOCKER" class="loading-logo-img">
+            </div>
+            <div class="progress-container">
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+                <div class="progress-text" id="progressText">0%</div>
+            </div>
+            <div class="loading-status" id="loadingStatus">Initializing...</div>
+        </div>
+    </div>
+
+    <!-- Welcome Screen -->
+    <div class="welcome-screen" id="welcomeScreen">
+        <div class="welcome-content">
+            <div class="welcome-logo">
+                <img src="public/logo-text.svg" alt="ULTIMATE UNBLOCKER" class="welcome-logo-img">
+            </div>
+            <div class="welcome-text">
+                <h1 class="welcome-title">WELCOME TO</h1>
+                <h2 class="welcome-subtitle">ULTIMATE UNBLOCKER</h2>
+                <p class="welcome-description">Your Gateway to Unlimited Access</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content" id="mainContent">
+        
+        <div class="container">
+            <!-- Homepage -->
+            <div class="homepage" id="homepage">
+                <div class="hero-section">
+                    <div class="hero-content">
+                        <div class="hero-logo">
+                            <img src="public/logo-text.svg" alt="ULTIMATE UNBLOCKER" class="hero-logo-img">
+                        </div>
+                        <h1 class="hero-title">ULTIMATE UNBLOCKER</h1>
+                        <p class="hero-subtitle">Your Gateway to Unlimited Access</p>
+                        <p class="hero-description">
+                            Discover a world of unlimited possibilities with our curated collection of proxies, 
+                            games, movies, AI tools, music, sports, and more. Break free from restrictions and 
+                            explore the internet without boundaries.
+                        </p>
+                        <div class="hero-stats">
+                            <div class="stat-item">
+                                <span class="stat-number">62+</span>
+                                <span class="stat-label">Links</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">10</span>
+                                <span class="stat-label">Categories</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">100%</span>
+                                <span class="stat-label">Free</span>
+                            </div>
+                        </div>
+                        <div class="hero-buttons">
+                            <button class="btn btn-primary" onclick="showCategories()">
+                                <span class="btn-icon">🚀</span>
+                                EXPLORE CATEGORIES
+                            </button>
+                            <button class="btn btn-secondary" onclick="showComments()">
+                                <span class="btn-icon">💬</span>
+                                COMMENTS
+                            </button>
+                        </div>
+                    </div>
+                    <div class="hero-visual">
+                        <div class="floating-cards">
+                            <div class="floating-card card-1">
+                                <span class="card-icon">🎮</span>
+                                <span class="card-text">Games</span>
+                            </div>
+                            <div class="floating-card card-2">
+                                <span class="card-icon">🎬</span>
+                                <span class="card-text">Movies</span>
+                            </div>
+                            <div class="floating-card card-3">
+                                <span class="card-icon">🤖</span>
+                                <span class="card-text">AI Tools</span>
+                            </div>
+                            <div class="floating-card card-4">
+                                <span class="card-icon">🎵</span>
+                                <span class="card-text">Music</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="features-section">
+                    <h2 class="section-title">Why Choose ULTIMATE UNBLOCKER?</h2>
+                    <div class="features-grid">
+                        <div class="feature-card">
+                            <div class="feature-icon">🔒</div>
+                            <h3 class="feature-title">Secure & Private</h3>
+                            <p class="feature-description">All links are carefully curated and tested for security and privacy.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">⚡</div>
+                            <h3 class="feature-title">Lightning Fast</h3>
+                            <p class="feature-description">Optimized connections ensure the best possible speed and performance.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">🌍</div>
+                            <h3 class="feature-title">Global Access</h3>
+                            <p class="feature-description">Access content from anywhere in the world without restrictions.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">🆓</div>
+                            <h3 class="feature-title">Completely Free</h3>
+                            <p class="feature-description">No hidden costs, subscriptions, or premium tiers. Everything is free.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="warning-section">
+                    <div class="warning-card">
+                        <div class="warning-icon">⚠️</div>
+                        <div class="warning-content">
+                            <h3 class="warning-title">Important Notice</h3>
+                            <p class="warning-text">
+                                Be careful what you message in the comments section. Everything you post is permanent 
+                                and visible to everyone. Nothing is private. Use responsibly and respect others.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Simple Navigation -->
+                <div class="simple-nav">
+                    <button class="nav-simple-btn" onclick="showCategories()">📂 Categories</button>
+                    <button class="nav-simple-btn" onclick="showComments()">💬 Comments</button>
+                    <button class="nav-simple-btn" onclick="showAbout()">ℹ️ About</button>
+                </div>
+            </div>
+
+            <!-- Categories Page -->
+            <div class="categories-page" id="categoriesPage">
+                <header class="page-header">
+                    <div class="header-content">
+                        <button class="back-btn" onclick="showHomepage()">
+                            <span class="back-icon">←</span>
+                            Back to Home
+                        </button>
+                        <h1 class="page-title">EXPLORE CATEGORIES</h1>
+                        <div class="header-stats">
+                            <span class="stat-badge">10 Categories</span>
+                        </div>
+                    </div>
+                </header>
+
+                <div class="search-section">
+                    <div class="search-container">
+                        <div class="search-box">
+                            <span class="search-icon">🔍</span>
+                            <input type="text" class="search-input" id="searchInput" 
+                                   placeholder="Search categories..." oninput="filterCategories()">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="categories-grid" id="categoriesGrid"></div>
+            </div>
+
+            <!-- Category Detail Page -->
+            <div class="category-detail-page" id="categoryDetailPage">
+                <header class="page-header">
+                    <div class="header-content">
+                        <button class="back-btn" onclick="showCategories()">
+                            <span class="back-icon">←</span>
+                            Back to Categories
+                        </button>
+                        <h1 class="page-title" id="categoryTitle">CATEGORY</h1>
+                        <div class="header-actions">
+                            <button class="action-btn" onclick="toggleView()">
+                                <span class="action-icon">🔄</span>
+                                Toggle View
+                            </button>
+                        </div>
+                    </div>
+                </header>
+
+                <div class="category-info" id="categoryInfo">
+                    <div class="info-card">
+                        <div class="info-icon" id="categoryIcon">📂</div>
+                        <div class="info-content">
+                            <h2 class="info-title" id="infoTitle">Category Name</h2>
+                            <p class="info-description" id="infoDescription">Category description</p>
+                            <div class="info-stats">
+                                <span class="info-stat" id="linkCount">0 links</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="links-container">
+                    <div class="links-header">
+                        <h3 class="links-title">Available Links</h3>
+                        <div class="view-toggle">
+                            <button class="view-btn active" data-view="grid" onclick="setView('grid')">
+                                <span class="view-icon">⚏</span>
+                            </button>
+                            <button class="view-btn" data-view="list" onclick="setView('list')">
+                                <span class="view-icon">☰</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="links-grid" id="linksGrid"></div>
+                </div>
+            </div>
+
+            <!-- Comments Page -->
+            <div class="comments-page" id="commentsPage">
+                <header class="page-header">
+                    <div class="header-content">
+                        <button class="back-btn" onclick="showHomepage()">
+                            <span class="back-icon">←</span>
+                            Back to Home
+                        </button>
+                        <h1 class="page-title">COMMUNITY COMMENTS</h1>
+                        <div class="header-stats">
+                            <span class="stat-badge" id="commentCount">0 Comments</span>
+                        </div>
+                    </div>
+                </header>
+
+                <div class="comments-container">
+                    <div class="warning-section">
+                        <div class="warning-card">
+                            <div class="warning-icon">⚠️</div>
+                            <div class="warning-content">
+                                <h3 class="warning-title">Permanent Public Comments</h3>
+                                <p class="warning-text">
+                                    Everything you post here is permanent and visible to everyone. 
+                                    Nothing is private. Think before you post and be respectful to others.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="form-card">
+                            <h3 class="form-title">Share Your Thoughts</h3>
+                            <div class="form-warning">
+                                <div class="warning-icon">⚠️</div>
+                                <div class="warning-content">
+                                    <strong>PERMANENT PUBLIC COMMENTS</strong>
+                                    <p>Once posted, comments cannot be deleted and will be visible to everyone forever. Think before you post!</p>
+                                </div>
+                            </div>
+                            <form class="comment-form" onsubmit="addComment(event)">
+                                <div class="form-group">
+                                    <label class="form-label">Your Name/Alias</label>
+                                    <input type="text" class="form-input" id="authorInput" 
+                                           placeholder="Enter your name or alias" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Your Comment</label>
+                                    <textarea class="form-textarea" id="commentInput" 
+                                              placeholder="Share your thoughts, experiences, or recommendations..." 
+                                              required></textarea>
+                                </div>
+                                <div class="form-actions">
+                                    <button type="submit" class="btn btn-primary">
+                                        <span class="btn-icon">💬</span>
+                                        Post Permanent Comment
+                                    </button>
+                                    <button type="button" class="btn btn-secondary" onclick="clearForm()">
+                                        <span class="btn-icon">🔄</span>
+                                        Clear
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="comments-list-section">
+                        <div class="comments-header">
+                            <h3 class="comments-title">Recent Comments</h3>
+                            <div class="sort-options">
+                                <select class="sort-select" onchange="sortComments(this.value)">
+                                    <option value="newest">Newest First</option>
+                                    <option value="oldest">Oldest First</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="comments-list" id="commentsList"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- About Page -->
+            <div class="about-page" id="aboutPage">
+                <header class="page-header">
+                    <div class="header-content">
+                        <button class="back-btn" onclick="showHomepage()">
+                            <span class="back-icon">←</span>
+                            Back to Home
+                        </button>
+                        <h1 class="page-title">ABOUT ULTIMATE UNBLOCKER</h1>
+                    </div>
+                </header>
+
+                <div class="about-content">
+                    <div class="about-intro">
+                        <div class="intro-card">
+                            <div class="intro-logo">
+                                <img src="public/logo-text.svg" alt="ULTIMATE UNBLOCKER" class="intro-logo-img">
+                            </div>
+                            <h2 class="intro-title">Your Gateway to Unlimited Access</h2>
+                            <p class="intro-description">
+                                ULTIMATE UNBLOCKER is your comprehensive directory for accessing the best 
+                                proxy sites, games, movies, AI tools, music, sports, and more. We carefully 
+                                curate and test every link to ensure you have the best experience possible.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="about-features">
+                        <h3 class="section-title">Platform Features</h3>
+                        <div class="features-list">
+                            <div class="feature-item">
+                                <span class="feature-icon">🔍</span>
+                                <div class="feature-content">
+                                    <h4 class="feature-name">Smart Search</h4>
+                                    <p class="feature-desc">Find exactly what you're looking for with our intelligent search system.</p>
+                                </div>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-icon">🛡️</span>
+                                <div class="feature-content">
+                                    <h4 class="feature-name">Security First</h4>
+                                    <p class="feature-desc">All links are verified for security and regularly updated.</p>
+                                </div>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-icon">📱</span>
+                                <div class="feature-content">
+                                    <h4 class="feature-name">Mobile Optimized</h4>
+                                    <p class="feature-desc">Perfect experience on any device, anywhere, anytime.</p>
+                                </div>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-icon">💬</span>
+                                <div class="feature-content">
+                                    <h4 class="feature-name">Community Driven</h4>
+                                    <p class="feature-desc">Share experiences and discover new links through our community.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="about-stats">
+                        <h3 class="section-title">Platform Statistics</h3>
+                        <div class="stats-grid">
+                            <div class="stat-card">
+                                <span class="stat-number">62+</span>
+                                <span class="stat-label">Verified Links</span>
+                            </div>
+                            <div class="stat-card">
+                                <span class="stat-number">10</span>
+                                <span class="stat-label">Categories</span>
+                            </div>
+                            <div class="stat-card">
+                                <span class="stat-number">24/7</span>
+                                <span class="stat-label">Availability</span>
+                            </div>
+                            <div class="stat-card">
+                                <span class="stat-number">100%</span>
+                                <span class="stat-label">Free Access</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="about-contact">
+                        <h3 class="section-title">Get in Touch</h3>
+                        <div class="contact-card">
+                            <p class="contact-text">
+                                Have questions, suggestions, or found a broken link? 
+                                Let us know in the comments section!
+                            </p>
+                            <div class="contact-actions">
+                                <button class="btn btn-primary" onclick="showComments()">
+                                    <span class="btn-icon">💬</span>
+                                    Leave a Comment
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="public/logo.svg" alt="UB" class="footer-logo-img">
+                    <span class="footer-text">ULTIMATE UNBLOCKER</span>
+                </div>
+                <div class="footer-links">
+                    <a href="#" onclick="showAbout()" class="footer-link">About</a>
+                    <a href="#" onclick="showComments()" class="footer-link">Community</a>
+                    <a href="#" onclick="showCategories()" class="footer-link">Categories</a>
+                </div>
+                <div class="footer-social">
+                    <span class="social-text">Share the freedom:</span>
+                    <div class="social-buttons">
+                        <button class="social-btn" onclick="shareLink()">📤</button>
+                        <button class="social-btn" onclick="copyLink()">📋</button>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 ULTIMATE UNBLOCKER. All rights reserved. | Built with ❤️ for freedom</p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="utils/data.js"></script>
+    <script src="utils/storage.js"></script>
+    <script src="utils/animations.js"></script>
+    <script src="utils/main.js"></script>
+    <script src="components/modals.js"></script>
+    <script src="components/cards.js"></script>
+    <script src="components/forms.js"></script>
+    <script src="components/navigation.js"></script>
+    <script src="components/utilities.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

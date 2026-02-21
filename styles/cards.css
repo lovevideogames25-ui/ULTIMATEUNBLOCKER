@@ -1,0 +1,277 @@
+/* Card Components - ULTIMATE UNBLOCKER */
+
+/* Base Card */
+.card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--border-radius-lg);
+    padding: 25px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.card:hover {
+    background: rgba(255, 255, 255, 0.08);
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+}
+
+/* Card Variants */
+.card-primary {
+    border-left: 4px solid var(--text);
+}
+
+.card-secondary {
+    border-left: 4px solid var(--highlight);
+}
+
+.card-success {
+    border-left: 4px solid var(--success);
+}
+
+.card-warning {
+    border-left: 4px solid var(--warning);
+}
+
+.card-danger {
+    border-left: 4px solid var(--danger);
+}
+
+/* Card Header */
+.card-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.card-icon {
+    width: 50px;
+    height: 50px;
+    background: var(--gradient-primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    flex-shrink: 0;
+}
+
+.card-title {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: var(--text-light);
+    margin: 0;
+}
+
+.card-subtitle {
+    color: var(--text-gray);
+    font-size: 0.9rem;
+    margin: 5px 0 0 0;
+}
+
+/* Card Body */
+.card-body {
+    color: var(--text-gray);
+    line-height: 1.6;
+}
+
+.card-text {
+    margin-bottom: 15px;
+}
+
+.card-text:last-child {
+    margin-bottom: 0;
+}
+
+/* Card Footer */
+.card-footer {
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.card-meta {
+    color: var(--text-dim);
+    font-size: 0.85rem;
+}
+
+/* Stats Card */
+.stats-card {
+    text-align: center;
+    padding: 30px 20px;
+}
+
+.stats-number {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--text);
+    display: block;
+    margin-bottom: 5px;
+}
+
+.stats-label {
+    color: var(--text-gray);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Profile Card */
+.profile-card {
+    text-align: center;
+    padding: 30px 20px;
+}
+
+.profile-avatar {
+    width: 80px;
+    height: 80px;
+    background: var(--gradient-primary);
+    border-radius: 50%;
+    margin: 0 auto 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+}
+
+.profile-name {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--text-light);
+    margin-bottom: 5px;
+}
+
+.profile-bio {
+    color: var(--text-gray);
+    margin-bottom: 20px;
+}
+
+/* Info Card */
+.info-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    padding: 20px;
+}
+
+.info-card .card-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+}
+
+.info-content {
+    flex: 1;
+}
+
+.info-title {
+    font-weight: bold;
+    color: var(--text-light);
+    margin-bottom: 5px;
+}
+
+.info-description {
+    color: var(--text-gray);
+    font-size: 0.9rem;
+}
+
+/* Testimonial Card */
+.testimonial-card {
+    text-align: center;
+    padding: 30px;
+    position: relative;
+}
+
+.testimonial-card::before {
+    content: '"';
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    font-size: 4rem;
+    color: var(--text);
+    opacity: 0.1;
+}
+
+.testimonial-content {
+    font-style: italic;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+.testimonial-author {
+    font-weight: bold;
+    color: var(--text-light);
+    margin-bottom: 5px;
+}
+
+.testimonial-role {
+    color: var(--text-gray);
+    font-size: 0.9rem;
+}
+
+/* Pricing Card */
+.pricing-card {
+    text-align: center;
+    padding: 40px 30px;
+    position: relative;
+}
+
+.pricing-card.featured {
+    transform: scale(1.05);
+    border: 2px solid var(--text);
+}
+
+.pricing-badge {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--text);
+    color: var(--primary);
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+.pricing-price {
+    font-size: 3rem;
+    font-weight: bold;
+    color: var(--text);
+    margin-bottom: 10px;
+}
+
+.pricing-period {
+    color: var(--text-gray);
+    font-size: 0.9rem;
+}
+
+.pricing-features {
+    list-style: none;
+    padding: 0;
+    margin: 30px 0;
+}
+
+.pricing-features li {
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--text-gray);
+}
+
+.pricing-features li:last-child {
+    border-bottom: none;
+}

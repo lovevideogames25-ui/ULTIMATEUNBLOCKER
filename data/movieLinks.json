@@ -1,0 +1,37 @@
+[
+  {
+    "name": "FMOVIES",
+    "url": "https://fmovieisthegoat.vercel.app/",
+    "warning": null
+  },
+  {
+    "name": "CINEBY",
+    "url": "https://cineby.io/",
+    "warning": null
+  },
+  {
+    "name": "PLUTO TV",
+    "url": "https://pluto.tv/us/live-tv/68757c45759366af05b3b199",
+    "warning": null
+  },
+  {
+    "name": "MAPPLE TV",
+    "url": "https://mappl.tv/",
+    "warning": null
+  },
+  {
+    "name": "VIDORA",
+    "url": "https://watch.vidora.su/",
+    "warning": null
+  },
+  {
+    "name": "MYFLIXER",
+    "url": "https://myflixer.ps/home",
+    "warning": null
+  },
+  {
+    "name": "RIVESTREAM",
+    "url": "https://rivestream.org/",
+    "warning": null
+  }
+]
