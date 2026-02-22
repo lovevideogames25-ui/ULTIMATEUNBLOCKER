@@ -1,4 +1,4 @@
-/* Reset and Base Styles */
+/* MAIN STYLING & RESPONSIVE DESIGN */
 * {
     margin: 0;
     padding: 0;
@@ -118,6 +118,22 @@ body {
 
 .nav-link:hover {
     color: #e94560;
+}
+
+.nav-link[href*="gitlab"] {
+    color: #FC6D26;
+    font-weight: 600;
+    border: 1px solid #FC6D26;
+    border-radius: 20px;
+    padding: 8px 16px;
+    transition: all 0.3s ease;
+}
+
+.nav-link[href*="gitlab"]:hover {
+    background: #FC6D26;
+    color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(252, 109, 38, 0.3);
 }
 
 .nav-link::after {
