@@ -11,8 +11,8 @@
 
 **Manual Steps:**
 1. Click the button above for automatic deployment
-2. If prompted, connect GitLab account
-3. Repository will be automatically detected
+2. If prompted for repository, choose "Public Git Repository"
+3. Paste this link: `https://gitlab.com/alessthegreatestgamer/ultimatelinks.git`
 4. Deploy as static site using render.yaml
 5. Your site will be live at ultimatelinks.onrender.com
 
