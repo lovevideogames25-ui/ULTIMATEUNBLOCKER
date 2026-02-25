@@ -7,7 +7,7 @@
 ## 📋 Quick Deploy
 
 ### Deploy to Render (Recommended)
-[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://gitlab.com/alessthegreatestgamer/ultimatelinks.git)
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/new?repo=https://gitlab.com/alessthegreatestgamer/ultimatelinks.git)
 
 ---
 
@@ -107,6 +107,9 @@ ULTIMATELINKS/
 ├── styles.css             # Main styles
 ├── animations.css         # Animation definitions
 ├── script.js             # Main application logic
+├── settings.js           # Settings system
+├── settings.css          # Settings styles
+├── render.yaml           # Render deployment configuration
 └── README.md             # This file
 ```
 
@@ -236,6 +239,14 @@ Edit CSS custom properties in `styles.css`:
 ### Render (Recommended)
 1. **Click Render button above** ⬆️
 2. Or: Push to GitLab → Connect to Render → Deploy automatically
+
+### Using render.yaml
+The project includes `render.yaml` for automatic Render deployment:
+- **Static site service** - Uses Render's native static site hosting
+- **No build process** - Direct static file serving
+- **Auto-deployment** - Deploys on Git push
+- **Free tier** - Uses Render's free plan
+- **Custom domain** - ultimatelinks.onrender.com
 
 ### Netlify
 1. Drag and drop folder
