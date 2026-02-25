@@ -6,8 +6,8 @@
 
 ## 📋 Quick Deploy
 
-### Deploy to Vercel (Recommended)
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://gitlab.com/alessthegreatestgamer/ultimatelinks.git)
+### Deploy to Render (Recommended)
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://gitlab.com/alessthegreatestgamer/ultimatelinks.git)
 
 ---
 
@@ -68,20 +68,20 @@
 ## 🚀 Quick Start
 
 ### Option 1: Direct Deployment (Recommended)
-1. **Click the Vercel button above** - Automatically deploys from GitHub
-2. Connect your GitHub account
+1. **Click Render button above** - Automatically deploys from GitLab
+2. Connect your GitLab account
 3. Deploy instantly - No configuration needed!
 
-### Option 2: Manual Vercel Deployment
-1. Go to [vercel.com](https://vercel.com)
-2. Click "New Project"
-3. Import from GitHub: `https://github.com/lovevideogames25-ui/ULTIMATELINKS.git`
+### Option 2: Manual Render Deployment
+1. Go to [render.com](https://render.com)
+2. Click "New Web Service"
+3. Connect GitLab repository: `https://gitlab.com/alessthegreatestgamer/ultimatelinks.git`
 4. Deploy automatically
 
 ### Option 3: Local Development
 ```bash
 # Clone the repository
-git clone https://github.com/lovevideogames25-ui/ULTIMATELINKS.git
+git clone https://gitlab.com/alessthegreatestgamer/ultimatelinks.git
 cd ULTIMATELINKS
 
 # Using Python (recommended)
@@ -233,9 +233,9 @@ Edit CSS custom properties in `styles.css`:
 
 ## 🚀 Deployment
 
-### Vercel (Recommended)
-1. **Click the Vercel button above** ⬆️
-2. Or: Push to GitHub → Connect to Vercel → Deploy automatically
+### Render (Recommended)
+1. **Click Render button above** ⬆️
+2. Or: Push to GitLab → Connect to Render → Deploy automatically
 
 ### Netlify
 1. Drag and drop folder
@@ -254,11 +254,11 @@ Upload entire project folder - **no build process needed!**
 
 ## 🤝 Contributing
 
-1. Fork the repository
+1. Fork repository on GitLab
 2. Create a feature branch
 3. Make your changes
 4. Test thoroughly
-5. Submit a pull request
+5. Submit a merge request
 
 ---
 
@@ -279,15 +279,15 @@ MIT License - feel free to use, modify, and distribute
 
 ## 📞 Support
 
-- **Issues**: [GitHub Issues](https://github.com/lovevideogames25-ui/ULTIMATELINKS/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/lovevideogames25-ui/ULTIMATELINKS/discussions)
+- **Issues**: [GitLab Issues](https://gitlab.com/alessthegreatestgamer/ultimatelinks/-/issues)
+- **Discussions**: [GitLab Discussions](https://gitlab.com/alessthegreatestgamer/ultimatelinks/-/issues)
 - **Community**: Comments section
 
 ---
 
 ## 🎯 Repository
 
-**GitHub**: https://github.com/lovevideogames25-ui/ULTIMATELINKS.git
+**GitLab**: https://gitlab.com/alessthegreatestgamer/ultimatelinks.git
 
 ---
 
@@ -299,8 +299,8 @@ Built with ❤️ for internet freedom
 
 ## 📈 Getting Started
 
-1. **⭐ Star the repository**
-2. **🚀 Click Deploy to Vercel button above**
+1. **⭐ Star repository**
+2. **🚀 Click Deploy to Render button above**
 3. **🎮 Enjoy 62+ verified links!**
 
 ---
