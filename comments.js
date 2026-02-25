@@ -6,6 +6,9 @@ let currentUser = null;
 let isTyping = false;
 let typingTimer = null;
 
+// Universal Storage Key (same for all users)
+const UNIVERSAL_COMMENTS_KEY = 'ultimateLinks_universal_comments';
+
 // Initialize Comments System
 document.addEventListener('DOMContentLoaded', function() {
     initializeComments();
@@ -18,43 +21,57 @@ function initializeComments() {
     renderComments();
 }
 
-// Load Comments from localStorage
+// Load Comments from Universal Storage
 function loadComments() {
-    const storedComments = localStorage.getItem('ultimateLinks_comments');
+    const storedComments = localStorage.getItem(UNIVERSAL_COMMENTS_KEY);
     if (storedComments) {
         try {
             comments = JSON.parse(storedComments);
         } catch (error) {
             console.error('Error loading comments:', error);
-            comments = [];
+            comments = getDefaultComments();
         }
     } else {
-        // Default comments for demonstration
-        comments = [
-            {
-                id: 1,
-                author: 'Anonymous User',
-                content: 'This is an amazing resource! Thank you for creating this.',
-                timestamp: new Date(Date.now() - 86400000).toISOString(),
-                likes: 5,
-                permanent: true
-            },
-            {
-                id: 2,
-                author: 'Tech Enthusiast',
-                content: 'The proxy sites work perfectly. Great collection!',
-                timestamp: new Date(Date.now() - 172800000).toISOString(),
-                likes: 3,
-                permanent: true
-            }
-        ];
+        // Default universal comments for all users
+        comments = getDefaultComments();
+        saveComments();
     }
 }
 
-// Save Comments to localStorage
+// Get Default Comments (same for everyone)
+function getDefaultComments() {
+    return [
+        {
+            id: 1,
+            author: 'Anonymous User',
+            content: 'This is an amazing resource! Thank you for creating this.',
+            timestamp: new Date(Date.now() - 86400000).toISOString(),
+            likes: 5,
+            permanent: true
+        },
+        {
+            id: 2,
+            author: 'Tech Enthusiast',
+            content: 'The proxy sites work perfectly. Great collection!',
+            timestamp: new Date(Date.now() - 172800000).toISOString(),
+            likes: 3,
+            permanent: true
+        },
+        {
+            id: 3,
+            author: 'Student Helper',
+            content: 'This website helped me so much with my school projects. Thank you!',
+            timestamp: new Date(Date.now() - 259200000).toISOString(),
+            likes: 8,
+            permanent: true
+        }
+    ];
+}
+
+// Save Comments to Universal Storage
 function saveComments() {
     try {
-        localStorage.setItem('ultimateLinks_comments', JSON.stringify(comments));
+        localStorage.setItem(UNIVERSAL_COMMENTS_KEY, JSON.stringify(comments));
     } catch (error) {
         console.error('Error saving comments:', error);
     }
@@ -114,7 +131,7 @@ function hideTypingIndicator() {
     console.log('User stopped typing');
 }
 
-// Add Comment
+// Add Comment (Universal)
 function addComment(event) {
     event.preventDefault();
     
@@ -149,7 +166,7 @@ function addComment(event) {
     renderComments();
     clearForm();
     
-    showNotification('Comment posted successfully! This comment is permanent and cannot be deleted.', 'success');
+    showNotification('Comment posted successfully! This comment is permanent and visible to everyone.', 'success');
 }
 
 // Delete AI Replies
@@ -165,7 +182,7 @@ function deleteAIReplies() {
         ];
         
         return !aiPatterns.some(pattern => pattern.test(comment.author)) && 
-               !comment.permanent; // Keep permanent user comments
+               comment.permanent; // Keep permanent user comments
     });
     
     saveComments();
@@ -350,8 +367,8 @@ function initializeUniversalComments(containerId, options = {}) {
         </div>
     `;
     
-    // Load and render comments for this container
-    loadUniversalComments(containerId);
+    // Load and render universal comments
+    renderUniversalComments(containerId);
 }
 
 // Add Universal Comment
@@ -371,7 +388,7 @@ function addUniversalComment(event, containerId) {
         return;
     }
     
-    // Delete AI replies for this container
+    // Delete AI replies
     deleteAIReplies();
     
     const newComment = {
@@ -389,7 +406,7 @@ function addUniversalComment(event, containerId) {
     renderUniversalComments(containerId);
     clearUniversalForm(containerId);
     
-    showNotification('Comment posted successfully!', 'success');
+    showNotification('Comment posted successfully! Your comment is now visible to everyone.', 'success');
 }
 
 // Clear Universal Form
@@ -401,41 +418,19 @@ function clearUniversalForm(containerId) {
     if (commentInput) commentInput.value = '';
 }
 
-// Load Universal Comments
-function loadUniversalComments(containerId) {
-    const storedComments = localStorage.getItem(`ultimateLinks_comments_${containerId}`);
-    if (storedComments) {
-        try {
-            const containerComments = JSON.parse(storedComments);
-            renderUniversalCommentsList(containerId, containerComments);
-        } catch (error) {
-            console.error('Error loading comments:', error);
-        }
-    }
-}
-
-// Save Universal Comments
-function saveUniversalComments() {
-    try {
-        localStorage.setItem('ultimateLinks_comments', JSON.stringify(comments));
-    } catch (error) {
-        console.error('Error saving comments:', error);
-    }
-}
-
-// Render Universal Comments List
-function renderUniversalCommentsList(containerId, containerComments) {
+// Render Universal Comments
+function renderUniversalComments(containerId) {
     const commentsContainer = document.getElementById(`commentsContainer_${containerId}`);
     if (!commentsContainer) return;
     
-    if (containerComments.length === 0) {
+    if (comments.length === 0) {
         commentsContainer.innerHTML = '<p>No comments yet. Be the first to share your thoughts!</p>';
         return;
     }
     
     commentsContainer.innerHTML = '';
     
-    containerComments.forEach((comment, index) => {
+    comments.forEach((comment, index) => {
         const commentItem = createCommentItem(comment, index);
         commentsContainer.appendChild(commentItem);
     });
@@ -446,7 +441,7 @@ window.CommentSystem = {
     initialize: initializeUniversalComments,
     addComment: addUniversalComment,
     clearForm: clearUniversalForm,
-    loadComments: loadUniversalComments,
-    saveComments: saveUniversalComments,
-    renderComments: renderUniversalCommentsList
+    loadComments: loadComments,
+    saveComments: saveComments,
+    renderComments: renderUniversalComments
 };
