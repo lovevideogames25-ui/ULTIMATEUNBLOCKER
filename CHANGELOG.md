@@ -5,6 +5,34 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.4.0 BETA] - 2026-03-01
+
+### 🚀 Major Updates
+- **Added 8 new links** - Expanded link collection with verified resources
+- **Chat system integration** - Real-time Discord chat functionality
+- **Popup system** - Enhanced user notifications and alerts
+- **Settings panel** - User preferences and customization options
+
+### 🔧 Technical Improvements
+- **Git automation** - Batch scripts for streamlined deployment
+- **Documentation updates** - Enhanced CHANGELOG and CONTRIBUTING guides
+- **File management** - Improved .gitignore for better version control
+- **Repository optimization** - Clean commit history and organized structure
+
+### 🎨 User Experience
+- **Better navigation** - Improved menu organization and flow
+- **Enhanced interactivity** - Smooth animations and transitions
+- **Responsive design** - Better mobile and tablet support
+- **Performance improvements** - Faster loading and smoother operation
+
+### 📁 File Structure Changes
+- **Added:** git_commands.txt, .gitignore, automation scripts
+- **Updated:** CHANGELOG.md with comprehensive version history
+- **Enhanced:** Documentation and deployment workflows
+- **Optimized:** Git workflow and file organization
+
+---
+
 ## [0.3.0 BETA] - 2026-02-25
 
 ### 🚀 Major Updates
@@ -147,4 +175,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
-*Last updated: February 28, 2026*
+*Last updated: March 1, 2026*
