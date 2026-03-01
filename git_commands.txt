@@ -1,0 +1,18 @@
+GIT SYNC COMMANDS - ULTIMATELINKS
+=====================================
+
+Commands to run in PowerShell:
+
+git checkout --ours .
+git add .
+git commit -m "Auto sync from web interface"
+git pull origin main --allow-unrelated-histories
+git checkout --ours .
+git add .
+git commit -m "Resolve merge conflicts - keep local changes"
+git push origin main
+
+NOTES:
+- Run from: C:\Users\aless\Downloads\ULTIMATELINKS
+- If commit says "nothing to commit, working tree clean", continue to next command
+- Commands prioritize local changes over remote changes
