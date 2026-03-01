@@ -6,34 +6,43 @@
 
 ## 📋 Quick Deploy
 
-### Deploy to Render (Recommended)
-[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://dashboard.render.com/static/new?repo=https://gitlab.com/alessthegreatestgamer/ultimatelinks.git)
+### Deploy Options
 
-**Manual Steps:**
-1. Click the button above for automatic deployment
-2. If prompted for repository, choose "Public Git Repository"
-3. Paste this link: `https://gitlab.com/alessthegreatestgamer/ultimatelinks.git`
-4. Deploy as static site using render.yaml
-5. Your site will be live at ultimatelinks.onrender.com
+[![Deploy to Heroku](https://binbashbanana.github.io/deploy-buttons/buttons/remade/heroku.svg)](https://heroku.com/deploy/?template=https://gitlab.com/alessthegreatestgamer/ultimatelinks.git)
+[![Deploy to Replit](https://binbashbanana.github.io/deploy-buttons/buttons/remade/replit.svg)](https://replit.com/github/alessthegreatestgamer/ultimatelinks)
+[![Deploy to Glitch](https://binbashbanana.github.io/deploy-buttons/buttons/remade/glitch.svg)](https://glitch.com/edit/#!/import/github/alessthegreatestgamer/ultimatelinks)
+[![Deploy to Azure](https://binbashbanana.github.io/deploy-buttons/buttons/remade/azure.svg)](https://deploy.azure.com/?repository=https://gitlab.com/alessthegreatestgamer/ultimatelinks.git)
+[![Deploy to IBM Cloud](https://binbashbanana.github.io/deploy-buttons/buttons/remade/ibmcloud.svg)](https://cloud.ibm.com/devops/setup/deploy?repository=https://gitlab.com/alessthegreatestgamer/ultimatelinks.git)
+[![Deploy to AWS Amplify](https://binbashbanana.github.io/deploy-buttons/buttons/remade/amplifyconsole.svg)](https://console.aws.amazon.com/amplify/home#/deploy?repo=https://gitlab.com/alessthegreatestgamer/ultimatelinks.git)
+[![Deploy to Google Cloud](https://binbashbanana.github.io/deploy-buttons/buttons/remade/googlecloud.svg)](https://deploy.cloud.run/?git_repo=https://gitlab.com/alessthegreatestgamer/ultimatelinks.git)
+[![Deploy to Oracle Cloud](https://binbashbanana.github.io/deploy-buttons/buttons/remade/oraclecloud.svg)](https://cloud.oracle.com/resourcemanager/stacks/create?zipUrl=https://gitlab.com/alessthegreatestgamer/ultimatelinks/-/archive/main/ultimatelinks-main.zip)
+[![Deploy to Railway](https://binbashbanana.github.io/deploy-buttons/buttons/remade/railway.svg)](https://railway.app/new/template?template=https://gitlab.com/alessthegreatestgamer/ultimatelinks.git)
+[![Deploy to Vercel](https://binbashbanana.github.io/deploy-buttons/buttons/remade/vercel.svg)](https://vercel.com/new/clone?repository-url=https://gitlab.com/alessthegreatestgamer/ultimatelinks.git)
+[![Deploy to Netlify](https://binbashbanana.github.io/deploy-buttons/buttons/remade/netlify.svg)](https://app.netlify.com/start/deploy?repository=https://gitlab.com/alessthegreatestgamer/ultimatelinks.git)
+[![Deploy to Koyeb](https://binbashbanana.github.io/deploy-buttons/buttons/remade/koyeb.svg)](https://app.koyeb.com/deploy?type=git&repository=gitlab.com/alessthegreatestgamer/ultimatelinks&branch=main&name=ultimatelinks)
+[![Deploy to Render](https://binbashbanana.github.io/deploy-buttons/buttons/remade/render.svg)](https://render.com/deploy?repo=https://gitlab.com/alessthegreatestgamer/ultimatelinks.git)
+[![Deploy to Cyclic](https://binbashbanana.github.io/deploy-buttons/buttons/remade/cyclic.svg)](https://app.cyclic.sh/api/app/deploy/alessthegreatestgamer/ultimatelinks)
 
 ---
 
 ## ✨ Features
 
 ### 🎯 Core Features
-- **62+ Verified Links** across 10 categories
+- **70+ Verified Links** across 10 categories
 - **Real-time Search** functionality
 - **Persistent Comments** system
 - **Mobile Responsive** design
 - **Smooth Animations** throughout
 - **Security Warnings** for HTTP sites
 - **Modern Dark Theme** with gradients
+- **Welcome Popup** with statistics
+- **Settings Panel** for customization
 
 ### 📂 Categories
 | Category | Links | Description |
 |-----------|--------|-------------|
-| 🛡️ **PROXY SITES** | 18 | Secure proxy services |
-| 🎮 **GAME LINKS** | 20 | Play games online |
+| 🛡️ **PROXY SITES** | 19 | Secure proxy services |
+| 🎮 **GAME LINKS** | 26 | Play games online |
 | 📺 **LIVE CHANNEL** | 1 | Live streaming |
 | 🎬 **MOVIE WATCHER** | 7 | Stream movies |
 | 🤖 **AI LINKS** | 5 | AI tools and chatbots |
@@ -41,7 +50,7 @@
 | 📻 **RADIO LINK** | 1 | Online radio |
 | ⚽ **SPORT WATCHER** | 2 | Live sports |
 | 📹 **ALTERNATIVE YOUTUBE** | 1 | YouTube alternatives |
-| 🔊 **SOUNDBOARDS** | 3 | Sound effects |
+| 🔊 **SOUNDBOARDS** | 4 | Sound effects |
 
 ### 🎨 Design Features
 - **Loading Animation** with progress bar
@@ -74,16 +83,15 @@
 
 ## 🚀 Quick Start
 
-### Option 1: Direct Deployment (Recommended)
-1. **Click Render button above** - Automatically deploys from GitLab
+### Option 1: One-Click Deployment (Recommended)
+1. **Click any deploy button above** - Choose your preferred platform
 2. Connect your GitLab account
 3. Deploy instantly - No configuration needed!
 
-### Option 2: Manual Render Deployment
-1. Go to [render.com](https://render.com)
-2. Click "New Web Service"
-3. Connect GitLab repository: `https://gitlab.com/alessthegreatestgamer/ultimatelinks.git`
-4. Deploy automatically
+### Option 2: Manual Deployment
+1. Go to your chosen platform (Render, Netlify, Vercel, etc.)
+2. Connect GitLab repository: `https://gitlab.com/alessthegreatestgamer/ultimatelinks.git`
+3. Deploy as static site
 
 ### Option 3: Local Development
 ```bash
@@ -116,6 +124,10 @@ ULTIMATELINKS/
 ├── script.js             # Main application logic
 ├── settings.js           # Settings system
 ├── settings.css          # Settings styles
+├── simple_popup.js       # Welcome popup system
+├── chat.js               # Discord chat integration
+├── chat.css              # Chat styles
+├── discord_chat.html     # Chat page
 ├── render.yaml           # Render deployment configuration
 └── README.md             # This file
 ```
@@ -158,6 +170,27 @@ Edit CSS custom properties in `styles.css`:
 }
 ```
 
+### Customizing Welcome Popup
+Edit `simple_popup.js` to modify welcome popup content:
+
+```javascript
+// Update popup content in showWelcomePopup()
+popupContent.innerHTML = `
+    <h2>Your Custom Title</h2>
+    <p>Your custom message</p>
+    <!-- Add your custom content -->
+`;
+```
+
+### Settings Customization
+The settings panel allows users to customize:
+- **Theme selection** (purple, blue, green, red, orange, pink)
+- **Animation preferences**
+- **Display options**
+- **Notification settings**
+- **Performance settings**
+- **Accessibility options**
+
 ### Adding New Categories
 1. Add category to `loadCategories()` function in `script.js`
 2. Update category icons and colors
@@ -191,19 +224,35 @@ Edit CSS custom properties in `styles.css`:
 - **Reduced motion** support for accessibility
 - **Staggered animations** for lists
 
+### Welcome Popup System
+- **Automatic display** after loading screen
+- **Statistics showcase** with link counts
+- **Smooth animations** and hover effects
+- **Professional design** with gradients
+
+### Settings Panel
+- **Comprehensive customization** options
+- **Theme switching** with multiple colors
+- **Performance optimization** settings
+- **Accessibility features** for all users
+- **Real-time updates** with instant feedback
+
 ---
 
 ## 📊 Statistics
 
 | Metric | Value |
 |---------|-------|
-| Total Links | 62+ |
+| Total Links | 70+ |
 | Categories | 10 |
-| File Size | ~500KB (minified) |
+| File Size | ~600KB (minified) |
 | Load Time | <2 seconds |
 | Mobile Score | 95+ |
 | SEO Score | 100 |
 | Performance | A+ |
+| Games | 26 |
+| Proxies | 19 |
+| Soundboards | 4 |
 
 ---
 
@@ -243,27 +292,43 @@ Edit CSS custom properties in `styles.css`:
 
 ## 🚀 Deployment
 
-### Render (Recommended)
-1. **Click Render button above** ⬆️
-2. Or: Push to GitLab → Connect to Render → Deploy automatically
+### One-Click Deployment (Recommended)
+1. **Click any deploy button above** ⬆️ - Choose your preferred platform
+2. Connect your GitLab account
+3. Deploy instantly - No configuration needed!
 
-### Using render.yaml
-The project includes `render.yaml` for automatic Render deployment:
+### Platform-Specific Instructions
+
+#### Render
 - **Static site service** - Uses Render's native static site hosting
 - **No build process** - Direct static file serving
 - **Auto-deployment** - Deploys on Git push
 - **Free tier** - Uses Render's free plan
-- **Custom domain** - ultimatelinks.onrender.com
 
-### Netlify
-1. Drag and drop folder
-2. Or connect to Git
-3. Deploy instantly
+#### Netlify
+- **Drag and drop** folder upload
+- **Git integration** for auto-deployment
+- **Custom domains** supported
+- **Free SSL certificates**
 
-### GitHub Pages
-1. Push to GitHub
-2. Enable Pages
-3. Select source branch
+#### Vercel
+- **Zero-config deployment**
+- **Git integration**
+- **Global CDN**
+- **Automatic HTTPS**
+
+#### Railway
+- **Simple deployment**
+- **Custom domains**
+- **Auto-deployment**
+- **Built-in CI/CD**
+
+### Using render.yaml
+The project includes `render.yaml` for automatic Render deployment:
+- **Static site service** configuration
+- **No build process** setup
+- **Auto-deployment** on Git push
+- **Free tier** optimization
 
 ### Any Static Hosting
 Upload entire project folder - **no build process needed!**
@@ -313,13 +378,9 @@ MIT License - feel free to use, modify, and distribute
 
 Built with ❤️ for internet freedom
 
----
-
-## 📈 Getting Started
-
 1. **⭐ Star repository**
-2. **🚀 Click Deploy to Render button above**
-3. **🎮 Enjoy 62+ verified links!**
+2. **🚀 Click any deploy button above**
+3. **🎮 Enjoy 70+ verified links!**
 
 ---
 
