@@ -5,63 +5,6 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
-
-### Added
-- **70+ Verified Links** across 10 categories (up from 62+)
-- **13 Deploy Buttons** for major platforms (Heroku, Replit, Glitch, Azure, IBM Cloud, AWS Amplify, Google Cloud, Oracle Cloud, Railway, Vercel, Netlify, Koyeb, Render, Cyclic)
-- **Welcome Popup System** with statistics and animations
-- **Comprehensive Settings Panel** with theme switching and customization
-- **Discord Chat Integration** with WidgetBot (server: 1475684054899888229)
-- **MIT License** for open source use
-- **CHANGELOG.md** with complete version history
-- **CONTRIBUTING.md** with development guidelines
-- **Professional Documentation** with deployment guides
-- **Enhanced Statistics** - Updated from 62+ to 70+ verified links
-- **GitLab Repository** - Complete migration from GitHub
-
-### Categories Updated
-- **🛡️ PROXY SITES** (19 links) - Added CHERRI proxy
-- **🎮 GAME LINKS** (26 links) - Added GN MATH, FREEZENOVA CLOUD, FROGIESARCADE NOWGG, PETEZAH (OLD), LUNARSYNC, SELENITE
-- **🔊 SOUNDBOARDS** (4 links) - Added GENIZY SOUNDBOARD
-- **Updated URLs** - NOWGG, ABYSS, PETEZAH with new working links
-
-### Technical Features
-- **Pure HTML5** semantic markup
-- **Modern CSS3** with custom properties
-- **Vanilla JavaScript ES6+**
-- **LocalStorage** for data persistence
-- **CSS Grid & Flexbox** layouts
-- **Intersection Observer** for animations
-- **Web APIs** for modern features
-- **GPU Acceleration** for smooth performance
-- **Reduced Motion** support for accessibility
-
-### Settings Features
-- **Theme Selection** (Purple, Blue, Green, Red, Dark themes)
-- **Animation Controls** (enable/disable various animations)
-- **Display Options** (compact view, grid columns, etc.)
-- **Notification Settings** (duration, sound effects)
-- **Performance Settings** (preload, cache, lazy loading)
-- **Privacy Settings** (analytics, cookies, data sharing)
-- **Accessibility Options** (high contrast, large text, screen reader)
-- **Advanced Settings** (debug mode, experimental features)
-- **Personalization** (custom CSS, language, timezone)
-
-### Deployment
-- **13 Platform Support** - All major deployment platforms
-- **GitLab Integration** - Complete repository setup
-- **Static Site Optimization** for all platforms
-- **Cross-Platform Compatibility** for all deploy targets
-
-### Documentation
-- **Comprehensive README** with deploy instructions
-- **MIT License** for open source use
-- **CHANGELOG.md** with complete version history
-- **CONTRIBUTING.md** with development guidelines
-
----
-
 ## [0.3.0 BETA] - 2026-02-25
 
 ### 🚀 Major Updates
