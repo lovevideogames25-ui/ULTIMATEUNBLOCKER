@@ -89,6 +89,11 @@ function showSection(sectionId) {
     }
 }
 
+// Show Links Section
+function showLinks() {
+    showSection('links');
+}
+
 // Update Active Navigation Link
 function updateActiveNavLink(sectionId) {
     const navLinks = document.querySelectorAll('.nav-link');

@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="animations.css">
     <link rel="stylesheet" href="comments.css">
+    <link rel="stylesheet" href="settings.css">
 </head>
 <body>
     <!-- Loading Screen -->
@@ -46,7 +47,13 @@
                     <a href="https://gitlab.com/alessthegreatestgamer/ultimatelinks" class="nav-link" target="_blank">GitLab</a>
                 </li>
                 <li class="nav-item">
+                    <a href="#links" class="nav-link" onclick="showSection('links')">🔗 Links</a>
+                </li>
+                <li class="nav-item">
                     <a href="#about" class="nav-link" onclick="showSection('about')">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#settings" class="nav-link" onclick="showSection('settings')">⚙️ Settings</a>
                 </li>
             </ul>
             <div class="nav-toggle" id="navToggle">
@@ -145,6 +152,50 @@
 
                 <div class="categories-grid" id="categoriesGrid">
                     <!-- Categories will be populated by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Links Section -->
+        <section class="section" id="links">
+            <div class="container">
+                <header class="section-header">
+                    <h1 class="section-title">🔗 Website Links</h1>
+                    <p class="section-subtitle">Access all ULTIMATELINKS deployments</p>
+                </header>
+
+                <div class="links-grid">
+                    <div class="link-card">
+                        <div class="link-header">
+                            <h3>🌐 Production Site</h3>
+                            <span class="link-status status-active">Active</span>
+                        </div>
+                        <div class="link-content">
+                            <p>Main production deployment with all features</p>
+                            <div class="link-actions">
+                                <a href="https://ultimatelinks.pages.dev" class="btn btn-primary" target="_blank">
+                                    <span>🚀</span>
+                                    Visit Site
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="link-card">
+                        <div class="link-header">
+                            <h3>⚡ Surge.sh</h3>
+                            <span class="link-status status-active">Active</span>
+                        </div>
+                        <div class="link-content">
+                            <p>Fast CDN deployment with global distribution</p>
+                            <div class="link-actions">
+                                <a href="https://ultimatelinks.surge.sh" class="btn btn-primary" target="_blank">
+                                    <span>⚡</span>
+                                    Visit Site
+                                </a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -276,56 +327,5 @@
                 </div>
             </div>
         </section>
-    </main>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <div class="footer-logo">
-                        <img src="favicon.ico" alt="ULTIMATELINKS Logo" class="footer-logo-img">
-                        <h3>ULTIMATELINKS</h3>
-                    </div>
-                    <p>Your Gateway to Unlimited Access</p>
-                </div>
-                
-                <div class="footer-section">
-                    <h4>Categories</h4>
-                    <ul>
-                        <li><a href="#" onclick="showCategory('proxy')">Proxy Sites</a></li>
-                        <li><a href="#" onclick="showCategory('games')">Games</a></li>
-                        <li><a href="#" onclick="showCategory('movies')">Movies</a></li>
-                        <li><a href="#" onclick="showCategory('ai')">AI Tools</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-section">
-                    <h4>Resources</h4>
-                    <ul>
-                        <li><a href="#" onclick="showSection('about')">About Us</a></li>
-                        <li><a href="#" onclick="showSection('comments')">Community</a></li>
-                        <li><a href="#" onclick="shareLink()">Share</a></li>
-                        <li><a href="#" onclick="showNotification('Coming soon!', 'info')">Support</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-section">
-                    <h4>Connect</h4>
-                    <div class="footer-social">
-                        <button class="social-btn" onclick="shareLink()">📤</button>
-                        <button class="social-btn" onclick="copyLink()">📋</button>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="footer-bottom">
-                <p>&copy; 2024 ULTIMATELINKS. All rights reserved. | Built with ❤️ for freedom</p>
-            </div>
-        </div>
-    </footer>
-    <!-- JavaScript -->
-    <script src="script.js"></script>
-    <script src="comments.js"></script>
-</body>
-</html>
+        
+        <!-- Settings Section -->
