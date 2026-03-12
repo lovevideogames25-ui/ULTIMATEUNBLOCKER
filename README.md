@@ -51,7 +51,7 @@
 [![Deploy to IBM Cloud](https://binbashbanana.github.io/deploy-buttons/buttons/official/ibmcloud.svg)](https://cloud.ibm.com/devops/setup/deploy?repository=https://github.com/lovevideogames25-ui/ULTIMATELINKS.git)
 [![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/lovevideogames25-ui/ULTIMATELINKS.git)
 [![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github.com/lovevideogames25-ui/ULTIMATELINKS.git)
-[![Open in Codespaces](https://binbashbanana.github.io/deploy-buttons/buttons/official/codespaces.svg)](https://github.com/codespaces/new?repo=lovevideogames25-ui/ULTIMATELINKS.git)
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://github.com/codespaces/new?hide_repo_select=true&ref=main&repo=lovevideogames25-ui/ULTIMATELINKS)
 [![Deploy to Deno](https://deno.com/button)](https://console.deno.com/new?clone=https://github.com/lovevideogames25-ui/ULTIMATELINKS.git)
 
 ### 🎮 **Extra Platforms (Less Common)**
