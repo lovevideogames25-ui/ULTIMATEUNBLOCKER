@@ -160,6 +160,7 @@
     position: relative;
     overflow: hidden;
     box-shadow: 0 10px 25px rgba(245, 158, 11, 0.3);
+    color: white;
 }
 
 .yippee-btn::before {

@@ -22,73 +22,166 @@ window.showWelcomePopup = function() {
         left: 0;
         width: 100%;
         height: 100%;
-        background: rgba(0, 0, 0, 0.85);
-        backdrop-filter: blur(15px);
+        background: rgba(0, 0, 0, 0.9);
+        backdrop-filter: blur(20px);
         display: flex;
         align-items: center;
         justify-content: center;
         z-index: 999999;
         opacity: 0;
-        transition: opacity 0.4s ease-in-out;
+        transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
         pointer-events: none;
     `;
     
     // Create popup content
     const popupContent = document.createElement('div');
     popupContent.style.cssText = `
-        background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
-        border: 3px solid rgba(255, 255, 255, 0.2);
-        border-radius: 20px;
-        padding: 40px;
-        max-width: 500px;
+        background: linear-gradient(135deg, rgba(26, 26, 46, 0.95) 0%, rgba(22, 33, 62, 0.95) 50%, rgba(15, 52, 96, 0.95) 100%);
+        border: 2px solid rgba(102, 126, 234, 0.3);
+        border-radius: 24px;
+        padding: 50px;
+        max-width: 600px;
         width: 90%;
-        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+        box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.1);
         text-align: center;
         color: white;
-        transform: scale(0.8) translateY(20px);
-        transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        transform: scale(0.7) translateY(50px) rotateX(10deg);
+        transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
         opacity: 0;
+        position: relative;
+        overflow: hidden;
     `;
     
+    // Add animated background elements
     popupContent.innerHTML = `
-        <h2 style="font-size: 2.2rem; margin-bottom: 20px; color: #10b981;">🎉 Welcome to ULTIMATELINKS! 🎉</h2>
-        <p style="font-size: 1.1rem; margin-bottom: 20px; color: #94a3b8;">Your gateway to unlimited access</p>
-        <p style="font-size: 1.1rem; margin-bottom: 20px;">We've added <strong style="color: #10b981; font-size: 1.3rem;">8 new links</strong> today!</p>
-        <p style="font-size: 1.1rem; margin-bottom: 30px;">Total collection: <strong style="color: #10b981; font-size: 1.3rem;">70+ verified links</strong></p>
+        <div style="
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(102, 126, 234, 0.1) 0%, transparent 50%);
+            animation: rotate 20s linear infinite;
+            pointer-events: none;
+        "></div>
         
-        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin-bottom: 30px;">
-            <div style="background: rgba(255, 255, 255, 0.08); border: 2px solid rgba(255, 255, 255, 0.12); border-radius: 15px; padding: 20px 10px;">
-                <div style="font-size: 2rem; font-weight: 800; color: #10b981; margin-bottom: 8px;">26</div>
-                <div style="font-size: 0.9rem; color: #94a3b8; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 600;">Games</div>
-            </div>
-            <div style="background: rgba(255, 255, 255, 0.08); border: 2px solid rgba(255, 255, 255, 0.12); border-radius: 15px; padding: 20px 10px;">
-                <div style="font-size: 2rem; font-weight: 800; color: #10b981; margin-bottom: 8px;">19</div>
-                <div style="font-size: 0.9rem; color: #94a3b8; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 600;">Proxies</div>
-            </div>
-            <div style="background: rgba(255, 255, 255, 0.08); border: 2px solid rgba(255, 255, 255, 0.12); border-radius: 15px; padding: 20px 10px;">
-                <div style="font-size: 2rem; font-weight: 800; color: #10b981; margin-bottom: 8px;">4</div>
-                <div style="font-size: 0.9rem; color: #94a3b8; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 600;">Soundboards</div>
-            </div>
-        </div>
+        <div style="
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--primary-color, #667eea), var(--secondary-color, #764ba2), var(--accent-color, #e94560), transparent);
+            background-size: 200% 100%;
+            animation: shimmer 3s ease-in-out infinite;
+            pointer-events: none;
+        "></div>
         
-        <button id="yippee-close-btn" style="
-            background: linear-gradient(135deg, #f59e0b 0%, #ef4444 100%);
-            border: none;
-            padding: 20px 40px;
-            font-size: 1.4rem;
-            font-weight: 800;
-            border-radius: 12px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            color: white;
-            box-shadow: 0 10px 25px rgba(245, 158, 11, 0.3);
-            pointer-events: auto;
-            transform: translateY(0) scale(1);
+        <div style="
+            position: relative;
+            z-index: 1;
         ">
-            🎊 YIPPIE
-        </button>
+            <div style="
+                width: 80px;
+                height: 80px;
+                margin: 0 auto 30px;
+                background: linear-gradient(135deg, #667eea, #764ba2, #e94560);
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 2.5rem;
+                box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+                animation: float 3s ease-in-out infinite;
+            ">🚀</div>
+            
+            <h2 style="
+                font-size: 2.5rem;
+                margin-bottom: 20px;
+                color: #ffffff;
+                font-weight: 800;
+                background: linear-gradient(135deg, #667eea, #764ba2, #e94560);
+                background-clip: text;
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-size: 200% 200%;
+                animation: gradientShift 3s ease-in-out infinite;
+                text-shadow: 0 0 30px rgba(102, 126, 234, 0.3);
+            ">ULTIMATELINKS 0.5.0 ALPHA BETA</h2>
+            
+            <div style="
+                display: inline-block;
+                padding: 8px 20px;
+                background: linear-gradient(135deg, rgba(16, 185, 129, 0.2), rgba(34, 197, 94, 0.2));
+                border: 1px solid rgba(16, 185, 129, 0.3);
+                border-radius: 20px;
+                margin-bottom: 20px;
+                font-size: 0.9rem;
+                font-weight: 700;
+                text-transform: uppercase;
+                letter-spacing: 2px;
+                color: #10b981;
+                animation: pulse 2s ease-in-out infinite;
+            ">DEVELOPMENT RELEASE</div>
+            
+            <p style="
+                font-size: 1.2rem;
+                margin-bottom: 15px;
+                color: #94a3b8;
+                font-weight: 500;
+            ">⚠️ Still in Development</p>
+            
+            <div style="
+                margin: 30px 0;
+                padding: 20px;
+                background: rgba(255, 255, 255, 0.05);
+                border-radius: 16px;
+                border: 1px solid rgba(255, 255, 255, 0.1);
+            ">
+                <p style="
+                    font-size: 1.1rem;
+                    margin-bottom: 10px;
+                    color: #ffffff;
+                    font-weight: 600;
+                ">🎨 Upgraded UI • 🔧 New Tools Category • 📱 Enhanced Mobile</p>
+                <p style="
+                    font-size: 0.95rem;
+                    color: #94a3b8;
+                    opacity: 0.9;
+                ">🔗 70+ Links • 11 Categories • Major UI Overhaul</p>
+            </div>
+            
+            <button id="yippee-close-btn" style="
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #e94560 100%);
+                border: none;
+                padding: 18px 40px;
+                font-size: 1.2rem;
+                font-weight: 800;
+                border-radius: 16px;
+                cursor: pointer;
+                transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+                text-transform: uppercase;
+                letter-spacing: 2px;
+                position: relative;
+                overflow: hidden;
+                box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+                pointer-events: auto;
+                transform: translateY(0) scale(1);
+                color: white;
+                margin-top: 20px;
+            ">
+                <span style="position: relative; z-index: 1;">🎊 EXPLORE BETA</span>
+                <div style="
+                    position: absolute;
+                    top: 0;
+                    left: -100%;
+                    width: 100%;
+                    height: 100%;
+                    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+                    transition: left 0.5s ease;
+                "></div>
+            </button>
+        </div>
     `;
     
     popupOverlay.appendChild(popupContent);
@@ -114,12 +207,24 @@ window.showWelcomePopup = function() {
         
         closeBtn.onmouseenter = function() {
             closeBtn.style.transform = 'translateY(-3px) scale(1.05)';
-            closeBtn.style.boxShadow = '0 15px 35px rgba(245, 158, 11, 0.5)';
+            closeBtn.style.boxShadow = '0 15px 40px rgba(102, 126, 234, 0.6)';
+            closeBtn.style.background = 'linear-gradient(135deg, #764ba2 0%, #e94560 50%, #667eea 100%)';
+            // Animate the shimmer effect
+            const shimmer = closeBtn.querySelector('div');
+            if (shimmer) {
+                shimmer.style.left = '100%';
+            }
         };
         
         closeBtn.onmouseleave = function() {
             closeBtn.style.transform = 'translateY(0) scale(1)';
-            closeBtn.style.boxShadow = '0 10px 25px rgba(245, 158, 11, 0.3)';
+            closeBtn.style.boxShadow = '0 10px 30px rgba(102, 126, 234, 0.4)';
+            closeBtn.style.background = 'linear-gradient(135deg, #667eea 0%, #764ba2 50%, #e94560 100%)';
+            // Reset shimmer
+            const shimmer = closeBtn.querySelector('div');
+            if (shimmer) {
+                shimmer.style.left = '-100%';
+            }
         };
     }
 };
@@ -145,7 +250,7 @@ window.closeWelcomePopup = function() {
             }
             // Show celebration notification using website's notification system
             if (typeof showNotification === 'function') {
-                showNotification('🎊 YIPPIE! Welcome to ULTIMATELINKS!', 'success');
+                showNotification('🚀 Welcome to ULTIMATELINKS 0.5.0 ALPHA BETA!', 'success');
             }
         }, 400);
     }

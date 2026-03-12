@@ -2,6 +2,7 @@
 
 # Text files
 *.txt
+!api.txt
 
 # Batch files
 *.bat
