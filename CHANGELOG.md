@@ -116,7 +116,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### 🔧 Technical Improvements
 - **render.yaml configuration** - Automatic Render deployment
 - **Updated documentation** - Fixed deployment instructions
-- **GitLab integration** - Complete repository migration
+- **GitHub Releases integration** - Complete repository migration
 - **Clean codebase** - Removed unused music components
 - **Enhanced navigation** - Added Links section
 

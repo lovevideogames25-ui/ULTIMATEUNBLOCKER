@@ -76,7 +76,7 @@ Consistent environment setup:
 For deployment issues:
 1. Check platform-specific documentation
 2. Verify configuration syntax
-3. Ensure GitLab repository is accessible
+3. Ensure GitHub repository is accessible
 4. Review build logs for errors
 
 ## 🎊 **Ready to Deploy!**

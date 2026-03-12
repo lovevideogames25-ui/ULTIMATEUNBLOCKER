@@ -207,7 +207,7 @@ Contributors will be recognized in:
 ## 📞 Getting Help
 
 - **Discord Chat**: Available in the application
-- **GitLab Issues**: https://gitlab.com/alessthegreatestgamer/ultimatelinks/-/issues
+- **GitHub Issues**: https://github.com/lovevideogames25-ui/ULTIMATELINKS/issues
 - **Documentation**: Check README.md and CHANGELOG.md
 
 ## 📄 License
