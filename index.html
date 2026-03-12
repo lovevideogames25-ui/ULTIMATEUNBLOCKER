@@ -9,12 +9,15 @@
     <link rel="icon" href="favicon.ico">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="animations.css">
+    <link rel="stylesheet" href="comments.css">
 </head>
 <body>
     <!-- Loading Screen -->
     <div class="loading-screen" id="loadingScreen">
         <div class="loading-content">
-            <div class="loading-logo">🚀</div>
+            <div class="loading-logo">
+                <img src="favicon.ico" alt="ULTIMATELINKS Logo" class="loading-logo-img">
+            </div>
             <div class="progress-bar">
                 <div class="progress-fill" id="progressFill"></div>
             </div>
@@ -26,7 +29,7 @@
     <nav class="navbar" id="navbar">
         <div class="nav-container">
             <div class="nav-logo">
-                <span class="logo-icon">🚀</span>
+                <img src="favicon.ico" alt="ULTIMATELINKS Logo" class="nav-logo-img">
                 <span class="logo-text">ULTIMATELINKS</span>
             </div>
             <ul class="nav-menu" id="navMenu">
@@ -61,7 +64,9 @@
             <div class="container">
                 <header class="hero">
                     <div class="hero-content">
-                        <div class="hero-logo">🚀</div>
+                        <div class="hero-logo">
+                            <img src="favicon.ico" alt="ULTIMATELINKS Logo" class="hero-logo-img">
+                        </div>
                         <h1 class="hero-title">ULTIMATELINKS</h1>
                         <p class="hero-subtitle">Your Gateway to Unlimited Access</p>
                         <p class="hero-description">
@@ -175,20 +180,6 @@
                 </header>
 
                 <div class="comments-container">
-                    <!-- Warning Section -->
-                    <div class="warning-section">
-                        <div class="warning-card">
-                            <div class="warning-icon">⚠️</div>
-                            <div class="warning-content">
-                                <h3 class="warning-title">Permanent Public Comments</h3>
-                                <p class="warning-text">
-                                    Everything you post here is permanent and visible to everyone. 
-                                    Nothing is private. Think before you post and be respectful to others.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
                     <div class="comment-form-section">
                         <div class="form-card">
                             <h3 class="form-title">Share Your Thoughts</h3>
@@ -207,7 +198,7 @@
                                 <div class="form-actions">
                                     <button type="submit" class="btn btn-primary">
                                         <span class="btn-icon">💬</span>
-                                        Post Permanent Comment
+                                        Post Comment
                                     </button>
                                     <button type="button" class="btn btn-secondary" onclick="clearForm()">
                                         <span class="btn-icon">🔄</span>
@@ -293,7 +284,7 @@
             <div class="footer-content">
                 <div class="footer-section">
                     <div class="footer-logo">
-                        <span class="logo-icon">🚀</span>
+                        <img src="favicon.ico" alt="ULTIMATELINKS Logo" class="footer-logo-img">
                         <h3>ULTIMATELINKS</h3>
                     </div>
                     <p>Your Gateway to Unlimited Access</p>
@@ -333,8 +324,8 @@
             </div>
         </div>
     </footer>
-
     <!-- JavaScript -->
     <script src="script.js"></script>
+    <script src="comments.js"></script>
 </body>
 </html>
