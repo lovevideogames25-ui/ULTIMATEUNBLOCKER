@@ -1,43 +1,43 @@
 # 🚀 ULTIMATELINKS
 
-**Your Gateway to Unlimited Access** - Premium collection of 70+ verified links across 10 categories with cutting-edge UI/UX design
+**Your Gateway to Unlimited Access** - Premium collection of 70+ verified links across 11 categories with cutting-edge UI/UX design
 
 ---
 
 ## 🎯 **Quick Deploy - One Click & Live!**
 
-### 🌟 **Modern Deployment Platforms**
+### 🌟 **Official Deployment Buttons**
 
-[![Deploy to Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://gitlab.com/alessthegreatestgamer/ultimatelinks.git)
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://gitlab.com/alessthegreatestgamer/ultimatelinks.git)
-[![Deploy to Render](https://render.com/images/deploy/button.svg)](https://render.com/deploy?repo=https://gitlab.com/alessthegreatestgamer/ultimatelinks.git)
-[![Deploy to Railway](https://railway.app/button.svg)](https://railway.app/new/template?template=https://gitlab.com/alessthegreatestgamer/ultimatelinks.git)
+[![Deploy to Vercel](https://binbashbanana.github.io/deploy-buttons/buttons/official/vercel.svg)](https://vercel.com/new/clone?repository-url=https://gitlab.com/alessthegreatestgamer/ultimatelinks.git)
+[![Deploy to Netlify](https://binbashbanana.github.io/deploy-buttons/buttons/official/netlify.svg)](https://app.netlify.com/start/deploy?repository=https://gitlab.com/alessthegreatestgamer/ultimatelinks.git)
+[![Deploy to Render](https://binbashbanana.github.io/deploy-buttons/buttons/official/render.svg)](https://render.com/deploy?repo=https://gitlab.com/alessthegreatestgamer/ultimatelinks.git)
+[![Deploy to Railway](https://binbashbanana.github.io/deploy-buttons/buttons/official/railway.svg)](https://railway.app/new/template?template=https://gitlab.com/alessthegreatestgamer/ultimatelinks.git)
 
 ### ⚡ **Cloud & Enterprise Platforms**
 
-[![Deploy to AWS Amplify](https://github.com/aws-amplify/amplify-cli/raw/master/images/amplify-button.svg)](https://console.aws.amazon.com/amplify/home#/deploy?repo=https://gitlab.com/alessthegreatestgamer/ultimatelinks.git)
-[![Deploy to Google Cloud](https://cloud.google.com/static/images/deploy-button.svg)](https://deploy.cloud.run/?git_repo=https://gitlab.com/alessthegreatestgamer/ultimatelinks.git)
-[![Deploy to Azure](https://aka.ms/deploytoazure/button.svg)](https://deploy.azure.com/?repository=https://gitlab.com/alessthegreatestgamer/ultimatelinks.git)
-[![Deploy to Oracle Cloud](https://cloud.oracle.com/oci/deploy-button.svg)](https://cloud.oracle.com/resourcemanager/stacks/create?zipUrl=https://gitlab.com/alessthegreatestgamer/ultimatelinks/-/archive/main/ultimatelinks-main.zip)
+[![Deploy to AWS Amplify](https://binbashbanana.github.io/deploy-buttons/buttons/official/amplifyconsole.svg)](https://console.aws.amazon.com/amplify/home#/deploy?repo=https://gitlab.com/alessthegreatestgamer/ultimatelinks.git)
+[![Run on Google Cloud](https://binbashbanana.github.io/deploy-buttons/buttons/official/googlecloud.svg)](https://deploy.cloud.run/?git_repo=https://gitlab.com/alessthegreatestgamer/ultimatelinks.git)
+[![Deploy to Azure](https://binbashbanana.github.io/deploy-buttons/buttons/official/azure.svg)](https://deploy.azure.com/?repository=https://gitlab.com/alessthegreatestgamer/ultimatelinks.git)
+[![Deploy to Oracle Cloud](https://binbashbanana.github.io/deploy-buttons/buttons/official/oraclecloud.svg)](https://cloud.oracle.com/resourcemanager/stacks/create?zipUrl=https://gitlab.com/alessthegreatestgamer/ultimatelinks/-/archive/main/ultimatelinks-main.zip)
 
 ### 🔥 **Developer-Friendly Platforms**
 
-[![Deploy to Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy/?template=https://gitlab.com/alessthegreatestgamer/ultimatelinks.git)
-[![Deploy to Glitch](https://glitch.com/edit/#!/import/github/alessthegreatestgamer/ultimatelinks)](https://glitch.com/edit/#!/import/github/alessthegreatestgamer/ultimatelinks)
-[![Deploy to Replit](https://replit.com/badge/github/alessthegreatestgamer/ultimatelinks)](https://replit.com/github/alessthegreatestgamer/ultimatelinks)
-[![Deploy to IBM Cloud](https://cloud.ibm.com/devops/setup/deploy?repository=https://gitlab.com/alessthegreatestgamer/ultimatelinks.git)
+[![Deploy to Heroku](https://binbashbanana.github.io/deploy-buttons/buttons/official/heroku.svg)](https://heroku.com/deploy/?template=https://gitlab.com/alessthegreatestgamer/ultimatelinks.git)
+[![Remix on Glitch](https://binbashbanana.github.io/deploy-buttons/buttons/official/glitch.svg)](https://glitch.com/edit/#!/import/github/alessthegreatestgamer/ultimatelinks)
+[![Run on Replit](https://binbashbanana.github.io/deploy-buttons/buttons/official/replit.svg)](https://replit.com/github/alessthegreatestgamer/ultimatelinks)
+[![Deploy to IBM Cloud](https://binbashbanana.github.io/deploy-buttons/buttons/official/ibmcloud.svg)](https://cloud.ibm.com/devops/setup/deploy?repository=https://gitlab.com/alessthegreatestgamer/ultimatelinks.git)
 
 ### 🎮 **Specialized Platforms**
 
-[![Deploy to Koyeb](https://www.koyeb.com/static/images/deploy/button.svg)](https://app.koyeb.com/deploy?type=git&repository=gitlab.com/alessthegreatestgamer/ultimatelinks&branch=main&name=ultimatelinks)
-[![Deploy to Cyclic](https://cyclic.sh/images/deploy-button.svg)](https://app.cyclic.sh/api/app/deploy/alessthegreatestgamer/ultimatelinks)
+[![Deploy to Koyeb](https://binbashbanana.github.io/deploy-buttons/buttons/official/koyeb.svg)](https://app.koyeb.com/deploy?type=git&repository=gitlab.com/alessthegreatestgamer/ultimatelinks&branch=main&name=ultimatelinks)
+[![Deploy to Cyclic](https://binbashbanana.github.io/deploy-buttons/buttons/official/cyclic.svg)](https://app.cyclic.sh/api/app/deploy/alessthegreatestgamer/ultimatelinks)
 
 ---
 
 ## ✨ **Premium Features**
 
 ### 🎯 **Core Capabilities**
-- **🔥 70+ Verified Links** across 10 premium categories
+- **🔥 70+ Verified Links** across 11 premium categories
 - **⚡ Real-time Search** with instant filtering
 - **💬 Advanced Comments** with persistent storage
 - **📱 Mobile-First Responsive** design
@@ -51,16 +51,16 @@
 ### 📂 **Premium Categories**
 | Category | Links | Features |
 |----------|-------|----------|
-| 🛡️ **Proxy Sites** | 19 | Secure, fast, encrypted |
-| 🎮 **Game Links** | 26 | Premium gaming platforms |
-| 🎬 **Movie Streaming** | 8 | HD movies & TV shows |
-| 🤖 **AI Tools** | 5 | Advanced AI assistants |
-| 🎵 **Music Streaming** | 4 | Unlimited music access |
-| ⚽ **Sports Streaming** | 3 | Live sports & highlights |
-| 💬 **Social Platforms** | 2 | Social media access |
-| 📚 **Education** | 2 | Learning resources |
-| 🔧 **Developer Tools** | 1 | Productivity tools |
-| 📊 **Analytics** | 1 | Website analytics |
+| 🛡️ **PROXY SITES** | 19 | Secure, fast, encrypted |
+| 🎮 **GAME LINKS** | 26 | Premium gaming platforms |
+| 📺 **LIVE CHANNEL LINK** | 1 | Live streaming channels |
+| 🎬 **MOVIE WATCHER LINK** | 7 | HD movies & TV shows |
+| 🤖 **AI LINK** | 5 | Advanced AI assistants |
+| 🎵 **MUSIC LINK** | 4 | Unlimited music access |
+| 📻 **RADIO LINK** | 1 | Global radio stations |
+| ⚽ **SPORT WATCHER LINK** | 2 | Live sports & highlights |
+| � **ALTERNATIVE YOUTUBE** | 1 | Privacy-focused video |
+| � **SOUNDBOARDS** | 4 | Fun sound effects |
 
 ### 🎨 **Design Excellence**
 - **🌟 Glassmorphism Design** with backdrop blur
@@ -383,7 +383,7 @@ Upload entire project folder - **no build process needed!**
 
 **🌐 GitLab**: https://gitlab.com/alessthegreatestgamer/ultimatelinks.git
 
-**📊 Statistics**: 70+ links, 10 categories, 1000+ users
+**📊 Statistics**: 70+ links, 11 categories, 0.5.0 ALPHA BETA
 
 **🔄 Last Updated**: March 2026
 
