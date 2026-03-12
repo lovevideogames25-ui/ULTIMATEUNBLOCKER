@@ -58,7 +58,7 @@
 
 [![Deploy to Railway](https://railway.app/button.svg)](https://railway.app/new/template?template=https://github.com/lovevideogames25-ui/ULTIMATELINKS.git)
 [![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/lovevideogames25-ui/ULTIMATELINKS.git)
-[![Deploy to Koyeb](https://img.shields.io/badge/Deploy-Koyeb-121212?style=for-the-badge&logo=ko-fi)](https://app.koyeb.com/deploy?type=git&repository=github.com/lovevideogames25-ui/ULTIMATELINKS.git&branch=main)
+[![Deploy to Koyeb](https://www.koyeb.com/static/images/deploy/button.svg)](https://app.koyeb.com/deploy?type=git&repository=github.com/lovevideogames25-ui/ULTIMATELINKS.git&branch=main)
 [![Deploy to Cyclic](https://img.shields.io/badge/Deploy-Cyclic-000000?style=for-the-badge)](https://app.cyclic.sh/api/app/deploy/lovevideogames25-ui/ULTIMATELINKS.git)
 
 ---
