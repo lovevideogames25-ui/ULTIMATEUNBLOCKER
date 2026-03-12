@@ -34,40 +34,32 @@
 
 ## � **Quick Deploy - One Click & Live!**
 
-### 🌟 **Official Deployment Buttons**
+### 🌟 **Static / Frontend hosts**
 
-[![Deploy to Vercel](https://vercel.com/new/clone?repository-url=https://github.com/lovevideogames25-ui/ULTIMATELINKS.git)](https://vercel.com/new/clone?repository-url=https://github.com/lovevideogames25-ui/ULTIMATELINKS.git)
-[![Deploy to Netlify](https://app.netlify.com/start/deploy?repository=https://github.com/lovevideogames25-ui/ULTIMATELINKS.git)](https://app.netlify.com/start/deploy?repository=https://github.com/lovevideogames25-ui/ULTIMATELINKS.git)
-[![Deploy to Render](https://render.com/deploy?repo=https://github.com/lovevideogames25-ui/ULTIMATELINKS.git)](https://render.com/deploy?repo=https://github.com/lovevideogames25-ui/ULTIMATELINKS.git)
-[![Deploy to Railway](https://railway.app/new/template?template=https://github.com/lovevideogames25-ui/ULTIMATELINKS.git)](https://railway.app/new/template?template=https://github.com/lovevideogames25-ui/ULTIMATELINKS.git)
+[![Deploy to Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/lovevideogames25-ui/ULTIMATELINKS.git)
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/lovevideogames25-ui/ULTIMATELINKS.git)
+[![Run on Google Cloud](https://binbashbanana.github.io/deploy-buttons/buttons/official/googlecloud.svg)](https://deploy.cloud.run/?git_repo=https://github.com/lovevideogames25-ui/ULTIMATELINKS.git)
+[![Deploy to AWS Amplify](https://binbashbanana.github.io/deploy-buttons/buttons/official/amplifyconsole.svg)](https://console.aws.amazon.com/amplify/home#/deploy?repo=https://github.com/lovevideogames25-ui/ULTIMATELINKS.git)
+[![Deploy to Azure](https://binbashbanana.github.io/deploy-buttons/buttons/official/azure.svg)](https://deploy.azure.com/?repository=https://github.com/lovevideogames25-ui/ULTIMATELINKS.git)
+[![Deploy to Oracle Cloud](https://binbashbanana.github.io/deploy-buttons/buttons/official/oraclecloud.svg)](https://cloud.oracle.com/resourcemanager/stacks/create?zipUrl=https://github.com/lovevideogames25-ui/ULTIMATELINKS/archive/refs/heads/main.zip)
 
-### ⚡ **Cloud & Enterprise Platforms**
+### 🔥 **Dev / IDE / Playground Deploy**
 
-[![Deploy to AWS Amplify](https://console.aws.amazon.com/amplify/home#/deploy?repo=https://github.com/lovevideogames25-ui/ULTIMATELINKS.git)](https://console.aws.amazon.com/amplify/home#/deploy?repo=https://github.com/lovevideogames25-ui/ULTIMATELINKS.git)
-[![Run on Google Cloud](https://deploy.cloud.run/?git_repo=https://github.com/lovevideogames25-ui/ULTIMATELINKS.git)](https://deploy.cloud.run/?git_repo=https://github.com/lovevideogames25-ui/ULTIMATELINKS.git)
-[![Deploy to Azure](https://deploy.azure.com/?repository=https://github.com/lovevideogames25-ui/ULTIMATELINKS.git)](https://deploy.azure.com/?repository=https://github.com/lovevideogames25-ui/ULTIMATELINKS.git)
-[![Deploy to Oracle Cloud](https://cloud.oracle.com/resourcemanager/stacks/create?zipUrl=https://github.com/lovevideogames25-ui/ULTIMATELINKS/archive/refs/heads/main.zip)](https://cloud.oracle.com/resourcemanager/stacks/create?zipUrl=https://github.com/lovevideogames25-ui/ULTIMATELINKS/archive/refs/heads/main.zip)
+[![Run on Replit](https://binbashbanana.github.io/deploy-buttons/buttons/official/replit.svg)](https://replit.com/github.com/lovevideogames25-ui/ULTIMATELINKS.git)
+[![Remix on Glitch](https://binbashbanana.github.io/deploy-buttons/buttons/official/glitch.svg)](https://glitch.com/edit/#!/import/github.com/lovevideogames25-ui/ULTIMATELINKS.git)
+[![Deploy to Heroku](https://binbashbanana.github.io/deploy-buttons/buttons/official/heroku.svg)](https://heroku.com/deploy/?template=https://github.com/lovevideogames25-ui/ULTIMATELINKS.git)
+[![Deploy to IBM Cloud](https://binbashbanana.github.io/deploy-buttons/buttons/official/ibmcloud.svg)](https://cloud.ibm.com/devops/setup/deploy?repository=https://github.com/lovevideogames25-ui/ULTIMATELINKS.git)
+[![Open in Gitpod](https://binbashbanana.github.io/deploy-buttons/buttons/official/gitpod.svg)](https://gitpod.io/#https://github.com/lovevideogames25-ui/ULTIMATELINKS.git)
+[![Open in StackBlitz](https://binbashbanana.github.io/deploy-buttons/buttons/official/stackblitz.svg)](https://stackblitz.com/github.com/lovevideogames25-ui/ULTIMATELINKS.git)
+[![Open in Codespaces](https://binbashbanana.github.io/deploy-buttons/buttons/official/codespaces.svg)](https://github.com/codespaces/new?repo=lovevideogames25-ui/ULTIMATELINKS.git)
+[![Deploy to Deno](https://deno.com/button)](https://console.deno.com/new?clone=https://github.com/lovevideogames25-ui/ULTIMATELINKS.git)
 
-### 🔥 **Developer-Friendly Platforms**
+### 🎮 **Extra Platforms (Less Common)**
 
-[![Deploy to Heroku](https://heroku.com/deploy/?template=https://github.com/lovevideogames25-ui/ULTIMATELINKS.git)](https://heroku.com/deploy/?template=https://github.com/lovevideogames25-ui/ULTIMATELINKS.git)
-[![Remix on Glitch](https://glitch.com/edit/#!/import/github.com/lovevideogames25-ui/ULTIMATELINKS.git)](https://glitch.com/edit/#!/import/github.com/lovevideogames25-ui/ULTIMATELINKS.git)
-[![Run on Replit](https://replit.com/github.com/lovevideogames25-ui/ULTIMATELINKS.git)](https://replit.com/github.com/lovevideogames25-ui/ULTIMATELINKS.git)
-[![Deploy to IBM Cloud](https://cloud.ibm.com/devops/setup/deploy?repository=https://github.com/lovevideogames25-ui/ULTIMATELINKS.git)](https://cloud.ibm.com/devops/setup/deploy?repository=https://github.com/lovevideogames25-ui/ULTIMATELINKS.git)
-
-### 🎮 **Specialized Platforms**
-
-[![Deploy to Koyeb](https://app.koyeb.com/deploy?type=git&repository=github.com/lovevideogames25-ui/ULTIMATELINKS&branch=main&name=ultimatelinks)](https://app.koyeb.com/deploy?type=git&repository=github.com/lovevideogames25-ui/ULTIMATELINKS&branch=main&name=ultimatelinks)
-[![Deploy to Cyclic](https://app.cyclic.sh/api/app/deploy/lovevideogames25-ui/ULTIMATELINKS.git)](https://app.cyclic.sh/api/app/deploy/lovevideogames25-ui/ULTIMATELINKS.git)
-
-### ⚡ **Additional Platforms**
-
-[![Deploy to Netlify Drop](https://app.netlify.com/drop?site=https://github.com/lovevideogames25-ui/ULTIMATELINKS.git)](https://app.netlify.com/drop?site=https://github.com/lovevideogames25-ui/ULTIMATELINKS.git)
-[![Deploy to DigitalOcean App Platform](https://cloud.digitalocean.com/apps?repo=https://github.com/lovevideogames25-ui/ULTIMATELINKS.git)](https://cloud.digitalocean.com/apps?repo=https://github.com/lovevideogames25-ui/ULTIMATELINKS.git)
-[![Deploy to AppVeyor](https://ci.appveyor.com/project/new?repo=https://github.com/lovevideogames25-ui/ULTIMATELINKS.git)](https://ci.appveyor.com/project/new?repo=https://github.com/lovevideogames25-ui/ULTIMATELINKS.git)
-[![Deploy to GitLab Pages](https://gitlab.com/lovevideogames25-ui/ULTIMATELINKS.io/pages)](https://gitlab.com/lovevideogames25-ui/ULTIMATELINKS.io/pages)
-[![Deploy to Bitbucket](https://bitbucket.org/account/repositories/new?workspace=6467550f-6b0c-4a0b-8e3a-8f5a-8e3a-8f5a&import=https://github.com/lovevideogames25-ui/ULTIMATELINKS.git)](https://bitbucket.org/account/repositories/new?workspace=6467550f-6b0c-4a0b-8e3a-8f5a-8e3a-8f5a&import=https://github.com/lovevideogames25-ui/ULTIMATELINKS.git)
-[![Deploy to GitLab](https://gitlab.com/projects/new#import_repository_url=https://github.com/lovevideogames25-ui/ULTIMATELINKS.git)](https://gitlab.com/projects/new#import_repository_url=https://github.com/lovevideogames25-ui/ULTIMATELINKS.git)
+[![Deploy to Railway](https://railway.app/button.svg)](https://railway.app/new/template?template=https://github.com/lovevideogames25-ui/ULTIMATELINKS.git)
+[![Deploy to Render](https://render.com/button.svg)](https://render.com/deploy?repo=https://github.com/lovevideogames25-ui/ULTIMATELINKS.git)
+[![Deploy to Koyeb](https://app.koyeb.com/button.svg)](https://app.koyeb.com/deploy?type=git&repository=github.com/lovevideogames25-ui/ULTIMATELINKS.git&branch=main)
+[![Deploy to Cyclic](https://app.cyclic.sh/button.svg)](https://app.cyclic.sh/api/app/deploy/lovevideogames25-ui/ULTIMATELINKS.git)
 
 ---
 
