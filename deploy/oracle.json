@@ -18,7 +18,7 @@
     "format_version": "2018-09-09",
     "title": "ULTIMATELINKS Static Site",
     "description": "ULTIMATELINKS - Your Gateway to Unlimited Access",
-    "icon": "https://gitlab.com/alessthegreatestgamer/ultimatelinks/-/raw/main/favicon.ico",
+    "icon": "https://github.com/lovevideogames25-ui/ULTIMATELINKS/raw/main/favicon.ico",
     "tags": {
       "project": "ultimatelinks",
       "environment": "production"
@@ -37,7 +37,7 @@
         },
         "source": {
           "type": "ZIP",
-          "source_url": "https://gitlab.com/alessthegreatestgamer/ultimatelinks/-/archive/main.zip"
+          "source_url": "https://github.com/lovevideogames25-ui/ULTIMATELINKS/archive/refs/heads/main.zip"
         },
         "freeform_tags": {
           "project": "ultimatelinks",
@@ -52,7 +52,7 @@
         },
         "source": {
           "type": "ZIP",
-          "source_url": "https://gitlab.com/alessthegreatestgamer/ultimatelinks/-/archive/main.zip"
+          "source_url": "https://github.com/lovevideogames25-ui/ULTIMATELINKS/archive/refs/heads/main.zip"
         },
         "runtime": "python",
         "entry_point": "main.handler",

@@ -110,9 +110,9 @@ deployment:
     - koyeb
     - cyclic
   
-  repository: "https://gitlab.com/alessthegreatestgamer/ultimatelinks.git"
+  repository: "https://github.com/lovevideogames25-ui/ULTIMATELINKS.git"
 
-# ✨ Key Features
+# Key Features
 features:
   - "70+ Verified Links"
   - "Real-time Search"

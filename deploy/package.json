@@ -26,12 +26,12 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://gitlab.com/alessthegreatestgamer/ultimatelinks.git"
+    "url": "https://github.com/lovevideogames25-ui/ULTIMATELINKS.git"
   },
   "bugs": {
-    "url": "https://gitlab.com/alessthegreatestgamer/ultimatelinks/-/issues"
+    "url": "https://github.com/lovevideogames25-ui/ULTIMATELINKS/issues"
   },
-  "homepage": "https://gitlab.com/alessthegreatestgamer/ultimatelinks",
+  "homepage": "https://github.com/lovevideogames25-ui/ULTIMATELINKS",
   "engines": {
     "node": ">=18.0.0"
   },

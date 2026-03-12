@@ -1,6 +1,6 @@
 # 🚀 ULTIMATELINKS - Deployment Configurations
 
-This folder contains all deployment configuration files for the ULTIMATELINKS project.
+This folder contains all deployment configuration files for the ULTIMATELINKS project from GitHub repository: https://github.com/lovevideogames25-ui/ULTIMATELINKS.git
 
 ## 📁 **Configuration Files**
 
