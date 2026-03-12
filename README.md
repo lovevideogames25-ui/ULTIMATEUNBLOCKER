@@ -59,9 +59,7 @@
 [![Deploy to Railway](https://railway.app/button.svg)](https://railway.app/new/template?template=https://github.com/lovevideogames25-ui/ULTIMATELINKS.git)
 [![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/lovevideogames25-ui/ULTIMATELINKS.git)
 [![Deploy to Koyeb](https://www.koyeb.com/static/images/deploy/button.svg)](https://app.koyeb.com/deploy?type=git&repository=github.com/lovevideogames25-ui/ULTIMATELINKS.git&branch=main)
-<a href="https://deploy.cyclic.sh/lovevideogames25-ui/ULTIMATELINKS">
-    <img src="https://deploy.cyclic.sh/button.svg" alt="Deploy to Cyclic" />
-</a>
+[![Deploy to Cyclic](https://binbashbanana.github.io/deploy-buttons/buttons/official/cyclic.svg)](https://deploy.cyclic.sh/lovevideogames25-ui/ULTIMATELINKS)
 
 ---
 
