@@ -147,14 +147,14 @@ status:
   community: "Open Source"
   documentation: "Complete"
   
-# 📞 Contact
+# Contact
 contact:
-  repository: "https://gitlab.com/alessthegreatestgamer/ultimatelinks"
-  issues: "https://gitlab.com/alessthegreatestgamer/ultimatelinks/-/issues"
-  discussions: "https://gitlab.com/alessthegreatestgamer/ultimatelinks/-/issues"
+  repository: "https://github.com/lovevideogames25-ui/ULTIMATELINKS.git"
+  issues: "https://github.com/lovevideogames25-ui/ULTIMATELINKS/issues"
+  discussions: "https://github.com/lovevideogames25-ui/ULTIMATELINKS/discussions"
 
-# 🎊 Project Haiku
+# Project Haiku
 haiku: |
-  🚀 Links unlock doors
-  🌐 Access without bounds
-  🎯 Freedom achieved
+  Links unlock doors
+  Access without bounds
+  Freedom achieved

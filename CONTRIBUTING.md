@@ -36,7 +36,7 @@ Thank you for your interest in contributing to ULTIMATELINKS! This document prov
 ### Local Development
 ```bash
 # Clone the repository
-git clone https://gitlab.com/alessthegreatestgamer/ultimatelinks.git
+git clone https://github.com/lovevideogames25-ui/ULTIMATELINKS.git
 cd ULTIMATELINKS
 
 # Start local server
@@ -220,7 +220,7 @@ By contributing to ULTIMATELINKS, you agree that your contributions will be lice
 
 ```bash
 # 1. Fork and clone
-git clone https://gitlab.com/YOUR_USERNAME/ultimatelinks.git
+git clone https://github.com/YOUR_USERNAME/ultimatelinks.git
 cd ULTIMATELINKS
 
 # 2. Create feature branch
@@ -239,7 +239,7 @@ git commit -m "Add your feature description"
 # 6. Push to your fork
 git push origin feature/your-feature-name
 
-# 7. Create merge request on GitLab
+# 7. Create Pull Request on GitHub
 ```
 
 ---

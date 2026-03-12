@@ -32,7 +32,7 @@
 
 ---
 
-## �🎯 **Quick Deploy - One Click & Live!**
+## � **Quick Deploy - One Click & Live!**
 
 ### 🌟 **Official Deployment Buttons**
 
@@ -129,14 +129,14 @@
 
 ### 🔧 **Option 2: Manual Deploy**
 1. **Choose platform** (Vercel, Netlify, Render, etc.)
-2. **Connect repository**: `https://gitlab.com/alessthegreatestgamer/ultimatelinks.git`
+2. **Connect repository**: `https://github.com/lovevideogames25-ui/ULTIMATELINKS.git`
 3. **Deploy as static site**
 4. **Go live instantly!**
 
 ### 💻 **Option 3: Local Development**
 ```bash
 # Clone the repository
-git clone https://gitlab.com/alessthegreatestgamer/ultimatelinks.git
+git clone https://github.com/lovevideogames25-ui/ULTIMATELINKS.git
 cd ULTIMATELINKS
 
 # Using Python (recommended)
@@ -372,13 +372,13 @@ Upload entire project folder - **no build process needed!**
 
 ---
 
-## 🤝 **Contributing**
+### 🤝 **Contributing**
 
-1. **🍴 Fork** repository on GitLab
-2. **🌿 Create** feature branch
-3. **✨ Make** your changes
-4. **🧪 Test** thoroughly
-5. **📤 Submit** merge request
+- **🍴 Fork** repository on GitHub
+- **🌿 Create** feature branch
+- **📝 Make changes** and test locally
+- **📤 Commit changes** with descriptive messages
+- **⬆️ Push to fork** and create Pull Request
 
 ---
 

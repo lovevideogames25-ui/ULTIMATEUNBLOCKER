@@ -234,9 +234,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Support]
 
-- **GitLab Repository**: https://gitlab.com/alessthegreatestgamer/ultimatelinks
-- **Issues**: https://gitlab.com/alessthegreatestgamer/ultimatelinks/-/issues
-- **Discord Chat**: Integrated in the application
+- **GitHub Repository**: https://github.com/lovevideogames25-ui/ULTIMATELINKS
+- **Issues**: https://github.com/lovevideogames25-ui/ULTIMATELINKS/issues
+- **Discord Chat**: Available in the application
+- **Documentation**: Check README.md and CHANGELOG.md
 
 ---
 
