@@ -23,8 +23,8 @@
 ### 🔥 **Developer-Friendly Platforms**
 
 [![Deploy to Heroku](https://binbashbanana.github.io/deploy-buttons/buttons/official/heroku.svg)](https://heroku.com/deploy/?template=https://gitlab.com/alessthegreatestgamer/ultimatelinks.git)
-[![Remix on Glitch](https://binbashbanana.github.io/deploy-buttons/buttons/official/glitch.svg)](https://glitch.com/edit/#!/import/github/alessthegreatestgamer/ultimatelinks)
-[![Run on Replit](https://binbashbanana.github.io/deploy-buttons/buttons/official/replit.svg)](https://replit.com/github/alessthegreatestgamer/ultimatelinks)
+[![Remix on Glitch](https://binbashbanana.github.io/deploy-buttons/buttons/official/glitch.svg)](https://glitch.com/edit/#!/import/gitlab.com/alessthegreatestgamer/ultimatelinks)
+[![Run on Replit](https://binbashbanana.github.io/deploy-buttons/buttons/official/replit.svg)](https://replit.com/gitlab.com/alessthegreatestgamer/ultimatelinks)
 [![Deploy to IBM Cloud](https://binbashbanana.github.io/deploy-buttons/buttons/official/ibmcloud.svg)](https://cloud.ibm.com/devops/setup/deploy?repository=https://gitlab.com/alessthegreatestgamer/ultimatelinks.git)
 
 ### 🎮 **Specialized Platforms**
@@ -376,6 +376,167 @@ Upload entire project folder - **no build process needed!**
 - **💬 Discussions**: [GitLab Discussions](https://gitlab.com/alessthegreatestgamer/ultimatelinks/-/issues)
 - **👥 Community**: Built-in comments section
 - **📧 Email**: Support available through issues
+
+---
+
+## 🛠️ **Deployment Configurations**
+
+### 📋 **Platform-Specific Files**
+
+| Platform | Config File | Purpose |
+|----------|-------------|---------|
+| **Vercel** | `deploy/vercel.json` | Static site deployment with security headers |
+| **Netlify** | `deploy/netlify.toml` | Build configuration and redirects |
+| **Render** | `deploy/render.yaml` | Static site with environment variables |
+| **Railway** | `deploy/railway.json` | Container deployment with health checks |
+| **AWS Amplify** | `deploy/amplify.json` | AWS static site with CI/CD |
+| **Google Cloud Run** | `deploy/gcp-run.json` | Container deployment on Cloud Run |
+| **Microsoft Azure** | `deploy/azure.json` | Azure Resource Manager deployment |
+| **Oracle Cloud** | `deploy/oracle.json` | OCI static site and functions |
+| **Heroku** | `deploy/heroku.json` | PaaS deployment with dynos |
+| **Glitch** | `deploy/glitch.json` | Remix and development platform |
+| **Replit** | `deploy/replit.json` | Online IDE and deployment |
+| **IBM Cloud** | `deploy/ibm-cloud.json` | IBM Cloud Developer Tools |
+| **Node.js** | `deploy/package.json` | Project metadata and scripts |
+
+### 📁 **Configuration Details**
+
+> **📁 All deployment configurations are now organized in the `/deploy` folder**
+> 
+> Each platform has its own configuration file optimized for deployment
+> 
+> See `/deploy/README.md` for detailed deployment instructions
+
+#### **🚀 vercel.json**
+```json
+{
+  "name": "ultimatelinks",
+  "version": 2,
+  "builds": [{"src": "index.html", "use": "@vercel/static"}],
+  "routes": [{"src": "/(.*)", "dest": "/index.html"}],
+  "headers": [
+    {"source": "/(.*)", "headers": [
+      {"key": "X-Frame-Options", "value": "DENY"},
+      {"key": "X-XSS-Protection", "value": "1; mode=block"},
+      {"key": "X-Content-Type-Options", "value": "nosniff"}
+    ]}
+  ],
+  "cleanUrls": true,
+  "trailingSlash": false
+}
+```
+
+#### **🌐 netlify.toml**
+```toml
+[build]
+  publish = "dist"
+  command = "echo 'No build command needed for static site'"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+
+[[redirects]]
+  from = "/home"
+  to = "/"
+  status = 301
+```
+
+#### **🎨 render.yaml**
+```yaml
+services:
+  - type: static
+    name: ultimatelinks
+    buildCommand: "echo 'No build required for static site'"
+    staticPublishPath: .
+    envVars:
+      - key: NODE_VERSION
+        value: "18"
+    autoDeploy: true
+    headers:
+      - path: "/*"
+        name: "X-Frame-Options"
+        value: "DENY"
+```
+
+#### **📦 package.json**
+```json
+{
+  "name": "ultimatelinks",
+  "version": "0.5.0-alpha-beta",
+  "description": "Your Gateway to Unlimited Access",
+  "scripts": {
+    "start": "echo 'Static site - no server needed'",
+    "dev": "python -m http.server 8000"
+  },
+  "keywords": ["proxy", "games", "movies", "ai-tools"],
+  "author": "alessthegreatestgamer",
+  "license": "MIT"
+}
+```
+
+#### **🚂 railway.json**
+```json
+{
+  "build": {
+    "builder": "NIXPACKS"
+  },
+  "deploy": {
+    "startCommand": "echo 'Static site - no server needed'",
+    "healthcheckPath": "/",
+    "healthcheckTimeout": 300,
+    "restartPolicyType": "ON_FAILURE",
+    "restartPolicyMaxRetries": 10
+  },
+  "services": {
+    "main": {
+      "sourceDir": "/",
+      "healthCheckPath": "/"
+    }
+  },
+  "environments": {
+    "production": {
+      "variables": {
+        "NODE_ENV": "production",
+        "PORT": "3000"
+      }
+    }
+  },
+  "headers": [
+    {
+      "source": "/*",
+      "headers": [
+        {
+          "name": "X-Frame-Options",
+          "value": "DENY"
+        },
+        {
+          "name": "X-XSS-Protection",
+          "value": "1; mode=block"
+        },
+        {
+          "name": "Content-Security-Policy",
+          "value": "default-src 'self'; script-src 'self' 'unsafe-inline'"
+        }
+      ]
+    }
+  ],
+  "routes": [
+    {
+      "source": "/home",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+}
+```
 
 ---
 

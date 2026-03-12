@@ -1,0 +1,55 @@
+{
+  "name": "ultimatelinks",
+  "version": "0.5.0",
+  "description": "ULTIMATELINKS - Your Gateway to Unlimited Access",
+  "scripts": {
+    "start": "echo 'Static site - no server needed for Google Cloud Run'",
+    "build": "echo 'No build process required for static HTML site'"
+  },
+  "build": {
+    "artifactRegistry": "gcr.io",
+    "dockerfile": "FROM nginx:alpine\nCOPY . /usr/share/nginx/html\nEXPOSE 8080\nCMD ['nginx', '-g', 'daemon off;']"
+  },
+  "run": {
+    "service": {
+      "name": "ultimatelinks",
+      "env": [
+        {
+          "name": "NODE_ENV",
+          "value": "production"
+        },
+        {
+          "name": "PORT",
+          "value": "8080"
+        }
+      ],
+      "resources": {
+        "limits": {
+          "cpu": "1",
+          "memory": "512Mi"
+        }
+      },
+      "scaling": {
+        "minInstances": 0,
+        "maxInstances": 10
+      }
+    }
+  },
+  "labels": {
+    "app": "ultimatelinks",
+    "version": "0.5.0-alpha-beta",
+    "managed-by": "google-cloud-deploy"
+  },
+  "annotations": {
+    "run.googleapis.com/ingress": "all",
+    "run.googleapis.com/execution-environment": "production"
+  },
+  "headers": {
+    "X-Frame-Options": "DENY",
+    "X-XSS-Protection": "1; mode=block",
+    "X-Content-Type-Options": "nosniff",
+    "Referrer-Policy": "strict-origin-when-cross-origin",
+    "Permissions-Policy": "geolocation=(), microphone=(), camera=()",
+    "Content-Security-Policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self'; connect-src 'self'"
+  }
+}
