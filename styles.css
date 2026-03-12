@@ -1415,6 +1415,204 @@ body {
         align-items: center;
     }
 
+    /* Notification Styles */
+    .notification {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        padding: 15px 20px;
+        border-radius: 8px;
+        color: #ffffff;
+        font-weight: 600;
+        z-index: 10000;
+        animation: slideIn 0.3s ease-out;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        backdrop-filter: blur(10px);
+        max-width: 300px;
+        word-wrap: break-word;
+    }
+
+    .notification.success {
+        background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+        border: 2px solid #10b981;
+    }
+
+    .notification.info {
+        background: linear-gradient(135deg, #3b82f6 0%, #1e40af 100%);
+        border: 2px solid #3b82f6;
+    }
+
+    .notification.error {
+        background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+        border: 2px solid #ef4444;
+    }
+
+    .notification.fade-out {
+        animation: slideOut 0.3s ease-out forwards;
+    }
+
+    @keyframes slideIn {
+        from {
+            transform: translateX(100%);
+            opacity: 0;
+        }
+        to {
+            transform: translateX(0);
+            opacity: 1;
+        }
+    }
+
+    @keyframes slideOut {
+        from {
+            transform: translateX(0);
+            opacity: 1;
+        }
+        to {
+            transform: translateX(100%);
+            opacity: 0;
+        }
+    }
+
+    /* Welcome Popup Styles */
+    .popup-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.8);
+        backdrop-filter: blur(10px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 99999;
+        opacity: 0;
+        transition: opacity 0.3s ease-in-out;
+    }
+
+    .popup-overlay.show {
+        opacity: 1;
+    }
+
+    .popup-overlay.fade-out {
+        opacity: 0;
+    }
+
+    .popup-content {
+        background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+        border: 2px solid rgba(255, 255, 255, 0.1);
+        border-radius: 16px;
+        padding: 0;
+        max-width: 500px;
+        width: 90%;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        transform: scale(0.9);
+        transition: all 0.3s ease-in-out;
+    }
+
+    .popup-overlay.show .popup-content {
+        transform: scale(1);
+    }
+
+    .popup-header {
+        padding: 30px 30px 20px;
+        text-align: center;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .popup-header h2 {
+        font-size: 1.8rem;
+        margin-bottom: 10px;
+        background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    .popup-header p {
+        color: #94a3b8;
+        font-size: 1rem;
+        margin: 0;
+    }
+
+    .popup-body {
+        padding: 20px 30px;
+    }
+
+    .popup-body p {
+        margin-bottom: 15px;
+        color: #ffffff;
+    }
+
+    .popup-body strong {
+        color: #10b981;
+        font-weight: 600;
+    }
+
+    .popup-stats {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 15px;
+        margin: 20px 0;
+    }
+
+    .popup-stats .stat {
+        text-align: center;
+        padding: 15px;
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 8px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .popup-stats .stat-number {
+        display: block;
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: #10b981;
+        margin-bottom: 5px;
+    }
+
+    .popup-stats .stat-label {
+        font-size: 0.9rem;
+        color: #94a3b8;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    .popup-footer {
+        padding: 20px 30px 30px;
+        text-align: center;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .yippee-btn {
+        background: linear-gradient(135deg, #f59e0b 0%, #ef4444 100%);
+        border: none;
+        padding: 15px 30px;
+        font-size: 1.2rem;
+        font-weight: 700;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        animation: pulse 2s infinite;
+    }
+
+    .yippee-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(245, 158, 11, 0.4);
+    }
+
+    @keyframes pulse {
+        0%, 100% {
+            transform: scale(1);
+        }
+        50% {
+            transform: scale(1.05);
+        }
+    }
+
     .btn {
         width: 100%;
         max-width: 300px;

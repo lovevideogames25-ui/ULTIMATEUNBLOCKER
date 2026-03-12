@@ -9,7 +9,7 @@
     <link rel="icon" href="favicon.ico">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="animations.css">
-    <link rel="stylesheet" href="comments.css">
+    <link rel="stylesheet" href="chat.css">
     <link rel="stylesheet" href="settings.css">
 </head>
 <body>
@@ -41,7 +41,7 @@
                     <a href="#categories" class="nav-link" onclick="showSection('categories')">Categories</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#comments" class="nav-link" onclick="showSection('comments')">Comments</a>
+                    <a href="#chat" class="nav-link" onclick="showSection('chat')">💬 Chat</a>
                 </li>
                 <li class="nav-item">
                     <a href="https://gitlab.com/alessthegreatestgamer/ultimatelinks" class="nav-link" target="_blank">GitLab</a>
@@ -77,12 +77,12 @@
                         <h1 class="hero-title">ULTIMATELINKS</h1>
                         <p class="hero-subtitle">Your Gateway to Unlimited Access</p>
                         <p class="hero-description">
-                            Access 62+ verified links across 10 categories including proxy sites, games, movies, AI tools, music, sports, and more. All links are tested and working!
+                            Access 70+ verified links across 10 categories including proxy sites, games, movies, AI tools, music, sports, and more. All links are tested and working!
                         </p>
                         
                         <div class="hero-stats">
                             <div class="stat-item">
-                                <span class="stat-number">62+</span>
+                                <span class="stat-number">70+</span>
                                 <span class="stat-label">Verified Links</span>
                             </div>
                             <div class="stat-item">
@@ -100,9 +100,9 @@
                                 <span class="btn-icon">📂</span>
                                 Explore Categories
                             </button>
-                            <button class="btn btn-secondary" onclick="showSection('comments')">
+                            <button class="btn btn-secondary" onclick="showSection('chat')">
                                 <span class="btn-icon">💬</span>
-                                View Comments
+                                Join Chat
                             </button>
                         </div>
                     </div>
@@ -196,6 +196,22 @@
                             </div>
                         </div>
                     </div>
+
+                    <div class="link-card">
+                        <div class="link-header">
+                            <h3>📚 Education</h3>
+                            <span class="link-status status-active">Active</span>
+                        </div>
+                        <div class="link-content">
+                            <p>Educational version of ULTIMATELINKS</p>
+                            <div class="link-actions">
+                                <a href="https://ultimateducation.surge.sh" class="btn btn-primary" target="_blank">
+                                    <span>📚</span>
+                                    Visit Site
+                                </a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -222,49 +238,22 @@
             </div>
         </section>
 
-        <!-- Comments Section -->
-        <section class="section" id="comments">
+        <!-- Chat Section -->
+        <section class="section" id="chat">
             <div class="container">
                 <header class="section-header">
-                    <h1 class="section-title">Community Comments</h1>
-                    <p class="section-subtitle">Share your thoughts and experiences</p>
+                    <h1 class="section-title">💬 Community Chat</h1>
+                    <p class="section-subtitle">Join our Discord community chat</p>
                 </header>
 
-                <div class="comments-container">
-                    <div class="comment-form-section">
-                        <div class="form-card">
-                            <h3 class="form-title">Share Your Thoughts</h3>
-                            <form class="comment-form" onsubmit="addComment(event)">
-                                <div class="form-group">
-                                    <label class="form-label">Your Name/Alias</label>
-                                    <input type="text" class="form-input" id="authorInput" 
-                                           placeholder="Enter your name or alias" required>
-                                </div>
-                                <div class="form-group">
-                                    <label class="form-label">Your Comment</label>
-                                    <textarea class="form-textarea" id="commentInput" 
-                                              placeholder="Share your thoughts, experiences, or recommendations..." 
-                                              required></textarea>
-                                </div>
-                                <div class="form-actions">
-                                    <button type="submit" class="btn btn-primary">
-                                        <span class="btn-icon">💬</span>
-                                        Post Comment
-                                    </button>
-                                    <button type="button" class="btn btn-secondary" onclick="clearForm()">
-                                        <span class="btn-icon">🔄</span>
-                                        Clear
-                                    </button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-
-                    <div class="comments-list">
-                        <h3 class="comments-title">Recent Comments</h3>
-                        <div class="comments-list" id="commentsList">
-                            <!-- Comments will be populated by JavaScript -->
-                        </div>
+                <div class="chat-container">
+                    <div class="chat-wrapper">
+                        <widgetbot
+                          server="1475684054899888229"
+                          width="100%"
+                          height="600"
+                        ></widgetbot>
+                        <script src="https://cdn.jsdelivr.net/npm/@widgetbot/html-embed"></script>
                     </div>
                 </div>
             </div>
@@ -329,3 +318,450 @@
         </section>
         
         <!-- Settings Section -->
+        <section id="settings" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h1 class="section-title">⚙️ Settings</h1>
+                    <p class="section-subtitle">Customize your ULTIMATELINKS experience</p>
+                </div>
+                
+                <div class="settings-container">
+                    <!-- Theme Settings -->
+                    <div class="settings-card">
+                        <div class="settings-header">
+                            <h3>🎨 Theme Settings</h3>
+                            <p>Choose your preferred color theme</p>
+                        </div>
+                        <div class="settings-content">
+                            <div class="theme-options">
+                                <div class="theme-option">
+                                    <input type="radio" id="theme-purple" name="theme" value="purple" checked>
+                                    <label for="theme-purple">
+                                        <div class="theme-preview purple-theme"></div>
+                                        <span>Purple Theme</span>
+                                    </label>
+                                </div>
+                                <div class="theme-option">
+                                    <input type="radio" id="theme-blue" name="theme" value="blue">
+                                    <label for="theme-blue">
+                                        <div class="theme-preview blue-theme"></div>
+                                        <span>Blue Theme</span>
+                                    </label>
+                                </div>
+                                <div class="theme-option">
+                                    <input type="radio" id="theme-green" name="theme" value="green">
+                                    <label for="theme-green">
+                                        <div class="theme-preview green-theme"></div>
+                                        <span>Green Theme</span>
+                                    </label>
+                                </div>
+                                <div class="theme-option">
+                                    <input type="radio" id="theme-red" name="theme" value="red">
+                                    <label for="theme-red">
+                                        <div class="theme-preview red-theme"></div>
+                                        <span>Red Theme</span>
+                                    </label>
+                                </div>
+                                <div class="theme-option">
+                                    <input type="radio" id="theme-dark" name="theme" value="dark">
+                                    <label for="theme-dark">
+                                        <div class="theme-preview dark-theme"></div>
+                                        <span>Dark Theme</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Animation Settings -->
+                    <div class="settings-card">
+                        <div class="settings-header">
+                            <h3>✨ Animation Settings</h3>
+                            <p>Control animations and visual effects</p>
+                        </div>
+                        <div class="settings-content">
+                            <div class="setting-item">
+                                <label for="animations-enabled">
+                                    <input type="checkbox" id="animations-enabled" checked>
+                                    <span>Enable Animations</span>
+                                </label>
+                            </div>
+                            <div class="setting-item">
+                                <label for="loading-animations">
+                                    <input type="checkbox" id="loading-animations" checked>
+                                    <span>Loading Animations</span>
+                                </label>
+                            </div>
+                            <div class="setting-item">
+                                <label for="hover-effects">
+                                    <input type="checkbox" id="hover-effects" checked>
+                                    <span>Hover Effects</span>
+                                </label>
+                            </div>
+                            <div class="setting-item">
+                                <label for="shimmer-effects">
+                                    <input type="checkbox" id="shimmer-effects" checked>
+                                    <span>Shimmer Effects</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Display Settings -->
+                    <div class="settings-card">
+                        <div class="settings-header">
+                            <h3>📱 Display Settings</h3>
+                            <p>Customize how content is displayed</p>
+                        </div>
+                        <div class="settings-content">
+                            <div class="setting-item">
+                                <label for="compact-view">
+                                    <input type="checkbox" id="compact-view">
+                                    <span>Compact View</span>
+                                </label>
+                            </div>
+                            <div class="setting-item">
+                                <label for="show-descriptions">
+                                    <input type="checkbox" id="show-descriptions" checked>
+                                    <span>Show Descriptions</span>
+                                </label>
+                            </div>
+                            <div class="setting-item">
+                                <label for="card-layout">
+                                    <input type="checkbox" id="card-layout" checked>
+                                    <span>Card Layout</span>
+                                </label>
+                            </div>
+                            <div class="setting-item">
+                                <label for="grid-columns">
+                                    <span>Grid Columns:</span>
+                                    <select id="grid-columns">
+                                        <option value="2">2 Columns</option>
+                                        <option value="3" selected>3 Columns</option>
+                                        <option value="4">4 Columns</option>
+                                        <option value="auto">Auto</option>
+                                    </select>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Notification Settings -->
+                    <div class="settings-card">
+                        <div class="settings-header">
+                            <h3>🔔 Notification Settings</h3>
+                            <p>Control notifications and alerts</p>
+                        </div>
+                        <div class="settings-content">
+                            <div class="setting-item">
+                                <label for="enable-notifications">
+                                    <input type="checkbox" id="enable-notifications" checked>
+                                    <span>Enable Notifications</span>
+                                </label>
+                            </div>
+                            <div class="setting-item">
+                                <label for="sound-effects">
+                                    <input type="checkbox" id="sound-effects">
+                                    <span>Sound Effects</span>
+                                </label>
+                            </div>
+                            <div class="setting-item">
+                                <label for="notification-duration">
+                                    <span>Notification Duration:</span>
+                                    <select id="notification-duration">
+                                        <option value="2000">2 Seconds</option>
+                                        <option value="3000" selected>3 Seconds</option>
+                                        <option value="5000">5 Seconds</option>
+                                        <option value="10000">10 Seconds</option>
+                                    </select>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Performance Settings -->
+                    <div class="settings-card">
+                        <div class="settings-header">
+                            <h3>⚡ Performance Settings</h3>
+                            <p>Optimize performance and loading</p>
+                        </div>
+                        <div class="settings-content">
+                            <div class="setting-item">
+                                <label for="preload-images">
+                                    <input type="checkbox" id="preload-images" checked>
+                                    <span>Preload Images</span>
+                                </label>
+                            </div>
+                            <div class="setting-item">
+                                <label for="cache-enabled">
+                                    <input type="checkbox" id="cache-enabled" checked>
+                                    <span>Enable Cache</span>
+                                </label>
+                            </div>
+                            <div class="setting-item">
+                                <label for="lazy-loading">
+                                    <input type="checkbox" id="lazy-loading">
+                                    <span>Lazy Loading</span>
+                                </label>
+                            </div>
+                            <div class="setting-item">
+                                <label for="reduced-motion">
+                                    <input type="checkbox" id="reduced-motion">
+                                    <span>Reduced Motion</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Privacy Settings -->
+                    <div class="settings-card">
+                        <div class="settings-header">
+                            <h3>🔒 Privacy Settings</h3>
+                            <p>Control your privacy and data</p>
+                        </div>
+                        <div class="settings-content">
+                            <div class="setting-item">
+                                <label for="analytics-enabled">
+                                    <input type="checkbox" id="analytics-enabled">
+                                    <span>Enable Analytics</span>
+                                </label>
+                            </div>
+                            <div class="setting-item">
+                                <label for="cookies-enabled">
+                                    <input type="checkbox" id="cookies-enabled" checked>
+                                    <span>Accept Cookies</span>
+                                </label>
+                            </div>
+                            <div class="setting-item">
+                                <label for="share-data">
+                                    <input type="checkbox" id="share-data">
+                                    <span>Share Usage Data</span>
+                                </label>
+                            </div>
+                            <div class="setting-item">
+                                <label for="incognito-mode">
+                                    <input type="checkbox" id="incognito-mode">
+                                    <span>Incognito Mode</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Accessibility Settings -->
+                    <div class="settings-card">
+                        <div class="settings-header">
+                            <h3>♿ Accessibility</h3>
+                            <p>Make the site easier to use</p>
+                        </div>
+                        <div class="settings-content">
+                            <div class="setting-item">
+                                <label for="high-contrast">
+                                    <input type="checkbox" id="high-contrast">
+                                    <span>High Contrast Mode</span>
+                                </label>
+                            </div>
+                            <div class="setting-item">
+                                <label for="large-text">
+                                    <input type="checkbox" id="large-text">
+                                    <span>Large Text</span>
+                                </label>
+                            </div>
+                            <div class="setting-item">
+                                <label for="screen-reader">
+                                    <input type="checkbox" id="screen-reader">
+                                    <span>Screen Reader Support</span>
+                                </label>
+                            </div>
+                            <div class="setting-item">
+                                <label for="keyboard-nav">
+                                    <input type="checkbox" id="keyboard-nav" checked>
+                                    <span>Keyboard Navigation</span>
+                                </label>
+                            </div>
+                            <div class="setting-item">
+                                <label for="font-size">
+                                    <span>Font Size</span>
+                                    <select id="font-size">
+                                        <option value="small">Small</option>
+                                        <option value="medium" selected>Medium</option>
+                                        <option value="large">Large</option>
+                                        <option value="extra-large">Extra Large</option>
+                                    </select>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Advanced Settings -->
+                    <div class="settings-card">
+                        <div class="settings-header">
+                            <h3>⚙️ Advanced</h3>
+                            <p>Developer and power user options</p>
+                        </div>
+                        <div class="settings-content">
+                            <div class="setting-item">
+                                <label for="debug-mode">
+                                    <input type="checkbox" id="debug-mode">
+                                    <span>Debug Mode</span>
+                                </label>
+                            </div>
+                            <div class="setting-item">
+                                <label for="console-logs">
+                                    <input type="checkbox" id="console-logs">
+                                    <span>Show Console Logs</span>
+                                </label>
+                            </div>
+                            <div class="setting-item">
+                                <label for="experimental-features">
+                                    <input type="checkbox" id="experimental-features">
+                                    <span>Experimental Features</span>
+                                </label>
+                            </div>
+                            <div class="setting-item">
+                                <label for="auto-update">
+                                    <input type="checkbox" id="auto-update" checked>
+                                    <span>Auto Update</span>
+                                </label>
+                            </div>
+                            <div class="setting-item">
+                                <label for="cache-clear">
+                                    <button class="btn btn-secondary" onclick="clearCache()">
+                                        <span>🗑️</span>
+                                        Clear Cache
+                                    </button>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Personalization Settings -->
+                    <div class="settings-card">
+                        <div class="settings-header">
+                            <h3>🎨 Personalization</h3>
+                            <p>Customize your experience</p>
+                        </div>
+                        <div class="settings-content">
+                            <div class="setting-item">
+                                <label for="custom-css">
+                                    <span>Custom CSS</span>
+                                    <textarea id="custom-css" placeholder="Enter custom CSS..." rows="3"></textarea>
+                                </label>
+                            </div>
+                            <div class="setting-item">
+                                <label for="language">
+                                    <span>Language</span>
+                                    <select id="language">
+                                        <option value="en" selected>English</option>
+                                        <option value="es">Español</option>
+                                        <option value="fr">Français</option>
+                                        <option value="de">Deutsch</option>
+                                        <option value="zh">中文</option>
+                                        <option value="ja">日本語</option>
+                                    </select>
+                                </label>
+                            </div>
+                            <div class="setting-item">
+                                <label for="timezone">
+                                    <span>Timezone</span>
+                                    <select id="timezone">
+                                        <option value="auto" selected>Auto Detect</option>
+                                        <option value="UTC">UTC</option>
+                                        <option value="EST">Eastern Time</option>
+                                        <option value="PST">Pacific Time</option>
+                                        <option value="GMT">Greenwich Mean Time</option>
+                                    </select>
+                                </label>
+                            </div>
+                            <div class="setting-item">
+                                <label for="date-format">
+                                    <span>Date Format</span>
+                                    <select id="date-format">
+                                        <option value="mm/dd/yyyy" selected>MM/DD/YYYY</option>
+                                        <option value="dd/mm/yyyy">DD/MM/YYYY</option>
+                                        <option value="yyyy-mm-dd">YYYY-MM-DD</option>
+                                        <option value="custom">Custom</option>
+                                    </select>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Action Buttons -->
+                    <div class="settings-actions">
+                        <button class="btn btn-primary" onclick="saveSettings()">
+                            <span>💾</span>
+                            Save Settings
+                        </button>
+                        <button class="btn btn-secondary" onclick="resetSettings()">
+                            <span>🔄</span>
+                            Reset to Default
+                        </button>
+                        <button class="btn btn-secondary" onclick="exportSettings()">
+                            <span>📤</span>
+                            Export Settings
+                        </button>
+                        <button class="btn btn-secondary" onclick="importSettings()">
+                            <span>📥</span>
+                            Import Settings
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="favicon.ico" alt="ULTIMATELINKS Logo" class="footer-logo-img">
+                        <h3>ULTIMATELINKS</h3>
+                    </div>
+                    <p>Your Gateway to Unlimited Access</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Categories</h4>
+                    <ul>
+                        <li><a href="#" onclick="showCategory('proxy')">Proxy Sites</a></li>
+                        <li><a href="#" onclick="showCategory('games')">Games</a></li>
+                        <li><a href="#" onclick="showCategory('movies')">Movies</a></li>
+                        <li><a href="#" onclick="showCategory('ai')">AI Tools</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="#" onclick="showSection('about')">About Us</a></li>
+                        <li><a href="#" onclick="showSection('chat')">Live Chat</a></li>
+                        <li><a href="#" onclick="shareLink()">Share</a></li>
+                        <li><a href="#" onclick="showNotification('Coming soon!', 'info')">Support</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <div class="footer-social">
+                        <button class="social-btn" onclick="shareLink()">📤</button>
+                        <button class="social-btn" onclick="copyLink()">📋</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 ULTIMATELINKS. All rights reserved. | Built with ❤️ for freedom</p>
+            </div>
+        </div>
+    </footer>
+    <!-- Scripts -->
+    <script src="script.js"></script>
+    <script src="chat.js"></script>
+    <script src="settings.js"></script>
+    <script src="simple_popup.js"></script>
+    <!-- Popup Styles -->
+    <link rel="stylesheet" href="popups.css">
+</body>
+</html>

@@ -1082,12 +1082,6 @@ function resetSettings() {
                 lazyLoading: false,
                 reducedMotion: false
             },
-            privacy: {
-                analyticsEnabled: false,
-                cookiesEnabled: true,
-                shareData: false,
-                incognitoMode: false
-            },
             accessibility: {
                 highContrast: false,
                 largeText: false,

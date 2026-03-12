@@ -1,16 +1,13 @@
+# Render Static Site Configuration
 services:
-  # Static Site Service
-  - type: web
+  - type: static
     name: ultimatelinks
-    env: static
     buildCommand: "echo 'No build required for static site'"
-    startCommand: "echo 'Static site deployment'"
     staticPublishPath: .
     envVars:
       - key: NODE_VERSION
         value: "18"
     domains:
       - ultimatelinks.onrender.com
-    healthCheckPath: /
     autoDeploy: true
     plan: free

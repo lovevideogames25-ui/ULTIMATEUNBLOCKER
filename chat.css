@@ -1,0 +1,72 @@
+/* Chat Section Styles */
+
+.chat-container {
+    padding: 20px;
+}
+
+.chat-wrapper {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 20px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+.chat-wrapper:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .chat-container {
+        padding: 10px;
+    }
+    
+    .chat-wrapper {
+        padding: 15px;
+        margin: 10px 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .chat-container {
+        padding: 5px;
+    }
+    
+    .chat-wrapper {
+        padding: 10px;
+        margin: 5px 0;
+    }
+}
+
+/* Loading Animation */
+.chat-wrapper::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40px;
+    height: 40px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-top: 3px solid var(--primary-color);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: translate(-50%, -50%) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* Hide loading when widget is loaded */
+.chat-wrapper widgetbot {
+    display: block;
+}
+
+.chat-wrapper::before {
+    display: none;
+}

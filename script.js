@@ -3,6 +3,7 @@
 // Global Variables
 let currentSection = 'home';
 let categories = [];
+let totalLinks = 70;
 
 // Initialize when DOM is loaded
 document.addEventListener('DOMContentLoaded', function() {
@@ -21,9 +22,6 @@ function initializeApp() {
     
     // Load categories
     loadCategories();
-    
-    // Load comments
-    loadComments();
     
     // Initialize search
     initializeSearch();
@@ -94,6 +92,11 @@ function showLinks() {
     showSection('links');
 }
 
+// Show Chat Section
+function showChat() {
+    showSection('chat');
+}
+
 // Update Active Navigation Link
 function updateActiveNavLink(sectionId) {
     const navLinks = document.querySelectorAll('.nav-link');
@@ -112,7 +115,7 @@ function loadCategories() {
             id: 'proxy',
             name: 'PROXY SITES',
             icon: '🛡️',
-            count: 18,
+            count: 19,
             description: 'Secure proxy services to bypass restrictions',
             links: [
                 { name: 'TRUFFLED', url: 'https://staffhiring.metropolitanstaffingsolutions.com/', description: 'Fast and secure proxy', warning: null },
@@ -126,24 +129,28 @@ function loadCategories() {
                 { name: 'OVERCLOAKED', url: 'https://cjklakljfsdfdfe.cxvjlkewdfw.1000pizzas.com', description: 'Overcloaked proxy', warning: null },
                 { name: 'BOREDOM', url: 'https://playernation.canalspa.cl/', description: 'Boredom killer proxy', warning: null },
                 { name: 'GLINT', url: 'https://top100coolbugfacts.martinwguy.net', description: 'Glint proxy service', warning: null },
-                { name: 'ABYSS', url: 'https://thetotalabyssboys.vercel.app/', description: 'Abyss proxy', warning: null },
+                { name: 'ABYSS', url: 'https://damsonyougotatshi.vercel.app/', description: 'Abyss proxy', warning: null },
                 { name: 'GHOST', url: 'https://poemsforkids.vseesa.martinwguy.net', description: 'Ghost proxy', warning: null },
                 { name: 'QUASAR', url: 'https://hoverfc.com/', description: 'Quasar proxy', warning: null },
                 { name: 'ROSIN', url: 'https://rosin.vcsa.national-birdshow.com/', description: 'Rosin proxy', warning: null },
                 { name: 'UNIUB', url: 'https://uniub.srvdns.de/', description: 'Uniub proxy', warning: null },
                 { name: 'BROMINE', url: 'https://nativeamericanhistory.netlify.app/', description: 'Bromine proxy', warning: null },
-                { name: 'LUNAR', url: 'https://book.today.hotelconsuladoinn.com/', description: 'Lunar proxy', warning: null }
+                { name: 'LUNAR', url: 'https://book.today.hotelconsuladoinn.com/', description: 'Lunar proxy', warning: null },
+                { name: 'CHERRI', url: 'https://vcsa-yt.jtlanguage.com/onboarding/', description: 'Cherri proxy', warning: null }
             ]
         },
         {
             id: 'games',
             name: 'GAME LINKS',
             icon: '🎮',
-            count: 20,
+            count: 26,
             description: 'Play your favorite games online without limits',
             links: [
+                { name: 'FREEZENOVA CLOUD', url: 'https://d3tecwpbnz01jy.cloudfront.net/classes/all/', description: 'Freezenova cloud games', warning: null },
+                { name: 'GN MATH', url: 'https://fantasticfour99.github.io/gnmath/', description: 'GN math games', warning: null },
                 { name: 'COMPLETELY SCIENCE', url: 'http://d1tmbzjih4bfq6.cloudfront.net', description: 'Science games collection', warning: '⚠ WARNING: HTTP, No detected malware' },
-                { name: 'PETEZAH', url: 'https://totallynotgames.seclogistic.com/', description: 'Petezah games', warning: null },
+                { name: 'PETEZAH', url: 'https://gatekeep-this-please-t.seedlandia.ru/', description: 'Petezah games', warning: null },
+                { name: 'PETEZAH (OLD)', url: 'https://pineapple-petezah.github.io/pages/home.html', description: 'Petezah old games', warning: null },
                 { name: 'RED EXPLOIT CORNER', url: 'http://bull33.infotechnology.com', description: 'Exploit games', warning: '⚠ WARNING: HTTP, No detected malware' },
                 { name: 'DUCK', url: 'https://quack-learn.web.app/', description: 'Duck games', warning: null },
                 { name: 'FROGIESARCADE', url: 'https://frogieeisback-edu.zone.id/', description: 'Frogie arcade games', warning: null },
@@ -153,7 +160,8 @@ function loadCategories() {
                 { name: 'GOFLO GAMES', url: 'https://goflogames.github.io/', description: 'Goflo games hub', warning: null },
                 { name: 'CCPORTED', url: 'https://d1yh00vn2fvto7.cloudfront.net/', description: 'CC ported games', warning: null },
                 { name: 'EXTREMEMATH', url: 'https://extrememath.freetls.fastly.net/', description: 'Extreme math games', warning: null },
-                { name: 'NOWGG', url: 'http://198.ip.nowgg.fun', description: 'Now.gg games', warning: '⚠ WARNING: HTTP, No detected malware' },
+                { name: 'NOWGG', url: 'https://now.gg', description: 'Now.gg games', warning: null },
+                { name: 'FROGIESARCADE NOWGG', url: 'http://198.ip.nowgg.fun', description: 'Frogiesarcade Now.gg games', warning: '⚠ WARNING: HTTP, No detected malware' },
                 { name: 'EAGLECRAFT', url: 'https://client.eaglercraft.win/eagler-files/wasm/1.8/Main/index.html', description: 'Eaglercraft Minecraft', warning: null },
                 { name: 'JORDANS MATH WORK', url: 'https://subscribevseesa.infotechnology.com/', description: 'Math work games', warning: null },
                 { name: 'CLASSROOM GAMES', url: 'https://dnrweqffuwjtx.cloudfront.net/', description: 'Classroom games', warning: null },
@@ -161,7 +169,9 @@ function loadCategories() {
                 { name: 'SYCES GAME SHACK', url: 'https://subkeys.github.io/sayeo/index.html', description: 'Syces games', warning: null },
                 { name: 'TOPVAZ (BASKET RANDOM EDITION)', url: 'https://basket-random.gitlab.io/category/shooting.htm', description: 'Basket random games', warning: null },
                 { name: 'VOID NETWORK V5', url: 'https://chemistrypracticelab.cencopro.cl/', description: 'Void Network V5', warning: null },
-                { name: 'BROMINE (GAME EDITION)', url: 'https://codeprojects.org/projects/weblab/vm34VbcbEEmT5SAi_UWswHp7q2SBriUipjk4WmuXXJk/', description: 'Bromine games', warning: null }
+                { name: 'BROMINE (GAME EDITION)', url: 'https://codeprojects.org/projects/weblab/vm34VbcbEEmT5SAi_UWswHp7q2SBriUipjk4WmuXXJk/', description: 'Bromine games', warning: null },
+                { name: 'LUNARSYNC', url: 'https://friendly-palm-tree-4j9jp4g5457pcvrr-8080.app.github.dev', description: 'Lunarsync games', warning: null },
+                { name: 'SELENITE', url: 'https://french.jtlanguage.com', description: 'Selenite games', warning: null }
             ]
         },
         {
@@ -252,9 +262,10 @@ function loadCategories() {
             id: 'soundboards',
             name: 'SOUNDBOARDS',
             icon: '🔊',
-            count: 3,
+            count: 4,
             description: 'Fun soundboards and meme sounds',
             links: [
+                { name: 'GENIZY SOUNDBOARD', url: 'https://genizy.github.io/soundboard/', description: 'Genizy soundboard', warning: null },
                 { name: '101SOUNDBOARD', url: 'http://101soundboards.com', description: '101 soundboards', warning: '⚠ WARNING: HTTP, No detected malware' },
                 { name: 'FREE MEME SOUNDBOARD', url: 'https://filme.imyfone.com/soundboards/meme', description: 'Free meme sounds', warning: null },
                 { name: 'MEME SOUNDBOARD', url: 'https://www.tynker.com/community/projects/play/meme-soundboard/62f1ae42667c79348823eee8/', description: 'Meme soundboard', warning: null }
@@ -379,177 +390,6 @@ function searchCategories(query) {
     });
 }
 
-// Comments Functions
-function loadComments() {
-    // Load comments from localStorage
-    const storedComments = localStorage.getItem('ultimateLinks_comments');
-    if (storedComments) {
-        try {
-            comments = JSON.parse(storedComments);
-        } catch (error) {
-            console.error('Error loading comments:', error);
-            comments = [];
-        }
-    } else {
-        // Default comments
-        comments = [
-            {
-                id: 1,
-                author: 'Anonymous User',
-                content: 'This is an amazing resource! Thank you for creating this.',
-                timestamp: new Date(Date.now() - 86400000).toISOString(),
-                likes: 5
-            },
-            {
-                id: 2,
-                author: 'Tech Enthusiast',
-                content: 'The proxy sites work perfectly. Great collection!',
-                timestamp: new Date(Date.now() - 172800000).toISOString(),
-                likes: 3
-            }
-        ];
-    }
-    
-    renderComments();
-}
-
-// Render Comments
-function renderComments() {
-    const commentsList = document.getElementById('commentsList');
-    if (!commentsList) return;
-    
-    commentsList.innerHTML = '';
-    
-    if (comments.length === 0) {
-        commentsList.innerHTML = '<p>No comments yet. Be the first to share your thoughts!</p>';
-        return;
-    }
-    
-    comments.forEach((comment, index) => {
-        const commentItem = createCommentItem(comment, index);
-        commentsList.appendChild(commentItem);
-    });
-}
-
-// Create Comment Item
-function createCommentItem(comment, index) {
-    const commentItem = document.createElement('div');
-    commentItem.className = 'comment-item';
-    commentItem.style.animationDelay = `${index * 0.1}s`;
-    
-    const timeAgo = getTimeAgo(new Date(comment.timestamp));
-    
-    commentItem.innerHTML = `
-        <div class="comment-header">
-            <span class="comment-author">${escapeHtml(comment.author)}</span>
-            <span class="comment-time">${timeAgo}</span>
-        </div>
-        <div class="comment-content">${escapeHtml(comment.content)}</div>
-        <div class="comment-actions">
-            <button class="comment-like-btn" onclick="likeComment(${comment.id})">
-                ❤️ ${comment.likes || 0}
-            </button>
-        </div>
-    `;
-    
-    return commentItem;
-}
-
-// Add Comment
-function addComment(event) {
-    event.preventDefault();
-    
-    const authorInput = document.getElementById('authorInput');
-    const commentInput = document.getElementById('commentInput');
-    
-    if (!authorInput || !commentInput) return;
-    
-    const author = authorInput.value.trim();
-    const content = commentInput.value.trim();
-    
-    if (!author || !content) {
-        showNotification('Please fill in both fields.', 'warning');
-        return;
-    }
-    
-    const newComment = {
-        id: Date.now(),
-        author: author,
-        content: content,
-        timestamp: new Date().toISOString(),
-        likes: 0
-    };
-    
-    comments.unshift(newComment);
-    saveComments();
-    renderComments();
-    clearForm();
-    
-    showNotification('Comment posted successfully! Remember, this comment is permanent.', 'success');
-}
-
-// Like Comment
-function likeComment(commentId) {
-    const comment = comments.find(c => c.id === commentId);
-    if (comment) {
-        comment.likes = (comment.likes || 0) + 1;
-        saveComments();
-        renderComments();
-    }
-}
-
-// Save Comments
-function saveComments() {
-    try {
-        localStorage.setItem('ultimateLinks_comments', JSON.stringify(comments));
-    } catch (error) {
-        console.error('Error saving comments:', error);
-    }
-}
-
-// Clear Form
-function clearForm() {
-    const authorInput = document.getElementById('authorInput');
-    const commentInput = document.getElementById('commentInput');
-    
-    if (authorInput) authorInput.value = '';
-    if (commentInput) commentInput.value = '';
-}
-
-// Utility Functions
-function getTimeAgo(date) {
-    const seconds = Math.floor((new Date() - date) / 1000);
-    
-    let interval = Math.floor(seconds / 31536000);
-    if (interval > 1) return interval + ' years ago';
-    
-    interval = Math.floor(seconds / 2592000);
-    if (interval > 1) return interval + ' months ago';
-    
-    interval = Math.floor(seconds / 86400);
-    if (interval > 1) return interval + ' days ago';
-    
-    interval = Math.floor(seconds / 3600);
-    if (interval > 1) return interval + ' hours ago';
-    
-    interval = Math.floor(seconds / 60);
-    if (interval > 1) return interval + ' minutes ago';
-    
-    return 'Just now';
-}
-
-function escapeHtml(text) {
-    const map = {
-        '&': '&amp;',
-        '<': '&lt;',
-        '>': '&gt;',
-        '"': '&quot;',
-        "'": '&#039;'
-    };
-    
-    return text.replace(/[&<>"']/g, m => map[m]);
-}
-
 // Notification System
 function showNotification(message, type = 'info') {
     const notification = document.createElement('div');
@@ -578,6 +418,17 @@ function shareLink() {
         copyLink();
         showNotification('Link copied to clipboard!', 'success');
     }
+}
+
+// Link Update Notifications
+function showAddedLinksNotification(links) {
+    const message = `ADDED LINKS: ${links.join(', ')}`;
+    showNotification(message, 'success');
+}
+
+function showLinksChangedNotification(links) {
+    const message = `LINKS CHANGED: ${links.join(', ')}`;
+    showNotification(message, 'info');
 }
 
 function copyLink() {
@@ -628,4 +479,73 @@ window.addEventListener('error', function(e) {
 window.addEventListener('load', function() {
     console.log('Page loaded successfully');
     console.log('ULTIMATELINKS - All systems operational');
+    
+    // Show welcome popup after loading
+    setTimeout(() => {
+        showWelcomePopup();
+    }, 2500); // Show after loading screen fades out
+    
+    // Example usage of new notification functions:
+    // showAddedLinksNotification(['GN MATH', 'SELENITE']);
+    // showLinksChangedNotification(['NOWGG', 'ABYSS']);
 });
+
+// Welcome Popup Function
+function showWelcomePopup() {
+    // Create popup overlay
+    const popupOverlay = document.createElement('div');
+    popupOverlay.className = 'popup-overlay';
+    popupOverlay.innerHTML = `
+        <div class="popup-content">
+            <div class="popup-header">
+                <h2>🎉 Welcome to ULTIMATELINKS! 🎉</h2>
+                <p>Your gateway to unlimited access</p>
+            </div>
+            <div class="popup-body">
+                <p>We've added <strong>8 new links</strong> today!</p>
+                <p>Total collection: <strong>70+ verified links</strong></p>
+                <div class="popup-stats">
+                    <div class="stat">
+                        <span class="stat-number">26</span>
+                        <span class="stat-label">Games</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">19</span>
+                        <span class="stat-label">Proxies</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">4</span>
+                        <span class="stat-label">Soundboards</span>
+                    </div>
+                </div>
+            </div>
+            <div class="popup-footer">
+                <button class="btn btn-primary yippee-btn" onclick="closeWelcomePopup()">
+                    <span class="btn-icon">🎊</span>
+                    YIPPIE
+                </button>
+            </div>
+        </div>
+    `;
+    
+    document.body.appendChild(popupOverlay);
+    
+    // Add entrance animation
+    setTimeout(() => {
+        popupOverlay.classList.add('show');
+    }, 100);
+}
+
+// Close Welcome Popup
+function closeWelcomePopup() {
+    const popupOverlay = document.querySelector('.popup-overlay');
+    if (popupOverlay) {
+        popupOverlay.classList.add('fade-out');
+        setTimeout(() => {
+            document.body.removeChild(popupOverlay);
+        }, 300);
+    }
+    
+    // Show celebration notification
+    showNotification('🎊 YIPPIE! Welcome to ULTIMATELINKS!', 'success');
+}
