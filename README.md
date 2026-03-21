@@ -43,8 +43,8 @@
 ```
 
 ### 🌐 **Live Deployments:**
-- **🌐 Production Site** - [ultimateunblocker.pages.dev](https://ultimateunblocker.pages.dev)
-- **⚡ Surge.sh** - [ultimateunblocker.surge.sh](https://ultimateunblocker.surge.sh)
+- **🌐 Production Site** - [ultimatelinks.pages.dev](https://ultimatelinks.pages.dev)
+- **⚡ Surge.sh** - [ultimatelinks.surge.sh](https://ultimatelinks.surge.sh)
 - **🚫 PlsNoBlock** - [plsnoblockordeploymentpause.vercel.app](https://plsnoblockordeploymentpause.vercel.app)
 - **📚 Education** - [ultimateducation.surge.sh](https://ultimateducation.surge.sh)
 
