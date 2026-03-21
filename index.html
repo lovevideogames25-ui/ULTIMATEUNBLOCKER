@@ -276,12 +276,30 @@
                     <div class="chat-wrapper">
                         <widgetbot
                           server="1475684054899888229"
-                          width="100%"
+                          width="1200"
                           height="600"
                         ></widgetbot>
                         <script src="https://cdn.jsdelivr.net/npm/@widgetbot/html-embed"></script>
                     </div>
                 </div>
+                
+                <style>
+                    .chat-container {
+                        width: 100%;
+                        max-width: 1200px;
+                        margin: 0 auto;
+                    }
+                    .chat-wrapper {
+                        width: 100%;
+                        max-width: 1200px;
+                        height: 600px;
+                    }
+                    .chat-wrapper widgetbot {
+                        width: 1200px !important;
+                        max-width: 1200px !important;
+                        height: 600px !important;
+                    }
+                </style>
             </div>
         </section>
 
@@ -795,7 +813,6 @@
     <script src="chat.js"></script>
     <script src="settings.js"></script>
     <script src="simple_popup.js"></script>
-    <script src="theme-packs/hacking-loading.js"></script>
     
     <!-- Beta Release Popup -->
     <script>

@@ -240,7 +240,7 @@ function handleNavClick(e) {
 }
 
 // Enhanced Section Display
-function showSection(sectionId) {
+function showSection(sectionId, updateHistory = true) {
     if (isLoading) return;
     
     console.log('showSection called with:', sectionId);
@@ -611,6 +611,7 @@ function renderCategories() {
     categories.forEach((category, index) => {
         const categoryCard = document.createElement('div');
         categoryCard.className = 'category-card';
+        categoryCard.style.cursor = 'pointer';
         categoryCard.innerHTML = `
             <div class="category-icon">${category.icon}</div>
             <div class="category-info">
@@ -621,11 +622,28 @@ function renderCategories() {
                 </div>
             </div>
             <div class="category-action">
-                <button class="btn btn-primary" onclick="window.ULTIMATELINKS.showCategoryDetail('${category.name}')">
+                <button class="btn btn-primary">
                     Explore
                 </button>
             </div>
         `;
+        
+        // Add click event to entire card
+        categoryCard.addEventListener('click', function(e) {
+            // Don't trigger if clicking on the button itself (to prevent double trigger)
+            if (!e.target.classList.contains('btn')) {
+                window.ULTIMATELINKS.showCategoryDetail(category.name);
+            }
+        });
+        
+        // Add click event to button specifically
+        const exploreBtn = categoryCard.querySelector('.btn');
+        if (exploreBtn) {
+            exploreBtn.addEventListener('click', function(e) {
+                e.stopPropagation(); // Prevent card click from also firing
+                window.ULTIMATELINKS.showCategoryDetail(category.name);
+            });
+        }
         
         categoriesGrid.appendChild(categoryCard);
         
