@@ -5,6 +5,86 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.5.0 BETA] - 2026-03-21
+
+### 🎉 MAJOR BETA RELEASE
+- **Complete Multi-Page Structure** - Separate pages for all sections
+- **Advanced Theme System** - 6 themes including hacking theme
+- **Categories with Search** - Organized links with filtering
+- **Discord Integration** - Live community chat
+- **Settings Panel** - Customizable themes and preferences
+- **Beta Release Popup** - Professional announcement system
+
+### 🎨 NEW THEMES SYSTEM
+- **🖥️ Hacking Theme** - Terminal matrix style with green phosphor glow
+- **🎨 Theme Selector** - Choose from 6 different themes
+- **💜 Purple Theme** - Default premium theme
+- **💙 Blue Theme** - Ocean-inspired design
+- **💚 Green Theme** - Nature-focused colors
+- **❤️ Red Theme** - Bold and vibrant
+- **⚫ Dark Theme** - Minimalist dark mode
+- **✨ Theme Persistence** - Settings saved locally
+
+### 📂 CATEGORIES SYSTEM
+- **🛡️ Proxy Sites** - Secure browsing solutions
+- **🎮 Game Links** - Gaming platforms and tools
+- **🎬 Movie Sites** - Streaming platforms
+- **🤖 AI Tools** - Artificial intelligence utilities
+- **🔍 Search Functionality** - Filter categories and links
+- **📱 Category Detail Pages** - Dedicated pages for each category
+- **🎯 Link Cards** - Modern card-based layout
+
+### 🔗 MULTIPLE DEPLOYMENTS
+- **🌐 Production Site** - ultimatelinks.pages.dev
+- **⚡ Surge.sh** - Fast CDN deployment
+- **🚫 PlsNoBlock** - Anti-block protection deployment
+- **📚 Education** - Educational version
+- **🔧 Deployment Configs** - 13 platform configurations
+- **🛡️ Anti-Block Protection** - Multiple access options
+
+### 💬 DISCORD INTEGRATION
+- **💬 Live Chat** - WidgetBot Discord integration
+- **🤝 Community Hub** - Real-time user interaction
+- **🔗 Server Connection** - Direct Discord server access
+- **📱 Mobile Chat** - Chat works on all devices
+
+### ⚙️ SETTINGS PANEL
+- **🎨 Theme Selection** - Visual theme switcher
+- **✨ Animation Controls** - Toggle animations on/off
+- **🌐 Language Settings** - Multi-language support
+- **📱 Personalization** - Custom user preferences
+- **💾 Local Storage** - Settings persist across sessions
+
+### 📱 ENHANCED NAVIGATION
+- **🔄 Smooth Transitions** - Hardware-accelerated animations
+- **📱 Mobile Menu** - Hamburger navigation for mobile
+- **🎯 Active States** - Clear navigation indicators
+- **🔍 URL Routing** - Proper URL management
+- **⚡ Fast Switching** - Instant page transitions
+
+### 🎯 BETA FEATURES
+- **🎉 Beta Popup** - Professional release announcement
+- **📊 Feature Showcase** - Highlight new capabilities
+- **🔗 Quick Actions** - Direct access to key features
+- **📱 Responsive Design** - Perfect on all devices
+- **✨ Modern Animations** - Smooth visual effects
+
+### 🔧 TECHNICAL IMPROVEMENTS
+- **📱 CSS Optimization** - Cleaner, maintainable styles
+- **⚡ Performance** - Faster loading and interactions
+- **🔒 Enhanced Security** - Better protection measures
+- **📱 Mobile Optimization** - Improved mobile experience
+- **🔧 Code Refactoring** - Cleaner, more efficient code
+
+### 🐛 BUG FIXES
+- **🔧 Section Visibility** - Fixed disappearing sections
+- **📱 Navigation Issues** - Resolved switching problems
+- **🎨 Theme Conflicts** - Fixed theme switching bugs
+- **📱 Mobile Menu** - Fixed hamburger navigation
+- **🔗 Link Display** - Resolved links visibility issues
+
+---
+
 ## [0.5.0 ALPHA BETA] - 2026-03-12
 
 ### 🚀 MAJOR UI OVERHAUL
