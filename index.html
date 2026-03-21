@@ -1,0 +1,1107 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ULTIMATELINKS - Your Gateway to Unlimited Access</title>
+    <!-- MAIN CONTROLLER & UI STRUCTURE -->
+    <link rel="icon" href="favicon.ico">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="animations.css">
+    <link rel="stylesheet" href="chat.css">
+    <link rel="stylesheet" href="settings.css">
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-content">
+            <div class="loading-logo">
+                <img src="favicon.ico" alt="ULTIMATELINKS Logo" class="loading-logo-img">
+            </div>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+            <div class="loading-text">Loading ULTIMATELINKS...</div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="favicon.ico" alt="ULTIMATELINKS Logo" class="nav-logo-img">
+                <span class="logo-text">ULTIMATELINKS</span>
+            </div>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li class="nav-item">
+                    <a href="#home" class="nav-link" onclick="showSection('home')">🏠 Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#categories" class="nav-link" onclick="showSection('categories')">📂 Categories</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#chat" class="nav-link" onclick="showSection('chat')">💬 Chat</a>
+                </li>
+                <li class="nav-item">
+                    <a href="https://github.com/lovevideogames25-ui/ULTIMATELINKS" class="nav-link" target="_blank">🔧 GitHub</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#links" class="nav-link" onclick="showSection('links')">🔗 Links</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#about" class="nav-link" onclick="showSection('about')">ℹ️ About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#settings" class="nav-link" onclick="showSection('settings')">⚙️ Settings</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Home Section -->
+        <section class="section active" id="home">
+            <div class="container">
+                <header class="hero">
+                    <div class="hero-content">
+                        <div class="hero-logo">
+                            <img src="favicon.ico" alt="ULTIMATELINKS Logo" class="hero-logo-img">
+                        </div>
+                        <h1 class="hero-title">ULTIMATELINKS</h1>
+                        <p class="hero-subtitle">Your Gateway to Unlimited Access</p>
+                        <p class="hero-description">
+                            Access 70+ verified links across 10 categories including proxy sites, games, movies, AI tools, music, sports, and more. All links are tested and working!
+                        </p>
+                        
+                        <div class="hero-stats">
+                            <div class="stat-item">
+                                <span class="stat-number">70+</span>
+                                <span class="stat-label">Verified Links</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">10</span>
+                                <span class="stat-label">Categories</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">100%</span>
+                                <span class="stat-label">Free</span>
+                            </div>
+                        </div>
+                        
+                        <div class="hero-actions">
+                            <button class="btn btn-primary" onclick="showSection('categories')">
+                                <span class="btn-icon">📂</span>
+                                Explore Categories
+                            </button>
+                            <button class="btn btn-secondary" onclick="showSection('chat')">
+                                <span class="btn-icon">💬</span>
+                                Join Chat
+                            </button>
+                        </div>
+                    </div>
+                </header>
+
+                <!-- Features Section -->
+                <section class="features">
+                    <h2 class="section-title">Why Choose ULTIMATELINKS?</h2>
+                    <div class="features-grid">
+                        <div class="feature-card">
+                            <div class="feature-icon">🔒</div>
+                            <h3>Secure & Private</h3>
+                            <p>All connections are encrypted and your privacy is protected</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">⚡</div>
+                            <h3>Lightning Fast</h3>
+                            <p>Optimized servers ensure smooth and fast browsing experience</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">🌍</div>
+                            <h3>Global Access</h3>
+                            <p>Access content from anywhere in the world without restrictions</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">📱</div>
+                            <h3>Mobile Friendly</h3>
+                            <p>Works perfectly on all devices - desktop, tablet, and mobile</p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </section>
+
+        <!-- Categories Section -->
+        <section class="section" id="categories">
+            <div class="container">
+                <header class="section-header">
+                    <h1 class="section-title">Explore Categories</h1>
+                    <p class="section-subtitle">Choose from our collection of verified links</p>
+                </header>
+                
+                <div class="search-container">
+                    <input type="text" class="search-input" placeholder="Search categories..." id="categorySearch" oninput="searchCategories(this.value)">
+                    <button class="search-btn">🔍</button>
+                </div>
+
+                <!-- Debug Test Button -->
+                <div style="text-align: center; margin: 20px 0;">
+                    <button class="btn btn-secondary" onclick="ULTIMATELINKS.testCategoryFunction()">
+                        🧪 Test Category Function
+                    </button>
+                    <button class="btn btn-secondary" onclick="ULTIMATELINKS.showCategoryDetail('Games')">
+                        🎮 Test Games Category
+                    </button>
+                </div>
+
+                <div class="categories-grid" id="categoriesGrid">
+                    <!-- Categories will be populated by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Links Section -->
+        <section class="section" id="links">
+            <div class="container">
+                <header class="section-header">
+                    <h1 class="section-title">🔗 Website Links</h1>
+                    <p class="section-subtitle">Access all ULTIMATELINKS deployments</p>
+                </header>
+
+                <div class="links-grid">
+                    <div class="link-card">
+                        <div class="link-header">
+                            <h3>🌐 Production Site</h3>
+                            <span class="link-status status-active">Active</span>
+                        </div>
+                        <div class="link-content">
+                            <p>Main production deployment with all features</p>
+                            <div class="link-actions">
+                                <a href="https://ultimatelinks.pages.dev" class="btn btn-primary" target="_blank">
+                                    <span>🚀</span>
+                                    Visit Site
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="link-card">
+                        <div class="link-header">
+                            <h3>⚡ Surge.sh</h3>
+                            <span class="link-status status-active">Active</span>
+                        </div>
+                        <div class="link-content">
+                            <p>Fast CDN deployment with global distribution</p>
+                            <div class="link-actions">
+                                <a href="https://ultimatelinks.surge.sh" class="btn btn-primary" target="_blank">
+                                    <span>🚀</span>
+                                    Visit Site
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="link-card">
+                        <div class="link-header">
+                            <h3>🚫 PlsNoBlock Deployment</h3>
+                            <span class="link-status status-active">Active</span>
+                        </div>
+                        <div class="link-content">
+                            <p>Anti-block deployment with pause protection</p>
+                            <div class="link-actions">
+                                <a href="https://plsnoblockordeploymentpause.vercel.app" class="btn btn-primary" target="_blank">
+                                    <span>🚀</span>
+                                    Visit Site
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="link-card">
+                        <div class="link-header">
+                            <h3>📚 Education</h3>
+                            <span class="link-status status-active">Active</span>
+                        </div>
+                        <div class="link-content">
+                            <p>Educational version of ULTIMATELINKS</p>
+                            <div class="link-actions">
+                                <a href="https://ultimateducation.surge.sh" class="btn btn-primary" target="_blank">
+                                    <span>�</span>
+                                    Visit Site
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Category Detail Section -->
+        <section class="section" id="categoryDetail">
+            <div class="container">
+                <div class="category-detail-header">
+                    <a href="#categories" class="back-btn" onclick="showSection('categories')">
+                        <span>←</span> Back to Categories
+                    </a>
+                    <h1 class="section-title" id="categoryTitle">Category Title</h1>
+                    <p class="section-subtitle" id="categoryDescription">Category description</p>
+                </div>
+
+                <div class="view-controls">
+                    <button class="view-btn active" onclick="setView('grid')">Grid View</button>
+                    <button class="view-btn" onclick="setView('list')">List View</button>
+                </div>
+
+                <div class="links-container" id="linksContainer">
+                    <!-- Links will be populated by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Chat Section -->
+        <section class="section" id="chat">
+            <div class="container">
+                <header class="section-header">
+                    <h1 class="section-title">💬 Community Chat</h1>
+                    <p class="section-subtitle">Join our Discord community chat</p>
+                </header>
+
+                <div class="chat-container">
+                    <div class="chat-wrapper">
+                        <widgetbot
+                          server="1475684054899888229"
+                          width="100%"
+                          height="600"
+                        ></widgetbot>
+                        <script src="https://cdn.jsdelivr.net/npm/@widgetbot/html-embed"></script>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section class="section" id="about">
+            <div class="container">
+                <header class="section-header">
+                    <h1 class="section-title">About ULTIMATELINKS</h1>
+                    <p class="section-subtitle">Your gateway to unlimited internet access</p>
+                </header>
+
+                <div class="about-content">
+                    <div class="about-section">
+                        <h2>🚀 Our Mission</h2>
+                        <p>ULTIMATELINKS is dedicated to providing free, unrestricted access to the internet. We believe in internet freedom and provide tools to help you bypass censorship and access the content you need.</p>
+                    </div>
+
+                    <div class="about-section">
+                        <h2>📊 Statistics</h2>
+                        <div class="stats-grid">
+                            <div class="stat-card">
+                                <div class="stat-number">62+</div>
+                                <div class="stat-label">Verified Links</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-number">10</div>
+                                <div class="stat-label">Categories</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-number">24/7</div>
+                                <div class="stat-label">Availability</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-number">100%</div>
+                                <div class="stat-label">Free Service</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="about-section">
+                        <h2>🛡️ Privacy & Security</h2>
+                        <p>We take your privacy seriously. All connections are encrypted, and we don't track your activity. Your security is our top priority.</p>
+                    </div>
+
+                    <div class="about-section">
+                        <h2>📱 Features</h2>
+                        <ul class="feature-list">
+                            <li>✅ 62+ verified working links</li>
+                            <li>✅ 10 different categories</li>
+                            <li>✅ Mobile and desktop compatible</li>
+                            <li>✅ Fast and secure connections</li>
+                            <li>✅ No registration required</li>
+                            <li>✅ Completely free service</li>
+                            <li>✅ Regular updates and maintenance</li>
+                            <li>✅ Community feedback system</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Settings Section -->
+        <section id="settings" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h1 class="section-title">⚙️ Settings</h1>
+                    <p class="section-subtitle">Customize your ULTIMATELINKS experience</p>
+                </div>
+                
+                <div class="settings-container">
+                    <!-- Theme Settings -->
+                    <div class="settings-card">
+                        <div class="settings-header">
+                            <h3>🎨 Theme Settings</h3>
+                            <p>Choose your preferred color theme</p>
+                        </div>
+                        <div class="settings-content">
+                            <div class="theme-options">
+                                <div class="theme-option">
+                                    <input type="radio" id="theme-purple" name="theme" value="purple">
+                                    <label for="theme-purple">
+                                        <div class="theme-preview purple-theme"></div>
+                                        <span>Purple Theme</span>
+                                    </label>
+                                </div>
+                                <div class="theme-option">
+                                    <input type="radio" id="theme-blue" name="theme" value="blue">
+                                    <label for="theme-blue">
+                                        <div class="theme-preview blue-theme"></div>
+                                        <span>Blue Theme</span>
+                                    </label>
+                                </div>
+                                <div class="theme-option">
+                                    <input type="radio" id="theme-green" name="theme" value="green">
+                                    <label for="theme-green">
+                                        <div class="theme-preview green-theme"></div>
+                                        <span>Green Theme</span>
+                                    </label>
+                                </div>
+                                <div class="theme-option">
+                                    <input type="radio" id="theme-red" name="theme" value="red">
+                                    <label for="theme-red">
+                                        <div class="theme-preview red-theme"></div>
+                                        <span>Red Theme</span>
+                                    </label>
+                                </div>
+                                <div class="theme-option">
+                                    <input type="radio" id="theme-dark" name="theme" value="dark">
+                                    <label for="theme-dark">
+                                        <div class="theme-preview dark-theme"></div>
+                                        <span>Dark Theme</span>
+                                    </label>
+                                </div>
+                                <div class="theme-option">
+                                    <input type="radio" id="theme-hacking" name="theme" value="hacking">
+                                    <label for="theme-hacking">
+                                        <div class="theme-preview hacking-theme"></div>
+                                        <span>🖥️ Hacking Theme</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Animation Settings -->
+                    <div class="settings-card">
+                        <div class="settings-header">
+                            <h3>✨ Animation Settings</h3>
+                            <p>Control animations and visual effects</p>
+                        </div>
+                        <div class="settings-content">
+                            <div class="setting-item">
+                                <label for="animations-enabled">
+                                    <input type="checkbox" id="animations-enabled" checked>
+                                    <span>Enable Animations</span>
+                                </label>
+                            </div>
+                            <div class="setting-item">
+                                <label for="loading-animations">
+                                    <input type="checkbox" id="loading-animations" checked>
+                                    <span>Loading Animations</span>
+                                </label>
+                            </div>
+                            <div class="setting-item">
+                                <label for="hover-effects">
+                                    <input type="checkbox" id="hover-effects" checked>
+                                    <span>Hover Effects</span>
+                                </label>
+                            </div>
+                            <div class="setting-item">
+                                <label for="shimmer-effects">
+                                    <input type="checkbox" id="shimmer-effects" checked>
+                                    <span>Shimmer Effects</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Display Settings -->
+                    <div class="settings-card">
+                        <div class="settings-header">
+                            <h3>📱 Display Settings</h3>
+                            <p>Customize how content is displayed</p>
+                        </div>
+                        <div class="settings-content">
+                            <div class="setting-item">
+                                <label for="compact-view">
+                                    <input type="checkbox" id="compact-view">
+                                    <span>Compact View</span>
+                                </label>
+                            </div>
+                            <div class="setting-item">
+                                <label for="show-descriptions">
+                                    <input type="checkbox" id="show-descriptions" checked>
+                                    <span>Show Descriptions</span>
+                                </label>
+                            </div>
+                            <div class="setting-item">
+                                <label for="card-layout">
+                                    <input type="checkbox" id="card-layout" checked>
+                                    <span>Card Layout</span>
+                                </label>
+                            </div>
+                            <div class="setting-item">
+                                <label for="grid-columns">
+                                    <span>Grid Columns:</span>
+                                    <select id="grid-columns">
+                                        <option value="2">2 Columns</option>
+                                        <option value="3" selected>3 Columns</option>
+                                        <option value="4">4 Columns</option>
+                                        <option value="auto">Auto</option>
+                                    </select>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Notification Settings -->
+                    <div class="settings-card">
+                        <div class="settings-header">
+                            <h3>🔔 Notification Settings</h3>
+                            <p>Control notifications and alerts</p>
+                        </div>
+                        <div class="settings-content">
+                            <div class="setting-item">
+                                <label for="enable-notifications">
+                                    <input type="checkbox" id="enable-notifications" checked>
+                                    <span>Enable Notifications</span>
+                                </label>
+                            </div>
+                            <div class="setting-item">
+                                <label for="sound-effects">
+                                    <input type="checkbox" id="sound-effects">
+                                    <span>Sound Effects</span>
+                                </label>
+                            </div>
+                            <div class="setting-item">
+                                <label for="notification-duration">
+                                    <span>Notification Duration:</span>
+                                    <select id="notification-duration">
+                                        <option value="2000">2 Seconds</option>
+                                        <option value="3000" selected>3 Seconds</option>
+                                        <option value="5000">5 Seconds</option>
+                                        <option value="10000">10 Seconds</option>
+                                    </select>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Performance Settings -->
+                    <div class="settings-card">
+                        <div class="settings-header">
+                            <h3>⚡ Performance Settings</h3>
+                            <p>Optimize performance and loading</p>
+                        </div>
+                        <div class="settings-content">
+                            <div class="setting-item">
+                                <label for="preload-images">
+                                    <input type="checkbox" id="preload-images" checked>
+                                    <span>Preload Images</span>
+                                </label>
+                            </div>
+                            <div class="setting-item">
+                                <label for="cache-enabled">
+                                    <input type="checkbox" id="cache-enabled" checked>
+                                    <span>Enable Cache</span>
+                                </label>
+                            </div>
+                            <div class="setting-item">
+                                <label for="lazy-loading">
+                                    <input type="checkbox" id="lazy-loading">
+                                    <span>Lazy Loading</span>
+                                </label>
+                            </div>
+                            <div class="setting-item">
+                                <label for="reduced-motion">
+                                    <input type="checkbox" id="reduced-motion">
+                                    <span>Reduced Motion</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Privacy Settings -->
+                    <div class="settings-card">
+                        <div class="settings-header">
+                            <h3>🔒 Privacy Settings</h3>
+                            <p>Control your privacy and data</p>
+                        </div>
+                        <div class="settings-content">
+                            <div class="setting-item">
+                                <label for="analytics-enabled">
+                                    <input type="checkbox" id="analytics-enabled">
+                                    <span>Enable Analytics</span>
+                                </label>
+                            </div>
+                            <div class="setting-item">
+                                <label for="cookies-enabled">
+                                    <input type="checkbox" id="cookies-enabled" checked>
+                                    <span>Accept Cookies</span>
+                                </label>
+                            </div>
+                            <div class="setting-item">
+                                <label for="share-data">
+                                    <input type="checkbox" id="share-data">
+                                    <span>Share Usage Data</span>
+                                </label>
+                            </div>
+                            <div class="setting-item">
+                                <label for="incognito-mode">
+                                    <input type="checkbox" id="incognito-mode">
+                                    <span>Incognito Mode</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Accessibility Settings -->
+                    <div class="settings-card">
+                        <div class="settings-header">
+                            <h3>♿ Accessibility</h3>
+                            <p>Make the site easier to use</p>
+                        </div>
+                        <div class="settings-content">
+                            <div class="setting-item">
+                                <label for="high-contrast">
+                                    <input type="checkbox" id="high-contrast">
+                                    <span>High Contrast Mode</span>
+                                </label>
+                            </div>
+                            <div class="setting-item">
+                                <label for="large-text">
+                                    <input type="checkbox" id="large-text">
+                                    <span>Large Text</span>
+                                </label>
+                            </div>
+                            <div class="setting-item">
+                                <label for="screen-reader">
+                                    <input type="checkbox" id="screen-reader">
+                                    <span>Screen Reader Support</span>
+                                </label>
+                            </div>
+                            <div class="setting-item">
+                                <label for="keyboard-nav">
+                                    <input type="checkbox" id="keyboard-nav" checked>
+                                    <span>Keyboard Navigation</span>
+                                </label>
+                            </div>
+                            <div class="setting-item">
+                                <label for="font-size">
+                                    <span>Font Size</span>
+                                    <select id="font-size">
+                                        <option value="small">Small</option>
+                                        <option value="medium" selected>Medium</option>
+                                        <option value="large">Large</option>
+                                        <option value="extra-large">Extra Large</option>
+                                    </select>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Advanced Settings -->
+                    <div class="settings-card">
+                        <div class="settings-header">
+                            <h3>⚙️ Advanced</h3>
+                            <p>Developer and power user options</p>
+                        </div>
+                        <div class="settings-content">
+                            <div class="setting-item">
+                                <label for="debug-mode">
+                                    <input type="checkbox" id="debug-mode">
+                                    <span>Debug Mode</span>
+                                </label>
+                            </div>
+                            <div class="setting-item">
+                                <label for="console-logs">
+                                    <input type="checkbox" id="console-logs">
+                                    <span>Show Console Logs</span>
+                                </label>
+                            </div>
+                            <div class="setting-item">
+                                <label for="experimental-features">
+                                    <input type="checkbox" id="experimental-features">
+                                    <span>Experimental Features</span>
+                                </label>
+                            </div>
+                            <div class="setting-item">
+                                <label for="auto-update">
+                                    <input type="checkbox" id="auto-update" checked>
+                                    <span>Auto Update</span>
+                                </label>
+                            </div>
+                            <div class="setting-item">
+                                <label for="cache-clear">
+                                    <button class="btn btn-secondary" onclick="clearCache()">
+                                        <span>🗑️</span>
+                                        Clear Cache
+                                    </button>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Personalization Settings -->
+                    <div class="settings-card">
+                        <div class="settings-header">
+                            <h3>🎨 Personalization</h3>
+                            <p>Customize your experience</p>
+                        </div>
+                        <div class="settings-content">
+                            <div class="setting-item">
+                                <label for="custom-css">
+                                    <span>Custom CSS</span>
+                                    <textarea id="custom-css" placeholder="Enter custom CSS..." rows="3"></textarea>
+                                </label>
+                            </div>
+                            <div class="setting-item">
+                                <label for="language">
+                                    <span>Language</span>
+                                    <select id="language">
+                                        <option value="en" selected>English</option>
+                                        <option value="es">Español</option>
+                                        <option value="fr">Français</option>
+                                        <option value="de">Deutsch</option>
+                                        <option value="zh">中文</option>
+                                        <option value="ja">日本語</option>
+                                    </select>
+                                </label>
+                            </div>
+                            <div class="setting-item">
+                                <label for="timezone">
+                                    <span>Timezone</span>
+                                    <select id="timezone">
+                                        <option value="auto" selected>Auto Detect</option>
+                                        <option value="UTC">UTC</option>
+                                        <option value="EST">Eastern Time</option>
+                                        <option value="PST">Pacific Time</option>
+                                        <option value="GMT">Greenwich Mean Time</option>
+                                    </select>
+                                </label>
+                            </div>
+                            <div class="setting-item">
+                                <label for="date-format">
+                                    <span>Date Format</span>
+                                    <select id="date-format">
+                                        <option value="mm/dd/yyyy" selected>MM/DD/YYYY</option>
+                                        <option value="dd/mm/yyyy">DD/MM/YYYY</option>
+                                        <option value="yyyy-mm-dd">YYYY-MM-DD</option>
+                                        <option value="custom">Custom</option>
+                                    </select>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Action Buttons -->
+                    <div class="settings-actions">
+                        <button class="btn btn-primary" onclick="saveSettings()">
+                            <span>💾</span>
+                            Save Settings
+                        </button>
+                        <button class="btn btn-secondary" onclick="resetSettings()">
+                            <span>🔄</span>
+                            Reset to Default
+                        </button>
+                        <button class="btn btn-secondary" onclick="exportSettings()">
+                            <span>📤</span>
+                            Export Settings
+                        </button>
+                        <button class="btn btn-secondary" onclick="importSettings()">
+                            <span>📥</span>
+                            Import Settings
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+            </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="favicon.ico" alt="ULTIMATELINKS Logo" class="footer-logo-img">
+                        <h3>ULTIMATELINKS</h3>
+                    </div>
+                    <p>Your Gateway to Unlimited Access</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Categories</h4>
+                    <ul>
+                        <li><a href="#" onclick="showCategory('proxy')">Proxy Sites</a></li>
+                        <li><a href="#" onclick="showCategory('games')">Games</a></li>
+                        <li><a href="#" onclick="showCategory('movies')">Movies</a></li>
+                        <li><a href="#" onclick="showCategory('ai')">AI Tools</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="#" onclick="showSection('about')">About Us</a></li>
+                        <li><a href="#" onclick="showSection('chat')">Live Chat</a></li>
+                        <li><a href="#" onclick="shareLink()">Share</a></li>
+                        <li><a href="#" onclick="showNotification('Coming soon!', 'info')">Support</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <div class="footer-social">
+                        <button class="social-btn" onclick="shareLink()">📤</button>
+                        <button class="social-btn" onclick="copyLink()">📋</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 ULTIMATELINKS. All rights reserved. | Built with ❤️ for freedom</p>
+            </div>
+        </div>
+    </footer>
+    <!-- Scripts -->
+    <script src="script.js"></script>
+    <script src="chat.js"></script>
+    <script src="settings.js"></script>
+    <script src="simple_popup.js"></script>
+    <script src="theme-packs/hacking-loading.js"></script>
+    
+    <!-- Beta Release Popup -->
+    <script>
+        // Show beta release popup on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(() => {
+                showBetaReleasePopup();
+            }, 2000); // Show after 2 seconds
+        });
+        
+        function showBetaReleasePopup() {
+            const popupHTML = `
+                <div class="beta-release-popup" id="betaReleasePopup">
+                    <div class="beta-popup-content">
+                        <div class="beta-popup-header">
+                            <h2>🚀 ULTIMATELINKS 0.5.0 BETA RELEASE</h2>
+                            <button class="beta-popup-close" onclick="closeBetaPopup()">✕</button>
+                        </div>
+                        <div class="beta-popup-body">
+                            <div class="beta-logo">
+                                <img src="favicon.ico" alt="ULTIMATELINKS" style="width: 80px; height: 80px; margin-bottom: 20px;">
+                            </div>
+                            <h3>🎉 FULL BETA RELEASE IS HERE!</h3>
+                            <p>We're excited to announce the complete 0.5.0 BETA release with amazing new features:</p>
+                            
+                            <div class="beta-features">
+                                <div class="beta-feature">
+                                    <span class="beta-icon">🎨</span>
+                                    <div>
+                                        <h4>New Themes</h4>
+                                        <p>Hacking theme, multiple color options</p>
+                                    </div>
+                                </div>
+                                <div class="beta-feature">
+                                    <span class="beta-icon">🔗</span>
+                                    <div>
+                                        <h4>Enhanced Links</h4>
+                                        <p>Multiple deployment options, anti-block protection</p>
+                                    </div>
+                                </div>
+                                <div class="beta-feature">
+                                    <span class="beta-icon">📂</span>
+                                    <div>
+                                        <h4>Categories System</h4>
+                                        <p>Organized links by category with search</p>
+                                    </div>
+                                </div>
+                                <div class="beta-feature">
+                                    <span class="beta-icon">💬</span>
+                                    <div>
+                                        <h4>Live Chat</h4>
+                                        <p>Integrated Discord community chat</p>
+                                    </div>
+                                </div>
+                                <div class="beta-feature">
+                                    <span class="beta-icon">⚙️</span>
+                                    <div>
+                                        <h4>Settings Panel</h4>
+                                        <p>Customizable themes and preferences</p>
+                                    </div>
+                                </div>
+                                <div class="beta-feature">
+                                    <span class="beta-icon">📱</span>
+                                    <div>
+                                        <h4>Mobile Responsive</h4>
+                                        <p>Perfect experience on all devices</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="beta-actions">
+                                <button class="btn btn-primary" onclick="closeBetaPopup()">
+                                    <span>🚀</span> Start Exploring
+                                </button>
+                                <button class="btn btn-secondary" onclick="window.location.href='#links'">
+                                    <span>🔗</span> View Deployments
+                                </button>
+                            </div>
+                            
+                            <div class="beta-footer">
+                                <p>🔥 This is a BETA release - report any issues on our Discord!</p>
+                                <small>Version 0.5.0 BETA | Released: March 2026</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            // Add popup to body
+            document.body.insertAdjacentHTML('beforeend', popupHTML);
+            
+            // Add popup styles
+            const popupStyles = `
+                <style>
+                    .beta-release-popup {
+                        position: fixed;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        background: rgba(0, 0, 0, 0.8);
+                        z-index: 10000;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        animation: fadeIn 0.3s ease;
+                    }
+                    
+                    .beta-popup-content {
+                        background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+                        border-radius: 20px;
+                        max-width: 600px;
+                        width: 90%;
+                        max-height: 90vh;
+                        overflow-y: auto;
+                        border: 2px solid #8b5cf6;
+                        box-shadow: 0 20px 60px rgba(139, 92, 246, 0.3);
+                        animation: slideUp 0.5s ease;
+                    }
+                    
+                    .beta-popup-header {
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        padding: 25px 30px;
+                        border-bottom: 1px solid rgba(139, 92, 246, 0.2);
+                    }
+                    
+                    .beta-popup-header h2 {
+                        color: #8b5cf6;
+                        font-size: 1.8rem;
+                        margin: 0;
+                        text-shadow: 0 0 20px rgba(139, 92, 246, 0.5);
+                    }
+                    
+                    .beta-popup-close {
+                        background: none;
+                        border: none;
+                        color: #8b5cf6;
+                        font-size: 1.5rem;
+                        cursor: pointer;
+                        padding: 5px;
+                        border-radius: 50%;
+                        transition: all 0.3s ease;
+                    }
+                    
+                    .beta-popup-close:hover {
+                        background: rgba(139, 92, 246, 0.2);
+                        transform: rotate(90deg);
+                    }
+                    
+                    .beta-popup-body {
+                        padding: 30px;
+                        text-align: center;
+                    }
+                    
+                    .beta-popup-body h3 {
+                        color: #ffffff;
+                        font-size: 1.5rem;
+                        margin: 20px 0;
+                        text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+                    }
+                    
+                    .beta-popup-body p {
+                        color: #b8b8b8;
+                        line-height: 1.6;
+                        margin-bottom: 25px;
+                    }
+                    
+                    .beta-features {
+                        display: grid;
+                        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                        gap: 20px;
+                        margin: 30px 0;
+                    }
+                    
+                    .beta-feature {
+                        display: flex;
+                        align-items: center;
+                        text-align: left;
+                        padding: 15px;
+                        background: rgba(139, 92, 246, 0.1);
+                        border-radius: 10px;
+                        border: 1px solid rgba(139, 92, 246, 0.2);
+                        transition: all 0.3s ease;
+                    }
+                    
+                    .beta-feature:hover {
+                        background: rgba(139, 92, 246, 0.2);
+                        transform: translateY(-2px);
+                    }
+                    
+                    .beta-icon {
+                        font-size: 2rem;
+                        margin-right: 15px;
+                        min-width: 40px;
+                    }
+                    
+                    .beta-feature h4 {
+                        color: #8b5cf6;
+                        margin: 0 0 5px 0;
+                        font-size: 1.1rem;
+                    }
+                    
+                    .beta-feature p {
+                        color: #b8b8b8;
+                        margin: 0;
+                        font-size: 0.9rem;
+                    }
+                    
+                    .beta-actions {
+                        display: flex;
+                        gap: 15px;
+                        justify-content: center;
+                        margin: 30px 0;
+                    }
+                    
+                    .beta-actions .btn {
+                        padding: 12px 25px;
+                        font-size: 1rem;
+                        border-radius: 25px;
+                        text-decoration: none;
+                        transition: all 0.3s ease;
+                    }
+                    
+                    .beta-footer {
+                        margin-top: 20px;
+                        padding-top: 20px;
+                        border-top: 1px solid rgba(139, 92, 246, 0.2);
+                    }
+                    
+                    .beta-footer p {
+                        color: #8b5cf6;
+                        margin: 0 0 10px 0;
+                        font-weight: bold;
+                    }
+                    
+                    .beta-footer small {
+                        color: #666;
+                        font-size: 0.8rem;
+                    }
+                    
+                    @keyframes fadeIn {
+                        from { opacity: 0; }
+                        to { opacity: 1; }
+                    }
+                    
+                    @keyframes slideUp {
+                        from { transform: translateY(50px); opacity: 0; }
+                        to { transform: translateY(0); opacity: 1; }
+                    }
+                    
+                    @media (max-width: 768px) {
+                        .beta-popup-content {
+                            width: 95%;
+                            margin: 20px;
+                        }
+                        
+                        .beta-popup-header {
+                            padding: 20px;
+                        }
+                        
+                        .beta-popup-header h2 {
+                            font-size: 1.4rem;
+                        }
+                        
+                        .beta-popup-body {
+                            padding: 20px;
+                        }
+                        
+                        .beta-features {
+                            grid-template-columns: 1fr;
+                        }
+                        
+                        .beta-actions {
+                            flex-direction: column;
+                        }
+                    }
+                </style>
+            `;
+            
+            document.head.insertAdjacentHTML('beforeend', popupStyles);
+        }
+        
+        function closeBetaPopup() {
+            const popup = document.getElementById('betaReleasePopup');
+            if (popup) {
+                popup.style.animation = 'fadeOut 0.3s ease';
+                setTimeout(() => {
+                    popup.remove();
+                }, 300);
+            }
+        }
+        
+        // Add fadeOut animation
+        const fadeOutStyle = `
+            <style>
+                @keyframes fadeOut {
+                    from { opacity: 1; }
+                    to { opacity: 0; }
+                }
+            </style>
+        `;
+        document.head.insertAdjacentHTML('beforeend', fadeOutStyle);
+    </script>
+    <!-- Popup Styles -->
+    <link rel="stylesheet" href="popups.css">
+</body>
+</html>

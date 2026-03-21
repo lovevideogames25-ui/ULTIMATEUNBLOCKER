@@ -1,0 +1,78 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "appName": {
+      "type": "string",
+      "metadata": {
+        "description": "The name of the function app"
+      },
+      "defaultValue": "ultimatelinks",
+      "minLength": 2,
+      "maxLength": 50
+    },
+    "location": {
+      "type": "string",
+      "metadata": {
+        "description": "Location for all resources"
+      },
+      "defaultValue": "[resourceGroup().location]"
+    }
+  },
+  "variables": {
+    "NODE_ENV": {
+      "value": "production"
+    },
+    "PORT": {
+      "value": "8080"
+    }
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Web/sites",
+      "apiVersion": "2021-02-01",
+      "name": "[concat('ultimatelinks-', uniqueString(resourceGroup().id))]",
+      "location": "[parameters('location')]",
+      "properties": {
+        "siteConfig": {
+          "appSettings": [
+            {
+              "name": "NODE_ENV",
+              "value": "[variables('NODE_ENV')]"
+            },
+            {
+              "name": "PORT",
+              "value": "[variables('PORT')]"
+            }
+          ]
+        },
+        "httpsOnly": true
+      },
+      "resources": [
+        {
+          "type": "Microsoft.Web/sites/config",
+          "name": "web",
+          "properties": {
+            "defaultDocuments": "index.html",
+            "netFramework": "NODE",
+            "nodeVersion": "18"
+          }
+        }
+      ]
+    }
+  ],
+  "outputs": {
+    "webAppName": {
+      "type": "string",
+      "value": "[concat('ultimatelinks-', uniqueString(resourceGroup().id))]"
+    },
+    "resourceGroup": {
+      "type": "string",
+      "value": "[resourceGroup().name]"
+    },
+    "location": {
+      "type": "string",
+      "value": "[parameters('location')]"
+    }
+  }
+}

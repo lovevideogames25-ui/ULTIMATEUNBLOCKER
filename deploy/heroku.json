@@ -1,0 +1,93 @@
+{
+  "name": "ultimatelinks",
+  "version": "0.5.0-alpha-beta",
+  "description": "ULTIMATELINKS - Your Gateway to Unlimited Access",
+  "keywords": ["proxy", "games", "movies", "ai-tools", "unblock", "access"],
+  "repository": "https://github.com/lovevideogames25-ui/ULTIMATELINKS.git",
+  "logo": "https://github.com/lovevideogames25-ui/ULTIMATELINKS/raw/main/favicon.ico",
+  "env": {
+    "NODE_ENV": "production",
+    "PORT": "3000",
+    "NODE_VERSION": "18"
+  },
+  "buildpacks": [
+    {
+      "url": "heroku/nodejs"
+    }
+  ],
+  "stack": "heroku-22",
+  "engines": {
+    "node": "18.x"
+  },
+  "scripts": {
+    "start": "echo 'Static site - no server needed for Heroku'",
+    "postdeploy": "echo 'ULTIMATELINKS deployed successfully!'"
+  },
+  "addons": [
+    {
+      "plan": "heroku-postgresql",
+      "options": [
+        "version": "13"
+      ],
+      "as": "DATABASE"
+    }
+  ],
+  "formation": {
+    "web": {
+      "quantity": 1,
+      "type": "web"
+    }
+  },
+  "routes": [
+    {
+      "src": "/",
+      "dest": "/index.html"
+    },
+    {
+      "src": "/home",
+      "dest": "/",
+      "permanent": true
+    },
+    {
+      "src": "/categories",
+      "dest": "/#categories",
+      "permanent": true
+    },
+    {
+      "src": "/settings",
+      "dest": "/#settings",
+      "permanent": true
+    }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Frame-Options",
+          "value": "DENY"
+        },
+        {
+          "key": "X-XSS-Protection",
+          "value": "1; mode=block"
+        },
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        },
+        {
+          "key": "Permissions-Policy",
+          "value": "geolocation=(), microphone=(), camera=()"
+        },
+        {
+          "key": "Content-Security-Policy",
+          "value": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self'; connect-src 'self'"
+        }
+      ]
+    }
+  ]
+}

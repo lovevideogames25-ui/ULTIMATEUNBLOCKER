@@ -1,0 +1,66 @@
+{
+  "name": "ultimatelinks",
+  "version": "0.5.0-alpha-beta",
+  "description": "Your Gateway to Unlimited Access - Premium collection of 70+ verified links across 11 categories",
+  "main": "index.html",
+  "scripts": {
+    "start": "echo 'Static site - no server needed'",
+    "build": "echo 'No build process required for static site'",
+    "deploy": "echo 'Ready for deployment to any platform'",
+    "dev": "python -m http.server 8000",
+    "serve": "npx serve -s . -p 3000"
+  },
+  "keywords": [
+    "proxy",
+    "games",
+    "movies",
+    "ai-tools",
+    "music",
+    "streaming",
+    "unblock",
+    "access",
+    "links",
+    "tools"
+  ],
+  "author": "alessthegreatestgamer",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lovevideogames25-ui/ULTIMATELINKS.git"
+  },
+  "bugs": {
+    "url": "https://github.com/lovevideogames25-ui/ULTIMATELINKS/issues"
+  },
+  "homepage": "https://github.com/lovevideogames25-ui/ULTIMATELINKS",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "devDependencies": {
+    "serve": "^14.0.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ],
+  "files": [
+    "*.html",
+    "*.css",
+    "*.js",
+    "*.json",
+    "*.yaml",
+    "*.md",
+    "*.ico"
+  ],
+  "deployment": {
+    "vercel": {
+      "config": "vercel.json"
+    },
+    "netlify": {
+      "config": "netlify.toml"
+    },
+    "render": {
+      "config": "render.yaml"
+    }
+  }
+}

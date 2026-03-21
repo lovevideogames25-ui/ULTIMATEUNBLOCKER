@@ -1,0 +1,75 @@
+{
+  "schema_version": "1.0.0",
+  "variables": {
+    "compartment_id": {
+      "type": "oci:identity:compartmentid:ocid:*",
+      "description": "Compartment OCID where resources will be created"
+    },
+    "region": {
+      "type": "string",
+      "description": "OCI region"
+    },
+    "app_name": {
+      "type": "string",
+      "description": "Application name"
+    }
+  },
+  "template": {
+    "format_version": "2018-09-09",
+    "title": "ULTIMATELINKS Static Site",
+    "description": "ULTIMATELINKS - Your Gateway to Unlimited Access",
+    "icon": "https://github.com/lovevideogames25-ui/ULTIMATELINKS/raw/main/favicon.ico",
+    "tags": {
+      "project": "ultimatelinks",
+      "environment": "production"
+    },
+    "parameters": {
+      "compartment_id": "${compartment_id}",
+      "region": "${region}",
+      "app_name": "${app_name}"
+    },
+    "resources": {
+      "static_site": {
+        "name": "ultimatelinks_static_site",
+        "parameters": {
+          "compartment_id": "${compartment_id}",
+          "region": "${region}"
+        },
+        "source": {
+          "type": "ZIP",
+          "source_url": "https://github.com/lovevideogames25-ui/ULTIMATELINKS/archive/refs/heads/main.zip"
+        },
+        "freeform_tags": {
+          "project": "ultimatelinks",
+          "version": "0.5.0-alpha-beta"
+        }
+      },
+      "functions": {
+        "name": "ultimatelinks_functions",
+        "parameters": {
+          "compartment_id": "${compartment_id}",
+          "region": "${region}"
+        },
+        "source": {
+          "type": "ZIP",
+          "source_url": "https://github.com/lovevideogames25-ui/ULTIMATELINKS/archive/refs/heads/main.zip"
+        },
+        "runtime": "python",
+        "entry_point": "main.handler",
+        "freeform_tags": {
+          "project": "ultimatelinks"
+        }
+      }
+    },
+    "outputs": {
+      "site_url": {
+        "description": "URL of the deployed static site",
+        "value": "${static_site.url}"
+      },
+      "function_url": {
+        "description": "URL of the deployed function",
+        "value": "${functions.invoke_url}"
+      }
+    }
+  }
+}
