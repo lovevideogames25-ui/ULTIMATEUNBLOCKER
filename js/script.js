@@ -1,4 +1,4 @@
-// ENHANCED ULTIMATELINKS CORE LOGIC & FUNCTIONALITY
+// ENHANCED ULTIMATEUNBLOCKER CORE LOGIC & FUNCTIONALITY
 
 // Global Variables
 let categories = [];
@@ -41,7 +41,7 @@ function initializeApp() {
     // Debug navigation
     debugNavigation();
     
-    console.log('ULTIMATELINKS - Enhanced version initialized successfully!');
+    console.log('ULTIMATEUNBLOCKER - Enhanced version initialized successfully!');
 }
 
 // Debug Navigation
@@ -69,7 +69,7 @@ function initializeLoading() {
     let progress = 0;
     
     const loadingMessages = [
-        'Loading ULTIMATELINKS...',
+        'Loading ULTIMATEUNBLOCKER...',
         'Preparing your gateway...',
         'Optimizing experience...',
         'Almost ready...'
@@ -632,7 +632,7 @@ function renderCategories() {
         categoryCard.addEventListener('click', function(e) {
             // Don't trigger if clicking on the button itself (to prevent double trigger)
             if (!e.target.classList.contains('btn')) {
-                window.ULTIMATELINKS.showCategoryDetail(category.name);
+                window.ULTIMATEUNBLOCKER.showCategoryDetail(category.name);
             }
         });
         
@@ -641,7 +641,7 @@ function renderCategories() {
         if (exploreBtn) {
             exploreBtn.addEventListener('click', function(e) {
                 e.stopPropagation(); // Prevent card click from also firing
-                window.ULTIMATELINKS.showCategoryDetail(category.name);
+                window.ULTIMATEUNBLOCKER.showCategoryDetail(category.name);
             });
         }
         
@@ -851,11 +851,11 @@ function setView(mode) {
 
 // Enhanced Error Handling
 window.addEventListener('error', (e) => {
-    console.error('ULTIMATELINKS Error:', e.error);
+    console.error('ULTIMATEUNBLOCKER Error:', e.error);
 });
 
 window.addEventListener('unhandledrejection', (e) => {
-    console.error('ULTIMATELINKS Unhandled Promise Rejection:', e.reason);
+    console.error('ULTIMATEUNBLOCKER Unhandled Promise Rejection:', e.reason);
 });
 
 // Performance Monitoring
@@ -946,7 +946,7 @@ function throttle(func, limit) {
 }
 
 // Export functions for global access
-window.ULTIMATELINKS = {
+window.ULTIMATEUNBLOCKER = {
     showSection,
     showCategoryDetail,
     setView,

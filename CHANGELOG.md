@@ -5,6 +5,48 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.5.1 BETA] - 2026-03-21
+
+### 🎉 **Enhanced UI/UX BETA Update**
+- **💬 Better Chat Interface** - Resized chat box to 1200px width for improved usability
+- **📂 Clickable Category Cards** - Click anywhere on category cards to explore
+- **🔗 Consistent Link Sizing** - Uniform 320px x 200px cards across all categories
+- **🎯 Enhanced Explore Buttons** - Bigger, more prominent buttons with better styling
+- **🖱️ Improved Hover Effects** - Smooth animations and visual feedback
+- **🔧 Bug Fixes & Performance** - Fixed JavaScript errors and improved responsiveness
+
+### 🎨 **UI/UX Improvements**
+- **📱 Full Card Clickability** - Entire category cards now clickable
+- **📏 Uniform Card Sizes** - Consistent 320px x 200px dimensions
+- **🎯 Better Button Sizing** - Normal-sized, prominent explore buttons
+- **✨ Enhanced Animations** - Smooth hover and transition effects
+- **📱 Responsive Design** - Improved mobile experience
+
+### 🔧 **Technical Improvements**
+- **🖱️ Event Handling** - Better click detection and event management
+- **🔧 JavaScript Fixes** - Resolved updateHistory parameter issues
+- **📱 CSS Optimization** - Cleaner, maintainable styles with !important overrides
+- **🎯 Performance** - Faster loading and smoother interactions
+- **🔒 Enhanced Security** - Better protection measures
+
+### 🐛 **Bug Fixes**
+- **🔧 Section Visibility** - Fixed disappearing sections with CSS overrides
+- **📱 Navigation Issues** - Resolved switching problems
+- **🎨 Theme Conflicts** - Fixed theme switching bugs
+- **📱 Mobile Menu** - Fixed hamburger navigation
+- **🔗 Link Display** - Resolved links visibility issues
+- **💬 Chat Sizing** - Fixed chat box dimensions
+- **🖱️ Click Events** - Fixed double-trigger issues on category cards
+
+### 📊 **Update Stats**
+- **Version**: 0.5.1 BETA
+- **Files Changed**: 4 (index.html, script.js, styles.css, README.md, CHANGELOG.md)
+- **Features Added**: 6 major UI/UX improvements
+- **Bugs Fixed**: 7 critical issues
+- **Performance**: Enhanced responsiveness and animations
+
+---
+
 ## [0.5.0 BETA] - 2026-03-21
 
 ### 🎉 MAJOR BETA RELEASE

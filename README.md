@@ -1,16 +1,21 @@
-# 🚀 ULTIMATELINKS
+# 🚀 ULTIMATEUNBLOCKER
 
 **Your Gateway to Unlimited Access** - Premium multi-page website with categories, themes, and cutting-edge UI/UX design
 
 ---
 
-## 🎉 **Latest Release: 0.5.0 BETA**
+## 🎉 **Latest Release: 0.5.1 BETA**
 
 ### 🚀 **Major Features:**
-- **� Multiple Themes** - Including terminal-style hacking theme
-- **📂 Categories System** - Organized links with search functionality
-- **🔗 Multiple Deployments** - 4 deployment options with anti-block protection
-- **💬 Discord Integration** - Live community chat
+- **💬 Enhanced Chat Interface** - Resized to 1200px width for better usability
+- **📂 Clickable Category Cards** - Click anywhere on cards to explore categories
+- **🔗 Consistent Link Sizing** - Uniform 320px x 200px cards across all categories
+- **🎯 Enhanced Explore Buttons** - Bigger, more prominent buttons with better styling
+- **🖱️ Improved Hover Effects** - Smooth animations and visual feedback
+- **� Bug Fixes & Performance** - Fixed JavaScript errors and improved responsiveness
+- **📱 Mobile Responsive** - Perfect experience on all devices
+- **🔍 Enhanced Navigation** - Smooth section switching
+- **✨ Modern Animations** - Hardware-accelerated effects
 - **⚙️ Settings Panel** - Customizable themes and preferences
 - **📱 Multi-Page Structure** - Separate pages for all sections
 - **🎯 Beta Popup** - Professional release announcement
@@ -18,10 +23,10 @@
 - **🔍 Enhanced Navigation** - Smooth section switching
 - **✨ Modern Animations** - Hardware-accelerated effects
 
-### � **Release Stats:**
+### 📊 **Release Stats:**
 ```json
 {
-  "version": "0.5.0",
+  "version": "0.5.1",
   "status": "BETA RELEASE",
   "pages": 7,
   "themes": 6,
@@ -31,13 +36,15 @@
   "mobile_optimized": true,
   "discord_integrated": true,
   "settings_panel": true,
-  "beta_popup": true
+  "beta_popup": true,
+  "clickable_cards": true,
+  "consistent_sizing": true
 }
 ```
 
 ### 🌐 **Live Deployments:**
-- **🌐 Production Site** - [ultimatelinks.pages.dev](https://ultimatelinks.pages.dev)
-- **⚡ Surge.sh** - [ultimatelinks.surge.sh](https://ultimatelinks.surge.sh)
+- **🌐 Production Site** - [ultimateunblocker.pages.dev](https://ultimateunblocker.pages.dev)
+- **⚡ Surge.sh** - [ultimateunblocker.surge.sh](https://ultimateunblocker.surge.sh)
 - **🚫 PlsNoBlock** - [plsnoblockordeploymentpause.vercel.app](https://plsnoblockordeploymentpause.vercel.app)
 - **📚 Education** - [ultimateducation.surge.sh](https://ultimateducation.surge.sh)
 

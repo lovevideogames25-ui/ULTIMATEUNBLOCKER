@@ -112,8 +112,8 @@ body {
 }
 
 .loading-logo-img {
-    width: 120px;
-    height: 120px;
+    width: 350px;
+    height: 350px;
     filter: drop-shadow(0 0 40px rgba(255, 255, 255, 0.6));
     animation: pulse 2s ease-in-out infinite, glow 3s ease-in-out infinite alternate;
     border-radius: 50%;
@@ -268,8 +268,8 @@ body {
 }
 
 .nav-logo-img {
-    width: 40px;
-    height: 40px;
+    width: 80px;
+    height: 80px;
     filter: drop-shadow(0 0 10px rgba(102, 126, 234, 0.5));
     transition: all 0.3s ease;
 }
