@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loading - ULTIMATEUNBLOCKER</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            --dark-gradient: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 50%, #2d2d2d 100%);
+            --glass-bg: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 255, 255, 0.1);
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--dark-gradient);
+            color: #ffffff;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Animated Background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 20%, rgba(102, 126, 234, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(240, 147, 251, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 60%, rgba(245, 87, 108, 0.1) 0%, transparent 50%);
+            animation: backgroundFloat 20s ease-in-out infinite;
+            z-index: -1;
+        }
+
+        @keyframes backgroundFloat {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            33% { transform: translate(-20px, -20px) rotate(1deg); }
+            66% { transform: translate(20px, -10px) rotate(-1deg); }
+        }
+
+        /* Loading Container */
+        .loading-container {
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            transition: all 0.8s ease;
+        }
+
+        .loading-container.fade-out {
+            opacity: 0;
+            transform: scale(0.8);
+        }
+
+        /* Logo */
+        .loading-logo {
+            margin-bottom: 40px;
+            animation: logoFloat 3s ease-in-out infinite;
+        }
+
+        @keyframes logoFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .logo-icon {
+            font-size: 4rem;
+            margin-bottom: 15px;
+            animation: iconPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes iconPulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+        }
+
+        .logo-text {
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 30px rgba(102, 126, 234, 0.5);
+            letter-spacing: 2px;
+        }
+
+        /* Loading Text */
+        .loading-text {
+            margin-bottom: 25px;
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.8);
+            height: 20px;
+            animation: textPulse 1.5s ease-in-out infinite;
+        }
+
+        @keyframes textPulse {
+            0%, 100% { opacity: 0.6; }
+            50% { opacity: 1; }
+        }
+
+        /* Progress Bar */
+        .loading-progress {
+            width: 200px;
+            margin: 0 auto;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 2px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: var(--primary-gradient);
+            border-radius: 2px;
+            width: 0%;
+            animation: progressFill 2s ease-in-out forwards;
+            box-shadow: 0 0 10px rgba(102, 126, 234, 0.5);
+        }
+
+        @keyframes progressFill {
+            0% { width: 0%; }
+            100% { width: 100%; }
+        }
+
+        /* Transition Overlay */
+        .transition-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--dark-gradient);
+            opacity: 0;
+            visibility: hidden;
+            z-index: 1000;
+            transition: all 0.8s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .transition-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .transition-text {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #ffffff;
+            animation: transitionPulse 1s ease-in-out infinite;
+        }
+
+        @keyframes transitionPulse {
+            0%, 100% { opacity: 0.7; }
+            50% { opacity: 1; }
+        }
+
+        /* Floating Particles */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 50%;
+            opacity: 0.6;
+            animation: float 10s infinite ease-in-out;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) translateX(0); }
+            25% { transform: translateY(-20px) translateX(10px); }
+            50% { transform: translateY(10px) translateX(-10px); }
+            75% { transform: translateY(-10px) translateX(20px); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Floating Particles -->
+    <div class="particles" id="particles"></div>
+    
+    <!-- Loading Container -->
+    <div class="loading-container" id="loadingContainer">
+        <div class="loading-logo">
+            <div class="logo-icon">🚀</div>
+            <h1 class="logo-text">ULTIMATEUNBLOCKER</h1>
+        </div>
+        <div class="loading-text">Loading...</div>
+        <div class="loading-progress">
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Transition Overlay -->
+    <div class="transition-overlay" id="transitionOverlay">
+        <div class="transition-text">Launching ULTIMATEUNBLOCKER...</div>
+    </div>
+
+    <script>
+        // Create floating particles
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = 30;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.top = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 10 + 's';
+                particle.style.animationDuration = (10 + Math.random() * 10) + 's';
+                particlesContainer.appendChild(particle);
+            }
+        }
+
+        // Initialize loading screen
+        function initializeLoading() {
+            console.log('🚀 Loading screen initialized');
+            
+            // Start progress bar animation
+            const progressFill = document.getElementById('progressFill');
+            if (progressFill) {
+                progressFill.style.width = '0%';
+                progressFill.style.transition = 'width 2s ease-in-out';
+                setTimeout(() => {
+                    progressFill.style.width = '100%';
+                    console.log('📊 Progress bar started');
+                }, 100);
+            }
+            
+            // Transition to main app after 2 seconds
+            setTimeout(() => {
+                console.log('⏰ 2 seconds complete, starting transition...');
+                startTransition();
+            }, 2000);
+        }
+
+        // Start smooth transition to index.html
+        function startTransition() {
+            const loadingContainer = document.getElementById('loadingContainer');
+            const transitionOverlay = document.getElementById('transitionOverlay');
+            
+            console.log('🔄 Starting transition animation');
+            
+            // Fade out loading container
+            if (loadingContainer) {
+                loadingContainer.classList.add('fade-out');
+            }
+            
+            // Show transition overlay
+            setTimeout(() => {
+                if (transitionOverlay) {
+                    transitionOverlay.classList.add('active');
+                    console.log('🎬 Transition overlay shown');
+                }
+                
+                // Navigate to index.html after transition
+                setTimeout(() => {
+                    console.log('🌐 Redirecting to index.html...');
+                    window.location.href = 'index.html';
+                }, 800);
+            }, 400);
+        }
+
+        // Initialize when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            createParticles();
+            initializeLoading();
+        });
+    </script>
+</body>
+</html>

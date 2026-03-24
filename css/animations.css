@@ -1976,3 +1976,136 @@ h3 {
         font-size: 16px;
     }
 }
+
+/* Browser Loading Elements */
+.browser-window-loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 40px;
+    text-align: center;
+    min-height: 400px;
+}
+
+.loading-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 20px 0 10px;
+    animation: fadeInUp 0.8s ease-out;
+}
+
+.loading-subtitle {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    margin-bottom: 30px;
+    animation: fadeInUp 0.8s ease-out 0.2s both;
+}
+
+.loading-details {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 15px;
+    padding: 20px;
+    margin: 20px 0;
+    backdrop-filter: blur(10px);
+    animation: fadeInUp 0.8s ease-out 0.4s both;
+}
+
+.vpn-indicator {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.server-stats {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+.stat-label {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.stat-value {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.countdown {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--secondary-color);
+    margin-top: 20px;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+.window-preview {
+    padding: 20px;
+    animation: fadeInUp 0.8s ease-out;
+}
+
+.browser-result {
+    text-align: center;
+    padding: 40px 20px;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+}
+
+.result-icon {
+    font-size: 4rem;
+    margin-bottom: 20px;
+    animation: bounce 2s ease-in-out infinite;
+}
+
+.browser-result h3 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 15px;
+}
+
+.browser-result p {
+    color: var(--text-secondary);
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.status-indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #10b981;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+.status-indicator.active {
+    box-shadow: 0 0 10px rgba(16, 185, 129, 0.5);
+}
+
+/* Ping and Speed indicators */
+.ping-good { color: #10b981 !important; }
+.ping-medium { color: #f59e0b !important; }
+.ping-bad { color: #ef4444 !important; }
+
+.speed-good { color: #10b981 !important; }
+.speed-medium { color: #f59e0b !important; }
+.speed-bad { color: #ef4444 !important; }
