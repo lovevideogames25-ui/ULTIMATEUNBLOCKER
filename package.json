@@ -39,9 +39,6 @@
     "url": "https://github.com/lovevideogames25-ui/ULTIMATEUNBLOCKER/issues"
   },
   "homepage": "https://github.com/lovevideogames25-ui/ULTIMATEUNBLOCKER",
-  "engines": {
-    "node": ">=18.0.0"
-  },
   "devDependencies": {
     "serve": "^14.0.0"
   },
