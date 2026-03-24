@@ -5,11 +5,10 @@
   "main": "index.html",
   "scripts": {
     "start": "echo 'Static site - no server needed'",
-    "build": "echo 'Build complete - static site ready'",
+    "build": "echo 'Static site ready'",
     "deploy": "echo 'Ready for deployment to any platform'",
     "dev": "python -m http.server 8000",
-    "serve": "npx serve -s . -p 3000",
-    "vercel-build": "echo 'Static site build complete'"
+    "serve": "npx serve -s . -p 3000"
   },
   "keywords": [
     "ultimateunblocker",
