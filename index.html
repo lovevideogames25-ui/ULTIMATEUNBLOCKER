@@ -1,0 +1,1304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ULTIMATEUNBLOCKER - Your Gateway to Unlimited Access</title>
+    <link rel="icon" href="favicon.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/chat.css">
+    <link rel="stylesheet" href="css/ai.css">
+    
+    <!-- Navigation Button Styling -->
+    <link rel="stylesheet" href="navigation/home.css">
+    <link rel="stylesheet" href="navigation/links.css">
+    <link rel="stylesheet" href="navigation/settings.css">
+    <link rel="stylesheet" href="navigation/information.css">
+    <link rel="stylesheet" href="navigation/chat.css">
+    <link rel="stylesheet" href="navigation/games.css">
+    <link rel="stylesheet" href="navigation/watch.css">
+    <link rel="stylesheet" href="navigation/listen.css">
+    <link rel="stylesheet" href="navigation/ai.css">
+    <link rel="stylesheet" href="navigation/proxy_browser.css">
+    <link rel="stylesheet" href="css/popup.css">
+    <link rel="stylesheet" href="css/animations.css">
+    
+    <!-- Coming Soon Script -->
+    <script>
+        console.log('🚀 ULTIMATEUNBLOCKER loaded with Coming Soon AI');
+    </script>
+    
+    <!-- Error handling for external scripts -->
+    <script>
+        window.addEventListener('error', function(e) {
+            // Suppress external script errors that don't affect functionality
+            if (e.filename && e.filename.includes('searchAnalyzer')) {
+                console.warn('⚠️ External script error suppressed:', e.message);
+                e.preventDefault();
+            }
+        }, true);
+    </script>
+    
+    <!-- Redirect Logic for Old ULTIMATELINKS URLs -->
+    <script>
+        (function() {
+            // Check if user is coming from old ULTIMATELINKS URLs
+            const referringUrl = document.referrer;
+            const currentHostname = window.location.hostname.toLowerCase();
+            
+            // Check if current site is old ULTIMATELINKS
+            if (currentHostname.includes('ultimatelinks.pages.dev') || 
+                currentHostname.includes('ultimatelinks.surge.sh')) {
+                
+                // Determine the correct redirect URL
+                let redirectUrl;
+                if (currentHostname.includes('pages.dev')) {
+                    redirectUrl = 'https://ultimateunblocker.pages.dev';
+                } else if (currentHostname.includes('surge.sh')) {
+                    redirectUrl = 'https://ultimateunblocker.surge.sh';
+                } else {
+                    // Random choice
+                    const options = [
+                        'https://ultimateunblocker.pages.dev',
+                        'https://ultimateunblocker.surge.sh'
+                    ];
+                    redirectUrl = options[Math.floor(Math.random() * options.length)];
+                }
+                
+                // Show the switch page instead of redirecting directly
+                window.location.href = 'Ultimateunblockerswitch.html?from=' + encodeURIComponent(window.location.href);
+                return;
+            }
+            
+            // Also check if referring from old ULTIMATELINKS
+            if (referringUrl) {
+                try {
+                    const referrerHostname = new URL(referringUrl).hostname.toLowerCase();
+                    if (referrerHostname.includes('ultimatelinks.pages.dev') || 
+                        referrerHostname.includes('ultimatelinks.surge.sh')) {
+                        
+                        // Show the switch page
+                        window.location.href = 'Ultimateunblockerswitch.html?from=' + encodeURIComponent(referringUrl);
+                        return;
+                    }
+                } catch (error) {
+                    // If URL parsing fails, continue normally
+                }
+            }
+        })();
+    </script>
+    
+    <!-- Loading Screen Styles -->
+    <style>
+        /* Loading Screen Styles */
+        .loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 50%, #2d2d2d 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+            backdrop-filter: blur(20px);
+            transition: opacity 0.8s ease, visibility 0.8s ease;
+        }
+
+        .loading-screen.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .loading-container {
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            transition: all 0.8s ease;
+        }
+
+        .loading-container.fade-out {
+            opacity: 0;
+            transform: scale(0.8);
+        }
+
+        .loading-logo {
+            margin-bottom: 40px;
+            animation: logoFloat 3s ease-in-out infinite;
+        }
+
+        @keyframes logoFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .logo-icon {
+            font-size: 4rem;
+            margin-bottom: 15px;
+            animation: iconPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes iconPulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+        }
+
+        .logo-text {
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 30px rgba(102, 126, 234, 0.5);
+            letter-spacing: 2px;
+        }
+
+        .loading-text {
+            margin-bottom: 25px;
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.8);
+            height: 20px;
+            animation: textPulse 1.5s ease-in-out infinite;
+        }
+
+        @keyframes textPulse {
+            0%, 100% { opacity: 0.6; }
+            50% { opacity: 1; }
+        }
+
+        .loading-progress {
+            width: 200px;
+            margin: 0 auto;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 2px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: var(--primary-gradient);
+            border-radius: 2px;
+            width: 0%;
+            animation: progressFill 2s ease-in-out forwards;
+            box-shadow: 0 0 10px rgba(102, 126, 234, 0.5);
+        }
+
+        @keyframes progressFill {
+            0% { width: 0%; }
+            100% { width: 100%; }
+        }
+
+        .transition-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 50%, #2d2d2d 100%);
+            opacity: 0;
+            visibility: hidden;
+            z-index: 10001;
+            transition: all 0.8s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .transition-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .transition-text {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #ffffff;
+            animation: transitionPulse 1s ease-in-out infinite;
+        }
+
+        @keyframes transitionPulse {
+            0%, 100% { opacity: 0.7; }
+            50% { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-container" id="loadingContainer">
+            <div class="loading-logo">
+                <div class="logo-icon">🚀</div>
+                <h1 class="logo-text">ULTIMATEUNBLOCKER</h1>
+            </div>
+            <div class="loading-text">Loading...</div>
+            <div class="loading-progress">
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Transition Overlay -->
+    <div class="transition-overlay" id="transitionOverlay">
+        <div class="transition-text">Launching ULTIMATEUNBLOCKER...</div>
+    </div>
+
+    <!-- Floating Particles -->
+    <div class="floating-particles" id="particles"></div>
+
+    <!-- Menu Button -->
+    <button class="menu-button" id="menuButton">
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </button>
+
+    <!-- Menu Panel -->
+    <div class="menu-panel" id="menuPanel">
+        <div class="nav-section">
+            <div class="nav-section-title">Main</div>
+            <button class="menu-item" id="homeMenuItem" data-item="home">🏠 Home</button>
+            <button class="menu-item" id="linksMenuItem" data-item="links">🔗 Links</button>
+            <button class="menu-item" id="settingsMenuItem" data-item="settings">⚙️ Settings</button>
+            <button class="menu-item" id="infoMenuItem" data-item="information">ℹ️ Information</button>
+        </div>
+        
+        <div class="nav-divider"></div>
+        
+        <div class="nav-section">
+            <div class="nav-section-title">Chat</div>
+            <button class="menu-item" id="chatMenuItem" data-item="chat">💬 Chat</button>
+        </div>
+        
+        <div class="nav-divider"></div>
+        
+        <div class="nav-section">
+            <div class="nav-section-title">Entertainment</div>
+            <button class="menu-item" id="gamesMenuItem" data-item="games">🎮 Games <span class="coming-soon-sticker">Coming Soon</span></button>
+            <button class="menu-item" id="watchMenuItem" data-item="watch">📺 Watch <span class="coming-soon-sticker">Coming Soon</span></button>
+            <button class="menu-item" id="listenMenuItem" data-item="listen">🎵 Listen <span class="coming-soon-sticker">Coming Soon</span></button>
+            <button class="menu-item" id="aiMenuItem" data-item="ai">🤖 AI <span class="new-badge">NEW</span></button>
+            <button class="menu-item" id="proxyMenuItem" data-item="proxy_browser">🔒 Proxy Browser <span class="coming-soon-sticker">Coming Soon</span></button>
+        </div>
+        
+        <div class="nav-divider"></div>
+    </div>
+
+    <!-- Overlay -->
+    <div class="overlay" id="overlay"></div>
+
+    <!-- Main Content -->
+    <div class="main-content" id="mainContent">
+        <div class="hero-section" style="display: block !important; visibility: visible !important; opacity: 1 !important;">
+            <img src="favicon.ico" alt="ULTIMATEUNBLOCKER Logo" class="logo">
+            <h1 class="hero-title">ULTIMATEUNBLOCKER</h1>
+            <p class="hero-subtitle">Your Gateway to Unlimited Access</p>
+            <div class="random-message" id="randomMessage">
+                <span class="message-text">Who remembers ULTIMATELINKS</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Chat Section -->
+    <div class="chat-section" id="chatSection" style="display: none;">
+        <div class="chat-container">
+            <div class="chat-header">
+                <h2>💬 CHAT</h2>
+                <a href="https://discord.gg/PpbddfffVT" class="discord-join-btn" target="_blank">JOIN DISCORD SERVER</a>
+            </div>
+            
+            <!-- Discord Widget -->
+            <div class="discord-widget">
+                <widgetbot
+                    server="1487910769776394343"
+                    channel="1487951675057508444"
+                    width="1200"
+                    height="800"
+                ></widgetbot>
+                <script src="https://cdn.jsdelivr.net/npm/@widgetbot/html-embed"></script>
+            </div>
+        </div>
+    </div>
+
+    <!-- AI Section -->
+    <div class="ai-section" id="aiSection" style="display: none;">
+        <div class="ai-container">
+            <div class="ai-header">
+                <div class="ai-header-content">
+                    <h2>🤖 Neural Nexus AI</h2>
+                    <p>Advanced AI Assistant with Multiple Models</p>
+                    <div class="ai-status">
+                        <span class="status-indicator online"></span>
+                        <span class="status-text">Ready</span>
+                    </div>
+                </div>
+                <button class="ai-close-btn" id="aiCloseBtn">✕</button>
+            </div>
+            
+            <div class="ai-main">
+                <!-- Model Selection -->
+                <div class="ai-model-panel">
+                    <div class="model-panel-header">
+                        <h3>🧠 Select AI Model</h3>
+                        <div class="model-count">6 Models Available</div>
+                    </div>
+                    
+                    <div class="models-grid">
+                        <!-- AUTO Model -->
+                        <div class="model-card auto" data-model="auto">
+                            <div class="model-header">
+                                <div class="model-icon">🤖</div>
+                                <div class="model-badge auto">AUTO</div>
+                            </div>
+                            <div class="model-info">
+                                <h4>AUTO (Ultra AI)</h4>
+                                <p>Automatically selects the best available model with GEMMA-3-27B priority</p>
+                                <div class="model-stats">
+                                    <span class="stat">🎯 Smart Selection</span>
+                                    <span class="stat">⚡ Fast Response</span>
+                                    <span class="stat">🧠 Advanced</span>
+                                </div>
+                            </div>
+                            <div class="model-select-btn">Select</div>
+                        </div>
+
+                        <!-- GPT-OSS-20B Model -->
+                        <div class="model-card fast" data-model="gpt-oss-20b">
+                            <div class="model-header">
+                                <div class="model-icon">⚡</div>
+                                <div class="model-badge free">Free</div>
+                            </div>
+                            <div class="model-info">
+                                <h4>GPT-OSS-20B</h4>
+                                <p>Fast open-source model with reasoning capabilities</p>
+                                <div class="model-stats">
+                                    <span class="stat">⚡ Lightning Fast</span>
+                                    <span class="stat">🧠 Reasoning</span>
+                                    <span class="stat">🆓 Free</span>
+                                </div>
+                            </div>
+                            <div class="model-select-btn">Select</div>
+                        </div>
+
+                        <!-- GPT-OSS-120B Model -->
+                        <div class="model-card advanced" data-model="gpt-oss-120b">
+                            <div class="model-header">
+                                <div class="model-icon">🧠</div>
+                                <div class="model-badge advanced">Advanced</div>
+                            </div>
+                            <div class="model-info">
+                                <h4>GPT-OSS-120B</h4>
+                                <p>Advanced reasoning model with comprehensive coding support</p>
+                                <div class="model-stats">
+                                    <span class="stat">🧠 Deep Reasoning</span>
+                                    <span class="stat">💻 Coding Expert</span>
+                                    <span class="stat">📚 Knowledge Base</span>
+                                </div>
+                            </div>
+                            <div class="model-select-btn">Select</div>
+                        </div>
+
+                        <!-- GEMMA-3-4B Vision Model -->
+                        <div class="model-card vision" data-model="gemma-3-4b">
+                            <div class="model-header">
+                                <div class="model-icon">👁️</div>
+                                <div class="model-badge vision">Vision</div>
+                            </div>
+                            <div class="model-info">
+                                <h4>GEMMA-3-4B</h4>
+                                <p>Vision-capable model with multimodal processing</p>
+                                <div class="model-stats">
+                                    <span class="stat">👁️ Vision</span>
+                                    <span class="stat">🖼️ Image Analysis</span>
+                                    <span class="stat">📊 Multimodal</span>
+                                </div>
+                            </div>
+                            <div class="model-select-btn">Select</div>
+                        </div>
+
+                        <!-- GEMMA-3-12B Vision Model -->
+                        <div class="model-card vision premium" data-model="gemma-3-12b">
+                            <div class="model-header">
+                                <div class="model-icon">🔮</div>
+                                <div class="model-badge vision premium">Vision+</div>
+                            </div>
+                            <div class="model-info">
+                                <h4>GEMMA-3-12B</h4>
+                                <p>Advanced vision model with enhanced reasoning and superior image understanding</p>
+                                <div class="model-stats">
+                                    <span class="stat">👁️ Advanced Vision</span>
+                                    <span class="stat">🧠 Enhanced Reasoning</span>
+                                    <span class="stat">🖼️ Image Expert</span>
+                                </div>
+                            </div>
+                            <div class="model-select-btn">Select</div>
+                        </div>
+
+                        <!-- GEMMA-3-27B Vision Model -->
+                        <div class="model-card vision premium" data-model="gemma-3-27b">
+                            <div class="model-header">
+                                <div class="model-icon">🌟</div>
+                                <div class="model-badge vision ultra">Ultra</div>
+                            </div>
+                            <div class="model-info">
+                                <h4>GEMMA-3-27B</h4>
+                                <p>Ultra-advanced vision model with superior capabilities and exceptional performance</p>
+                                <div class="model-stats">
+                                    <span class="stat">👁️ Ultra Vision</span>
+                                    <span class="stat">🧠 Superior Reasoning</span>
+                                    <span class="stat">⚡ Exceptional Speed</span>
+                                </div>
+                            </div>
+                            <div class="model-select-btn">Select</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Chat Interface -->
+                <div class="ai-chat-panel">
+                    <div class="chat-header">
+                        <div class="current-model">
+                            <div class="model-avatar">🤖</div>
+                            <div class="model-details">
+                                <h4>Select a Model</h4>
+                                <p>Choose an AI model to start chatting</p>
+                            </div>
+                        </div>
+                        <div class="chat-actions">
+                            <button class="action-btn clear-btn">🗑️ Clear</button>
+                            <button class="action-btn export-btn">📥 Export</button>
+                        </div>
+                    </div>
+                    
+                    <div class="chat-messages" id="aiMessages">
+                        <div class="welcome-message">
+                            <div class="welcome-icon">🤖</div>
+                            <div class="welcome-content">
+                                <h3>Welcome to Neural Nexus AI</h3>
+                                <p>Select a model from the left panel to begin your conversation. Each model has unique capabilities and strengths.</p>
+                                <div class="quick-actions">
+                                    <button class="quick-action" id="helpBtn">📚 Help</button>
+                                    <button class="quick-action" id="settingsBtn">⚙️ Settings</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="chat-input-container">
+                        <div class="input-wrapper">
+                            <textarea 
+                                id="aiInput" 
+                                placeholder="Type your message here... (Shift+Enter for new line)"
+                                maxlength="4000"
+                                rows="1"
+                            ></textarea>
+                        </div>
+                        <div class="input-footer">
+                            <div class="char-count">
+                                <span id="charCount">0</span> / 4000
+                            </div>
+                            <div class="input-tips">
+                                <span>💡 Tip: Use @ to mention files or # for commands</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- AI Features Panel -->
+            <div class="ai-features-panel">
+                <div class="features-header">
+                    <h3>🚀 AI Capabilities</h3>
+                    <p>Discover what this AI can do for you</p>
+                </div>
+                
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">💬</div>
+                        <h4>Natural Conversation</h4>
+                        <p>Engage in human-like dialogue with context awareness</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">🧠</div>
+                        <h4>Complex Reasoning</h4>
+                        <p>Solve problems and analyze information deeply</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">🎨</div>
+                        <h4>Creative Writing</h4>
+                        <p>Generate stories, poems, and creative content</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">💻</div>
+                        <h4>Code Generation</h4>
+                        <p>Write, debug, and explain code in any language</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">📊</div>
+                        <h4>Data Analysis</h4>
+                        <p>Analyze data and generate insights</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">🌍</div>
+                        <h4>Multilingual</h4>
+                        <p>Communicate in 100+ languages</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    <!-- Settings Section -->
+    <div class="settings-section" id="settingsSection">
+        <div class="settings-container">
+            <div class="settings-header">
+                <h2>⚙️ Settings</h2>
+                <p>Customize your ULTIMATEUNBLOCKER experience</p>
+                <button class="settings-close-btn" id="settingsCloseBtn">✕</button>
+            </div>
+            
+            <div class="settings-categories">
+                <!-- Appearance Settings -->
+                <div class="settings-category">
+                    <div class="category-header">
+                        <span class="category-icon">🎨</span>
+                        <h3>Appearance</h3>
+                    </div>
+                    <div class="settings-list">
+                        <div class="setting-item">
+                            <div class="setting-info">
+                                <label for="themeSelect">Theme</label>
+                                <p>Choose your preferred color theme</p>
+                            </div>
+                            <select id="themeSelect" class="setting-select">
+                                <option value="dark">Dark Mode</option>
+                                <option value="light">Light Mode</option>
+                                <option value="auto">Auto</option>
+                            </select>
+                        </div>
+                        <div class="setting-item">
+                            <div class="setting-info">
+                                <label for="animationsToggle">Animations</label>
+                                <p>Enable smooth animations and transitions</p>
+                            </div>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="animationsToggle" checked>
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                        <div class="setting-item">
+                            <div class="setting-info">
+                                <label for="particlesToggle">Particles</label>
+                                <p>Show floating particle effects</p>
+                            </div>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="particlesToggle" checked>
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Behavior Settings -->
+                <div class="settings-category">
+                    <div class="category-header">
+                        <span class="category-icon">⚡</span>
+                        <h3>Behavior</h3>
+                    </div>
+                    <div class="settings-list">
+                        <div class="setting-item">
+                            <div class="setting-info">
+                                <label for="autoChatToggle">Auto-join Chat</label>
+                                <p>Automatically connect to chat on startup</p>
+                            </div>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="autoChatToggle">
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                        <div class="setting-item">
+                            <div class="setting-info">
+                                <label for="soundToggle">Sound Effects</label>
+                                <p>Play sounds for interactions</p>
+                            </div>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="soundToggle">
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                        <div class="setting-item">
+                            <div class="setting-info">
+                                <label for="notificationsToggle">Notifications</label>
+                                <p>Show desktop notifications</p>
+                            </div>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="notificationsToggle">
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Privacy Settings -->
+                <div class="settings-category">
+                    <div class="category-header">
+                        <span class="category-icon">🔒</span>
+                        <h3>Privacy</h3>
+                    </div>
+                    <div class="settings-list">
+                        <div class="setting-item">
+                            <div class="setting-info">
+                                <label for="analyticsToggle">Analytics</label>
+                                <p>Help improve ULTIMATEUNBLOCKER with anonymous usage data</p>
+                            </div>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="analyticsToggle">
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                        <div class="setting-item">
+                            <div class="setting-info">
+                                <label for="betaPopupToggle">Beta Popups</label>
+                                <p>Show notifications for new beta versions</p>
+                            </div>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="betaPopupToggle" checked>
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                        <div class="setting-item">
+                            <div class="setting-info">
+                                <label for="clearDataBtn">Clear Data</label>
+                                <p>Reset all settings and clear local data</p>
+                            </div>
+                            <button id="clearDataBtn" class="setting-button danger">Clear All Data</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- About Section -->
+                <div class="settings-category">
+                    <div class="category-header">
+                        <span class="category-icon">ℹ️</span>
+                        <h3>About</h3>
+                    </div>
+                    <div class="settings-list">
+                        <div class="setting-item">
+                            <div class="setting-info">
+                                <label>Version</label>
+                                <p>ULTIMATEUNBLOCKER 0.6.0 Beta</p>
+                            </div>
+                        </div>
+                        <div class="setting-item">
+                            <div class="setting-info">
+                                <label>License</label>
+                                <p>Apache License 2.0</p>
+                            </div>
+                        </div>
+                        <div class="setting-item">
+                            <div class="setting-info">
+                                <label>Source Code</label>
+                                <p>View on GitHub</p>
+                            </div>
+                            <button id="githubBtn" class="setting-button primary">View on GitHub</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="settings-footer">
+                <button id="saveSettingsBtn" class="settings-save-btn">Save Settings</button>
+                <button id="resetSettingsBtn" class="settings-reset-btn">Reset to Defaults</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Categories Section -->
+    <div class="categories-section" id="categoriesSection">
+        <h2 class="section-title">Categories</h2>
+        
+        <div class="categories-grid">
+            <div class="category-card" style="background: #1a1a2e !important; background-color: #1a1a2e !important;">
+                <div class="category-icon">🎮</div>
+                <div class="category-name">GAME LINKS</div>
+                <div class="category-description">Play your favorite games online without limits</div>
+            </div>
+            <div class="category-card" style="background: #1a1a2e !important; background-color: #1a1a2e !important;">
+                <div class="category-icon">📺</div>
+                <div class="category-name">LIVE CHANNEL LINK</div>
+                <div class="category-description">Live streaming channels</div>
+            </div>
+            <div class="category-card" style="background: #1a1a2e !important; background-color: #1a1a2e !important;">
+                <div class="category-icon">🎬</div>
+                <div class="category-name">MOVIE WATCHER LINK</div>
+                <div class="category-description">Stream the latest movies and TV shows</div>
+            </div>
+                        <div class="category-card" style="background: #1a1a2e !important; background-color: #1a1a2e !important;">
+                <div class="category-icon">🎵</div>
+                <div class="category-name">MUSIC LINK</div>
+                <div class="category-description">Stream music from around the world</div>
+            </div>
+            <div class="category-card" style="background: #1a1a2e !important; background-color: #1a1a2e !important;">
+                <div class="category-icon">📻</div>
+                <div class="category-name">RADIO LINK</div>
+                <div class="category-description">Listen to radio stations worldwide</div>
+            </div>
+            <div class="category-card" style="background: #1a1a2e !important; background-color: #1a1a2e !important;">
+                <div class="category-icon">⚽</div>
+                <div class="category-name">SPORT WATCHER LINK</div>
+                <div class="category-description">Watch live sports events and matches</div>
+            </div>
+            <div class="category-card" style="background: #1a1a2e !important; background-color: #1a1a2e !important;">
+                <div class="category-icon">📹</div>
+                <div class="category-name">ALTERNATIVE YOUTUBE</div>
+                <div class="category-description">Alternative YouTube platforms</div>
+            </div>
+            <div class="category-card" style="background: #1a1a2e !important; background-color: #1a1a2e !important;">
+                <div class="category-icon">🔊</div>
+                <div class="category-name">SOUNDBOARDS</div>
+                <div class="category-description">Fun soundboards and meme sounds</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Links Popup -->
+    <div class="links-popup" id="linksPopup">
+        <div class="popup-overlay" id="popupOverlay"></div>
+        <div class="popup-content">
+            <div class="popup-header">
+                <h2 class="popup-title" id="popupTitle">Category Links</h2>
+                <button class="popup-close" id="popupClose">✕</button>
+            </div>
+            <div class="popup-body">
+                <div class="links-container" id="linksContainer">
+                    <!-- Links will be populated here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Information Popup -->
+    <div class="info-popup" id="infoPopup">
+        <div class="info-popup-content">
+            <div class="info-popup-header">
+                <h2>ℹ️ Information</h2>
+                <button class="info-popup-close" id="infoPopupClose">✕</button>
+            </div>
+            <div class="info-popup-body">
+                <div class="info-tabs">
+                    <button class="info-tab active" data-tab="about">About</button>
+                    <button class="info-tab" data-tab="repository">Repository</button>
+                    <button class="info-tab" data-tab="changelog">Changelog</button>
+                    <button class="info-tab" data-tab="contributing">Contributing</button>
+                    <button class="info-tab" data-tab="license">License</button>
+                </div>
+                
+                <div class="info-content">
+                    <!-- About Tab -->
+                    <div class="info-tab-content active" id="about-tab">
+                        <div class="info-section">
+                            <h3>ULTIMATEUNBLOCKER</h3>
+                            <p class="version">Version 0.7.0 ALPHA BETA</p>
+                            <p class="description">Your gateway to unlimited access - a powerful unblocking solution with AI system overhaul and enhanced features.</p>
+                            
+                            <div class="info-features">
+                                <h4>Key Features:</h4>
+                                <ul>
+                                    <li>🤖 Complete AI system overhaul with multi-provider support</li>
+                                    <li>🧠 GEMMA-3 models (27B, 12B, 4B) with vision capabilities</li>
+                                    <li>🔄 Advanced API fallback system - OpenRouter → HuggingFace → Replicate → LockLLM</li>
+                                    <li>💻 Professional code formatting with syntax highlighting</li>
+                                    <li>📊 Table rendering and rich text support</li>
+                                    <li>🎨 Beautiful glass morphism UI design</li>
+                                    <li>💬 Real-time chat system</li>
+                                    <li>🔗 Extensive link categories</li>
+                                    <li>⚙️ Customizable settings</li>
+                                    <li>🔒 Privacy-focused approach</li>
+                                    <li>📱 Responsive mobile design</li>
+                                    <li>✨ Smooth animations and effects</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="info-tech">
+                                <h4>Technologies:</h4>
+                                <div class="tech-tags">
+                                    <span class="tech-tag">HTML5</span>
+                                    <span class="tech-tag">CSS3</span>
+                                    <span class="tech-tag">JavaScript</span>
+                                    <span class="tech-tag">Web APIs</span>
+                                    <span class="tech-tag">LocalStorage</span>
+                                    <span class="tech-tag">AI APIs</span>
+                                    <span class="tech-tag">OpenRouter</span>
+                                    <span class="tech-tag">HuggingFace</span>
+                                    <span class="tech-tag">Replicate</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Repository Tab -->
+                    <div class="info-tab-content" id="repository-tab">
+                        <div class="info-section">
+                            <h3>Repository</h3>
+                            <p>Get the source code and contribute to the project!</p>
+                            
+                            <div class="repo-links">
+                                <a href="https://github.com/lovevideogames25-ui/ULTIMATEUNBLOCKER" target="_blank" class="repo-link primary">
+                                    <span class="repo-icon">📁</span>
+                                    <div class="repo-info">
+                                        <h4>Main Repository</h4>
+                                        <p>Complete source code and documentation</p>
+                                    </div>
+                                </a>
+                                
+                                <a href="https://github.com/lovevideogames25-ui/ULTIMATEUNBLOCKER/issues" target="_blank" class="repo-link">
+                                    <span class="repo-icon">🐛</span>
+                                    <div class="repo-info">
+                                        <h4>Report Issues</h4>
+                                        <p>Found a bug? Let us know!</p>
+                                    </div>
+                                </a>
+                                
+                                <a href="https://github.com/lovevideogames25-ui/ULTIMATEUNBLOCKER/pulls" target="_blank" class="repo-link">
+                                    <span class="repo-icon">🔀</span>
+                                    <div class="repo-info">
+                                        <h4>Pull Requests</h4>
+                                        <p>Contribute your improvements</p>
+                                    </div>
+                                </a>
+                            </div>
+                            
+                            <div class="alt-deployments">
+                                <h4>Alternative Deployments</h4>
+                                <div class="alt-links-grid">
+                                    <a href="https://ultimateunblocker.pages.dev" target="_blank" class="alt-link">
+                                        <span class="alt-icon">🌐</span>
+                                        <div class="alt-info">
+                                            <h5>Primary Site</h5>
+                                            <p>ultimateunblocker.pages.dev</p>
+                                        </div>
+                                    </a>
+                                    
+                                    <a href="https://ultimateunblocker.surge.sh" target="_blank" class="alt-link">
+                                        <span class="alt-icon">⚡</span>
+                                        <div class="alt-info">
+                                            <h5>Fast CDN</h5>
+                                            <p>ultimateunblocker.surge.sh</p>
+                                        </div>
+                                    </a>
+                                    
+                                    <a href="https://ultimateducation.surge.sh" target="_blank" class="alt-link">
+                                        <span class="alt-icon">🎓</span>
+                                        <div class="alt-info">
+                                            <h5>Education</h5>
+                                            <p>ultimateducation.surge.sh</p>
+                                        </div>
+                                    </a>
+                                    
+                                    <a href="https://plsnoblockordeploymentpause.vercel.app/" target="_blank" class="alt-link">
+                                        <span class="alt-icon">🚫</span>
+                                        <div class="alt-info">
+                                            <h5>Anti-Block</h5>
+                                            <p>plsnoblockordeploymentpause.vercel.app</p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            
+                            <div class="repo-stats">
+                                <h4>Project Statistics:</h4>
+                                <div class="stats-grid">
+                                    <div class="stat-item">
+                                        <span class="stat-number">⭐</span>
+                                        <span class="stat-label">Stars</span>
+                                    </div>
+                                    <div class="stat-item">
+                                        <span class="stat-number">🍴</span>
+                                        <span class="stat-label">Forks</span>
+                                    </div>
+                                    <div class="stat-item">
+                                        <span class="stat-number">👥</span>
+                                        <span class="stat-label">Contributors</span>
+                                    </div>
+                                    <div class="stat-item">
+                                        <span class="stat-number">📝</span>
+                                        <span class="stat-label">Issues</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Changelog Tab -->
+                    <div class="info-tab-content" id="changelog-tab">
+                        <div class="info-section">
+                            <h3>Changelog</h3>
+                            <p>Complete version history and updates</p>
+                            
+                            <div class="changelog-list">
+                                <div class="changelog-item">
+                                    <div class="changelog-version">
+                                        <span class="version-tag">v0.7.0 ALPHA BETA - 0.7.0 DEVELOPMENT RELEASE</span>
+                                        <span class="changelog-date">2026-03-29</span>
+                                        <a href="#" class="download-link" title="Coming Soon">📥 Download</a>
+                                    </div>
+                                    <div class="changelog-content">
+                                        <h4>🚀 AI System Revolution</h4>
+                                        <ul>
+                                            <li>🤖 Complete AI system overhaul with multi-provider support</li>
+                                            <li>🔄 Advanced API fallback system - OpenRouter → HuggingFace → Replicate → LockLLM</li>
+                                            <li>⚡ Real-time model switching - GEMMA-3, GPT-OSS-20b, GPT-OSS-120b</li>
+                                            <li>🎯 Enhanced code detection with language-specific expert modes</li>
+                                            <li>🔧 Removed fallback chains - direct API switching for better performance</li>
+                                            <li>✨ NEW badge added to AI menu item</li>
+                                            <li>🔗 Updated license links to correct GitHub repository</li>
+                                            <li>🎨 Improved error handling and user feedback</li>
+                                        </ul>
+                                        <h4>🔧 Technical Improvements</h4>
+                                        <ul>
+                                            <li>📦 Modular API functions for better maintainability</li>
+                                            <li>🛡️ Enhanced security with proper API key management</li>
+                                            <li>📊 Better logging and debugging capabilities</li>
+                                            <li>⚡ Optimized API response handling</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                
+                                <div class="changelog-item">
+                                    <div class="changelog-version">
+                                        <span class="version-tag">v0.6.0 Beta</span>
+                                        <span class="changelog-date">2024</span>
+                                        <a href="https://github.com/lovevideogames25-ui/ULTIMATEUNBLOCKER/archive/refs/tags/v0.6_beta.zip" class="download-link" target="_blank">📥 Download</a>
+                                    </div>
+                                    <div class="changelog-content">
+                                        <h4>Major Features</h4>
+                                        <ul>
+                                            <li>✨ Complete UI redesign with glass morphism</li>
+                                            <li>⚙️ Comprehensive settings system</li>
+                                            <li>💬 Enhanced chat functionality</li>
+                                            <li>🔗 Improved link categories</li>
+                                            <li>🎨 Theme switching (Light/Dark/Auto)</li>
+                                            <li>🔊 Sound effects and notifications</li>
+                                            <li>📊 Analytics and tracking</li>
+                                            <li>🚀 Beta popup system</li>
+                                            <li>ℹ️ Information popup with full project details</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                
+                                <div class="changelog-item">
+                                    <div class="changelog-version">
+                                        <span class="version-tag">v0.5.1 BETA</span>
+                                        <span class="changelog-date">2026-03-21</span>
+                                        <a href="https://github.com/lovevideogames25-ui/ULTIMATEUNBLOCKER/archive/refs/tags/v0.5.1_beta.zip" class="download-link" target="_blank">📥 Download</a>
+                                    </div>
+                                    <div class="changelog-content">
+                                        <h4>🎉 Enhanced UI/UX BETA Update</h4>
+                                        <ul>
+                                            <li>💬 Better Chat Interface - Resized chat box to 1200px width</li>
+                                            <li>📂 Clickable Category Cards - Click anywhere on category cards</li>
+                                            <li>🔗 Consistent Link Sizing - Uniform 320px x 200px cards</li>
+                                            <li>🎯 Enhanced Explore Buttons - Bigger, more prominent buttons</li>
+                                            <li>🖱️ Improved Hover Effects - Smooth animations and visual feedback</li>
+                                            <li>🔧 Bug Fixes & Performance - Fixed JavaScript errors</li>
+                                        </ul>
+                                        <h4>🎨 UI/UX Improvements</h4>
+                                        <ul>
+                                            <li>📱 Full Card Clickability - Entire category cards now clickable</li>
+                                            <li>📏 Uniform Card Sizes - Consistent 320px x 200px dimensions</li>
+                                            <li>🎯 Better Button Sizing - Normal-sized, prominent explore buttons</li>
+                                            <li>✨ Enhanced Animations - Smooth hover and transition effects</li>
+                                            <li>📱 Responsive Design - Improved mobile experience</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                
+                                <div class="changelog-item">
+                                    <div class="changelog-version">
+                                        <span class="version-tag">v0.5.0 BETA</span>
+                                        <span class="changelog-date">2026-03-21</span>
+                                        <a href="https://github.com/lovevideogames25-ui/ULTIMATEUNBLOCKER/archive/refs/tags/v0.5_fullbeta.zip" class="download-link" target="_blank">📥 Download</a>
+                                    </div>
+                                    <div class="changelog-content">
+                                        <h4>🎉 MAJOR BETA RELEASE</h4>
+                                        <ul>
+                                            <li>Complete Multi-Page Structure - Separate pages for all sections</li>
+                                            <li>Advanced Theme System - 6 themes including hacking theme</li>
+                                            <li>Categories with Search - Organized links with filtering</li>
+                                            <li>Discord Integration - Live community chat</li>
+                                            <li>Settings Panel - Customizable themes and preferences</li>
+                                            <li>Beta Release Popup - Professional announcement system</li>
+                                        </ul>
+                                        <h4>🎨 NEW THEMES SYSTEM</h4>
+                                        <ul>
+                                            <li>🖥️ Hacking Theme - Terminal matrix style with green phosphor glow</li>
+                                            <li>🎨 Theme Selector - Choose from 6 different themes</li>
+                                            <li>💜 Purple Theme - Default premium theme</li>
+                                            <li>💙 Blue Theme - Ocean-inspired design</li>
+                                            <li>💚 Green Theme - Nature-focused colors</li>
+                                            <li>❤️ Red Theme - Bold and vibrant</li>
+                                            <li>⚫ Dark Theme - Minimalist dark mode</li>
+                                            <li>✨ Theme Persistence - Settings saved locally</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                
+                                <div class="changelog-item">
+                                    <div class="changelog-version">
+                                        <span class="version-tag">v0.5.0 ALPHA BETA</span>
+                                        <span class="changelog-date">2026-03-12</span>
+                                        <a href="https://github.com/lovevideogames25-ui/ULTIMATEUNBLOCKER/archive/refs/tags/v0.5_beta.zip" class="download-link" target="_blank">📥 Download</a>
+                                    </div>
+                                    <div class="changelog-content">
+                                        <h4>🚀 MAJOR UI OVERHAUL</h4>
+                                        <ul>
+                                            <li>Complete UI Redesign - Modern glassmorphism design system</li>
+                                            <li>Enhanced Animations - Pure CSS animations throughout</li>
+                                            <li>Improved Footer - Beautiful footer with gradient animations</li>
+                                            <li>Better Spacing - Optimized layout for all screen sizes</li>
+                                            <li>Mobile Optimization - Enhanced mobile experience</li>
+                                        </ul>
+                                        <h4>🔗 COMPLETE LINK COLLECTION UPDATE</h4>
+                                        <ul>
+                                            <li>70+ Verified Links - Complete link overhaul with exact URLs</li>
+                                            <li>19 Proxy Sites - Updated all proxy links with working URLs</li>
+                                            <li>26 Game Links - Comprehensive gaming collection</li>
+                                            <li>7 Movie Sites - Updated streaming platforms</li>
+                                            <li>4 Tools Links - Latest productivity and utility tools</li>
+                                            <li>4 Music Platforms - Enhanced music streaming</li>
+                                            <li>2 Sports Sites - Live sports streaming</li>
+                                            <li>1 Live Channel - Live streaming platform</li>
+                                            <li>1 Radio Station - Global radio access</li>
+                                            <li>1 YouTube Alternative - Privacy-focused video platform</li>
+                                            <li>4 Soundboards - Fun sound effects and meme sounds</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                
+                                <div class="changelog-item">
+                                    <div class="changelog-version">
+                                        <span class="version-tag">v0.4.0 BETA</span>
+                                        <span class="changelog-date">2026-03-01</span>
+                                        <a href="https://github.com/lovevideogames25-ui/ULTIMATEUNBLOCKER/archive/refs/tags/v0.4_beta.zip" class="download-link" target="_blank">📥 Download</a>
+                                    </div>
+                                    <div class="changelog-content">
+                                        <h4>🚀 Major Updates</h4>
+                                        <ul>
+                                            <li>Added 8 new links - Expanded link collection with verified resources</li>
+                                            <li>Chat system integration - Real-time Discord chat functionality</li>
+                                            <li>Popup system - Enhanced user notifications and alerts</li>
+                                            <li>Settings panel - User preferences and customization options</li>
+                                        </ul>
+                                        <h4>🔧 Technical Improvements</h4>
+                                        <ul>
+                                            <li>Git automation - Batch scripts for streamlined deployment</li>
+                                            <li>Documentation updates - Enhanced CHANGELOG and CONTRIBUTING guides</li>
+                                            <li>File management - Improved .gitignore for better version control</li>
+                                            <li>Repository optimization - Clean commit history and organized structure</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                
+                                <div class="changelog-item">
+                                    <div class="changelog-version">
+                                        <span class="version-tag">v0.3.0 BETA</span>
+                                        <span class="changelog-date">2026-02-25</span>
+                                        <a href="https://github.com/lovevideogames25-ui/ULTIMATEUNBLOCKER/archive/refs/tags/v0.3_beta.zip" class="download-link" target="_blank">📥 Download</a>
+                                    </div>
+                                    <div class="changelog-content">
+                                        <h4>🚀 Major Updates</h4>
+                                        <ul>
+                                            <li>Complete music system removal - Eliminated all music functionality</li>
+                                            <li>Render deployment migration - Switched from Vercel to Render</li>
+                                            <li>Static site optimization - Configured for optimal static hosting</li>
+                                            <li>Links section addition - New navigation for website deployments</li>
+                                            <li>Project relocation - Moved to Downloads folder</li>
+                                        </ul>
+                                        <h4>📁 File Structure Changes</h4>
+                                        <ul>
+                                            <li>Removed: music_api.html, music.js, music.css</li>
+                                            <li>Added: render.yaml, Links section</li>
+                                            <li>Updated: README.md with Render instructions</li>
+                                            <li>Optimized: Static site configuration</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                
+                                <div class="changelog-item">
+                                    <div class="changelog-version">
+                                        <span class="version-tag">v0.2.0 BETA</span>
+                                        <span class="changelog-date">2026-02-22</span>
+                                        <a href="https://github.com/lovevideogames25-ui/ULTIMATEUNBLOCKER/archive/refs/tags/v0.2_beta.zip" class="download-link" target="_blank">📥 Download</a>
+                                    </div>
+                                    <div class="changelog-content">
+                                        <h4>🆕 KEY FEATURES</h4>
+                                        <ul>
+                                            <li>🎨 Slightly Updated UI - Glassmorphism design with backdrop blur effects</li>
+                                            <li>🚀 Custom Logo Created - Custom SVG logo with rocket & links theme</li>
+                                        </ul>
+                                        <h4>✨ Enhanced Components</h4>
+                                        <ul>
+                                            <li>Premium categories with glassmorphism cards</li>
+                                            <li>Advanced links with shimmer animations</li>
+                                            <li>Modern navigation with glassmorphism effects</li>
+                                            <li>Enhanced buttons with premium styling</li>
+                                            <li>Fresh footer with interactive elements</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                
+                                <div class="changelog-item">
+                                    <div class="changelog-version">
+                                        <span class="version-tag">v0.1.0 BETA</span>
+                                        <span class="changelog-date">2026-02-19</span>
+                                        <a href="https://github.com/lovevideogames25-ui/ULTIMATEUNBLOCKER/archive/refs/tags/v0.1_beta.zip" class="download-link" target="_blank">📥 Download</a>
+                                    </div>
+                                    <div class="changelog-content">
+                                        <h4>🎉 INITIAL BETA RELEASE</h4>
+                                        <ul>
+                                            <li>62+ Verified Links across 10 categories</li>
+                                            <li>GitLab Integration with navigation button</li>
+                                            <li>Professional Dark Theme with gradients</li>
+                                            <li>Mobile Responsive Design for all devices</li>
+                                            <li>Real-time Search functionality</li>
+                                            <li>Persistent Comment System with localStorage</li>
+                                            <li>Smooth Animations and micro-interactions</li>
+                                            <li>Security Warnings for HTTP sites</li>
+                                            <li>One-click Vercel Deployment ready</li>
+                                        </ul>
+                                        <h4>📂 Initial Categories</h4>
+                                        <ul>
+                                            <li>🛡️ PROXY SITES (18 links)</li>
+                                            <li>🎮 GAME LINKS (20 links)</li>
+                                            <li>📺 LIVE CHANNEL (1 link)</li>
+                                            <li>🎬 MOVIE WATCHER (7 links)</li>
+                                            <li>🛠️ TOOLS LINKS (4 links)</li>
+                                            <li>🎵 MUSIC LINKS (4 links)</li>
+                                            <li>📻 RADIO LINK (1 link)</li>
+                                            <li>⚽ SPORT WATCHER (2 links)</li>
+                                            <li>📹 ALTERNATIVE YOUTUBE (1 link)</li>
+                                            <li>🔊 SOUNDBOARDS (3 links)</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Contributing Tab -->
+                    <div class="info-tab-content" id="contributing-tab">
+                        <div class="info-section">
+                            <h3>Contributing</h3>
+                            <p>Help us make ULTIMATEUNBLOCKER even better!</p>
+                            
+                            <div class="contributing-ways">
+                                <div class="contrib-way">
+                                    <h4>🐛 Report Bugs</h4>
+                                    <p>Found an issue? Report it on GitHub with detailed information about the problem, steps to reproduce, and your environment.</p>
+                                </div>
+                                
+                                <div class="contrib-way">
+                                    <h4>💡 Suggest Features</h4>
+                                    <p>Have an idea for improvement? Open an issue with the "enhancement" label and describe your feature request.</p>
+                                </div>
+                                
+                                <div class="contrib-way">
+                                    <h4>🔀 Submit Pull Requests</h4>
+                                    <p>Fork the repository, make your changes, and submit a pull request. Follow the coding standards and include tests.</p>
+                                </div>
+                                
+                                <div class="contrib-way">
+                                    <h4>📝 Improve Documentation</h4>
+                                    <p>Help improve documentation, add examples, or translate content to other languages.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="contributing-guidelines">
+                                <h4>Guidelines:</h4>
+                                <ul>
+                                    <li>Follow the existing code style</li>
+                                    <li>Write clear commit messages</li>
+                                    <li>Test your changes thoroughly</li>
+                                    <li>Update documentation if needed</li>
+                                    <li>Be respectful and constructive</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="contributing-contact">
+                                <h4>Get in Touch:</h4>
+                                <p>Join our community and contribute to the project!</p>
+                                <div class="contact-links">
+                                    <a href="https://github.com/lovevideogames25-ui/ULTIMATEUNBLOCKER/discussions" target="_blank">💬 Discussions</a>
+                                    <a href="https://github.com/lovevideogames25-ui/ULTIMATEUNBLOCKER/issues" target="_blank">🐛 Issues</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- License Tab -->
+                    <div class="info-tab-content" id="license-tab">
+                        <div class="info-section">
+                            <h3>License</h3>
+                            <p>ULTIMATEUNBLOCKER is open source software</p>
+                            
+                            <div class="license-info">
+                                <div class="license-header">
+                                    <h4>Apache License 2.0</h4>
+                                    <p>Copyright (c) 2024 ULTIMATELINKS</p>
+                                </div>
+                                
+                                <div class="license-summary">
+                                    <h4>What this means:</h4>
+                                    <ul>
+                                        <li>✅ Commercial use allowed</li>
+                                        <li>✅ Modification allowed</li>
+                                        <li>✅ Distribution allowed</li>
+                                        <li>✅ Private use allowed</li>
+                                        <li>❌ Liability not provided</li>
+                                        <li>❌ Warranty not provided</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="license-details">
+                                    <h4>Key Points:</h4>
+                                    <p>This license allows you to use, modify, and distribute the software for any purpose. You must include the original copyright and license notices in any copies or substantial portions of the software.</p>
+                                    
+                                    <h4>Patent Grant:</h4>
+                                    <p>The license includes an express grant of patent rights from contributors to you, protecting you from patent infringement claims related to the contributed code.</p>
+                                </div>
+                                
+                                <div class="license-link">
+                                    <a href="https://github.com/lovevideogames25-ui/ULTIMATEUNBLOCKER/blob/main/LICENSE.md" target="_blank">
+                                        📄 View Full License Text
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/popup.js"></script>
+    <script src="js/script.js?v=<?php echo time(); ?>"></script>
+</body>
+</html>

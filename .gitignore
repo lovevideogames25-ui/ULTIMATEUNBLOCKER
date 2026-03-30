@@ -1,0 +1,28 @@
+# Git ignore file for ULTIMATELINKS
+
+# Environment variables
+.env
+.env.local
+.env.production
+
+# API keys and secrets
+*.key
+*.pem
+*.p12
+
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Dependencies
+package-lock.json
+yarn.lock
+
+# Text files
+*.txt
+!api.txt
+
+.vercel
+.env*.local
