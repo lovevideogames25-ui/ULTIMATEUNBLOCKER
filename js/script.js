@@ -1782,8 +1782,8 @@ async function loadEnvFromServer() {
 
 async function tryOpenRouter(message, hasImages = false, isVisionModel = false) {
   const envVars = await loadEnvFromServer()
-  if (!envVars.API) {
-    throw new Error('OpenRouter API key not found')
+  if (!envVars || !envVars.API) {
+    throw new Error('OpenRouter API key not found. Please set up your .env file or run env_creator.bat')
   }
   
   const modelMap = {
@@ -2014,8 +2014,8 @@ ${enhancedMessage}
 
 async function tryHuggingFace(message, hasImages = false, isVisionModel = false) {
   const envVars = await loadEnvFromServer()
-  if (!envVars.API2) {
-    throw new Error('HuggingFace API key not found')
+  if (!envVars || !envVars.API2) {
+    throw new Error('HuggingFace API key not found. Please set up your .env file or run env_creator.bat')
   }
   
   const hfModelMap = {
@@ -2183,8 +2183,8 @@ ${enhancedMessage}
 
 async function tryReplicate(message, hasImages = false, isVisionModel = false) {
   const envVars = await loadEnvFromServer()
-  if (!envVars.API3) {
-    throw new Error('Replicate API key not found')
+  if (!envVars || !envVars.API3) {
+    throw new Error('Replicate API key not found. Please set up your .env file or run env_creator.bat')
   }
   
   const replicateModelMap = {
@@ -2348,8 +2348,8 @@ ${enhancedMessage}
 
 async function tryLockLLM(message, hasImages = false, isVisionModel = false) {
   const envVars = await loadEnvFromServer()
-  if (!envVars.API4) {
-    throw new Error('LockLLM API key not found')
+  if (!envVars || !envVars.API4) {
+    throw new Error('LockLLM API key not found. Please set up your .env file or run env_creator.bat')
   }
   
   const modelMap = {
