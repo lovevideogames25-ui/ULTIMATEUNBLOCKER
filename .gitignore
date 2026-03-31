@@ -9,6 +9,7 @@
 *.key
 *.pem
 *.p12
+js/env-config.js
 
 # Node.js
 node_modules/
