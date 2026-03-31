@@ -1748,7 +1748,16 @@ async function loadEnvFromServer() {
         API: envVars.API ? '[SET]' : '[NOT SET]',
         API2: envVars.API2 ? '[SET]' : '[NOT SET]',
         API3: envVars.API3 ? '[SET]' : '[NOT SET]',
-        API4: envVars.API4 ? '[SET]' : '[NOT SET]'
+        API4: envVars.API4 ? '[SET]' : '[NOT SET]',
+        PORT: envVars.PORT || '3000',
+        NODE_ENV: envVars.NODE_ENV || 'development',
+        DEBUG: envVars.DEBUG || 'false',
+        ENABLE_AI: envVars.ENABLE_AI || 'true',
+        ENABLE_PROXY: envVars.ENABLE_PROXY || 'true',
+        ENABLE_CHAT: envVars.ENABLE_CHAT || 'true',
+        ENABLE_GAMING: envVars.ENABLE_GAMING || 'true',
+        DISCORD_SERVER_ID: envVars.DISCORD_SERVER_ID ? '[SET]' : '[NOT SET]',
+        DISCORD_CHANNEL_ID: envVars.DISCORD_CHANNEL_ID ? '[SET]' : '[NOT SET]'
       })
       
       return envVars
