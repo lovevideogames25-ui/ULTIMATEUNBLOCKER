@@ -33,6 +33,23 @@ document.addEventListener('DOMContentLoaded', async function () {
   // Initialize loading screen
   initializeLoadingScreen()
   
+  // Initialize categories system but don't show automatically
+  initializeCategoriesSystem()
+  
+  // Ensure categories section is hidden on load
+  setTimeout(() => {
+    const categoriesSection = document.getElementById('categoriesSection');
+    const linksDisplaySection = document.getElementById('linksDisplaySection');
+    if (categoriesSection) {
+      categoriesSection.style.display = 'none';
+      console.log('🔗 Categories section hidden on load');
+    }
+    if (linksDisplaySection) {
+      linksDisplaySection.style.display = 'none';
+      console.log('🔗 Links display section hidden on load');
+    }
+  }, 100);
+  
   console.log('✅ ULTIMATEUNBLOCKER Premium UI initialized with enhanced effects')
 })
 
@@ -100,6 +117,7 @@ function showMainContent() {
   const transitionOverlay = document.getElementById('transitionOverlay')
   const mainContent = document.getElementById('mainContent')
   const menuPanel = document.getElementById('menuPanel')
+  const menuButton = document.getElementById('menuButton')
   
   console.log('🏠 Showing main content...')
   console.log('🏠 Main content element:', mainContent ? 'EXISTS' : 'MISSING')
@@ -113,6 +131,14 @@ function showMainContent() {
   if (transitionOverlay) {
     transitionOverlay.style.display = 'none'
     console.log('🏠 Transition overlay hidden')
+  }
+  
+  // Show menu button after loading completes
+  if (menuButton) {
+    setTimeout(() => {
+      menuButton.classList.add('loaded')
+      console.log('🏠 Menu button revealed after loading')
+    }, 500)
   }
   
   // Show and initialize main content
@@ -148,6 +174,9 @@ function initializeApp() {
   // Initialize navigation manager
   initializeNavigation()
   
+  // Initialize categories system
+  initializeCategoriesSystem()
+  
   // Initialize chat system
   initializeChatSystem()
   
@@ -157,152 +186,16 @@ function initializeApp() {
   // Initialize category interactions
   initializeCategoryInteractions()
   
-  // Initialize popup functionality
-  initializePopupFunctionality()
-  
   // Initialize random message system
   initializeRandomMessages()
   
-  // Initialize beta popup
-  initializeBetaPopup()
-  
   // Initialize settings system (moved to end)
   initializeSettings()
-  
-  // Initialize information popup
-  initializeInfoPopup()
   
   console.log('✅ Main application initialized successfully!')
 }
 
 // Wait for DOM to be fully loaded before applying settings
-document.addEventListener('DOMContentLoaded', function() {
-  console.log('🔧 DOM fully loaded, applying settings...')
-  
-  // Apply settings after DOM is ready
-  setTimeout(() => {
-    const settings = JSON.parse(localStorage.getItem('ultimateunblocker_settings')) || {
-      theme: 'dark',
-      animations: true,
-      particles: true,
-      autoChat: false,
-      soundEffects: false,
-      notifications: false,
-      analytics: false,
-      betaPopups: true
-    }
-    
-    console.log('🔧 Re-applying settings after DOM load:', settings)
-    
-    // Apply all settings again to ensure UI elements are ready
-    applyTheme(settings.theme)
-    applyAnimationSettings(settings.animations)
-    applyParticleSettings(settings.particles)
-    applySoundSettings(settings.soundEffects)
-    applyNotificationSettings(settings.notifications)
-    applyAnalyticsSettings(settings.analytics)
-    
-    console.log('🔧 Settings re-applied after DOM load')
-  }, 100)
-})
-
-// Beta Popup System
-function initializeBetaPopup() {
-  const betaPopup = document.getElementById('betaPopup')
-  const betaPopupClose = document.getElementById('betaPopupClose')
-  const betaPopupAccept = document.getElementById('betaPopupAccept')
-  const betaPopupFeedback = document.getElementById('betaPopupFeedback')
-  
-  // Check if user has seen beta popup before
-  // Force clear and proper initialization
-  console.log('🚀 Force clearing hasSeenBetaPopup')
-  localStorage.removeItem('hasSeenBetaPopup')
-  
-  // Verify it was cleared properly
-  const hasSeenBetaPopup = localStorage.getItem('hasSeenBetaPopup')
-  
-  // Debug localStorage behavior extensively
-  console.log('🚀 Raw localStorage result:', localStorage.getItem('hasSeenBetaPopup'))
-  console.log('🚀 Stringified result:', JSON.stringify(localStorage.getItem('hasSeenBetaPopup')))
-  console.log('🚀 hasSeenBetaPopup value:', hasSeenBetaPopup)
-  console.log('🚀 hasSeenBetaPopup type:', typeof hasSeenBetaPopup)
-  console.log('🚀 hasSeenBetaPopup === null:', hasSeenBetaPopup === null)
-  console.log('🚀 hasSeenBetaPopup === "true":', hasSeenBetaPopup === 'true')
-  console.log('🚀 hasSeenBetaPopup === "null":', hasSeenBetaPopup === 'null')
-  
-  // Check if beta popups are enabled in settings
-  const settings = JSON.parse(localStorage.getItem('ultimateunblocker_settings')) || {}
-  const betaPopupsEnabled = settings.betaPopups !== false // Default to true
-  
-  console.log('🚀 Beta popup check:', { hasSeenBetaPopup, betaPopupsEnabled })
-  console.log('🚀 betaPopupsEnabled:', betaPopupsEnabled)
-  
-  // Only show popup if user hasn't seen it AND popups are enabled
-  // Use explicit null check and string comparison
-  if (hasSeenBetaPopup === null && betaPopupsEnabled) {
-    // Show beta popup after a short delay
-    setTimeout(() => {
-      showBetaPopup()
-    }, 2000)
-  } else {
-    console.log('🚀 Beta popup suppressed - already seen or disabled')
-  }
-  
-  // Close button
-  if (betaPopupClose) {
-    betaPopupClose.addEventListener('click', function () {
-      closeBetaPopup()
-    })
-  }
-  
-  // Accept button
-  if (betaPopupAccept) {
-    betaPopupAccept.addEventListener('click', function () {
-      closeBetaPopup()
-    })
-  }
-  
-  // Feedback button
-  if (betaPopupFeedback) {
-    betaPopupFeedback.addEventListener('click', function () {
-      // Open feedback form or link
-      window.open('https://github.com/lovevideogames25-ui/ULTIMATEUNBLOCKER/issues', '_blank')
-    })
-  }
-  
-  // Close on overlay click
-  if (betaPopup) {
-    betaPopup.addEventListener('click', function (e) {
-      if (e.target === betaPopup) {
-        closeBetaPopup()
-      }
-    })
-  }
-}
-
-function showBetaPopup() {
-  const betaPopup = document.getElementById('betaPopup')
-  if (betaPopup) {
-    betaPopup.classList.add('active')
-    console.log('🚀 Beta popup shown')
-  }
-}
-
-function closeBetaPopup() {
-  const betaPopup = document.getElementById('betaPopup')
-  if (betaPopup) {
-    betaPopup.classList.remove('active')
-    // Mark that user has seen the popup
-    localStorage.setItem('hasSeenBetaPopup', 'true')
-    console.log('🚀 Beta popup closed')
-  }
-}
-
-function resetBetaPopup() {
-  // Allow beta popup to show again (for testing)
-  localStorage.removeItem('hasSeenBetaPopup')
-  console.log('🚀 Beta popup reset - will show again on reload')
-}
 
 // Random Message System
 function initializeRandomMessages() {
@@ -405,8 +298,7 @@ function loadSettings() {
     autoChat: false,
     soundEffects: false,
     notifications: false,
-    analytics: false,
-    betaPopups: true
+    analytics: false
   }
   
   console.log('🔧 Loading settings:', settings)
@@ -419,7 +311,6 @@ function loadSettings() {
   const soundToggle = document.getElementById('soundToggle')
   const notificationsToggle = document.getElementById('notificationsToggle')
   const analyticsToggle = document.getElementById('analyticsToggle')
-  const betaPopupToggle = document.getElementById('betaPopupToggle')
   
   console.log('🔧 Setting UI elements:', {
     themeSelect: !!themeSelect,
@@ -428,8 +319,7 @@ function loadSettings() {
     autoChatToggle: !!autoChatToggle,
     soundToggle: !!soundToggle,
     notificationsToggle: !!notificationsToggle,
-    analyticsToggle: !!analyticsToggle,
-    betaPopupToggle: !!betaPopupToggle
+    analyticsToggle: !!analyticsToggle
   })
   
   if (themeSelect) themeSelect.value = settings.theme
@@ -439,7 +329,6 @@ function loadSettings() {
   if (soundToggle) soundToggle.checked = settings.soundEffects
   if (notificationsToggle) notificationsToggle.checked = settings.notifications
   if (analyticsToggle) analyticsToggle.checked = settings.analytics
-  if (betaPopupToggle) betaPopupToggle.checked = settings.betaPopups
   
   // Apply all settings
   console.log('🔧 Applying settings...')
@@ -471,7 +360,6 @@ function saveSettings() {
   const soundToggle = document.getElementById('soundToggle')
   const notificationsToggle = document.getElementById('notificationsToggle')
   const analyticsToggle = document.getElementById('analyticsToggle')
-  const betaPopupToggle = document.getElementById('betaPopupToggle')
   
   console.log('🔧 Form elements found:', {
     themeSelect: !!themeSelect,
@@ -480,8 +368,7 @@ function saveSettings() {
     autoChatToggle: !!autoChatToggle,
     soundToggle: !!soundToggle,
     notificationsToggle: !!notificationsToggle,
-    analyticsToggle: !!analyticsToggle,
-    betaPopupToggle: !!betaPopupToggle
+    analyticsToggle: !!analyticsToggle
   })
   
   const settings = {
@@ -491,8 +378,7 @@ function saveSettings() {
     autoChat: autoChatToggle?.checked || false,
     soundEffects: soundToggle?.checked || false,
     notifications: notificationsToggle?.checked || false,
-    analytics: analyticsToggle?.checked || false,
-    betaPopups: betaPopupToggle?.checked || false
+    analytics: analyticsToggle?.checked || false
   }
   
   console.log('🔧 Settings to save:', settings)
@@ -839,62 +725,72 @@ notificationStyles.textContent = `
   }
 `
 document.head.appendChild(notificationStyles)
+
 function showLinks() {
+  console.log('🔗 Showing links section...')
+  
+  // Hide other sections
   const mainContent = document.getElementById('mainContent')
-  const categoriesSection = document.getElementById('categoriesSection')
   const chatSection = document.getElementById('chatSection')
   const heroSection = document.querySelector('.hero-section')
+  const categoriesSection = document.getElementById('categoriesSection')
+  const linksDisplaySection = document.getElementById('linksDisplaySection')
   
-  console.log('🔗 Showing links section...')
   console.log('🔗 Categories section found:', categoriesSection ? 'YES' : 'NO')
   console.log('🔗 Chat section found:', chatSection ? 'YES' : 'NO')
   console.log('🔗 Hero section found:', heroSection ? 'YES' : 'NO')
-  console.log('🔗 Main content found:', mainContent ? 'YES' : 'NO')
   
+  // Hide main content, chat, hero, and links display
+  if (mainContent) mainContent.style.display = 'none'
+  if (chatSection) chatSection.style.display = 'none'
+  if (heroSection) heroSection.style.display = 'none'
+  if (linksDisplaySection) {
+    linksDisplaySection.classList.remove('active')
+    linksDisplaySection.style.display = 'none'
+  }
+  
+  // Show categories section - FORCE IT
   if (categoriesSection) {
-    // Hide hero section (home content) inside main content
-    if (heroSection) {
-      heroSection.style.display = 'none'
-      console.log('🔗 Hero section hidden')
-    }
-    
-    // Hide chat section
-    if (chatSection) {
-      chatSection.style.display = 'none'
-      console.log('🔗 Chat section hidden')
-    }
-    
-    // Hide main content (contains hero section)
-    if (mainContent) {
-      mainContent.style.display = 'none'
-      console.log('🔗 Main content hidden')
-    }
-    
-    // Show categories section (it's separate from main content)
-    categoriesSection.style.display = 'block'
-    categoriesSection.style.visibility = 'visible'
+    categoriesSection.classList.add('active')
+    categoriesSection.style.display = 'flex !important'
     categoriesSection.style.opacity = '0'
     categoriesSection.style.transform = 'translateY(20px)'
-    console.log('🔗 Categories section display set to block')
+    categoriesSection.style.visibility = 'visible !important'
+    categoriesSection.style.setProperty('display', 'flex', 'important')
+    categoriesSection.style.cssText = 'display: flex !important; visibility: visible !important; opacity: 0; transform: translateY(20px);'
     
-    // Fade in categories
+    console.log('🔗 Categories section display forced to flex')
+    
+    // Animate in
     setTimeout(() => {
       categoriesSection.style.transition = 'all 0.6s ease'
       categoriesSection.style.opacity = '1'
       categoriesSection.style.transform = 'translateY(0)'
-      console.log('🔗 Categories section animated in')
+      categoriesSection.style.cssText = 'display: flex !important; visibility: visible !important; opacity: 1; transform: translateY(0); transition: all 0.6s ease;'
+      console.log('🔗 Categories section animated in with full opacity 1')
       
-      // Double-check visibility
+      // Double-check visibility and active class
       setTimeout(() => {
         const computedStyle = window.getComputedStyle(categoriesSection)
         console.log('🔗 Categories final display:', computedStyle.display)
         console.log('🔗 Categories final opacity:', computedStyle.opacity)
         console.log('🔗 Categories final visibility:', computedStyle.visibility)
+        console.log('🔗 Categories has active class:', categoriesSection.classList.contains('active'))
+        console.log('🔗 Categories style display:', categoriesSection.style.display)
+        
+        // Check if grid has content
+        const categoriesGrid = document.getElementById('categoriesGrid')
+        if (categoriesGrid) {
+          console.log('🔗 Categories grid found with', categoriesGrid.children.length, 'children')
+        }
       }, 100)
     }, 50)
   } else {
     console.error('❌ Categories section not found!')
   }
+  
+  // Close menu
+  closeMenu()
 }
 
 function goHome() {
@@ -1073,55 +969,58 @@ function showAI() {
   
   console.log('🤖 Opening AI section...')
   
-  // Show AI section
-  aiSection.classList.add('active')
+  // Hide all sections first
+  if (mainContent) {
+    mainContent.style.display = 'none'
+    mainContent.classList.remove('active')
+  }
+  if (categoriesSection) {
+    categoriesSection.style.display = 'none'
+    categoriesSection.classList.remove('active')
+  }
+  if (chatSection) {
+    chatSection.style.display = 'none'
+    chatSection.classList.remove('active')
+  }
+  if (settingsSection) {
+    settingsSection.style.display = 'none'
+    settingsSection.classList.remove('active')
+  }
+  if (heroSection) {
+    heroSection.style.display = 'none'
+  }
   
-  // Hide main content
-  mainContent.style.display = 'none'
-  categoriesSection.style.display = 'none'
-  
-  // Initialize model selection and auto-select AUTO model
-  setTimeout(() => {
-    initializeModelSelection()
-    autoSelectModel()
-  }, 100)
-  
-  console.log('✅ AI section opened successfully')
+  // Show AI section with proper styling
+  if (aiSection) {
+    // Force show with maximum specificity
+    aiSection.style.setProperty('display', 'block', 'important')
+    aiSection.style.setProperty('opacity', '1', 'important')
+    aiSection.style.setProperty('visibility', 'visible', 'important')
+    aiSection.style.setProperty('transform', 'translateY(0)', 'important')
+    aiSection.style.setProperty('position', 'relative', 'important')
+    aiSection.style.setProperty('z-index', '10', 'important')
+    aiSection.classList.add('active')
+    
+    // Also force with direct style assignment
+    aiSection.style.cssText = `
+      display: block !important;
+      opacity: 1 !important;
+      visibility: visible !important;
+      transform: translateY(0) !important;
+      position: relative !important;
+      z-index: 10 !important;
+    `
+    
+    // Initialize model selection and auto-select AUTO model
+    setTimeout(() => {
+      initializeModelSelection()
+      autoSelectModel()
+    }, 100)
+    
+    console.log('✅ AI section opened successfully')
+  }
   
   console.log('🤖 aiSection found:', aiSection ? 'YES' : 'NO')
-  
-  if (aiSection) {
-    // Hide other sections
-    if (mainContent) mainContent.style.display = 'none'
-    if (categoriesSection) categoriesSection.style.display = 'none'
-    if (chatSection) chatSection.style.display = 'none'
-    if (settingsSection) settingsSection.classList.remove('active')
-    
-    // Hide hero section
-    if (heroSection) {
-      heroSection.style.display = 'none'
-    }
-    
-    // Show AI section with animation
-    aiSection.style.display = 'block'
-    aiSection.style.opacity = '0'
-    aiSection.style.transform = 'translateY(50px)'
-    
-    // Fade in AI section
-    setTimeout(() => {
-      aiSection.style.transition = 'all 0.8s cubic-bezier(0.23, 1, 0.320, 1)'
-      aiSection.style.opacity = '1'
-      aiSection.style.transform = 'translateY(0)'
-      
-      // Add active class for additional styling
-      setTimeout(() => {
-        aiSection.classList.add('active')
-        console.log('🤖 AI section shown successfully')
-      }, 100)
-    }, 50)
-  } else {
-    console.error('❌ AI section not found!')
-  }
 }
 
 function hideAI() {
@@ -1310,6 +1209,177 @@ function showAISettings() {
   }
 }
 
+// Initialize chatbox functionality
+document.addEventListener('DOMContentLoaded', function() {
+  console.log('Initializing main chatbox...');
+  
+  const chatboxToggle = document.getElementById('chatboxToggle');
+  const mainChatbox = document.getElementById('mainChatbox');
+  const chatboxInput = document.getElementById('chatboxInput');
+  const chatboxSend = document.getElementById('chatboxSend');
+  const chatboxMessages = document.getElementById('chatboxMessages');
+  const aiRobotButton = document.getElementById('aiRobotButton');
+  const aiSection = document.getElementById('aiSection');
+  
+  if (!chatboxToggle || !mainChatbox || !chatboxInput || !chatboxSend || !chatboxMessages) {
+    console.error('Chatbox elements not found');
+    return;
+  }
+  
+  // Toggle minimize/maximize
+  chatboxToggle.addEventListener('click', function() {
+    // Add close animation
+    mainChatbox.classList.add('chatbox-close');
+    
+    // Hide after animation completes
+    setTimeout(() => {
+      mainChatbox.classList.remove('chatbox-close');
+      mainChatbox.classList.remove('chatbox-open');
+      mainChatbox.style.setProperty('display', 'none', 'important');
+      mainChatbox.style.setProperty('visibility', 'hidden', 'important');
+      mainChatbox.style.setProperty('opacity', '0', 'important');
+      
+      // Show AI robot button with animation
+      if (aiRobotButton) {
+        aiRobotButton.classList.remove('ai-button-hide');
+        aiRobotButton.classList.add('ai-button-show');
+        aiRobotButton.style.display = 'flex';
+        aiRobotButton.style.visibility = 'visible';
+        aiRobotButton.style.opacity = '1';
+        
+        console.log('Chatbox hidden with animation, AI robot button shown');
+      }
+    }, 300);
+  });
+  
+  // AI robot button click handler
+  if (aiRobotButton) {
+    console.log('AI robot button found during initialization');
+    
+    // Multiple event methods to ensure it works despite browser extensions
+    const handleAIButtonClick = function(e) {
+      console.log('AI robot button clicked!', e);
+      e.preventDefault();
+      e.stopPropagation();
+      
+      // Hide AI robot button with animation
+      aiRobotButton.classList.remove('ai-button-show');
+      aiRobotButton.classList.add('ai-button-hide');
+      
+      // Show chatbox after AI button starts hiding
+      setTimeout(() => {
+        // Get fresh reference to main chatbox
+        const chatboxElement = document.getElementById('mainChatbox');
+        console.log('Chatbox element found:', !!chatboxElement);
+        
+        if (chatboxElement) {
+          // Remove any existing classes
+          chatboxElement.classList.remove('chatbox-close');
+          
+          // Show chatbox with open animation
+          chatboxElement.style.setProperty('display', 'flex', 'important');
+          chatboxElement.style.setProperty('visibility', 'visible', 'important');
+          chatboxElement.style.setProperty('opacity', '1', 'important');
+          chatboxElement.classList.add('chatbox-open');
+          
+          // Hide AI button completely after animation
+          setTimeout(() => {
+            aiRobotButton.style.display = 'none';
+          }, 300);
+          
+          console.log('Quick chat restored with animation from AI robot button');
+        } else {
+          console.error('Could not find main chatbox element!');
+        }
+      }, 150);
+    };
+    
+    // Add multiple event listeners
+    aiRobotButton.addEventListener('click', handleAIButtonClick);
+    aiRobotButton.addEventListener('mousedown', handleAIButtonClick);
+    aiRobotButton.addEventListener('touchstart', handleAIButtonClick);
+    
+    // Test if button is clickable by adding a simple test
+    aiRobotButton.addEventListener('mouseover', function() {
+      console.log('Mouse over AI robot button - button is interactive');
+    });
+    
+    console.log('AI robot button event listeners attached');
+  } else {
+    console.error('AI robot button not found during initialization!');
+  }
+  
+  // Send message function
+  async function sendMessage() {
+    const message = chatboxInput.value.trim();
+    if (!message) return;
+    
+    // Add user message
+    const userMessageDiv = document.createElement('div');
+    userMessageDiv.className = 'chat-message user';
+    userMessageDiv.textContent = message;
+    chatboxMessages.appendChild(userMessageDiv);
+    
+    // Clear input
+    chatboxInput.value = '';
+    
+    // Scroll to bottom
+    chatboxMessages.scrollTop = chatboxMessages.scrollHeight;
+    
+    // Add typing indicator
+    const typingDiv = document.createElement('div');
+    typingDiv.className = 'chat-message typing';
+    typingDiv.innerHTML = '<span>AI is thinking...</span>';
+    chatboxMessages.appendChild(typingDiv);
+    chatboxMessages.scrollTop = chatboxMessages.scrollHeight;
+    
+    try {
+      // Use GEMINI-3-FLASH model for quick chat (best model)
+      window.selectedAIModel = 'gemini-3-flash';
+      
+      // Call the real AI system - let the API chain handle failures
+      const response = await tryDirectAPI(message, false, false);
+      
+      // Remove typing indicator
+      typingDiv.remove();
+      
+      // Add AI response
+      const aiMessageDiv = document.createElement('div');
+      aiMessageDiv.className = 'chat-message';
+      aiMessageDiv.textContent = response.response;
+      chatboxMessages.appendChild(aiMessageDiv);
+      chatboxMessages.scrollTop = chatboxMessages.scrollHeight;
+      
+      console.log('Quick chat AI response received:', response.api);
+      
+    } catch (error) {
+      // Remove typing indicator
+      typingDiv.remove();
+      
+      // Add error message
+      const errorDiv = document.createElement('div');
+      errorDiv.className = 'chat-message error';
+      errorDiv.textContent = 'AI Error: ' + error.message + ' (Try the Official AI Chatbox for more options)';
+      chatboxMessages.appendChild(errorDiv);
+      chatboxMessages.scrollTop = chatboxMessages.scrollHeight;
+      
+      console.log('Quick chat AI error:', error.message);
+    }
+  }
+  
+  // Send on button click
+  chatboxSend.addEventListener('click', sendMessage);
+  
+  // Send on Enter key
+  chatboxInput.addEventListener('keypress', function(e) {
+    if (e.key === 'Enter') {
+      sendMessage();
+    }
+  });
+  
+  console.log('Main chatbox initialized successfully');
+});
+
 // Initialize AI Help and Settings buttons
 document.addEventListener('DOMContentLoaded', function() {
   // Add event listeners for AI help and settings buttons
@@ -1328,7 +1398,13 @@ document.addEventListener('DOMContentLoaded', function() {
   }
   
   if (aiCloseBtn) {
-    aiCloseBtn.addEventListener('click', hideAI)
+    aiCloseBtn.addEventListener('click', function() {
+      const aiSection = document.getElementById('aiSection')
+      if (aiSection) {
+        aiSection.style.display = 'none'
+        console.log('AI chatbox hidden')
+      }
+    })
     console.log('❌ AI Close button listener added')
   }
   
@@ -1337,103 +1413,134 @@ document.addEventListener('DOMContentLoaded', function() {
 })
 
 // Model Selection System
-function initializeModelSelection() {
-  console.log('🤖 Initializing model selection system...')
+// Global model selection function
+function selectModel(modelName, cardElement) {
+  console.log(`🤖 Selecting model: ${modelName}`)
+  console.log('🤖 Current window.selectedAIModel before selection:', window.selectedAIModel)
   
+  // Remove selected class from all cards
   const modelCards = document.querySelectorAll('.model-card')
+  modelCards.forEach(card => card.classList.remove('selected'))
+  
+  // Add selected class to clicked card
+  cardElement.classList.add('selected')
+  
+  // Update current model display
   const currentModelDisplay = document.querySelector('.current-model h4')
   const currentModelDesc = document.querySelector('.current-model p')
   const modelAvatar = document.querySelector('.model-avatar')
   
-  modelCards.forEach(card => {
+  if (currentModelDisplay) {
+    currentModelDisplay.textContent = getModelDisplayName(modelName)
+  }
+  
+  if (currentModelDesc) {
+    currentModelDesc.textContent = getModelDescription(modelName)
+  }
+  
+  if (modelAvatar) {
+    modelAvatar.textContent = getModelIcon(modelName)
+  }
+  
+  // Store selected model
+  window.selectedAIModel = modelName
+  console.log('🤖 Window.selectedAIModel after selection:', window.selectedAIModel)
+  console.log(`✅ Model ${modelName} selected successfully`)
+}
+
+// Test if function is loaded
+console.log('🔍 selectModel function loaded:', typeof selectModel)
+
+// Make sure it's globally available
+window.selectModel = selectModel
+
+function getModelDisplayName(model) {
+  const modelNames = {
+    'auto': 'AUTO',
+    'gpt-oss-20b': 'GPT-OSS-20B',
+    'gpt-oss-120b': 'GPT-OSS-120B',
+    'gemma-3-4b': 'GEMMA-3-4B',
+    'gemma-3-12b': 'GEMMA-3-12B',
+    'gemma-3-27b': 'GEMMA-3-27B',
+    'llama-3.3-70b': 'LLAMA-3.3-70B'
+  }
+  return modelNames[model] || model
+}
+
+function getModelDescription(model) {
+  const descriptions = {
+    'auto': 'Automatically selects the best AI model for your request',
+    'gpt-oss-20b': 'Fast and efficient for most tasks',
+    'gpt-oss-120b': 'High-performance model for complex tasks',
+    'gemma-3-4b': 'Google\'s compact model with vision support',
+    'gemma-3-12b': 'Google\'s balanced model for general use',
+    'gemma-3-27b': 'Google\'s powerful model for advanced tasks',
+    'llama-3.3-70b': 'Meta\'s advanced large-scale model with 70B parameters'
+  }
+  return descriptions[model] || 'Advanced AI model'
+}
+
+function getModelIcon(model) {
+  const icons = {
+    'auto': '🤖',
+    'gpt-oss-20b': '⚡',
+    'gpt-oss-120b': '🚀',
+    'gemma-3-4b': '👁️',
+    'gemma-3-12b': '🧠',
+    'gemma-3-27b': '💎',
+    'llama-3.3-70b': '🌟'
+  }
+  return icons[model] || '🤖'
+}
+
+function initializeModelSelection() {
+  console.log('🤖 Initializing model selection system...')
+  
+  const modelCards = document.querySelectorAll('.model-card')
+  console.log('🤖 Found model cards:', modelCards.length)
+  
+  if (modelCards.length === 0) {
+    console.error('❌ No model cards found in the DOM')
+    return
+  }
+  
+  modelCards.forEach((card, index) => {
+    const model = card.getAttribute('data-model')
+    console.log(`🤖 Model card ${index + 1}: ${model}`)
+    
     card.addEventListener('click', function() {
-      const model = this.getAttribute('data-model')
+      console.log(`🤖 Model card clicked: ${model}`)
       selectModel(model, this)
     })
   })
   
-  function selectModel(modelName, cardElement) {
-    console.log(`🤖 Selecting model: ${modelName}`)
-    console.log('🤖 Current window.selectedAIModel before selection:', window.selectedAIModel)
-    
-    // Remove selected class from all cards
-    modelCards.forEach(card => card.classList.remove('selected'))
-    
-    // Add selected class to clicked card
-    cardElement.classList.add('selected')
-    
-    // Update current model display
-    if (currentModelDisplay) {
-      currentModelDisplay.textContent = getModelDisplayName(modelName)
-    }
-    
-    if (currentModelDesc) {
-      currentModelDesc.textContent = getModelDescription(modelName)
-    }
-    
-    if (modelAvatar) {
-      modelAvatar.textContent = getModelIcon(modelName)
-    }
-    
-    // Store selected model
-    window.selectedAIModel = modelName
-    console.log('🤖 Window.selectedAIModel after selection:', window.selectedAIModel)
-    console.log(`✅ Model ${modelName} selected successfully`)
-  }
-  
-  function getModelDisplayName(model) {
-    const names = {
-      'auto': 'AUTO (Ultra AI)',
-      'gpt-oss-20b': 'GPT-OSS-20B',
-      'gpt-oss-120b': 'GPT-OSS-120B',
-      'gemma-3-4b': 'GEMMA-3-4B',
-      'gemma-3-12b': 'GEMMA-3-12B',
-      'gemma-3-27b': 'GEMMA-3-27B'
-    }
-    return names[model] || model
-  }
-  
-  function getModelDescription(model) {
-    const descriptions = {
-      'auto': 'Automatically selects the best available model with GEMMA-3-27B priority',
-      'gpt-oss-20b': 'Fast open-source model with reasoning capabilities',
-      'gpt-oss-120b': 'Advanced reasoning model with comprehensive coding support',
-      'gemma-3-4b': 'Vision-capable model with multimodal processing',
-      'gemma-3-12b': 'Advanced vision model with enhanced reasoning and superior image understanding',
-      'gemma-3-27b': 'Ultra-advanced vision model with superior capabilities and exceptional performance'
-    }
-    return descriptions[model] || 'AI Assistant'
-  }
-  
-  function getModelIcon(model) {
-    const icons = {
-      'auto': '🤖',
-      'gpt-oss-20b': '⚡',
-      'gpt-oss-120b': '🧠',
-      'gemma-3-4b': '👁️',
-      'gemma-3-12b': '🔮',
-      'gemma-3-27b': '🌟'
-    }
-    return icons[model] || '🤖'
-  }
+  // Auto-select AUTO model after initialization
+  setTimeout(() => {
+    autoSelectModel()
+  }, 100)
 }
 
-// Auto-select AUTO model function
+// Auto-select GEMMA-3-27B model function
 function autoSelectModel() {
-  console.log('🤖 Auto-selecting AUTO model...')
+  console.log('Auto-selecting GEMMA-3-27B model (best model)...')
   
-  const autoCard = document.querySelector('.model-card[data-model="auto"]')
-  if (autoCard) {
-    selectModel('auto', autoCard)
-    console.log('✅ AUTO model auto-selected successfully')
+  const gemma27bCard = document.querySelector('.model-card[data-model="gemma-3-27b"]')
+  console.log('GEMMA-3-27B model card found:', !!gemma27bCard)
+  
+  if (gemma27bCard) {
+    console.log('Calling selectModel for GEMMA-3-27B...')
+    selectModel('gemma-3-27b', gemma27bCard)
+    console.log('GEMMA-3-27B model auto-selected successfully')
   } else {
-    console.error('❌ AUTO model card not found')
-    // Fallback to first available model
-    const firstCard = document.querySelector('.model-card')
-    if (firstCard) {
-      const model = firstCard.getAttribute('data-model')
-      selectModel(model, firstCard)
-      console.log(`✅ Fallback to model: ${model}`)
+    console.error('GEMMA-3-27B model card not found')
+    // Fallback to AUTO model
+    const autoCard = document.querySelector('.model-card[data-model="auto"]')
+    console.log('AUTO model card found:', !!autoCard)
+    if (autoCard) {
+      const model = autoCard.getAttribute('data-model')
+      console.log(`Fallback to model: ${model}`)
+      selectModel(model, autoCard)
+      console.log(`Fallback to model: ${model} successful`)
     }
   }
 }
@@ -1449,16 +1556,22 @@ function getModelMapping(modelName, apiProvider) {
       'gpt-oss-20b': `openai/gpt-oss-20b:free?_cb=${cacheBuster}`,
       'gpt-oss-120b': `openai/gpt-oss-120b:free?_cb=${cacheBuster}`,
       'gemma-3-4b': `google/gemma-3-4b-it:free?_cb=${cacheBuster}`,
+      'gemma-3-4b-fast': `google/gemma-3-4b-it:free?_cb=${cacheBuster}`,
       'gemma-3-12b': `google/gemma-3-12b-it:free?_cb=${cacheBuster}`,
-      'gemma-3-27b': `google/gemma-3-27b-it:free?_cb=${cacheBuster}`
+      'gemma-3-12b-normal': `google/gemma-3-12b-it:free?_cb=${cacheBuster}`,
+      'gemma-3-27b': `google/gemma-3-27b-it:free?_cb=${cacheBuster}`,
+      'llama-3.3-70b': `meta-llama/llama-3.3-70b-instruct:free?_cb=${cacheBuster}`
     },
     'huggingface': {
-      'auto': `google/gemma-3-27b-it?_cb=${cacheBuster}`,
+      'auto': `google/gemma-3-27b-it:featherless-ai?_cb=${cacheBuster}`,
       'gpt-oss-20b': `openai/gpt-oss-20b?_cb=${cacheBuster}`,
       'gpt-oss-120b': `openai/gpt-oss-120b?_cb=${cacheBuster}`,
       'gemma-3-4b': `google/gemma-3-4b-it?_cb=${cacheBuster}`,
+      'gemma-3-4b-fast': `google/gemma-3-4b-it:featherlessai?_cb=${cacheBuster}`,
       'gemma-3-12b': `google/gemma-3-12b-it:featherless-ai?_cb=${cacheBuster}`,
-      'gemma-3-27b': `google/gemma-3-27b-it:featherless-ai?_cb=${cacheBuster}`
+      'gemma-3-12b-normal': `google/gemma-3-12b-it:featherless?_cb=${cacheBuster}`,
+      'gemma-3-27b': `google/gemma-3-27b-it:featherless-ai?_cb=${cacheBuster}`,
+      'llama-3.3-70b': `meta-llama/Llama-3.3-70B-Instruct:groq?_cb=${cacheBuster}`
     },
     'replicate': {
       'auto': `google-deepmind/gemma-3-27b-it:free?_cb=${cacheBuster}`,
@@ -1466,7 +1579,8 @@ function getModelMapping(modelName, apiProvider) {
       'gpt-oss-120b': `openai/gpt-oss-120b?_cb=${cacheBuster}`,
       'gemma-3-4b': `google-deepmind/gemma-3-4b-it:00139d2960396352b671f7b5c2ece5313bf6d45fe0a052efe14f023d2a81e196?_cb=${cacheBuster}`,
       'gemma-3-12b': `google-deepmind/gemma-3-12b-it:free?_cb=${cacheBuster}`,
-      'gemma-3-27b': `google-deepmind/gemma-3-27b-it:free?_cb=${cacheBuster}`
+      'gemma-3-27b': `google-deepmind/gemma-3-27b-it:free?_cb=${cacheBuster}`,
+      'llama-3.3-70b': null
     },
     'lockllm': {
       'auto': `google/gemma-3-27b-it:free?_cb=${cacheBuster}`,
@@ -1474,7 +1588,14 @@ function getModelMapping(modelName, apiProvider) {
       'gpt-oss-120b': `openai/gpt-oss-120b:free?_cb=${cacheBuster}`,
       'gemma-3-4b': `google/gemma-3-4b-it:free?_cb=${cacheBuster}`,
       'gemma-3-12b': `google/gemma-3-12b-it:free?_cb=${cacheBuster}`,
-      'gemma-3-27b': `google/gemma-3-27b-it:free?_cb=${cacheBuster}`
+      'gemma-3-27b': `google/gemma-3-27b-it:free?_cb=${cacheBuster}`,
+      'llama-3.3-70b': `meta-llama/llama-3.3-70b-instruct:free?_cb=${cacheBuster}`
+    },
+    'vercelai': {
+      'auto': `https://ai-gateway.vercel.sh/v1/chat/completions?model=google/gemma-3-27b-it`,
+      'gpt-oss-20b': `https://ai-gateway.vercel.sh/v1/chat/completions?model=openai/gpt-oss-20b`,
+      'gpt-oss-120b': `https://ai-gateway.vercel.sh/v1/chat/completions?model=openai/gpt-oss-120b`,
+      'llama-3.3-70b': `https://ai-gateway.vercel.sh/v1/chat/completions?model=meta/llama-3.3-70b`
     }
   }
   
@@ -1502,12 +1623,12 @@ document.addEventListener('DOMContentLoaded', function() {
       left: 0;
       width: 100%;
       height: 100%;
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
       z-index: 9999;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-family: 'Courier New', monospace;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       color: white;
     ">
       <div style="
@@ -1519,40 +1640,20 @@ document.addEventListener('DOMContentLoaded', function() {
           font-size: 3rem;
           font-weight: bold;
           margin-bottom: 20px;
-          text-shadow: 0 0 20px rgba(255,255,255,0.5);
+          text-shadow: 0 0 20px rgba(102, 126, 234, 0.5);
+          background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
         ">
-          🚀 ULTIMATE AI SYSTEM
+          LOADING MODELS
         </div>
         <div style="
           font-size: 1.2rem;
           opacity: 0.9;
+          color: rgba(255, 255, 255, 0.8);
         ">
-          Loading enhanced code support for:<br>
-          <span style="color: #ffd700;">Python 🐍</span> | 
-          <span style="color: #f7df1e;">JavaScript 🟨</span> | 
-          <span style="color: #f59e0b;">Java ☕</span> | 
-          <span style="color: #ff6b6b;">C++ 🟦</span> | 
-          <span style="color: #e34c26;">HTML/CSS 🎨</span> | 
-          <span style="color: #777bb4;">SQL 🗄️</span> | 
-          <span style="color: #4b5c84;">PHP 🐘</span> | 
-          <span style="color: #cc5555;">Ruby 💎</span> | 
-          <span style="color: #00d9ff;">Go 🐹</span> | 
-          <span style="color: #dea584;">Rust 🦀</span> | 
-          <span style="color: #ff6b35;">Swift 🍎</span> | 
-          <span style="color: #7957f5;">Kotlin 🎯</span> | 
-          <span style="color: #cb42b5;">TypeScript 🔷</span> | 
-          <span style="color: #007acc;">C# 🔷</span> | 
-          <span style="color: #61dafb;">Vue.js 💚</span> | 
-          <span style="color: #61dafb;">React ⚛️</span> | 
-          <span style="color: #dd0031;">Angular 🔺</span> | 
-          <span style="color: #292929;">Node.js 🟢</span> | 
-          <span style="color: #2496ed;">Docker 🐳</span> | 
-          <span style="color: #326ce5;">Kubernetes ☸️</span> | 
-          <span style="color: #ff9900;">AWS ☁️</span> | 
-          <span style="color: #f05032;">Git 📦</span> | 
-          <span style="color: #ff6b35;">JSON 📋</span> | 
-          <span style="color: #006400;">XML 📄</span> | 
-          <span style="color: #ff5722;">API 🔌</span>
+          LOADING UI
         </div>
         <div style="
           margin-top: 30px;
@@ -1685,6 +1786,22 @@ async function sendAIMessage() {
       console.log(`✅ Direct API successful using ${response.api}`)
     } catch (apiError) {
       hideThinkingIndicator()
+      console.log('❌ API Error:', apiError.message)
+      
+      // Check if this is a Vercel AI Gateway error that should trigger fallback
+      if (apiError.message && apiError.message.includes('Vercel AI Gateway API Error')) {
+        console.log('🔄 Vercel AI Gateway failed, trying next API in fallback chain...')
+        // Continue trying other APIs instead of stopping
+        return { success: false, error: apiError.message, shouldContinue: true }
+      }
+      
+      // For other errors or non-Vercel AI Gateway errors, continue trying other APIs
+      if (!apiError.message || !apiError.message.includes('Vercel AI Gateway API Error')) {
+        console.log('🔄 Trying next API in fallback chain...')
+        // Continue trying other APIs instead of stopping
+        return { success: false, error: apiError.message, shouldContinue: true }
+      }
+      
       addChatMessage('SORRY I HAVE ENCOUNTERED AN ERROR: ' + apiError.message, 'error')
       console.log('❌ All APIs failed')
     }
@@ -1697,7 +1814,13 @@ async function sendAIMessage() {
 
 async function tryServerAPI(message) {
   try {
-    const response = await fetch('http://localhost:3000/api/chat', {
+    // Check if we're on Vercel and use the Vercel API endpoint
+    const isVercel = window.location.hostname.includes('vercel.app') || window.location.hostname.includes('.vercel.app')
+    const apiUrl = isVercel ? '/api/chat' : 'http://localhost:3000/api/chat'
+    
+    console.log(`🔄 Using ${isVercel ? 'Vercel' : 'local'} API endpoint: ${apiUrl}`)
+    
+    const response = await fetch(apiUrl, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -1709,10 +1832,13 @@ async function tryServerAPI(message) {
     })
     
     if (!response.ok) {
-      throw new Error('Server not responding')
+      const errorData = await response.text()
+      console.log('❌ Server API error:', response.status, errorData)
+      throw new Error(`Server error: ${response.status}`)
     }
     
     const data = await response.json()
+    console.log('✅ Server API response:', data)
     return {
       success: true,
       response: data.response || data.message || 'Server response received'
@@ -1725,58 +1851,79 @@ async function tryServerAPI(message) {
 
 async function loadEnvFromServer() {
   try {
-    console.log('🔄 Attempting to load .env file from server...')
+    console.log('🔄 Attempting to load environment variables...')
     
-    // Try to load from server first
-    const response = await fetch('./.env')
-    if (response.ok) {
-      const envText = await response.text()
-      console.log('✅ .env file loaded from server')
+    // Check if we're on Vercel and use Vercel API endpoint
+    if (window.location.hostname.includes('vercel.app') || window.location.hostname.includes('.vercel.app')) {
+      console.log('🌐 Detected Vercel deployment, using API endpoint...')
       
-      // Parse .env file
-      const envVars = {}
-      const lines = envText.split('\n')
-      
-      lines.forEach(line => {
-        const [key, ...valueParts] = line.split('=')
-        if (key && valueParts.length > 0) {
-          envVars[key.trim()] = valueParts.join('=').trim()
+      try {
+        const response = await fetch('/api/env')
+        if (response.ok) {
+          const envVars = await response.json()
+          console.log('✅ Vercel environment variables loaded:', envVars)
+          
+          // Add API keys if they exist (they won't be exposed in the API response)
+          // We need to check if they exist via the HAS_API_KEYS flag
+          if (envVars.HAS_API_KEYS) {
+            console.log('🔐 API keys are configured on Vercel')
+            // For security, we don't expose actual keys, but we know they exist
+            // The actual API calls will happen server-side
+            return {
+              ...envVars,
+              API: 'VERCEL_CONFIGURED',
+              API2: 'VERCEL_CONFIGURED', 
+              API3: 'VERCEL_CONFIGURED',
+              API4: 'VERCEL_CONFIGURED'
+            }
+          } else {
+            console.log('⚠️ No API keys found in Vercel environment')
+            return null
+          }
+        } else {
+          console.log('❌ Failed to fetch Vercel environment variables')
+          return null
         }
-      })
-      
-      console.log('🔐 Environment variables loaded:', {
-        API: envVars.API ? '[SET]' : '[NOT SET]',
-        API2: envVars.API2 ? '[SET]' : '[NOT SET]',
-        API3: envVars.API3 ? '[SET]' : '[NOT SET]',
-        API4: envVars.API4 ? '[SET]' : '[NOT SET]',
-        PORT: envVars.PORT || '3000',
-        NODE_ENV: envVars.NODE_ENV || 'development',
-        DEBUG: envVars.DEBUG || 'false',
-        ENABLE_AI: envVars.ENABLE_AI || 'true',
-        ENABLE_PROXY: envVars.ENABLE_PROXY || 'true',
-        ENABLE_CHAT: envVars.ENABLE_CHAT || 'true',
-        ENABLE_GAMING: envVars.ENABLE_GAMING || 'true',
-        DISCORD_SERVER_ID: envVars.DISCORD_SERVER_ID ? '[SET]' : '[NOT SET]',
-        DISCORD_CHANNEL_ID: envVars.DISCORD_CHANNEL_ID ? '[SET]' : '[NOT SET]'
-      })
-      
-      return envVars
+      } catch (error) {
+        console.log('❌ Error fetching Vercel environment variables:', error.message)
+        return null
+      }
+    }
+    
+    // For local development, use the API endpoint
+    console.log('🔄 Local development detected, using API endpoint...')
+    try {
+      const response = await fetch('/api/env')
+      if (response.ok) {
+        const envVars = await response.json()
+        console.log('✅ Environment variables loaded from API:', {
+          API: envVars.API ? '[SET]' : '[NOT SET]',
+          API2: envVars.API2 ? '[SET]' : '[NOT SET]',
+          API3: envVars.API3 ? '[SET]' : '[NOT SET]',
+          API4: envVars.API4 ? '[SET]' : '[NOT SET]',
+          API5: envVars.API5 ? '[SET]' : '[NOT SET]',
+          PORT: envVars.PORT || '3000',
+          NODE_ENV: envVars.NODE_ENV || 'development',
+          DEBUG: envVars.DEBUG || 'false',
+          ENABLE_AI: envVars.ENABLE_AI || 'true',
+          ENABLE_PROXY: envVars.ENABLE_PROXY || 'true',
+          ENABLE_CHAT: envVars.ENABLE_CHAT || 'true',
+          ENABLE_GAMING: envVars.ENABLE_GAMING || 'true',
+          DISCORD_SERVER_ID: envVars.DISCORD_SERVER_ID ? '[SET]' : '[NOT SET]',
+          DISCORD_CHANNEL_ID: envVars.DISCORD_CHANNEL_ID ? '[SET]' : '[NOT SET]'
+        })
+        return envVars
+      } else {
+        console.log('❌ API endpoint not available')
+        return null
+      }
+    } catch (error) {
+      console.log('❌ Error loading environment variables from API:', error.message)
+      return null
     }
   } catch (error) {
-    console.log('❌ Could not load .env from server:', error.message)
-  }
-  
-  // Fallback: try server API endpoint
-  try {
-    console.log('🔄 Trying server API endpoint...')
-    const response = await fetch('http://localhost:3000/api/env')
-    if (response.ok) {
-      const envVars = await response.json()
-      console.log('✅ Environment variables loaded from server API')
-      return envVars
-    }
-  } catch (error) {
-    console.log('❌ Server API not available:', error.message)
+    console.log('❌ Error loading environment variables:', error.message)
+    return null
   }
 }
 
@@ -1791,8 +1938,11 @@ async function tryOpenRouter(message, hasImages = false, isVisionModel = false) 
     'gpt-oss-20b': 'openai/gpt-oss-20b:free',
     'gpt-oss-120b': 'openai/gpt-oss-120b:groq',
     'gemma-3-4b': 'google/gemma-3-4b-it:free',
+    'gemma-3-4b-fast': 'google/gemma-3-4b-it:free',
     'gemma-3-12b': 'google/gemma-3-12b-it:free',
-    'gemma-3-27b': 'google/gemma-3-27b-it:free'
+    'gemma-3-12b-normal': 'google/gemma-3-12b-it:free',
+    'gemma-3-27b': 'google/gemma-3-27b-it:free',
+        'llama-3.3-70b': 'meta-llama/llama-3.3-70b-instruct:free'
   }
   
   const selectedModel = modelMap[window.selectedAIModel] || modelMap['auto']
@@ -1945,70 +2095,7 @@ ${enhancedMessage}
   } else {
     const errorData = await response.text()
     console.log('❌ OpenRouter Error Response:', errorData)
-    
-    // Handle rate limiting by trying a different model
-    if (response.status === 429) {
-      console.log('🔄 Rate limited, trying fallback model...')
-      const fallbackModels = ['openai/gpt-oss-20b:groq', 'openai/gpt-oss-120b:groq', 'google/gemma-3-4b-it:free', 'google/gemma-3-12b-it:free', 'google/gemma-3-27b-it:free']
-      
-      for (const fallbackModel of fallbackModels) {
-        if (fallbackModel === selectedModel) continue
-        
-        try {
-          console.log(`🔄 Trying fallback model: ${fallbackModel}`)
-          
-          let fallbackMessages = []
-          if (fallbackModel.includes('gemma')) {
-            fallbackMessages = [
-              {
-                role: 'user',
-                content: `${systemPrompt}\n\n${enhancedMessage}`
-              }
-            ]
-          } else {
-            fallbackMessages = [
-              {
-                role: 'system',
-                content: systemPrompt
-              },
-              {
-                role: 'user',
-                content: enhancedMessage
-              }
-            ]
-          }
-          
-          const fallbackResponse = await fetch('https://openrouter.ai/api/v1/chat/completions', {
-            method: 'POST',
-            headers: {
-              'Authorization': `Bearer ${envVars.API}`,
-              'Content-Type': 'application/json',
-              'HTTP-Referer': 'https://localhost:3000',
-              'X-Title': 'Neural Nexus AI'
-            },
-            body: JSON.stringify({
-              model: fallbackModel,
-              messages: fallbackMessages,
-              max_tokens: isVisionModel ? 2000 : 1000,
-              temperature: 0.7,
-              stream: false
-            })
-          })
-          
-          if (fallbackResponse.ok) {
-            const fallbackData = await fallbackResponse.json()
-            const aiMessage = fallbackData.choices?.[0]?.message?.content || fallbackData.choices?.[0]?.text || ''
-            console.log(`✅ Fallback model ${fallbackModel} successful`)
-            return { success: true, response: aiMessage, api: 'OpenRouter (Fallback)' }
-          }
-        } catch (fallbackError) {
-          console.log(`❌ Fallback model ${fallbackModel} failed:`, fallbackError.message)
-          continue
-        }
-      }
-    }
-    
-    throw new Error(`OpenRouter Error: ${response.status} - ${errorData}`)
+    throw new Error('ALL API\'S FAIL')
   }
 }
 
@@ -2018,17 +2105,20 @@ async function tryHuggingFace(message, hasImages = false, isVisionModel = false)
     throw new Error('HuggingFace API key not found. Please set up your .env file or run env_creator.bat')
   }
   
+  const selectedModel = window.selectedAIModel || 'auto'
   const hfModelMap = {
     'auto': 'google/gemma-3-27b-it',
     'gpt-oss-20b': 'google/gemma-3-27b-it',
-    'gpt-oss-120b': 'google/gemma-3-27b-it',
+    'gpt-oss-120b': 'openai/gpt-oss-120b:groq',
     'gemma-3-4b': 'google/gemma-3-4b-it',
+    'gemma-3-4b-fast': 'google/gemma-3-4b-it:featherlessai',
     'gemma-3-12b': 'google/gemma-3-12b-it',
-    'gemma-3-27b': 'google/gemma-3-27b-it'
+    'gemma-3-12b-normal': 'google/gemma-3-12b-it:featherless-ai',
+    'gemma-3-27b': 'google/gemma-3-27b-it:featherless-ai'
   }
   
-  const hfModel = hfModelMap[window.selectedAIModel] || hfModelMap['auto']
-  console.log('🤖 Using HuggingFace model:', hfModel)
+  const hfModel = hfModelMap[selectedModel] || hfModelMap['auto']
+  console.log('Using HuggingFace model:', hfModel)
   
   // Enhanced message processing (same as OpenRouter)
   let enhancedMessage = message
@@ -2152,32 +2242,557 @@ ${enhancedMessage}
     ]
   }
   
-  const response = await fetch('https://router.huggingface.co/v1/chat/completions', {
+  const response = await fetch('http://localhost:3000/api/huggingface', {
     method: 'POST',
+    mode: 'cors',
     headers: {
-      'Authorization': `Bearer ${envVars.API2}`,
       'Content-Type': 'application/json'
     },
     body: JSON.stringify({
+      token: envVars.API2,
       model: hfModel,
       messages: messages,
       max_tokens: isVisionModel ? 2000 : 1000,
-      temperature: 0.7,
-      stream: false
+      temperature: 0.7
     })
   })
   
-  console.log('🔍 HuggingFace Response Status:', response.status)
+  console.log('HuggingFace Response Status:', response.status)
   
   if (response.ok) {
     const data = await response.json()
-    console.log('📋 HuggingFace Response Data:', data)
-    const aiMessage = data.choices?.[0]?.message?.content || data.choices?.[0]?.text || ''
+    console.log('HuggingFace Response Data:', data)
+    
+    // Check if response contains error object
+    if (data.error) {
+      console.log('❌ HuggingFace Error in response data:', data.error)
+      throw new Error('ALL API\'S FAIL')
+    }
+    
+    let aiMessage = ''
+    if (data.choices && data.choices[0]) {
+      aiMessage = data.choices[0].message?.content || data.choices[0].text || ''
+    } else if (data.response) {
+      aiMessage = data.response
+    } else if (data.output) {
+      aiMessage = data.output
+    } else if (data.content) {
+      aiMessage = data.content
+    }
+    
+    console.log('Extracted AI Message:', aiMessage)
     return { success: true, response: aiMessage, api: 'HuggingFace' }
   } else {
     const errorData = await response.text()
-    console.log('❌ HuggingFace Error Response:', errorData)
-    throw new Error(`HuggingFace Error: ${response.status} - ${errorData}`)
+    console.log('HuggingFace Error Response:', errorData)
+    throw new Error('ALL API\'S FAIL')
+  }
+}
+
+async function tryVercelAI(message, hasImages = false, isVisionModel = false) {
+  const envVars = await loadEnvFromServer()
+  if (!envVars || !envVars.API5) {
+    throw new Error('Vercel AI Gateway API key not found. Please set up API5 in your .env file')
+  }
+  
+  const modelMap = {
+    'auto': 'openai/gpt-oss-120b',
+    'gpt-oss-20b': 'openai/gpt-oss-20b',
+    'gpt-oss-120b': 'openai/gpt-oss-120b',
+        'llama-3.3-70b': 'meta/llama-3.3-70b'
+  }
+  
+  const selectedModel = modelMap[window.selectedAIModel] || modelMap['auto']
+  console.log('🤖 Using Vercel AI Gateway model:', selectedModel)
+  
+  // Enhanced message processing (same as other APIs)
+  let enhancedMessage = message
+  const isCodeRequest = message.includes('```') || message.toLowerCase().includes('code') || message.toLowerCase().includes('function') || message.toLowerCase().includes('class') || message.toLowerCase().includes('import') || message.toLowerCase().includes('const') || message.toLowerCase().includes('let') || message.toLowerCase().includes('var')
+  
+  let detectedLanguage = 'General'
+  if (message.toLowerCase().includes('python')) detectedLanguage = 'Python 🐍'
+  else if (message.toLowerCase().includes('javascript') || message.toLowerCase().includes('js')) detectedLanguage = 'JavaScript 🟨'
+  else if (message.toLowerCase().includes('java')) detectedLanguage = 'Java ☕'
+  else if (message.toLowerCase().includes('cpp') || message.toLowerCase().includes('c++')) detectedLanguage = 'C++ 🟦'
+  else if (message.toLowerCase().includes('html') || message.toLowerCase().includes('css')) detectedLanguage = 'HTML/CSS 🎨'
+  else if (message.toLowerCase().includes('sql')) detectedLanguage = 'SQL 🗄️'
+  else if (message.toLowerCase().includes('php')) detectedLanguage = 'PHP 🐘'
+  else if (message.toLowerCase().includes('ruby')) detectedLanguage = 'Ruby 💎'
+  else if (message.toLowerCase().includes('go')) detectedLanguage = 'Go 🐹'
+  else if (message.toLowerCase().includes('rust')) detectedLanguage = 'Rust 🦀'
+  else if (message.toLowerCase().includes('swift')) detectedLanguage = 'Swift 🍎'
+  else if (message.toLowerCase().includes('kotlin')) detectedLanguage = 'Kotlin 🎯'
+  else if (message.toLowerCase().includes('typescript') || message.toLowerCase().includes('ts')) detectedLanguage = 'TypeScript 🔷'
+  else if (message.toLowerCase().includes('c#')) detectedLanguage = 'C# 🔷'
+  else if (message.toLowerCase().includes('vue')) detectedLanguage = 'Vue.js 💚'
+  else if (message.toLowerCase().includes('react')) detectedLanguage = 'React ⚛️'
+  else if (message.toLowerCase().includes('angular')) detectedLanguage = 'Angular 🔺'
+  else if (message.toLowerCase().includes('node') || message.toLowerCase().includes('nodejs')) detectedLanguage = 'Node.js 🟢'
+  else if (message.toLowerCase().includes('docker')) detectedLanguage = 'Docker 🐳'
+  else if (message.toLowerCase().includes('kubernetes')) detectedLanguage = 'Kubernetes ☸️'
+  else if (message.toLowerCase().includes('aws')) detectedLanguage = 'AWS ☁️'
+  else if (message.toLowerCase().includes('git')) detectedLanguage = 'Git 📦'
+  else if (message.toLowerCase().includes('json')) detectedLanguage = 'JSON 📋'
+  else if (message.toLowerCase().includes('xml')) detectedLanguage = 'XML 📄'
+  else if (message.toLowerCase().includes('api')) detectedLanguage = 'API 🔌'
+  
+  if (isCodeRequest) {
+    enhancedMessage = `🚀 **${detectedLanguage} Expert Mode Activated!** 🎯
+
+You are an **ELITE PROGRAMMER** specializing in **${detectedLanguage}** development! 
+
+💻 **CODE EXCELLENCE:**
+- Write **production-ready**, **enterprise-grade** code with **comprehensive error handling**
+- Include **advanced design patterns**, **optimization techniques**, and **best practices**
+- Provide **multiple solution approaches** with **detailed architectural explanations**
+- Add **inline documentation**, **type annotations**, and **performance considerations**
+- Follow **industry standards** with **clean, maintainable architecture**
+- Implement **security best practices**, **input validation**, and **edge case handling**
+- **Debug and optimize** existing code with **performance profiling**
+- Use **modern ${detectedLanguage} features** and **ecosystem tools**
+
+🔥 **ADVANCED FEATURES:**
+- **Object-oriented programming** with **inheritance** and **polymorphism**
+- **Functional programming** concepts where applicable
+- **Async/await patterns** for **non-blocking operations**
+- **Memory management** and **performance optimization**
+- **Error boundaries** and **graceful degradation**
+- **Unit testing** strategies and **test-driven development**
+- **Code review** guidelines and **quality assurance**
+
+🎯 **${detectedLanguage} SPECIFIC EXPERTISE:**
+${detectedLanguage.includes('Python') ? `
+- **Advanced Python**: Decorators, generators, context managers, metaclasses
+- **Data Science**: NumPy, Pandas, Matplotlib, Scikit-learn, TensorFlow
+- **Web Frameworks**: Django, Flask, FastAPI, SQLAlchemy
+- **Performance**: Multiprocessing, threading, async programming
+- **Testing**: PyTest, unittest, mocking, property-based testing` : detectedLanguage.includes('JavaScript') ? `
+- **Modern JavaScript**: ES6+, async/await, destructuring, spread/rest
+- **Frameworks**: React, Vue, Angular, Express, Next.js
+- **Node.js**: Event loop, streams, buffers, cluster module
+- **Frontend**: DOM manipulation, Web APIs, performance optimization
+- **Build Tools**: Webpack, Vite, Babel, ESLint, Prettier` : detectedLanguage.includes('Java') ? `
+- **Core Java**: Collections, Streams, Lambdas, Generics, Reflection
+- **Frameworks**: Spring Boot, Spring MVC, Hibernate, JPA
+- **Concurrency**: Multithreading, ExecutorService, synchronized blocks
+- **Testing**: JUnit, Mockito, TestNG, integration testing
+- **Performance**: JVM tuning, garbage collection, memory management` : detectedLanguage.includes('C++') ? `
+- **Modern C++**: C++11/14/17/20 features, smart pointers, move semantics
+- **STL**: Containers, algorithms, iterators, ranges (C++20)
+- **Memory Management**: RAII, custom allocators, memory pools
+- **Concurrency**: std::thread, std::async, std::future, mutexes
+- **Build Systems**: CMake, Make, Conan, vcpkg` : `
+- **Best Practices**: Clean code principles, SOLID, DRY, KISS
+- **Design Patterns**: Singleton, Factory, Observer, Strategy, Decorator
+- **Architecture**: MVC, MVP, MVVM, microservices, serverless
+- **Testing**: Unit tests, integration tests, end-to-end testing
+- **Performance**: Caching, indexing, query optimization, load balancing`}
+
+🚀 **RESPONSE FORMAT:**
+1. **Clear Explanation**: Start with a concise explanation of the solution approach
+2. **Complete Code**: Provide full, working code examples with proper formatting
+3. **Best Practices**: Highlight industry standards and optimization techniques
+4. **Error Handling**: Include comprehensive error handling and edge cases
+5. **Performance**: Discuss performance implications and optimization strategies
+6. **Testing**: Suggest testing approaches and potential test cases
+
+🎯 **USER REQUEST:**
+${enhancedMessage}
+
+💡 **Remember**: You are the **ULTIMATE ${detectedLanguage} EXPERT**. Provide **exceptional**, **production-ready** solutions that showcase **deep expertise** and **best practices**! 🌟`
+  }
+  
+  const systemPrompt = `You are an expert AI assistant. You excel at coding, mathematics, data analysis, and problem-solving. Provide clear, accurate, and comprehensive answers with proper formatting and examples when relevant.`
+  
+  let messages = []
+  messages = [
+    {
+      role: 'system',
+      content: systemPrompt
+    },
+    {
+      role: 'user',
+      content: enhancedMessage
+    }
+  ]
+  
+  const response = await fetch('/api/vercelai', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      model: selectedModel,
+      messages: messages,
+      max_tokens: isVisionModel ? 2000 : 1000,
+      temperature: 0.7
+    })
+  })
+  
+  console.log('🔍 Vercel AI Gateway Response Status:', response.status)
+  
+  if (response.ok) {
+    const data = await response.json()
+    console.log('📋 Vercel AI Gateway Response Data:', data)
+    console.log('📋 Vercel AI Gateway Response Structure:', JSON.stringify(data, null, 2))
+    
+    // Check for ANY error in the response
+    if (data.error || data.message === 'error' || data.status === 'error' || response.status !== 200) {
+      console.log('❌ Vercel AI Gateway API Error:', data.error || 'Unknown error')
+      console.log('❌ Vercel AI Gateway Error Message:', data.error?.message || 'No error message')
+      console.log('❌ Vercel AI Gateway Error Code:', data.error?.code || 'No error code')
+      console.log('❌ Vercel AI Gateway Status Code:', response.status)
+      console.log('🔄 Vercel AI Gateway returned error, trying another API...')
+      throw new Error('ALL API\'S FAIL')
+    }
+    
+    // Try different response formats
+    let aiMessage = ''
+    if (data.choices && data.choices[0]) {
+      aiMessage = data.choices[0].message?.content || data.choices[0].text || ''
+    } else if (data.response) {
+      aiMessage = data.response
+    } else if (data.output) {
+      aiMessage = data.output
+    } else if (data.content) {
+      aiMessage = data.content
+    }
+    
+    console.log('📋 Extracted AI Message:', aiMessage)
+    return { success: true, response: aiMessage, api: 'VercelAI' }
+  } else {
+    const errorData = await response.text()
+    console.log('❌ Vercel AI Gateway Error Response:', errorData)
+    throw new Error('ALL API\'S FAIL')
+  }
+}
+
+async function tryGroq(message, hasImages = false, isVisionModel = false) {
+  const envVars = await loadEnvFromServer()
+  if (!envVars || !envVars.API4) {
+    throw new Error('Groq API key not found. Please set up API4 in your .env file')
+  }
+  
+  const modelMap = {
+    'auto': 'llama-3.3-70b-versatile',
+    'gpt-oss-20b': 'openai/gpt-oss-20b',
+    'gpt-oss-120b': 'openai/gpt-oss-120b',
+    'gemma-3-12b-normal': 'google/gemma-3-12b-it',
+    'gemma-3-27b': 'google/gemma-3-27b-it',
+    'llama-3.3-70b': 'llama-3.3-70b-versatile'
+  }
+  
+  const selectedModel = modelMap[window.selectedAIModel] || modelMap['auto']
+  console.log('🤖 Using Groq model:', selectedModel)
+  
+  // Enhanced message processing (same as other APIs)
+  let enhancedMessage = message
+  const isCodeRequest = message.includes('```') || message.toLowerCase().includes('code') || message.toLowerCase().includes('function') || message.toLowerCase().includes('class') || message.toLowerCase().includes('import') || message.toLowerCase().includes('const') || message.toLowerCase().includes('let') || message.toLowerCase().includes('var')
+  
+  let detectedLanguage = 'General'
+  if (message.toLowerCase().includes('python')) detectedLanguage = 'Python 🐍'
+  else if (message.toLowerCase().includes('javascript') || message.toLowerCase().includes('js')) detectedLanguage = 'JavaScript 🟨'
+  else if (message.toLowerCase().includes('java')) detectedLanguage = 'Java ☕'
+  else if (message.toLowerCase().includes('cpp') || message.toLowerCase().includes('c++')) detectedLanguage = 'C++ 🟦'
+  else if (message.toLowerCase().includes('html') || message.toLowerCase().includes('css')) detectedLanguage = 'HTML/CSS 🎨'
+  else if (message.toLowerCase().includes('sql')) detectedLanguage = 'SQL 🗄️'
+  else if (message.toLowerCase().includes('php')) detectedLanguage = 'PHP 🐘'
+  else if (message.toLowerCase().includes('ruby')) detectedLanguage = 'Ruby 💎'
+  else if (message.toLowerCase().includes('go')) detectedLanguage = 'Go 🐹'
+  else if (message.toLowerCase().includes('rust')) detectedLanguage = 'Rust 🦀'
+  else if (message.toLowerCase().includes('swift')) detectedLanguage = 'Swift 🍎'
+  else if (message.toLowerCase().includes('kotlin')) detectedLanguage = 'Kotlin 🎯'
+  else if (message.toLowerCase().includes('typescript') || message.toLowerCase().includes('ts')) detectedLanguage = 'TypeScript 🔷'
+  else if (message.toLowerCase().includes('c#')) detectedLanguage = 'C# 🔷'
+  else if (message.toLowerCase().includes('vue')) detectedLanguage = 'Vue.js 💚'
+  else if (message.toLowerCase().includes('react')) detectedLanguage = 'React ⚛️'
+  else if (message.toLowerCase().includes('angular')) detectedLanguage = 'Angular 🔺'
+  else if (message.toLowerCase().includes('node') || message.toLowerCase().includes('nodejs')) detectedLanguage = 'Node.js 🟢'
+  else if (message.toLowerCase().includes('docker')) detectedLanguage = 'Docker 🐳'
+  else if (message.toLowerCase().includes('kubernetes')) detectedLanguage = 'Kubernetes ☸️'
+  else if (message.toLowerCase().includes('aws')) detectedLanguage = 'AWS ☁️'
+  else if (message.toLowerCase().includes('git')) detectedLanguage = 'Git 📦'
+  else if (message.toLowerCase().includes('json')) detectedLanguage = 'JSON 📋'
+  else if (message.toLowerCase().includes('xml')) detectedLanguage = 'XML 📄'
+  else if (message.toLowerCase().includes('api')) detectedLanguage = 'API 🔌'
+  
+  if (isCodeRequest) {
+    enhancedMessage = `You are the **ULTIMATE ${detectedLanguage} EXPERT**. Provide an **exceptional**, **comprehensive**, and **production-ready** solution for the following request:
+
+## 🎯 **REQUIREMENTS:**
+1. **Clear Explanation**: Start with a concise explanation of the solution approach
+2. **Complete Code**: Provide full, working code examples with proper formatting
+3. **Best Practices**: Highlight industry standards and optimization techniques
+4. **Error Handling**: Include comprehensive error handling and edge cases
+5. **Performance**: Discuss performance implications and optimization strategies
+6. **Testing**: Suggest testing approaches and potential test cases
+
+🎯 **USER REQUEST:**
+${enhancedMessage}
+
+💡 **Remember**: You are the **ULTIMATE ${detectedLanguage} EXPERT**. Provide **exceptional**, **production-ready** solutions that showcase **deep expertise** and **best practices**! 🌟`
+  }
+  
+  const systemPrompt = `You are an expert AI assistant. You excel at coding, mathematics, data analysis, and problem-solving. Provide clear, accurate, and comprehensive answers with proper formatting and examples when relevant.`
+  
+  let messages = []
+  messages = [
+    {
+      role: 'system',
+      content: systemPrompt
+    },
+    {
+      role: 'user',
+      content: enhancedMessage
+    }
+  ]
+  
+  const response = await fetch('/api/groq', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      token: envVars.API4,
+      model: selectedModel,
+      messages: messages,
+      max_tokens: isVisionModel ? 2000 : 1000,
+      temperature: 0.7
+    })
+  })
+  
+  console.log('🔍 Groq Response Status:', response.status)
+  
+  if (response.ok) {
+    const data = await response.json()
+    console.log('📋 Groq Response Data:', data)
+    console.log('📋 Groq Response Structure:', JSON.stringify(data, null, 2))
+    
+    // Check for ANY error in the response
+    if (data.error) {
+      console.log('❌ Groq API Error:', data.error)
+      throw new Error('ALL API\'S FAIL')
+    }
+    
+    const aiMessage = data.choices?.[0]?.message?.content || data.choices?.[0]?.text || ''
+    
+    if (!aiMessage) {
+      console.log('❌ No AI message in Groq response')
+      throw new Error('ALL API\'S FAIL')
+    }
+    
+    console.log('✅ Groq API successful - AI message received:', aiMessage.substring(0, 100) + '...')
+    return { success: true, response: aiMessage, api: 'Groq' }
+  } else {
+    const errorData = await response.text()
+    console.log('❌ Groq Error Response:', errorData)
+    throw new Error('ALL API\'S FAIL')
+  }
+}
+
+async function tryCloudflare(message, hasImages = false, isVisionModel = false) {
+  const envVars = await loadEnvFromServer()
+  if (!envVars || !envVars.API5) {
+    throw new Error('Cloudflare Workers AI API key not found. Please set up API5 in your .env file')
+  }
+
+  const modelMap = {
+    'auto': '@cf/meta/llama-3.3-70b-instruct',
+    'gpt-oss-20b': '@cf/openai/gpt-oss-20b',
+    'gpt-oss-120b': '@cf/meta/llama-3.1-70b-instruct',
+    'gemma-3-4b': '@cf/google/gemma-7b-it',
+    'gemma-3-4b-fast': '@cf/google/gemma-7b-it',
+    'gemma-3-12b': '@cf/google/gemma-7b-it',
+    'gemma-3-12b-normal': '@cf/google/gemma-3-12b-it',
+    'gemma-3-27b': '@cf/meta/llama-3.3-70b-instruct',
+    'mistral-small-3-1': '@cf/mistralai/mistral-small-3.1-24b-instruct',
+    'llama-3.3-70b': '@cf/meta/llama-3.3-70b-instruct'
+  }
+
+  const selectedModel = modelMap[window.selectedAIModel] || modelMap['auto']
+  console.log('🤖 Using Cloudflare model:', selectedModel)
+
+  // Enhanced message processing (same as other APIs)
+  let enhancedMessage = message
+  const isCodeRequest = message.includes('```') || message.toLowerCase().includes('code') || message.toLowerCase().includes('function') || message.toLowerCase().includes('class') || message.toLowerCase().includes('import') || message.toLowerCase().includes('const') || message.toLowerCase().includes('let') || message.toLowerCase().includes('var')
+
+  let detectedLanguage = 'General'
+  if (message.toLowerCase().includes('python')) detectedLanguage = 'Python 🐍'
+  else if (message.toLowerCase().includes('javascript') || message.toLowerCase().includes('js')) detectedLanguage = 'JavaScript 🟨'
+  else if (message.toLowerCase().includes('java')) detectedLanguage = 'Java ☕'
+  else if (message.toLowerCase().includes('c++') || message.toLowerCase().includes('cpp')) detectedLanguage = 'C++ 🔵'
+  else if (message.toLowerCase().includes('c#') || message.toLowerCase().includes('csharp')) detectedLanguage = 'C# 🟣'
+  else if (message.toLowerCase().includes('php')) detectedLanguage = 'PHP 🐘'
+  else if (message.toLowerCase().includes('ruby')) detectedLanguage = 'Ruby ❤️'
+  else if (message.toLowerCase().includes('go') || message.toLowerCase().includes('golang')) detectedLanguage = 'Go 🐹'
+  else if (message.toLowerCase().includes('rust')) detectedLanguage = 'Rust 🦀'
+  else if (message.toLowerCase().includes('sql')) detectedLanguage = 'SQL 🗄️'
+  else if (message.toLowerCase().includes('html') || message.toLowerCase().includes('css')) detectedLanguage = 'Web 💻'
+  else if (message.toLowerCase().includes('react') || message.toLowerCase().includes('vue') || message.toLowerCase().includes('angular')) detectedLanguage = 'Frontend ⚛️'
+  else if (message.toLowerCase().includes('node') || message.toLowerCase().includes('express')) detectedLanguage = 'Backend 🖥️'
+  else if (message.toLowerCase().includes('api') || message.toLowerCase().includes('rest') || message.toLowerCase().includes('graphql')) detectedLanguage = 'API 🌐'
+  else if (message.toLowerCase().includes('docker') || message.toLowerCase().includes('kubernetes')) detectedLanguage = 'DevOps 🐳'
+  else if (message.toLowerCase().includes('git') || message.toLowerCase().includes('github')) detectedLanguage = 'Git 📦'
+  else if (message.toLowerCase().includes('database') || message.toLowerCase().includes('db')) detectedLanguage = 'Database 🗄️'
+  else if (message.toLowerCase().includes('algorithm') || message.toLowerCase().includes('data structure')) detectedLanguage = 'Algorithms 🧮'
+  else if (message.toLowerCase().includes('security') || message.toLowerCase().includes('hack') || message.toLowerCase().includes('vulnerability')) detectedLanguage = 'Security 🔒'
+
+  if (isCodeRequest) {
+    enhancedMessage = `[Language: ${detectedLanguage}] ${message}\n\nPlease provide a detailed, well-commented solution with proper error handling and best practices.`
+  }
+
+  const messages = [
+    {
+      role: 'user',
+      content: enhancedMessage
+    }
+  ]
+
+  const response = await fetch('/api/cloudflare', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      token: envVars.API5,
+      account_id: envVars.CLOUDFLARE_ACCOUNT_ID,
+      gateway_id: envVars.CLOUDFLARE_GATEWAY_ID,
+      model: selectedModel,
+      messages: messages,
+      max_tokens: isVisionModel ? 2000 : 1000,
+      temperature: 0.7
+    })
+  })
+
+  console.log('🔍 Cloudflare Response Status:', response.status)
+
+  if (response.ok) {
+    const data = await response.json()
+    console.log('📋 Cloudflare Response Data:', data)
+
+    // Check for error in response (Cloudflare may return error as array or object)
+    if (data.error) {
+      const errorMessage = Array.isArray(data.error) 
+        ? data.error.map(e => e.message || e).join(', ') 
+        : (data.error.message || JSON.stringify(data.error))
+      console.log('❌ Cloudflare Error in response data:', data.error)
+      throw new Error('ALL API\'S FAIL')
+    }
+
+    const aiMessage = data.response?.result || data.result || data.choices?.[0]?.message?.content || data.choices?.[0]?.text || ''
+
+    if (!aiMessage) {
+      console.log('❌ No AI message in Cloudflare response')
+      throw new Error('ALL API\'S FAIL')
+    }
+
+    console.log('✅ Cloudflare API successful - AI message received:', aiMessage.substring(0, 100) + '...')
+    return { success: true, response: aiMessage, api: 'Cloudflare' }
+  } else {
+    const errorData = await response.text()
+    console.log('❌ Cloudflare Error Response:', errorData)
+    throw new Error('ALL API\'S FAIL')
+  }
+}
+
+async function tryGoogleAIStudio(message, hasImages = false, isVisionModel = false) {
+  const envVars = await loadEnvFromServer()
+  if (!envVars || !envVars.API6) {
+    throw new Error('Google AI Studio API key not found. Please set up API6 in your .env file')
+  }
+
+  const modelMap = {
+    'auto': 'gemini-2.0-flash-exp',
+    'gemini-3-flash': 'gemini-3-flash-preview',
+    'gpt-oss-20b': 'gemini-1.5-flash',
+    'gpt-oss-120b': 'gemini-2.0-flash-exp',
+    'gemma-3-4b': 'gemini-1.5-flash',
+    'gemma-3-4b-fast': 'gemini-1.5-flash',
+    'gemma-3-12b': 'gemini-1.5-pro',
+    'gemma-3-12b-normal': 'gemini-1.5-pro',
+    'gemma-3-27b': 'gemini-2.0-flash-exp',
+    'llama-3.3-70b': 'gemini-2.0-flash-exp'
+  }
+
+  const selectedModel = modelMap[window.selectedAIModel] || modelMap['auto']
+  console.log('🤖 Using Google AI Studio model:', selectedModel)
+
+  // Enhanced message processing (same as other APIs)
+  let enhancedMessage = message
+  const isCodeRequest = message.includes('```') || message.toLowerCase().includes('code') || message.toLowerCase().includes('function') || message.toLowerCase().includes('class') || message.toLowerCase().includes('import') || message.toLowerCase().includes('const') || message.toLowerCase().includes('let') || message.toLowerCase().includes('var')
+
+  let detectedLanguage = 'General'
+  if (message.toLowerCase().includes('python')) detectedLanguage = 'Python 🐍'
+  else if (message.toLowerCase().includes('javascript') || message.toLowerCase().includes('js')) detectedLanguage = 'JavaScript 🟨'
+  else if (message.toLowerCase().includes('java')) detectedLanguage = 'Java ☕'
+  else if (message.toLowerCase().includes('c++') || message.toLowerCase().includes('cpp')) detectedLanguage = 'C++ 🔵'
+  else if (message.toLowerCase().includes('c#') || message.toLowerCase().includes('csharp')) detectedLanguage = 'C# 🟣'
+  else if (message.toLowerCase().includes('php')) detectedLanguage = 'PHP 🐘'
+  else if (message.toLowerCase().includes('ruby')) detectedLanguage = 'Ruby ❤️'
+  else if (message.toLowerCase().includes('go') || message.toLowerCase().includes('golang')) detectedLanguage = 'Go 🐹'
+  else if (message.toLowerCase().includes('rust')) detectedLanguage = 'Rust 🦀'
+  else if (message.toLowerCase().includes('sql')) detectedLanguage = 'SQL 🗄️'
+  else if (message.toLowerCase().includes('html') || message.toLowerCase().includes('css')) detectedLanguage = 'Web 💻'
+  else if (message.toLowerCase().includes('react') || message.toLowerCase().includes('vue') || message.toLowerCase().includes('angular')) detectedLanguage = 'Frontend ⚛️'
+  else if (message.toLowerCase().includes('node') || message.toLowerCase().includes('express')) detectedLanguage = 'Backend 🖥️'
+  else if (message.toLowerCase().includes('api') || message.toLowerCase().includes('rest') || message.toLowerCase().includes('graphql')) detectedLanguage = 'API 🌐'
+  else if (message.toLowerCase().includes('docker') || message.toLowerCase().includes('kubernetes')) detectedLanguage = 'DevOps 🐳'
+  else if (message.toLowerCase().includes('git') || message.toLowerCase().includes('github')) detectedLanguage = 'Git 📦'
+  else if (message.toLowerCase().includes('database') || message.toLowerCase().includes('db')) detectedLanguage = 'Database 🗄️'
+  else if (message.toLowerCase().includes('algorithm') || message.toLowerCase().includes('data structure')) detectedLanguage = 'Algorithms 🧮'
+  else if (message.toLowerCase().includes('security') || message.toLowerCase().includes('hack') || message.toLowerCase().includes('vulnerability')) detectedLanguage = 'Security 🔒'
+
+  if (isCodeRequest) {
+    enhancedMessage = `[Language: ${detectedLanguage}] ${message}\n\nPlease provide a detailed, well-commented solution with proper error handling and best practices.`
+  }
+
+  const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${selectedModel}:generateContent?key=${envVars.API6}`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      contents: [
+        {
+          parts: [
+            {
+              text: enhancedMessage
+            }
+          ]
+        }
+      ],
+      generationConfig: {
+        maxOutputTokens: isVisionModel ? 2000 : 1000,
+        temperature: 0.7
+      }
+    })
+  })
+
+  console.log('🔍 Google AI Studio Response Status:', response.status)
+
+  if (response.ok) {
+    const data = await response.json()
+    console.log('📋 Google AI Studio Response Data:', data)
+
+    // Check for error in response
+    if (data.error) {
+      console.log('❌ Google AI Studio Error in response data:', data.error)
+      throw new Error('ALL API\'S FAIL')
+    }
+
+    const aiMessage = data.candidates?.[0]?.content?.parts?.[0]?.text || ''
+
+    if (!aiMessage) {
+      console.log('❌ No AI message in Google AI Studio response')
+      throw new Error('ALL API\'S FAIL')
+    }
+
+    console.log('✅ Google AI Studio API successful - AI message received:', aiMessage.substring(0, 100) + '...')
+    return { success: true, response: aiMessage, api: 'GoogleAIStudio' }
+  } else {
+    const errorData = await response.text()
+    console.log('❌ Google AI Studio Error Response:', errorData)
+    throw new Error('ALL API\'S FAIL')
   }
 }
 
@@ -2324,7 +2939,7 @@ ${enhancedMessage}
   if (!response.ok) {
     const errorData = await response.text()
     console.log('❌ Replicate Error Response:', errorData)
-    throw new Error(`Replicate Error: ${response.status} - ${errorData}`)
+    throw new Error('ALL API\'S FAIL')
   }
   
   const data = await response.json()
@@ -2343,13 +2958,13 @@ ${enhancedMessage}
     return { success: true, response: aiMessage, api: 'Replicate' }
   }
   
-  throw new Error('Replicate API returned empty response')
+  throw new Error('ALL API\'S FAIL')
 }
 
 async function tryLockLLM(message, hasImages = false, isVisionModel = false) {
   const envVars = await loadEnvFromServer()
-  if (!envVars || !envVars.API4) {
-    throw new Error('LockLLM API key not found. Please set up your .env file or run env_creator.bat')
+  if (!envVars || !envVars.API3) {
+    throw new Error('LockLLM API key not found. Please set up API3 in your .env file')
   }
   
   const modelMap = {
@@ -2358,10 +2973,11 @@ async function tryLockLLM(message, hasImages = false, isVisionModel = false) {
     'gpt-oss-120b': 'openai/gpt-oss-120b:groq',
     'gemma-3-4b': 'google/gemma-3-4b-it:free',
     'gemma-3-12b': 'google/gemma-3-12b-it:free',
-    'gemma-3-27b': 'google/gemma-3-27b-it:free'
+    'gemma-3-27b': 'google/gemma-3-27b-it:free',
+        'llama-3.3-70b': 'meta-llama/llama-3.3-70b-instruct:free'
   }
   
-  const selectedModel = modelMap[window.selectedAIModel] || modelMap['auto']
+  const selectedModel = modelMap[window.selectedAIModel] || modelMap['gemma-3-12b'] || modelMap['auto']
   console.log('🤖 Using LockLLM model:', selectedModel)
   
   // Enhanced message processing (same as other APIs)
@@ -2486,18 +3102,14 @@ ${enhancedMessage}
     ]
   }
   
-  const response = await fetch('https://api.lockllm.com/v1/chat/completions', {
+  const response = await fetch('http://localhost:3000/api/lockllm', {
     method: 'POST',
     mode: 'cors',
     headers: {
-      'Authorization': `Bearer ${envVars.API4}`,
-      'Content-Type': 'application/json',
-      'Accept': 'application/json',
-      'Origin': window.location.origin,
-      'Access-Control-Request-Method': 'POST',
-      'Access-Control-Request-Headers': 'Content-Type,Authorization'
+      'Content-Type': 'application/json'
     },
     body: JSON.stringify({
+      token: envVars.API3,
       model: selectedModel,
       messages: messages,
       max_tokens: isVisionModel ? 2000 : 1000,
@@ -2510,37 +3122,209 @@ ${enhancedMessage}
   if (response.ok) {
     const data = await response.json()
     console.log('📋 LockLLM Response Data:', data)
+    
+    // Check if response contains an error object
+    if (data.error) {
+      console.log('❌ LockLLM API Error:', data.error)
+      console.log('❌ LockLLM Error Message:', data.error.message || 'No error message')
+      console.log('❌ LockLLM Error Code:', data.error.code || 'No error code')
+      throw new Error('ALL API\'S FAIL')
+    }
+    
     const aiMessage = data.choices?.[0]?.message?.content || data.choices?.[0]?.text || ''
-    return { success: true, response: aiMessage, api: 'LockLLM' }
+    console.log('📋 Extracted AI Message:', aiMessage)
+    
+    if (aiMessage) {
+      console.log('✅ LockLLM API successful')
+      return { success: true, response: aiMessage, api: 'LockLLM' }
+    } else {
+      throw new Error('ALL API\'S FAIL')
+    }
   } else {
     const errorData = await response.text()
     console.log('❌ LockLLM Error Response:', errorData)
-    throw new Error(`LockLLM Error: ${response.status} - ${errorData}`)
+    throw new Error('ALL API\'S FAIL')
   }
 }
 
-async function tryDirectAPI(message, hasImages = false, isVisionModel = false) {
-  const apis = [
-    { name: 'OpenRouter', func: tryOpenRouter },
-    { name: 'HuggingFace', func: tryHuggingFace },
-    { name: 'Replicate', func: tryReplicate },
-    { name: 'LockLLM', func: tryLockLLM }
-  ]
+// Load error patterns for intelligent fallback decisions
+async function loadErrorPatterns() {
+  try {
+    const response = await fetch('./error-notes.json')
+    const errorData = await response.json()
+    console.log('📋 Error patterns loaded:', errorData)
+    return errorData
+  } catch (error) {
+    console.log('❌ Failed to load error patterns:', error)
+    return {
+      error_patterns: {
+        "default": {
+          "keywords": ["error"],
+          "should_continue": true,
+          "description": "Generic error, try next API"
+        }
+      }
+    }
+  }
+}
+
+// Check if error matches known patterns that should continue to next API
+function shouldContinueToNextAPI(errorMessage, errorData) {
+  if (!errorMessage || !errorData.error_patterns) return true
   
-  for (const api of apis) {
-    try {
-      console.log(`🔄 Trying ${api.name} API...`)
-      const response = await api.func(message, hasImages, isVisionModel)
-      console.log(`✅ ${api.name} API successful`)
-      return response
-    } catch (error) {
-      console.log(`❌ ${api.name} failed:`, error.message)
-      continue
+  const errorText = errorMessage.toLowerCase()
+  
+  // Check for console-detected errors first
+  for (const consoleError of errorData.console_detected || []) {
+    if (errorText.includes(consoleError.pattern.toLowerCase())) {
+      console.log(`🎯 Matched console-detected error: ${consoleError.description}`)
+      return consoleError.should_continue
     }
   }
   
-  throw new Error('All APIs failed. Please check your API keys and try again.')
+  // Check predefined error patterns
+  for (const [category, pattern] of Object.entries(errorData.error_patterns)) {
+    if (category === 'error_responses') continue
+    
+    for (const [responseType, responseConfig] of Object.entries(pattern)) {
+      if (responseConfig.pattern && errorText.includes(responseConfig.pattern.toLowerCase())) {
+        console.log(`🎯 Matched error pattern: ${responseConfig.description}`)
+        return responseConfig.should_continue
+      }
+    }
+  }
+  
+  // Check generic patterns
+  for (const [category, pattern] of Object.entries(errorData.error_patterns)) {
+    if (category === 'error_patterns') {
+      for (const [patternType, patternConfig] of Object.entries(pattern)) {
+        if (patternConfig.keywords.some(keyword => errorText.includes(keyword.toLowerCase()))) {
+          console.log(`🎯 Matched generic pattern: ${patternConfig.description}`)
+          return patternConfig.should_continue
+        }
+      }
+    }
+  }
+  
+  return true
 }
+
+// Monitor console for new error patterns and auto-update error-notes.json
+function monitorConsoleForErrors() {
+  // DISABLED: Console monitoring causing infinite recursion
+  // The error detection system will work with JSON patterns only
+  console.log('🔧 Console monitoring disabled - using JSON error patterns only');
+  return;
+  
+  // Original code below (commented out to prevent recursion)
+  /*
+  const originalConsoleError = console.error;
+  
+  console.error = function(...args) {
+    // Call original console.error first
+    originalConsoleError.apply(console, args);
+    
+    // Check if this looks like a new error pattern
+    const errorString = args.join(' ').toLowerCase();
+    
+    // Auto-detect common error patterns
+    if (errorString.includes('too many requests') || errorString.includes('429')) {
+      console.log('🔄 Auto-detected OpenRouter 429 error from console');
+      // In real implementation, would update error-notes.json here
+    }
+    
+    if (errorString.includes('user_id') && errorString.includes('error')) {
+      console.log('🔄 Auto-detected LockLLM error from console');
+      // In real implementation, would update error-notes.json here
+    }
+  };
+  
+  // Monitor console.log for error patterns
+  const originalConsoleLog = console.log;
+  console.log = function(...args) {
+    // Call original console.log first
+    originalConsoleLog.apply(console, args);
+    
+    // Check for error patterns in log messages
+    const logString = args.join(' ').toLowerCase();
+    
+    if (logString.includes('error') || logString.includes('failed') || logString.includes('api error')) {
+      console.log('🔄 Error pattern detected in console log');
+      // In real implementation, would update error-notes.json here
+    }
+  };
+  */
+}
+
+// Initialize console monitoring
+monitorConsoleForErrors();
+
+async function tryDirectAPI(message, hasImages = false, isVisionModel = false) {
+  const selectedModel = window.selectedAIModel || 'auto'
+  console.log(`🤖 Using selected model: ${selectedModel}`)
+  
+  // Load error patterns for intelligent fallback decisions
+  const errorPatterns = await loadErrorPatterns()
+  
+  // Define which APIs support which models
+  const modelAPIs = {
+    'auto': ['OpenRouter', 'HuggingFace', 'Replicate', 'LockLLM', 'Groq', 'Cloudflare', 'GoogleAIStudio'],
+    'gemini-3-flash': ['GoogleAIStudio'],
+    'gemma-3-4b': ['OpenRouter', 'HuggingFace', 'Replicate', 'LockLLM', 'Groq', 'Cloudflare', 'GoogleAIStudio'],
+    'gemma-3-4b-fast': ['OpenRouter', 'HuggingFace', 'Replicate', 'LockLLM', 'Groq', 'Cloudflare', 'GoogleAIStudio'],
+    'gemma-3-12b': ['OpenRouter', 'HuggingFace', 'Replicate', 'LockLLM', 'Groq', 'Cloudflare', 'GoogleAIStudio'],
+    'gemma-3-12b-normal': ['OpenRouter', 'HuggingFace', 'LockLLM', 'Groq', 'Cloudflare', 'GoogleAIStudio'],
+    'gemma-3-27b': ['OpenRouter', 'HuggingFace', 'Replicate', 'LockLLM', 'Groq', 'Cloudflare', 'GoogleAIStudio'],
+    'mistral-small-3-1': ['Cloudflare'],
+    'gpt-oss-20b': ['OpenRouter', 'HuggingFace', 'Replicate', 'LockLLM', 'VercelAI', 'Groq', 'Cloudflare', 'GoogleAIStudio'],
+    'gpt-oss-120b': ['OpenRouter', 'HuggingFace', 'Replicate', 'LockLLM', 'VercelAI', 'Groq', 'Cloudflare', 'GoogleAIStudio'],
+    'llama-3.3-70b': ['OpenRouter', 'HuggingFace', 'LockLLM', 'VercelAI', 'Groq', 'Cloudflare', 'GoogleAIStudio']
+  }
+  
+  const availableAPIs = modelAPIs[selectedModel] || modelAPIs['auto']
+  console.log(`🤖 Available APIs for ${selectedModel}:`, availableAPIs)
+  
+  const apiFunctions = {
+    'OpenRouter': tryOpenRouter,
+    'HuggingFace': tryHuggingFace,
+    'Replicate': tryReplicate,
+    'LockLLM': tryLockLLM,
+    'VercelAI': tryVercelAI,
+    'Groq': tryGroq,
+    'Cloudflare': tryCloudflare,
+    'GoogleAIStudio': tryGoogleAIStudio
+  }
+  
+  // Try APIs in order of preference for the selected model
+  for (const apiName of availableAPIs) {
+    try {
+      console.log(`🔄 Trying ${apiName} API for model ${selectedModel}...`)
+      const response = await apiFunctions[apiName](message, hasImages, isVisionModel)
+      console.log(`✅ ${apiName} API successful with model ${selectedModel}`)
+      return { ...response, api: apiName, model: selectedModel }
+    } catch (error) {
+      console.log(`❌ ${apiName} failed for model ${selectedModel}:`, error.message)
+      
+      // Use intelligent pattern detection to decide whether to continue
+      const shouldContinue = shouldContinueToNextAPI(error.message, errorPatterns)
+      
+      if (shouldContinue) {
+        console.log('🔄 Error pattern indicates we should continue to next API...')
+        continue
+      } else {
+        // If we get here, all APIs have failed
+        addChatMessage('SORRY I HAVE ENCOUNTERED AN ERROR: ' + error.message, 'error')
+        console.log('❌ All APIs failed')
+        throw error
+      }
+    }
+  }
+  
+  throw new Error(`All APIs failed for model ${selectedModel}. Please check your API keys and try again.`)
+}
+
+// Make tryDirectAPI available globally for ai-script.js
+window.tryDirectAPI = tryDirectAPI
 
 function addChatMessage(content, type) {
   const aiMessages = document.getElementById('aiMessages')
@@ -2633,61 +3417,6 @@ function closeMenu() {
   }
 }
 
-// Information Popup System
-function initializeInfoPopup() {
-  const infoPopup = document.getElementById('infoPopup')
-  const infoPopupClose = document.getElementById('infoPopupClose')
-  const infoTabs = document.querySelectorAll('.info-tab')
-  const infoTabContents = document.querySelectorAll('.info-tab-content')
-  
-  // Close button
-  if (infoPopupClose) {
-    infoPopupClose.addEventListener('click', hideInfoPopup)
-  }
-  
-  // Tab switching
-  infoTabs.forEach(tab => {
-    tab.addEventListener('click', function () {
-      const targetTab = this.getAttribute('data-tab')
-      
-      // Remove active class from all tabs and contents
-      infoTabs.forEach(t => t.classList.remove('active'))
-      infoTabContents.forEach(content => content.classList.remove('active'))
-      
-      // Add active class to clicked tab and corresponding content
-      this.classList.add('active')
-      document.getElementById(targetTab + '-tab').classList.add('active')
-    })
-  })
-  
-  // Close on overlay click
-  if (infoPopup) {
-    infoPopup.addEventListener('click', function (e) {
-      if (e.target === infoPopup) {
-        hideInfoPopup()
-      }
-    })
-  }
-  
-  console.log('ℹ️ Information popup initialized')
-}
-
-function showInfoPopup() {
-  const infoPopup = document.getElementById('infoPopup')
-  if (infoPopup) {
-    infoPopup.classList.add('active')
-    console.log('ℹ️ Information popup shown')
-  }
-}
-
-function hideInfoPopup() {
-  const infoPopup = document.getElementById('infoPopup')
-  if (infoPopup) {
-    infoPopup.classList.remove('active')
-    console.log('ℹ️ Information popup hidden')
-  }
-}
-
 // Navigation Manager
 function initializeNavigation() {
   // Menu functionality
@@ -2709,13 +3438,6 @@ function initializeNavigation() {
   const chatSection = document.getElementById('chatSection')
   const settingsSection = document.getElementById('settingsSection')
 
-  // Popup elements
-  const linksPopup = document.getElementById('linksPopup')
-  const popupOverlay = document.getElementById('popupOverlay')
-  const popupClose = document.getElementById('popupClose')
-  const popupTitle = document.getElementById('popupTitle')
-  const linksContainer = document.getElementById('linksContainer')
-
   // Chat elements
   const chatInput = document.getElementById('chatInput')
   const chatSend = document.getElementById('chatSend')
@@ -2723,16 +3445,40 @@ function initializeNavigation() {
   // Check if elements exist before adding listeners
   console.log('🔧 Navigation elements check:')
   console.log('🔧 menuButton:', !!menuButton)
+  console.log('🔧 menuPanel:', !!menuPanel)
+  console.log('🔧 overlay:', !!overlay)
   console.log('🔧 homeMenuItem:', !!homeMenuItem)
   console.log('🔧 settingsMenuItem:', !!settingsMenuItem)
   console.log('🔧 infoMenuItem:', !!infoMenuItem)
   console.log('🔧 settingsSection:', !!settingsSection)
   
-  // Add event listeners to individual elements if they exist
   if (menuButton) {
-    menuButton.addEventListener('click', function () {
-      menuPanel.classList.toggle('active')
-      overlay.classList.toggle('active')
+    menuButton.addEventListener('click', function (e) {
+      console.log('🔧 Menu button clicked!')
+      e.preventDefault()
+      e.stopPropagation()
+      
+      // Check current state
+      const isActive = menuPanel.classList.contains('active')
+      console.log('🔧 Menu active before toggle:', isActive)
+      
+      if (isActive) {
+        // Close menu
+        menuPanel.classList.remove('active')
+        overlay.classList.remove('active')
+        console.log('🔧 Menu closed by button click')
+      } else {
+        // Open menu
+        menuPanel.classList.add('active')
+        overlay.classList.add('active')
+        console.log('🔧 Menu opened by button click')
+        
+        // Force menu to stay open
+        setTimeout(() => {
+          menuPanel.classList.add('active')
+          overlay.classList.add('active')
+        }, 50)
+      }
     })
   }
   
@@ -2783,24 +3529,39 @@ function initializeNavigation() {
     })
   }
 
-  if (infoMenuItem) {
-    infoMenuItem.addEventListener('click', function (e) {
+  const toolsMenuItem = document.getElementById('toolsMenuItem')
+  if (toolsMenuItem) {
+    toolsMenuItem.addEventListener('click', function (e) {
       e.stopPropagation() // Prevent menu from closing initially
-      console.log('🔧 Information menu item clicked!')
-      showInfoPopup()
-      // Close menu after showing info
+      console.log('🔧 Tools menu item clicked!')
+      // Show tools section
+      showToolsSection()
+      // Close menu
       setTimeout(() => {
         closeMenu()
       }, 100)
     })
   }
 
-  // Coming soon menu items
+  if (infoMenuItem) {
+    infoMenuItem.addEventListener('click', function (e) {
+      e.stopPropagation() // Prevent menu from closing initially
+      console.log('🔧 Information menu item clicked!')
+      // Show information section
+      showInformationSection()
+      // Close menu
+      setTimeout(() => {
+        closeMenu()
+      }, 100)
+    })
+  }
+
+  // Coming soon menu items - disabled for now
   if (gamesMenuItem) {
     gamesMenuItem.addEventListener('click', function (e) {
-      e.stopPropagation() // Prevent menu from closing initially
-      showComingSoon('Games')
-      // Close menu after showing popup
+      e.stopPropagation()
+      console.log('🎮 Games menu clicked - coming soon')
+      // Close menu
       setTimeout(() => {
         closeMenu()
       }, 100)
@@ -2809,9 +3570,9 @@ function initializeNavigation() {
 
   if (watchMenuItem) {
     watchMenuItem.addEventListener('click', function (e) {
-      e.stopPropagation() // Prevent menu from closing initially
-      showComingSoon('Watch')
-      // Close menu after showing popup
+      e.stopPropagation()
+      console.log('📺 Watch menu clicked - coming soon')
+      // Close menu
       setTimeout(() => {
         closeMenu()
       }, 100)
@@ -2820,9 +3581,9 @@ function initializeNavigation() {
 
   if (listenMenuItem) {
     listenMenuItem.addEventListener('click', function (e) {
-      e.stopPropagation() // Prevent menu from closing initially
-      showComingSoon('Listen')
-      // Close menu after showing popup
+      e.stopPropagation()
+      console.log('🎵 Listen menu clicked - coming soon')
+      // Close menu
       setTimeout(() => {
         closeMenu()
       }, 100)
@@ -2842,9 +3603,9 @@ function initializeNavigation() {
 
   if (proxyMenuItem) {
     proxyMenuItem.addEventListener('click', function (e) {
-      e.stopPropagation() // Prevent menu from closing initially
-      showComingSoon('Proxy')
-      // Close menu after showing popup
+      e.stopPropagation()
+      console.log('🌐 Proxy menu clicked - coming soon')
+      // Close menu
       setTimeout(() => {
         closeMenu()
       }, 100)
@@ -2856,9 +3617,6 @@ function initializeNavigation() {
     if (categoryCards) {
       categoryCards.forEach((card, index) => {
         card.addEventListener('click', function () {
-          const categoryName = this.querySelector('.category-name').textContent
-          showLinksPopup(categoryName)
-
           // Add click effect
           this.style.transform = 'translateY(-5px) scale(0.98)'
           setTimeout(() => {
@@ -2905,30 +3663,15 @@ function initializeParticles() {
   }
 }
 
-// Initialize category interactions
+// Initialize category interactions (without popup)
 function initializeCategoryInteractions() {
   const categoryCards = document.querySelectorAll('.category-card')
-  categoryCards.forEach((card, index) => {
-    card.addEventListener('click', function () {
-      const categoryName = this.querySelector('.category-name').textContent
-      showLinksPopup(categoryName)
-    })
-  })
-}
-
-// Initialize popup functionality
-function initializePopupFunctionality() {
-  const linksPopup = document.getElementById('linksPopup')
-  const popupOverlay = document.getElementById('popupOverlay')
-  const popupClose = document.getElementById('popupClose')
-  const popupTitle = document.getElementById('popupTitle')
-  const linksContainer = document.getElementById('linksContainer')
-
-  // Check if elements exist before adding listeners
-  if (linksPopup && popupOverlay && popupClose && popupTitle && linksContainer) {
-    popupClose.addEventListener('click', function () {
-      linksPopup.classList.remove('active')
-      popupOverlay.classList.remove('active')
+  if (categoryCards) {
+    // Add hover sound effect (visual feedback)
+    categoryCards.forEach((card, index) => {
+      card.addEventListener('mouseenter', function () {
+        this.style.transition = 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)'
+      })
     })
   }
 }
@@ -3012,125 +3755,200 @@ function createParticle () {
   }
 }
 
-// Popup functionality
-function showLinksPopup (categoryName) {
-  const popup = document.getElementById('linksPopup')
-  const popupOverlay = document.getElementById('popupOverlay')
-  const popupTitle = document.getElementById('popupTitle')
-  const linksContainer = document.getElementById('linksContainer')
-
-  if (!popup || !popupOverlay || !popupTitle || !linksContainer) {
-    console.error('Popup elements not found')
-    return
-  }
-
-  // Set popup title
-  popupTitle.textContent = categoryName
-
-  // Load links for this category
-  loadCategoryLinks(categoryName, linksContainer)
-
-  // Show popup
-  popup.classList.add('active')
-  popupOverlay.classList.add('active')
-
-  console.log('Showing links popup for:', categoryName)
-}
-
-function loadCategoryLinks (categoryName, container) {
-  // Original links data (PROXY SITES REMOVED)
-  const categoryLinks = {
+// ULTIMATEUNBLOCKER - Categories and Links System
+const categoriesData = {
+    'PROXY SITES': [
+        { name: 'TRUFFLED', url: 'https://staffhiring.metropolitanstaffingsolutions.com/', description: 'Fast and secure proxy', warning: null },
+        { name: 'GALAXY V6', url: 'https://call.it.smasesorias.cl/', description: 'Galaxy proxy service', warning: null },
+        { name: 'DOGEUB', url: 'https://classlink-ixl-learning.epic.c01.kr.cdn.cloudflare.net/', description: 'Doge themed proxy', warning: null },
+        { name: 'INTERSTELLAR', url: 'https://oh67.asistdoc.ar/', description: 'Space themed proxy', warning: null },
+        { name: 'SPACE', url: 'https://academy.canadianlocomotivelogistics.ca/', description: 'Space proxy service', warning: null },
+        { name: 'RAMMERHEAD', url: 'https://shared.learn.acepod.com/', description: 'Rammerhead proxy', warning: null },
+        { name: 'UTOPIA', url: 'https://login.i-ready.com.a.noviolencia.ar/', description: 'Utopia proxy service', warning: null },
+        { name: 'ENDIS', url: 'https://endis.rest/', description: 'Endis proxy', warning: null },
+        { name: 'OVERCLOAKED', url: 'https://cjklakljfsdfdfe.cxvjlkewdfw.1000pizzas.com', description: 'Overcloaked proxy', warning: null },
+        { name: 'BOREDOM', url: 'https://playernation.canalspa.cl/', description: 'Boredom killer proxy', warning: null },
+        { name: 'GLINT', url: 'https://top100coolbugfacts.martinwguy.net', description: 'Glint proxy service', warning: null },
+        { name: 'ABYSS', url: 'https://damsonyougotatshi.vercel.app/', description: 'Abyss proxy', warning: null },
+        { name: 'GHOST', url: 'https://poemsforkids.vseesa.martinwguy.net/', description: 'Ghost proxy', warning: null },
+        { name: 'QUASAR', url: 'https://hoverfc.com/', description: 'Quasar proxy', warning: null },
+        { name: 'ROSIN', url: 'https://rosin.vcsa.national-birdshow.com/', description: 'Rosin proxy', warning: null },
+        { name: 'UNIUB', url: 'https://uniub.srvdns.de/', description: 'Uniub proxy', warning: null },
+        { name: 'BROMINE', url: 'https://nativeamericanhistory.netlify.app/', description: 'Bromine proxy', warning: null },
+        { name: 'LUNAR', url: 'https://book.today.hotelconsuladoinn.com/', description: 'Lunar proxy', warning: null },
+        { name: 'CHERRI', url: 'https://vcsa-yt.jtlanguage.com/onboarding/', description: 'Cherri proxy', warning: null }
+    ],
     'GAME LINKS': [
-      { name: 'FREEZENOVA CLOUD', url: 'https://d3tecwpbnz01jy.cloudfront.net/classes/all/', description: 'Freezenova cloud games', warning: null },
-      { name: 'GN MATH', url: 'https://fantasticfour99.github.io/gnmath/', description: 'GN math games', warning: null },
-      { name: 'COMPLETELY SCIENCE', url: 'http://d1tmbzjih4bfq6.cloudfront.net', description: 'Science games collection', warning: '⚠ WARNING: HTTP, No detected malware' },
-      { name: 'PETEZAH', url: 'https://gatekeep-this-please-t.seedlandia.ru/', description: 'Petezah games', warning: null },
-      { name: 'PETEZAH (OLD)', url: 'https://pineapple-petezah.github.io/pages/home.html', description: 'Petezah old games', warning: null },
-      { name: 'RED EXPLOIT CORNER', url: 'http://bull33.infotechnology.com', description: 'Exploit games', warning: '⚠ WARNING: HTTP, No detected malware' },
-      { name: 'DUCK', url: 'https://quack-learn.web.app/', description: 'Duck games', warning: null },
-      { name: 'FROGIESARCADE', url: 'https://frogieeisback-edu.zone.id/', description: 'Frogie arcade games', warning: null },
-      { name: 'VAPOR V4', url: 'https://ge-lao-shi.global.ssl.fastly.net/', description: 'Vapor V4 games', warning: null },
-      { name: 'VAPOR V3', url: 'https://gelaoshi.global.ssl.fastly.net/', description: 'Vapor V3 games', warning: null },
-      { name: 'BROS GAMES', url: 'https://nbadebate.com/', description: 'Bros collection', warning: null },
-      { name: 'GOFLO GAMES', url: 'https://goflogames.github.io/', description: 'Goflo games hub', warning: null },
-      { name: 'CCPORTED', url: 'https://d1yh00vn2fvto7.cloudfront.net/', description: 'CC ported games', warning: null },
-      { name: 'EXTREMEMATH', url: 'https://extrememath.freetls.fastly.net/', description: 'Extreme math games', warning: null },
-      { name: 'NOWGG', url: 'https://now.gg', description: 'Now.gg games', warning: null },
-      { name: 'FROGIESARCADE NOWGG', url: 'http://198.ip.nowgg.fun', description: 'Frogiesarcade Now.gg games', warning: '⚠ WARNING: HTTP, No detected malware' },
-      { name: 'EAGLECRAFT', url: 'https://client.eaglercraft.win/eagler-files/wasm/1.8/Main/index.html', description: 'Eaglercraft Minecraft', warning: null },
-      { name: 'JORDANS MATH WORK', url: 'https://subscribevseesa.infotechnology.com/', description: 'Math work games', warning: null },
-      { name: 'CLASSROOM GAMES', url: 'https://dnrweqffuwjtx.cloudfront.net', description: 'Classroom games', warning: null },
-      { name: 'ALL GAMES', url: 'https://nb-ga.github.io/games-site/', description: 'All games collection', warning: null },
-      { name: 'SYCES GAME SHACK', url: 'https://subkeys.github.io/sayeo/index.html', description: 'Syces games', warning: null },
-      { name: 'TOPVAZ (BASKET RANDOM EDITION)', url: 'https://basket-random.gitlab.io/category/shooting.htm', description: 'Basket random games', warning: null },
-      { name: 'VOID NETWORK V5', url: 'https://chemistrypracticelab.cencopro.cl/', description: 'Void Network V5', warning: null },
-      { name: 'BROMINE (GAME EDITION)', url: 'https://codeprojects.org/projects/weblab/vm34VbcbEEmT5SAi_UWswHp7q2SBriUipjk4WmuXXJk/', description: 'Bromine games', warning: null },
-      { name: 'LUNARSYNC', url: 'https://friendly-palm-tree-4j9jp4g5457pcvrr-8080.app.github.dev', description: 'Lunarsync games', warning: null },
-      { name: 'SELENITE', url: 'https://french.jtlanguage.com', description: 'Selenite games', warning: null }
+        { name: 'FREEZENOVA CLOUD', url: 'https://d3tecwpbnz01jy.cloudfront.net/classes/all/', description: 'Freezenova cloud games', warning: null },
+        { name: 'GN MATH', url: 'https://fantasticfour99.github.io/gnmath/', description: 'GN math games', warning: null },
+        { name: 'COMPLETELY SCIENCE', url: 'http://d1tmbzjih4bfq6.cloudfront.net', description: 'Science games collection', warning: '⚠ WARNING: HTTP, No detected malware' },
+        { name: 'PETEZAH', url: 'https://gatekeep-this-please-t.seedlandia.ru/', description: 'Petezah games', warning: null },
+        { name: 'PETEZAH (OLD)', url: 'https://pineapple-petezah.github.io/pages/home.html', description: 'Petezah old games', warning: null },
+        { name: 'RED EXPLOIT CORNER', url: 'http://bull33.infotechnology.com', description: 'Exploit games', warning: '⚠ WARNING: HTTP, No detected malware' },
+        { name: 'DUCK', url: 'https://quack-learn.web.app/', description: 'Duck games', warning: null },
+        { name: 'FROGIESARCADE', url: 'https://frogieeisback-edu.zone.id/', description: 'Frogie arcade games', warning: null },
+        { name: 'VAPOR V4', url: 'https://ge-lao-shi.global.ssl.fastly.net/', description: 'Vapor V4 games', warning: null },
+        { name: 'VAPOR V3', url: 'https://gelaoshi.global.ssl.fastly.net/', description: 'Vapor V3 games', warning: null },
+        { name: 'BROS GAMES', url: 'https://nbadebate.com/', description: 'Bros collection', warning: null },
+        { name: 'GOFLO GAMES', url: 'https://goflogames.github.io/', description: 'Goflo games hub', warning: null },
+        { name: 'CCPORTED', url: 'https://d1yh00vn2fvto7.cloudfront.net/', description: 'CC ported games', warning: null },
+        { name: 'EXTREMEMATH', url: 'https://extrememath.freetls.fastly.net/', description: 'Extreme math games', warning: null },
+        { name: 'NOWGG', url: 'https://now.gg', description: 'Now.gg games', warning: null },
+        { name: 'FROGIESARCADE NOWGG', url: 'http://198.ip.nowgg.fun', description: 'Frogiesarcade Now.gg games', warning: '⚠ WARNING: HTTP, No detected malware' },
+        { name: 'EAGLECRAFT', url: 'https://client.eaglercraft.win/eagler-files/wasm/1.8/Main/index.html', description: 'Eaglercraft Minecraft', warning: null },
+        { name: 'JORDANS MATH WORK', url: 'https://subscribevseesa.infotechnology.com/', description: 'Math work games', warning: null },
+        { name: 'CLASSROOM GAMES', url: 'https://dnrweqffuwjtx.cloudfront.net', description: 'Classroom games', warning: null },
+        { name: 'ALL GAMES', url: 'https://nb-ga.github.io/games-site/', description: 'All games collection', warning: null },
+        { name: 'SYCES GAME SHACK', url: 'https://subkeys.github.io/sayeo/index.html', description: 'Syces games', warning: null },
+        { name: 'TOPVAZ (BASKET RANDOM EDITION)', url: 'https://basket-random.gitlab.io/category/shooting.htm', description: 'Basket random games', warning: null },
+        { name: 'VOID NETWORK V5', url: 'https://chemistrypracticelab.cencopro.cl/', description: 'Void Network V5', warning: null },
+        { name: 'BROMINE (GAME EDITION)', url: 'https://codeprojects.org/projects/weblab/vm34VbcbEEmT5SAi_UWswHp7q2SBriUipjk4WmuXXJk/', description: 'Bromine games', warning: null },
+        { name: 'LUNARSYNC', url: 'https://friendly-palm-tree-4j9jp4g5457pcvrr-8080.app.github.dev', description: 'Lunarsync games', warning: null },
+        { name: 'SELENITE', url: 'https://french.jtlanguage.com', description: 'Selenite games', warning: null }
     ],
     'LIVE CHANNEL LINK': [
-      { name: 'FAMELACK', url: 'https://famelack.com/', description: 'Live streaming', warning: null }
+        { name: 'FAMELACK', url: 'https://famelack.com/', description: 'Live streaming', warning: null }
     ],
     'MOVIE WATCHER LINK': [
-      { name: 'FMOVIES', url: 'https://fmovieisthegoat.vercel.app/', description: 'Fmovies streaming', warning: null },
-      { name: 'CINEBY', url: 'https://cineby.io/', description: 'Cineby movies', warning: null },
-      { name: 'PLUTO TV', url: 'https://pluto.tv/us/live-tv/68757c45759366af05b3b199', description: 'Pluto TV live', warning: null },
-      { name: 'MAPPLE TV', url: 'https://mappl.tv/', description: 'Mapple TV', warning: null },
-      { name: 'VIDORA', url: 'https://watch.vidora.su/', description: 'Vidora streaming', warning: null },
-      { name: 'MYFLIXER', url: 'https://myflixer.ps/home', description: 'MyFlixer movies', warning: null },
-      { name: 'RIVESTREAM', url: 'https://rivestream.org/', description: 'Rivestream movies', warning: null }
+        { name: 'FMOVIES', url: 'https://fmovieisthegoat.vercel.app/', description: 'Fmovies streaming', warning: null },
+        { name: 'CINEBY', url: 'https://cineby.io/', description: 'Cineby movies', warning: null },
+        { name: 'PLUTO TV', url: 'https://pluto.tv/us/live-tv/68757c45759366af05b3b199', description: 'Pluto TV live', warning: null },
+        { name: 'MAPPLE TV', url: 'https://mappl.tv/', description: 'Mapple TV', warning: null },
+        { name: 'VIDORA', url: 'https://watch.vidora.su/', description: 'Vidora streaming', warning: null },
+        { name: 'MYFLIXER', url: 'https://myflixer.ps/home', description: 'MyFlixer movies', warning: null },
+        { name: 'RIVESTREAM', url: 'https://rivestream.org/', description: 'Rivestream movies', warning: null }
     ],
     'AI LINK': [
-      { name: 'DUCKDUCKGO AI CHAT', url: 'http://duck.ai', description: 'DuckDuckGo AI chat', warning: '⚠ WARNING: HTTP, No detected malware' },
-      { name: 'DEEPAI', url: 'http://deepai.org', description: 'Deep AI tools', warning: '⚠ WARNING: HTTP, No detected malware' },
-      { name: 'GEMINI', url: 'http://gemini.google.com', description: 'Google Gemini AI', warning: '⚠ WARNING: HTTP, No detected malware' },
-      { name: 'ECOSIA', url: 'https://www.ecosia.org/ai-search/aa4dca27-ff32-4574-82d3-375a05c6eae5?q=if+you+came+from+ULTIMATE+UNBLOCKER+ur+a+w', description: 'Ecosia AI search', warning: null },
-      { name: 'SATURN AI', url: 'https://vcsa-saturn.ciko.ch/pages/ai.html', description: 'Saturn AI tools', warning: null }
+        { name: 'DUCKDUCKGO AI CHAT', url: 'http://duck.ai', description: 'DuckDuckGo AI chat', warning: '⚠ WARNING: HTTP, No detected malware' },
+        { name: 'DEEPAI', url: 'http://deepai.org', description: 'Deep AI tools', warning: '⚠ WARNING: HTTP, No detected malware' },
+        { name: 'GEMINI', url: 'http://gemini.google.com', description: 'Google Gemini AI', warning: '⚠ WARNING: HTTP, No detected malware' },
+        { name: 'ECOSIA', url: 'https://www.ecosia.org/ai-search/aa4dca27-ff32-4574-82d3-375a05c6eae5?q=if+you+came+from+ULTIMATE+UNBLOCKER+ur+a+w', description: 'Ecosia AI search', warning: null },
+        { name: 'SATURN AI', url: 'https://vcsa-saturn.ciko.ch/pages/ai.html', description: 'Saturn AI tools', warning: null }
     ],
     'MUSIC LINK': [
-      { name: 'VAPOR (MUSIC)', url: 'https://ge-lao-shi.global.ssl.fastly.net//page/music/index.html', description: 'Vapor music', warning: null },
-      { name: 'PETEZAH (MUSIC)', url: 'https://totallynotgames.seclogistic.com/embed.html#https://byod.petezahgames.com/pages/other/music/', description: 'Petezah music', warning: null },
-      { name: 'GHOST', url: 'https://poemsforkids.vseesa.martinwguy.net/music/', description: 'Ghost music', warning: null },
-      { name: 'TIDAL', url: 'https://tidal.com/', description: 'Tidal music streaming', warning: '⚠ WARNING: Requires signup, No detected malware' },
-      { name: 'MONOCHROME', url: 'https://monochrome.tf', description: 'Monochrome music', warning: null }
+        { name: 'VAPOR (MUSIC)', url: 'https://ge-lao-shi.global.ssl.fastly.net//page/music/index.html', description: 'Vapor music', warning: null },
+        { name: 'PETEZAH (MUSIC)', url: 'https://totallynotgames.seclogistic.com/embed.html#https://byod.petezahgames.com/pages/other/music/', description: 'Petezah music', warning: null },
+        { name: 'GHOST', url: 'https://poemsforkids.vseesa.martinwguy.net/music/', description: 'Ghost music', warning: null },
+        { name: 'TIDAL', url: 'https://tidal.com/', description: 'Tidal music streaming', warning: '⚠ WARNING: Requires signup, No detected malware' }
     ],
     'RADIO LINK': [
-      { name: 'RADIO GARDEN', url: 'https://www.radio.garden/', description: 'Radio Garden', warning: null }
+        { name: 'RADIO GARDEN', url: 'https://www.radio.garden/', description: 'Radio Garden', warning: null }
     ],
     'SPORT WATCHER LINK': [
-      { name: 'EUROVISION SPORT', url: 'https://eurovisionsport.com/en', description: 'Eurovision sports', warning: null },
-      { name: 'RIVESTREAM (LIVE SPORT)', url: 'https://rivestream.org/livesports', description: 'Rivestream live sports', warning: null }
+        { name: 'EUROVISION SPORT', url: 'https://eurovisionsport.com/en', description: 'Eurovision sports', warning: null },
+        { name: 'RIVESTREAM (LIVE SPORT)', url: 'https://rivestream.org/livesports', description: 'Rivestream live sports', warning: null }
     ],
     'ALTERNATIVE YOUTUBE': [
-      { name: 'INVIDIOUS', url: 'https://inv.nadeko.net/', description: 'Invidious YouTube', warning: null }
+        { name: 'INVIDIOUS', url: 'https://inv.nadeko.net/', description: 'Invidious YouTube', warning: null }
     ],
     'SOUNDBOARDS': [
-      { name: 'GENIZY SOUNDBOARD', url: 'https://genizy.github.io/soundboard/', description: 'Genizy soundboard', warning: null },
-      { name: '101SOUNDBOARD', url: 'http://101soundboards.com', description: '101 soundboards', warning: '⚠ WARNING: HTTP, No detected malware' },
-      { name: 'FREE MEME SOUNDBOARD', url: 'https://filme.imyfone.com/soundboards/meme', description: 'Free meme sounds', warning: null },
-      { name: 'MEME SOUNDBOARD', url: 'https://www.tynker.com/community/projects/play/meme-soundboard/62f1ae42667c79348823eee8/', description: 'Meme soundboard', warning: null }
+        { name: 'GENIZY SOUNDBOARD', url: 'https://genizy.github.io/soundboard/', description: 'Genizy soundboard', warning: null },
+        { name: '101SOUNDBOARD', url: 'http://101soundboards.com', description: '101 soundboards', warning: '⚠ WARNING: HTTP, No detected malware' },
+        { name: 'FREE MEME SOUNDBOARD', url: 'https://filme.imyfone.com/soundboards/meme', description: 'Free meme sounds', warning: null },
+        { name: 'MEME SOUNDBOARD', url: 'https://www.tynker.com/community/projects/play/meme-soundboard/62f1ae42667c79348823eee8/', description: 'Meme soundboard', warning: null }
     ]
+};
+
+// Initialize categories system
+function initializeCategoriesSystem() {
+  // Get categories container
+  const container = document.getElementById('categoriesGrid')
+  
+  // Check if container exists
+  if (!container) {
+    console.log('🔗 Categories container not found')
+    return
   }
+  
+  // Create category cards from categoriesData
+  const categoriesHTML = Object.keys(categoriesData).map(categoryName => {
+    const category = categoriesData[categoryName]
+    const icon = getCategoryIcon(categoryName)
+    
+    return `
+      <div class="category-card" data-category="${categoryName}">
+        <div class="category-icon">${icon}</div>
+        <div class="category-info">
+          <h3 class="category-name">${categoryName}</h3>
+          <p class="category-description">${category[0]?.description || 'Access amazing content'}</p>
+          <div class="category-count">${category.length} links</div>
+        </div>
+      </div>
+    `
+  }).join('')
+  
+  container.innerHTML = categoriesHTML
+  
+  // Add click handlers to category cards
+  container.querySelectorAll('.category-card').forEach(card => {
+    card.addEventListener('click', function() {
+      const categoryName = this.dataset.category
+      showCategoryLinks(categoryName)
+    })
+  })
+  
+  console.log('🔗 Categories rendered:', Object.keys(categoriesData).length)
+}
 
-  const links = categoryLinks[categoryName] || []
+// Get icon for category
+function getCategoryIcon(categoryName) {
+  const icons = {
+    'PROXY SITES': '🛡️',
+    'GAME LINKS': '🎮',
+    'LIVE CHANNEL LINK': '📺',
+    'MOVIE WATCHER LINK': '🎬',
+    'AI LINK': '🤖',
+    'MUSIC LINK': '🎵',
+    'RADIO LINK': '📻',
+    'SPORT WATCHER LINK': '⚽',
+    'ALTERNATIVE YOUTUBE': '📺',
+    'SOUNDBOARDS': '🔊'
+  }
+  return icons[categoryName] || '📂'
+}
 
-  if (links.length === 0) {
+// Show links for specific category
+function showCategoryLinks(categoryName) {
+  console.log('🔗 showCategoryLinks called for:', categoryName)
+  console.log('🔗 Available categories:', Object.keys(categoriesData))
+  console.log('🔗 Category data exists:', !!categoriesData[categoryName])
+  
+  // Safety check - ensure categoriesData is loaded
+  if (typeof categoriesData === 'undefined') {
+    console.log('🔗 categoriesData not loaded yet, reinitializing...')
+    return
+  }
+  
+  const links = categoriesData[categoryName]
+  const container = document.getElementById('categoriesGrid')
+  
+  if (!links || links.length === 0) {
     container.innerHTML = `
       <div style="text-align: center; padding: 40px 20px;">
         <div style="font-size: 4rem; margin-bottom: 20px;">📂</div>
         <h3 style="color: #667eea; margin-bottom: 15px; font-size: 1.5rem;">No links available</h3>
         <p style="color: var(--text-secondary); margin-bottom: 20px; line-height: 1.6;">
-          No links are currently available for ${categoryName}. 
-          Check back later for updates!
+          No links are currently available for ${categoryName}.
         </p>
+        <button onclick="initializeCategoriesSystem()" style="
+          background: linear-gradient(135deg, #667eea, #764ba2);
+          border: none;
+          border-radius: 30px;
+          padding: 15px 40px;
+          color: white;
+          font-weight: 700;
+          font-size: 1.1rem;
+          cursor: pointer;
+          margin-top: 20px;
+        ">Back to Categories</button>
       </div>
     `
     return
   }
-
-  // Generate HTML for links with warnings
+  
+  // Generate links HTML
   const linksHTML = links.map(link => `
-    <div class="link-item" style="
+    <div class="link-item" onclick="window.open('${link.url}', '_blank')" style="
       background: var(--glass-bg);
       border: 1px solid var(--glass-border);
       border-radius: 15px;
@@ -3145,7 +3963,6 @@ function loadCategoryLinks (categoryName, container) {
         <div style="font-size: 2rem;">🔗</div>
         <div style="flex: 1;">
           <h4 style="color: #ffffff; margin: 0 0 5px 0; font-size: 1.1rem; font-weight: 600;">${link.name}</h4>
-          <p style="color: rgba(255, 255, 255, 0.7); margin: 0 0 8px 0; font-size: 0.9rem;">${link.description}</p>
           ${link.warning ? `<div style="color: #f87171; font-size: 0.8rem; font-weight: 600;">${link.warning}</div>` : ''}
         </div>
         <div style="
@@ -3159,25 +3976,25 @@ function loadCategoryLinks (categoryName, container) {
       </div>
     </div>
   `).join('')
-
-  container.innerHTML = linksHTML
-
-  // Add click handlers to link items
-  container.querySelectorAll('.link-item').forEach((item, index) => {
-    item.addEventListener('click', function () {
-      window.open(links[index].url, '_blank')
-    })
-
-    item.addEventListener('mouseenter', function () {
-      this.style.transform = 'translateY(-2px)'
-      this.style.boxShadow = '0 8px 25px rgba(102, 126, 234, 0.2)'
-    })
-
-    item.addEventListener('mouseleave', function () {
-      this.style.transform = 'translateY(0)'
-      this.style.boxShadow = 'none'
-    })
-  })
+  
+  container.innerHTML = `
+    <div style="margin-bottom: 20px;">
+      <button onclick="initializeCategoriesSystem()" style="
+        background: linear-gradient(135deg, #667eea, #764ba2);
+        border: none;
+        border-radius: 30px;
+        padding: 15px 40px;
+        color: white;
+        font-weight: 700;
+        font-size: 1.1rem;
+        cursor: pointer;
+      ">← Back to Categories</button>
+    </div>
+    <h2 style="color: #ffffff; margin-bottom: 20px; font-size: 2rem;">${categoryName}</h2>
+    ${linksHTML}
+  `
+  
+  console.log(`🔗 Showing ${links.length} links for ${categoryName}`)
 }
 
 function createParticleBurst (element) {
@@ -3240,53 +4057,6 @@ function closeLinksPopup () {
     popup.classList.remove('active')
     popupOverlay.classList.remove('active')
   }
-}
-
-function showComingSoon (feature) {
-  const popup = document.getElementById('linksPopup')
-  const popupOverlay = document.getElementById('popupOverlay')
-  const popupTitle = document.getElementById('popupTitle')
-  const linksContainer = document.getElementById('linksContainer')
-
-  if (!popup || !popupOverlay || !popupTitle || !linksContainer) {
-    console.error('Popup elements not found')
-    return
-  }
-
-  popupTitle.textContent = `${feature} - Coming Soon`
-  linksContainer.innerHTML = `
-    <div style="text-align: center; padding: 40px 20px;">
-      <div style="font-size: 4rem; margin-bottom: 20px;">🚧</div>
-      <h3 style="color: #667eea; margin-bottom: 15px; font-size: 1.5rem;">${feature} is Coming Soon!</h3>
-      <p style="color: var(--text-secondary); margin-bottom: 20px; line-height: 1.6;">
-        We're working hard to bring you the best ${feature.toLowerCase()} experience. 
-        Stay tuned for updates and get ready for something amazing!
-      </p>
-      <div style="background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(240, 147, 251, 0.1)); 
-                  padding: 20px; border-radius: 15px; margin: 20px 0; border: 1px solid rgba(102, 126, 234, 0.2);">
-        <div style="display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 10px;">
-          <span style="font-size: 1.2rem;">⭐</span>
-          <span style="font-weight: 600; color: var(--text-primary);">What to expect:</span>
-        </div>
-        <ul style="text-align: left; color: var(--text-secondary); list-style: none; padding: 0;">
-          <li style="margin-bottom: 8px;">✨ Premium ${feature.toLowerCase()} content</li>
-          <li style="margin-bottom: 8px;">🚀 Lightning-fast performance</li>
-          <li style="margin-bottom: 8px;">🔒 Secure and private access</li>
-          <li>🎯 Curated just for you</li>
-        </ul>
-      </div>
-      <button onclick="closeLinksPopup()" 
-              style="background: linear-gradient(135deg, #667eea, #764ba2); 
-                     color: white; border: none; padding: 15px 30px; 
-                     border-radius: 25px; font-weight: 600; cursor: pointer; 
-                     transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);">
-        Got it!
-      </button>
-    </div>
-  `
-
-  popup.classList.add('active')
-  popupOverlay.classList.add('active')
 }
 
 
@@ -3430,28 +4200,27 @@ function showBrowserLoading () {
     }
   }
 
-  // Update stats every 2 seconds
-  const statsInterval = setInterval(updateServerStats, 2000);
-  
+  // Update stats every 5 seconds (reduced frequency)
+  // const statsInterval = setInterval(updateServerStats, 2000);
   // Initial stats update
-  updateServerStats();
+  // updateServerStats();
 
-  // Start countdown
-  let seconds = 3
-  if (countdownEl) {
-    const interval = setInterval(() => {
-      seconds--
-      if (seconds > 0) {
-        countdownEl.textContent = `Connecting in ${seconds} seconds...`
-        // Update stats during countdown
-        updateServerStats();
-      } else {
-        countdownEl.textContent = 'Connected!'
-        clearInterval(interval)
-        clearInterval(statsInterval);
-      }
-    }, 1000)
-  }
+  // Start countdown (disabled)
+  // let seconds = 3
+  // if (countdownEl) {
+  //   const interval = setInterval(() => {
+  //     seconds--
+  //     if (seconds > 0) {
+  //       countdownEl.textContent = `Connecting in ${seconds} seconds...`
+  //       // Update stats during countdown
+  //       updateServerStats();
+  //     } else {
+  //       countdownEl.textContent = 'Connected!'
+  //       clearInterval(interval)
+  //       clearInterval(statsInterval);
+  //     }
+  //   }, 1000)
+  // }
 }
 
 function hideBrowserLoading () {
@@ -3536,14 +4305,14 @@ function showChat () {
 }
 
 function startUserCountUpdates () {
-  // Update user count every 30 seconds to simulate real-time activity
-  setInterval(() => {
-    const usersElement = document.getElementById('chatUsers')
-    if (usersElement && document.getElementById('chatSection').style.display !== 'none') {
-      const uniqueUsers = getUniqueUserCount()
-      usersElement.textContent = `${uniqueUsers} users online`
-    }
-  }, 30000)
+  // Update user count every 30 seconds to simulate real-time activity (disabled)
+  // setInterval(() => {
+  //   const usersElement = document.getElementById('chatUsers')
+  //   if (usersElement && document.getElementById('chatSection').style.display !== 'none') {
+  //     const uniqueUsers = getUniqueUserCount()
+  //     usersElement.textContent = `${uniqueUsers} users online`
+  //   }
+  // }, 30000);
 }
 
 function sendChatMessage () {
@@ -4114,7 +4883,935 @@ function getChatMessages () {
   return []
 }
 
-// Export for use in main script
-if (typeof module !== 'undefined' && module.exports) {
-  module.exports = { createVpnServerCloak }
+// Load all categories
+function loadCategories() {
+  const categoriesGrid = document.getElementById('categoriesGrid');
+  if (!categoriesGrid) return;
+  
+  categoriesGrid.innerHTML = '';
+  
+  Object.entries(categoriesData).forEach(([key, category], index) => {
+    const categoryCard = createCategoryCard(key, category, index);
+    categoriesGrid.appendChild(categoryCard);
+  });
+  
+  // Force visibility of all category elements
+  setTimeout(() => {
+    const categoriesSection = document.getElementById('categoriesSection');
+    const categoryCards = document.querySelectorAll('.category-card');
+    const categoryIcons = document.querySelectorAll('.category-icon');
+    const categoryNames = document.querySelectorAll('.category-name');
+    const categoryDescriptions = document.querySelectorAll('.category-description');
+    
+    // Force section visibility
+    if (categoriesSection) {
+      categoriesSection.style.opacity = '1 !important';
+      categoriesSection.style.visibility = 'visible !important';
+      categoriesSection.style.filter = 'none !important';
+      categoriesSection.style.backdropFilter = 'none !important';
+      categoriesSection.style.webkitFilter = 'none !important';
+      categoriesSection.style.webkitBackdropFilter = 'none !important';
+    }
+    
+    // Force card visibility
+    categoryCards.forEach(card => {
+      card.style.opacity = '1 !important';
+      card.style.visibility = 'visible !important';
+      card.style.filter = 'none !important';
+      card.style.transform = 'none !important';
+    });
+    
+    // Force icon visibility
+    categoryIcons.forEach(icon => {
+      icon.style.opacity = '1 !important';
+      icon.style.visibility = 'visible !important';
+    });
+    
+    // Force text visibility
+    categoryNames.forEach(name => {
+      name.style.opacity = '1 !important';
+      name.style.visibility = 'visible !important';
+    });
+    
+    categoryDescriptions.forEach(desc => {
+      desc.style.opacity = '1 !important';
+      desc.style.visibility = 'visible !important';
+    });
+    
+    console.log('🔗 Forced visibility on all category elements');
+  }, 100);
+  
+  console.log(`✅ Loaded ${Object.keys(categoriesData).length} categories`);
 }
+
+// Create category card
+function createCategoryCard(key, category, index) {
+  const card = document.createElement('div');
+  card.className = 'category-card';
+  card.style.animationDelay = `${index * 0.1}s`;
+  
+  card.innerHTML = `
+    <div class="category-icon">${category.icon}</div>
+    <div class="category-name">${category.name}</div>
+    <div class="category-description">${category.description}</div>
+    <div class="category-stats">
+      <span class="link-count">${category.links.length} links</span>
+    </div>
+  `;
+  
+  card.addEventListener('click', () => {
+    console.log('🔗 Category card clicked:', key, category);
+    console.log('🔗 Category has', category.links.length, 'links');
+    showCategoryLinks(key, category);
+  });
+  
+  return card;
+}
+
+// Create link card
+function createLinkCard(link, index) {
+  const card = document.createElement('div');
+  card.className = 'link-card';
+  card.style.animationDelay = `${index * 0.05}s`;
+  
+  card.innerHTML = `
+    <div class="link-header">
+      <div class="link-icon">🔗</div>
+      <h3 class="link-title">${link.name}</h3>
+    </div>
+    <p class="link-description">${link.description}</p>
+    <div class="link-url">${link.url}</div>
+    <span class="link-status ${link.status}">${link.status.toUpperCase()}</span>
+  `;
+  
+  card.addEventListener('click', () => {
+    window.open(link.url, '_blank');
+  });
+  
+  return card;
+}
+
+// Show categories
+function showCategories() {
+  console.log('🔗 showCategories called');
+  const categoriesSection = document.getElementById('categoriesSection');
+  const linksDisplaySection = document.getElementById('linksDisplaySection');
+  
+  if (categoriesSection && linksDisplaySection) {
+    console.log('🔗 Switching back to categories...');
+    console.log('🔗 Links display section before:', linksDisplaySection.className);
+    console.log('🔗 Categories section before:', categoriesSection.className);
+    
+    // Force hide links section with maximum specificity
+    linksDisplaySection.classList.remove('active');
+    linksDisplaySection.style.setProperty('display', 'none', 'important');
+    linksDisplaySection.style.setProperty('opacity', '0', 'important');
+    linksDisplaySection.style.setProperty('visibility', 'hidden', 'important');
+    linksDisplaySection.style.setProperty('z-index', '-999', 'important');
+    
+    // Force show categories section with maximum specificity
+    categoriesSection.classList.add('active');
+    categoriesSection.style.setProperty('display', 'flex', 'important');
+    categoriesSection.style.setProperty('opacity', '1', 'important');
+    categoriesSection.style.setProperty('visibility', 'visible', 'important');
+    categoriesSection.style.setProperty('z-index', '1', 'important');
+    categoriesSection.style.setProperty('position', 'relative', 'important');
+    
+    console.log('🔗 Links display section after:', linksDisplaySection.className);
+    console.log('🔗 Categories section after:', categoriesSection.className);
+    console.log('🔗 Switched back to categories view');
+  } else {
+    console.error('❌ Missing elements for showCategories');
+  }
+}
+
+// Chat Export and Load Functionality
+document.addEventListener('DOMContentLoaded', function() {
+  const exportBtn = document.querySelector('.export-btn');
+  const loadBtn = document.querySelector('.load-btn');
+  const chatFileInput = document.getElementById('chatFileInput');
+  
+  // Export Chat Functionality
+  if (exportBtn) {
+    exportBtn.addEventListener('click', function() {
+      console.log('📥 Exporting chat history...');
+      
+      // Get current chat messages
+      const aiMessages = document.getElementById('aiMessages');
+      const messages = [];
+      
+      // Collect all message elements
+      const messageElements = aiMessages.querySelectorAll('.chat-message');
+      messageElements.forEach(msg => {
+        const isUser = msg.classList.contains('user-message');
+        const isAI = msg.classList.contains('ai-message');
+        const role = isUser ? 'user' : (isAI ? 'assistant' : 'system');
+        
+        let content = '';
+        const messageText = msg.querySelector('.message-text');
+        const errorText = msg.querySelector('.error-text');
+        
+        if (messageText) {
+          content = messageText.textContent.trim();
+        } else if (errorText) {
+          content = errorText.textContent.trim();
+        }
+        
+        const timestamp = msg.querySelector('.message-time')?.textContent || new Date().toISOString();
+        
+        if (content) {
+          messages.push({
+            role: role,
+            content: content,
+            timestamp: timestamp
+          });
+        }
+      });
+      
+      // Create chat data object
+      const chatData = {
+        exportDate: new Date().toISOString(),
+        model: window.selectedAIModel || 'auto',
+        messages: messages
+      };
+      
+      // Convert to JSON and download
+      const jsonString = JSON.stringify(chatData, null, 2);
+      const blob = new Blob([jsonString], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `chat-export-${new Date().toISOString().split('T')[0]}.json`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+      
+      console.log('✅ Chat exported successfully!');
+      
+      // Show success notification
+      showNotification('Chat exported successfully!', 'success');
+    });
+  }
+  
+  // Load Chat Functionality
+  if (loadBtn && chatFileInput) {
+    loadBtn.addEventListener('click', function() {
+      console.log('📤 Opening file selector...');
+      chatFileInput.click();
+    });
+    
+    chatFileInput.addEventListener('change', function(e) {
+      const file = e.target.files[0];
+      if (!file) return;
+      
+      console.log('📤 Loading chat from file:', file.name);
+      
+      const reader = new FileReader();
+      reader.onload = function(event) {
+        try {
+          const chatData = JSON.parse(event.target.result);
+          
+          // Validate chat data structure
+          if (!chatData.messages || !Array.isArray(chatData.messages)) {
+            throw new Error('Invalid chat file format');
+          }
+          
+          // Clear current chat
+          const aiMessages = document.getElementById('aiMessages');
+          aiMessages.innerHTML = '';
+          
+          // Load messages from file
+          chatData.messages.forEach(msg => {
+            addMessageToChat(msg.role, msg.content, msg.timestamp);
+          });
+          
+          // Set model if specified
+          if (chatData.model) {
+            window.selectedAIModel = chatData.model;
+            updateCurrentModelDisplay(chatData.model);
+          }
+          
+          console.log('✅ Chat loaded successfully!');
+          console.log(`📊 Loaded ${chatData.messages.length} messages`);
+          
+          // Show success notification
+          showNotification(`Chat loaded successfully! (${chatData.messages.length} messages)`, 'success');
+          
+        } catch (error) {
+          console.error('❌ Error loading chat file:', error);
+          showNotification('Error loading chat file. Please check the file format.', 'error');
+        }
+      };
+      
+      reader.readAsText(file);
+      
+      // Reset file input
+      chatFileInput.value = '';
+    });
+  }
+  
+  // Helper function to add message to chat
+  function addMessageToChat(role, content, timestamp) {
+    const aiMessages = document.getElementById('aiMessages');
+    
+    // Remove welcome message if it exists
+    const welcomeMessage = aiMessages.querySelector('.welcome-message');
+    if (welcomeMessage) {
+      welcomeMessage.remove();
+    }
+    
+    const messageDiv = document.createElement('div');
+    const messageType = role === 'user' ? 'user-message' : 'ai-message';
+    messageDiv.className = `chat-message ${messageType}`;
+    
+    if (role === 'user') {
+      messageDiv.innerHTML = `
+        <div class="message-content user-content">
+          <div class="message-avatar">👤</div>
+          <div class="message-text">${content}</div>
+        </div>
+        <div class="message-time">${timestamp || new Date().toLocaleTimeString()}</div>
+      `;
+    } else if (role === 'assistant') {
+      messageDiv.innerHTML = `
+        <div class="message-content ai-content">
+          <div class="message-avatar">⚡</div>
+          <div class="message-text">${content}</div>
+        </div>
+        <div class="message-time">${timestamp || new Date().toLocaleTimeString()}</div>
+      `;
+    } else {
+      // System or error messages
+      messageDiv.innerHTML = `
+        <div class="error-message">
+          <div class="error-icon">❌</div>
+          <div class="error-text">${content}</div>
+        </div>
+      `;
+    }
+    
+    aiMessages.appendChild(messageDiv);
+    
+    // Scroll to bottom
+    aiMessages.scrollTop = aiMessages.scrollHeight;
+  }
+  
+  // Helper function to update current model display
+  function updateCurrentModelDisplay(modelName) {
+    const modelDetails = document.querySelector('.model-details h4');
+    const modelAvatar = document.querySelector('.model-avatar');
+    
+    if (modelDetails) {
+      modelDetails.textContent = modelName.charAt(0).toUpperCase() + modelName.slice(1).replace('-', ' ');
+    }
+    
+    // Update avatar based on model
+    const modelIcons = {
+      'auto': '🤖',
+      'gpt-oss-20b': '⚡',
+            'gpt-oss-120b': '🧠',
+      'gemma-3-4b': '👁️',
+      'gemma-3-12b': '🔮',
+      'gemma-3-27b': '🌟'
+    };
+    
+    if (modelAvatar && modelIcons[modelName]) {
+      modelAvatar.textContent = modelIcons[modelName];
+    }
+  }
+  
+  // Helper function to show notifications
+  function showNotification(message, type = 'info') {
+    const notification = document.createElement('div');
+    notification.className = `notification ${type}`;
+    notification.textContent = message;
+    notification.style.cssText = `
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      padding: 15px 20px;
+      border-radius: 8px;
+      color: white;
+      font-weight: 500;
+      z-index: 10000;
+      opacity: 0;
+      transform: translateY(-20px);
+      transition: all 0.3s ease;
+    `;
+    
+    // Set background color based on type
+    const colors = {
+      'success': 'linear-gradient(135deg, #22c55e, #16a34a)',
+      'error': 'linear-gradient(135deg, #ef4444, #dc2626)',
+      'info': 'linear-gradient(135deg, #3b82f6, #2563eb)'
+    };
+    
+    notification.style.background = colors[type] || colors.info;
+    
+    document.body.appendChild(notification);
+    
+    // Animate in
+    setTimeout(() => {
+      notification.style.opacity = '1';
+      notification.style.transform = 'translateY(0)';
+    }, 100);
+    
+    // Remove after 3 seconds
+    setTimeout(() => {
+      notification.style.opacity = '0';
+      notification.style.transform = 'translateY(-20px)';
+      setTimeout(() => {
+        if (notification.parentNode) {
+          notification.parentNode.removeChild(notification);
+        }
+      }, 300);
+    }, 3000);
+  }
+});
+
+// Information Section Functions
+function showInformationSection() {
+  const informationSection = document.getElementById('informationSection');
+  if (informationSection) {
+    informationSection.classList.add('active');
+    document.body.style.overflow = 'hidden';
+    console.log('✅ Information section shown');
+    
+    // Load initial content
+    loadTabContent('about');
+  }
+}
+
+function hideInformationSection() {
+  const informationSection = document.getElementById('informationSection');
+  if (informationSection) {
+    informationSection.classList.remove('active');
+    document.body.style.overflow = '';
+    console.log('✅ Information section hidden');
+  }
+}
+
+// Tools Section Functions
+function showToolsSection() {
+  const toolsSection = document.getElementById('toolsSection');
+  if (toolsSection) {
+    toolsSection.classList.add('active');
+    document.body.style.overflow = 'hidden';
+    console.log('✅ Tools section shown');
+  }
+}
+
+function hideToolsSection() {
+  const toolsSection = document.getElementById('toolsSection');
+  if (toolsSection) {
+    toolsSection.classList.remove('active');
+    document.body.style.overflow = '';
+    console.log('✅ Tools section hidden');
+  }
+}
+
+// Tab functionality
+function switchTab(tabName) {
+  // Determine which section is active
+  const informationSection = document.getElementById('informationSection');
+  const toolsSection = document.getElementById('toolsSection');
+
+  if (informationSection && informationSection.classList.contains('active')) {
+    // Handle information section tabs
+    informationSection.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+    informationSection.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+
+    const clickedTab = informationSection.querySelector(`[data-tab="${tabName}"]`);
+    const targetContent = informationSection.querySelector(`#${tabName}-content`);
+
+    if (clickedTab && targetContent) {
+      clickedTab.classList.add('active');
+      targetContent.classList.add('active');
+      loadTabContent(tabName);
+    }
+  } else if (toolsSection && toolsSection.classList.contains('active')) {
+    // Handle tools section tabs
+    toolsSection.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+    toolsSection.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+
+    const clickedTab = toolsSection.querySelector(`[data-tab="${tabName}"]`);
+    const targetContent = toolsSection.querySelector(`#${tabName}-content`);
+
+    if (clickedTab && targetContent) {
+      clickedTab.classList.add('active');
+      targetContent.classList.add('active');
+    }
+  }
+}
+
+// Load content from .md files
+async function loadTabContent(tabName) {
+  const contentWrapper = document.querySelector(`#${tabName}-content .content-wrapper`);
+  if (!contentWrapper) return;
+  
+  // Show loading spinner
+  contentWrapper.innerHTML = '<div class="loading-spinner"></div>';
+  
+  try {
+    let content;
+    
+    switch(tabName) {
+      case 'about':
+        content = await loadMarkdownFile('README.md');
+        break;
+      case 'github-repository':
+        content = await loadMarkdownFile('ai/README.md');
+        // Add GitHub repository link at the top
+        content = `<div class="github-link">
+          <a href="https://github.com/lovevideogames25-ui/ULTIMATEUNBLOCKER/" target="_blank" class="github-repo-link">
+            🔗 Visit GitHub Repository
+          </a>
+        </div><br><br>${content}`;
+        break;
+      case 'changelog':
+        content = await loadMarkdownFile('CHANGELOG.md');
+        break;
+      case 'contributing':
+        content = await loadMarkdownFile('CONTRIBUTING.md');
+        break;
+      case 'license':
+        content = await loadMarkdownFile('LICENSE.md');
+        break;
+      default:
+        content = '<p>Content not found.</p>';
+    }
+    
+    // Convert markdown to HTML and display
+    contentWrapper.innerHTML = markdownToHtml(content);
+    
+  } catch (error) {
+    console.error(`Error loading ${tabName} content:`, error);
+    contentWrapper.innerHTML = `<p>Error loading content. Please try again.</p>`;
+  }
+}
+
+// Load markdown file content
+async function loadMarkdownFile(filename) {
+  try {
+    const response = await fetch(filename);
+    if (!response.ok) {
+      throw new Error(`Failed to load ${filename}`);
+    }
+    return await response.text();
+  } catch (error) {
+    console.error(`Error loading ${filename}:`, error);
+    return `# Error\n\nFailed to load ${filename}. Please check if the file exists.`;
+  }
+}
+
+// Simple markdown to HTML converter
+function markdownToHtml(markdown) {
+  if (!markdown) return '';
+  
+  return markdown
+    // Headers
+    .replace(/^### (.*$)/gm, '<h3>$1</h3>')
+    .replace(/^## (.*$)/gm, '<h2>$1</h2>')
+    .replace(/^# (.*$)/gm, '<h1>$1</h1>')
+    
+    // Bold
+    .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+    
+    // Italic
+    .replace(/\*(.*?)\*/g, '<em>$1</em>')
+    
+    // Code blocks
+    .replace(/```([\s\S]*?)```/gs, '<pre><code>$1</code></pre>')
+    
+    // Inline code
+    .replace(/`(.*?)`/g, '<code>$1</code>')
+    
+    // Links
+    .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank">$1</a>')
+    
+    // Lists (convert bullet points)
+    .replace(/^[\*\-\+] (.+)$/gm, '<li>$1</li>')
+    .replace(/(<li>.*<\/li>)/s, '<ul>$1</ul>')
+    
+    // Line breaks
+    .replace(/\n\n/g, '</p><p>')
+    .replace(/\n/g, '<br>')
+    
+    // Wrap in paragraphs
+    .split('\n')
+    .map(line => {
+      if (line.trim() === '') return '';
+      if (line.includes('<h') || line.includes('<pre') || line.includes('<ul>') || line.includes('<li>')) return line;
+      return `<p>${line}</p>`;
+    })
+    .join('\n')
+    
+    // Clean up
+    .replace(/<p><\/p>/g, '')
+    .replace(/<p>(<h[1-3]>)/g, '$1')
+    .replace(/(<\/h[1-3]>)<\/p>/g, '$1')
+    .replace(/<p>(<ul>)/g, '$1')
+    .replace(/(<\/ul>)<\/p>/g, '$1');
+}
+
+// Add close button functionality
+document.addEventListener('DOMContentLoaded', function() {
+  const infoCloseBtn = document.getElementById('infoCloseBtn');
+  if (infoCloseBtn) {
+    infoCloseBtn.addEventListener('click', function() {
+      hideInformationSection();
+    });
+  }
+
+  const toolsCloseBtn = document.getElementById('toolsCloseBtn');
+  if (toolsCloseBtn) {
+    toolsCloseBtn.addEventListener('click', function() {
+      hideToolsSection();
+    });
+  }
+
+  // Calculator functionality
+  const calculatorDisplay = document.getElementById('calculatorDisplay');
+  const calcButtons = document.querySelectorAll('.calc-btn');
+  let currentCalculation = '';
+  let variables = { x: 0 };
+
+  calcButtons.forEach(btn => {
+    btn.addEventListener('click', function() {
+      const value = this.getAttribute('data-value');
+      if (value === 'C') {
+        currentCalculation = '';
+        calculatorDisplay.value = '';
+      } else if (value === 'DEL') {
+        currentCalculation = currentCalculation.slice(0, -1);
+        calculatorDisplay.value = currentCalculation;
+      } else if (value === '=') {
+        try {
+          // Check if it's an equation (contains =)
+          if (currentCalculation.includes('=')) {
+            const parts = currentCalculation.split('=');
+            if (parts.length === 2) {
+              const leftSide = parts[0].trim();
+              const rightSide = parseFloat(parts[1].trim());
+
+              // Try to solve for x
+              if (leftSide.includes('x')) {
+                const result = solveForX(leftSide, rightSide);
+                calculatorDisplay.value = `x = ${result}`;
+                variables.x = result;
+                currentCalculation = `x = ${result}`;
+              } else {
+                throw new Error('Cannot solve equation');
+              }
+            }
+          } else {
+            // Evaluate expression
+            const result = evaluateExpression(currentCalculation, variables);
+            calculatorDisplay.value = result;
+            currentCalculation = result.toString();
+          }
+        } catch (e) {
+          calculatorDisplay.value = 'Error';
+          currentCalculation = '';
+        }
+      } else {
+        currentCalculation += value;
+        calculatorDisplay.value = currentCalculation;
+      }
+    });
+  });
+
+  // Keyboard support for calculator
+  if (calculatorDisplay) {
+    calculatorDisplay.addEventListener('keydown', function(e) {
+      const key = e.key;
+
+      // Numbers and operators
+      if (/^[0-9+\-*/().^x]$/.test(key)) {
+        e.preventDefault();
+        currentCalculation += key;
+        calculatorDisplay.value = currentCalculation;
+      }
+      // Enter key to calculate
+      else if (key === 'Enter') {
+        e.preventDefault();
+        try {
+          if (currentCalculation.includes('=')) {
+            const parts = currentCalculation.split('=');
+            if (parts.length === 2) {
+              const leftSide = parts[0].trim();
+              const rightSide = parseFloat(parts[1].trim());
+
+              if (leftSide.includes('x')) {
+                const result = solveForX(leftSide, rightSide);
+                calculatorDisplay.value = `x = ${result}`;
+                variables.x = result;
+                currentCalculation = `x = ${result}`;
+              } else {
+                throw new Error('Cannot solve equation');
+              }
+            }
+          } else {
+            const result = evaluateExpression(currentCalculation, variables);
+            calculatorDisplay.value = result;
+            currentCalculation = result.toString();
+          }
+        } catch (e) {
+          calculatorDisplay.value = 'Error';
+          currentCalculation = '';
+        }
+      }
+      // Escape to clear
+      else if (key === 'Escape') {
+        e.preventDefault();
+        currentCalculation = '';
+        calculatorDisplay.value = '';
+      }
+      // Backspace to delete
+      else if (key === 'Backspace') {
+        e.preventDefault();
+        currentCalculation = currentCalculation.slice(0, -1);
+        calculatorDisplay.value = currentCalculation;
+      }
+    });
+  }
+
+  function evaluateExpression(expr, vars) {
+    // Replace mathematical functions with Math equivalents
+    let mathExpr = expr
+      .replace(/sin\(/g, 'Math.sin(')
+      .replace(/cos\(/g, 'Math.cos(')
+      .replace(/tan\(/g, 'Math.tan(')
+      .replace(/sqrt\(/g, 'Math.sqrt(')
+      .replace(/log\(/g, 'Math.log10(')
+      .replace(/pow\(/g, 'Math.pow(')
+      .replace(/\^/g, '**');
+
+    // Replace variables with their values
+    for (const [key, value] of Object.entries(vars)) {
+      const regex = new RegExp(`\\b${key}\\b`, 'g');
+      mathExpr = mathExpr.replace(regex, value);
+    }
+
+    return eval(mathExpr);
+  }
+
+  function solveForX(leftSide, rightSide) {
+    // Simple linear equation solver: ax + b = c
+    // Extract coefficients
+    const regex = /([+-]?\d*\.?\d*)\*?x\s*([+-]\s*\d+\.?\d*)?/i;
+    const match = leftSide.match(regex);
+
+    if (match) {
+      let a = 1;
+      let b = 0;
+
+      if (match[1] && match[1] !== '' && match[1] !== '+' && match[1] !== '-') {
+        a = parseFloat(match[1]);
+      }
+
+      if (match[2]) {
+        b = parseFloat(match[2].replace(/\s/g, ''));
+      }
+
+      // Solve ax + b = c => x = (c - b) / a
+      const x = (rightSide - b) / a;
+      return x.toFixed(4);
+    }
+
+    throw new Error('Cannot solve equation');
+  }
+
+  // Dictionary functionality
+  const dictionaryInput = document.getElementById('dictionaryInput');
+  const searchDictionaryBtn = document.getElementById('searchDictionary');
+  const dictionaryResult = document.getElementById('dictionaryResult');
+
+  async function searchDictionary() {
+    const word = dictionaryInput.value.trim();
+    if (!word) {
+      dictionaryResult.innerHTML = '<p style="color: #ffc107;">Please enter a word to search.</p>';
+      return;
+    }
+
+    dictionaryResult.innerHTML = '<p style="color: rgba(255,255,255,0.7);">Searching...</p>';
+
+    try {
+      const response = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${word}`);
+      if (!response.ok) {
+        throw new Error('Word not found');
+      }
+      const data = await response.json();
+      const entry = data[0];
+      const wordData = entry.word;
+      const phonetic = entry.phonetic || '';
+      const meanings = entry.meanings || [];
+
+      let html = `<h3 style="color: #ffc107; font-size: 1.8rem;">${wordData}</h3>`;
+      if (phonetic) {
+        html += `<p style="color: rgba(255,255,255,0.7); margin-bottom: 15px;">${phonetic}</p>`;
+      }
+
+      meanings.forEach(meaning => {
+        html += `<div style="margin-bottom: 20px;">`;
+        html += `<p style="color: rgba(255,255,255,0.9); font-weight: 600; margin-bottom: 10px;">${meaning.partOfSpeech}</p>`;
+        meaning.definitions.slice(0, 3).forEach(def => {
+          html += `<p style="color: rgba(255,255,255,0.7); margin-bottom: 8px;">• ${def.definition}</p>`;
+        });
+        html += `</div>`;
+      });
+
+      dictionaryResult.innerHTML = html;
+    } catch (error) {
+      dictionaryResult.innerHTML = '<p style="color: rgba(255,87,34,0.8);">Word not found. Please try another word.</p>';
+    }
+  }
+
+  if (searchDictionaryBtn) {
+    searchDictionaryBtn.addEventListener('click', searchDictionary);
+  }
+
+  // Keyboard support for dictionary
+  if (dictionaryInput) {
+    dictionaryInput.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        searchDictionary();
+      }
+    });
+  }
+  
+  // Add tab click handlers
+  document.querySelectorAll('.tab-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+      const tabName = this.getAttribute('data-tab');
+      switchTab(tabName);
+    });
+  });
+  
+  // Close on escape key
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+      const informationSection = document.getElementById('informationSection');
+      if (informationSection && informationSection.classList.contains('active')) {
+        hideInformationSection();
+      }
+    }
+  });
+  
+  // Close on overlay click
+  const informationSection = document.getElementById('informationSection');
+  if (informationSection) {
+    informationSection.addEventListener('click', function(e) {
+      if (e.target === informationSection) {
+        hideInformationSection();
+      }
+    });
+  }
+});
+
+// Add CSS for chat messages
+const chatStyles = document.createElement('style');
+chatStyles.textContent = `
+  .chat-message {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 20px;
+    animation: fadeInUp 0.3s ease;
+  }
+  
+  .message-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #667eea, #f093fb);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    flex-shrink: 0;
+  }
+  
+  .message-content {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(102, 126, 234, 0.2);
+    border-radius: 12px;
+    padding: 12px 16px;
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.5;
+  }
+  
+  .chat-message.user .message-avatar {
+    background: linear-gradient(135deg, #4facfe, #00f2fe);
+  }
+  
+  .chat-message.error .message-avatar {
+    background: linear-gradient(135deg, #f5576c, #f093fb);
+  }
+  
+  .chat-message.error .message-content {
+    background: rgba(245, 87, 108, 0.1);
+    border-color: rgba(245, 87, 108, 0.3);
+    color: #f5576c;
+  }
+  
+  .typing-dots {
+    display: flex;
+    gap: 4px;
+  }
+  
+  .typing-dots span {
+    width: 8px;
+    height: 8px;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    animation: typing 1.4s infinite ease-in-out;
+  }
+  
+  .typing-dots span:nth-child(1) { animation-delay: -0.32s; }
+  .typing-dots span:nth-child(2) { animation-delay: -0.16s; }
+  .typing-dots span:nth-child(3) { animation-delay: 0; }
+  
+  @keyframes typing {
+    0%, 80%, 100% { transform: scale(0.8); opacity: 0.5; }
+    40% { transform: scale(1); opacity: 1; }
+  }
+  
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  .message-content code {
+    background: rgba(102, 126, 234, 0.2);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-family: 'Courier New', monospace;
+    font-size: 0.9em;
+  }
+  
+  .message-content pre {
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(102, 126, 234, 0.3);
+    border-radius: 8px;
+    padding: 12px;
+    overflow-x: auto;
+    margin: 8px 0;
+  }
+  
+  .message-content pre code {
+    background: none;
+    padding: 0;
+  }
+  
+  .ai-restore-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+  }
+`;
+document.head.appendChild(chatStyles);

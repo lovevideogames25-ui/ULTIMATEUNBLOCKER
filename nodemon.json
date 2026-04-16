@@ -1,10 +1,12 @@
 {
-  "watch": ["simple-server.js", ".env", "js/script.js", "css/ai.css"],
-  "ext": "js,env,css",
-  "ignore": ["node_modules/", "*.log", "ai/"],
+  "watch": ["."],
+  "ext": "js,json,html,css,md,env",
+  "ignore": ["node_modules/", "*.log", ".git/", "ai-model/"],
   "exec": "node simple-server.js",
   "env": {
     "NODE_ENV": "development"
   },
-  "delay": 1000
+  "delay": 1000,
+  "restartable": true,
+  "verbose": true
 }

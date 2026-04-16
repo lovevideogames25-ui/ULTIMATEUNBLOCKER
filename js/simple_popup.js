@@ -1,23 +1,23 @@
 // TEST POPUP - Direct inline version - DISABLED
-// Old alpha beta popup replaced by new beta release popup
+// Old beta popup replaced by new beta release popup
 
 // Test function - call from console
 window.testPopup = function() {
     // Disabled - using new beta popup instead
-    console.log('Old alpha popup disabled - using new beta popup');
+    console.log('Old beta popup disabled - using new beta popup');
 };
 
 // Welcome Popup Function - DISABLED
 window.showWelcomePopup = function() {
     // Disabled - using new beta popup instead
-    console.log('Old alpha popup disabled - using new beta popup');
+    console.log('Old beta popup disabled - using new beta popup');
     return;
 };
 
 // Close Welcome Popup - DISABLED
 window.closeWelcomePopup = function() {
     // Disabled - using new beta popup instead
-    console.log('Old alpha popup disabled - using new beta popup');
+    console.log('Old beta popup disabled - using new beta popup');
     return;
 };
 
@@ -28,4 +28,4 @@ window.closeWelcomePopup = function() {
 //     }, 2500);
 // });
 
-console.log('POPUP: Old alpha beta popup disabled - using new beta popup');
+console.log('POPUP: Old beta popup disabled - using new beta popup');

@@ -1,11 +1,12 @@
 {
   "name": "ultimateunblocker",
-  "version": "0.7.0-beta",
+  "version": "0.7.1",
   "description": "ULTIMATEUNBLOCKER - AI Assistant UI with Luxury Interface",
   "main": "index.html",
   "scripts": {
     "start": "node simple-server.js",
     "dev": "nodemon simple-server.js",
+    "dev-api": "node local-dev-server.js",
     "serve": "python -m http.server 8000",
     "server": "node simple-server.js",
     "server:8080": "node server-8080.js",
@@ -95,15 +96,19 @@
   "version_info": {
     "major": 0,
     "minor": 7,
-    "patch": 0,
-    "status": "BETA - CLEAN VERSION",
-    "release_date": "2026-03-23",
+    "patch": 1,
+    "status": "STABLE - VERCEL FIXES",
+    "release_date": "2026-03-31",
     "ui_redesign": "100%",
     "navigation_system": "LUXURY",
     "font_collection": "PREMIUM",
-    "ai_interface": "COMING_SOON",
-    "ai_models": "NONE",
-    "ai_ui_complete": false,
-    "open_source_ai": false
+    "ai_interface": "COMPLETE",
+    "ai_models": "MULTI-PROVIDER",
+    "ai_ui_complete": true,
+    "open_source_ai": true,
+    "vercel_deployment": "FIXED",
+    "environment_variables": "PROPERLY_HANDLED",
+    "cors_issues": "RESOLVED",
+    "serverless_functions": "ACTIVE"
   }
 }

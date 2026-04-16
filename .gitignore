@@ -25,5 +25,14 @@ yarn.lock
 *.txt
 !api.txt
 
+# AI model directory (not in main repository)
+ai-model/
+
+# AI tester file
+ultimateaitester.html
+
+.vercel
+.env*.local
+
 .vercel
 .env*.local
